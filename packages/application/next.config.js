@@ -1,7 +1,10 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable import/no-extraneous-dependencies */
 const withPlugins = require('next-compose-plugins');
 const withTM = require('next-transpile-modules')([
   'native-base',
   'react-native-svg',
+  'react-native-web',
   'react-native-safe-area-context',
   '@react-aria/visually-hidden',
   '@react-native-aria/button',

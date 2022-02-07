@@ -1,14 +1,15 @@
 {
-  "name": "proof-of-integrity",
+  "name": "poi-application",
   "private": true,
+  "version": "0.0.0",
   "license": "UNLICENSED",
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install",
-    "format": "prettier --write \"(providers|pages|hooks|constants|config|components|services|themes)/**/*.(js|ts|jsx|tsx)\""
+    "format": "prettier --write \"(providers|pages|hooks|constants|config|components|services|themes)/**/*.(js|ts|jsx|tsx)\"",
+    "format:staged": "pretty-quick --staged"
   },
   "dependencies": {
     "@ethersproject/address": "^5.5.0",
@@ -30,8 +31,6 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.0.1",
-    "@commitlint/config-conventional": "^16.0.0",
     "@types/jest": "^27.4.0",
     "@types/node": "16.11.10",
     "@types/react": "^17.0.38",
@@ -50,7 +49,6 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-react-native": "^4.0.0",
     "eslint-prettier": "^0.0.0-empty",
-    "husky": "^7.0.4",
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^9.0.0",
     "prettier": "^2.5.1",
