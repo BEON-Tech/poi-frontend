@@ -252,17 +252,23 @@ const lightTheme = extendTheme({
       500: '#E5E5E5',
     },
     invertedText: { 900: '#FFFFFF' },
-    text: { 900: '#000000' },
+    text: { 900: '#000000', 800: '#2D2D2D' },
     background: {
       900: '#FFFFFF',
       700: '#F9F9F9',
       400: '#acacac',
+      100: '#F2E4E3',
     },
     success: {
       900: '#009200',
     },
     error: {
       900: '#B83E26',
+    },
+    greenColor: {
+      900: '#2D6320',
+      800: '#223D1F',
+      700: '#33A117',
     },
   },
 })
