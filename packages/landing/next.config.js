@@ -40,8 +40,16 @@ module.exports = withPlugins(
         '.web.tsx',
         ...config.resolve.extensions,
       ]
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ['url-loader'],
+      })
+
       return config
     },
     env: {},
+    images: {
+      domains: ['picsum.photos'],
+    },
   }
 )

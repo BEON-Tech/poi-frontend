@@ -1,12 +1,42 @@
-import { Container } from 'native-base'
+import { VStack } from 'native-base'
 import type { NextPage } from 'next'
-import { LogoImage } from '../components/atoms'
+import { useState } from 'react'
 
-const Home: NextPage = () => (
-  <Container>
-    HOME
-    <LogoImage />
-  </Container>
-)
+import {
+  IntroSection,
+  BannerSection,
+  AboutPOISection,
+  AssistanceProgramSection,
+  OurTeamSection,
+  AdvisorsSection,
+  PublicAuditSection,
+  WhyUsSection,
+} from '@components/organisms'
+import { Toolbar, Footer } from '@components/molecules'
+
+const Home: NextPage = () => {
+  const [showAdvisors, setShowAdvisors] = useState(true)
+
+  const showAdvisorsHandler = () => setShowAdvisors(true)
+  const hideAdvisorsHandler = () => setShowAdvisors(false)
+
+  return (
+    <VStack>
+      <Toolbar />
+      <IntroSection />
+      <BannerSection />
+      <AboutPOISection />
+      <AssistanceProgramSection />
+      <OurTeamSection
+        advisorsShown={showAdvisors}
+        onShowAdvisors={showAdvisorsHandler}
+      />
+      {showAdvisors && <AdvisorsSection onHideAdvisors={hideAdvisorsHandler} />}
+      <PublicAuditSection />
+      <WhyUsSection />
+      <Footer />
+    </VStack>
+  )
+}
 
 export default Home

@@ -1,0 +1,119 @@
+{
+  "toolbar": {
+    "about": "Sobre Nosotros",
+    "assitanceProgram": "Programa de asistencia",
+    "ourTeam": "Nuestro Equipo",
+    "publicAudit": "Auditoría Pública",
+    "goToApp": "Ir a la App"
+  },
+  "introSection": {
+    "title": "Usando cripto para dirigir la ayuda social",
+    "subTitle": {
+      "firstSection": "Proof of Integrity es un protocolo descentralizado y sin fines de lucro para certificar a los humanos que necesitan un ingreso básico.",
+      "secondSection": "Estamos integrados con la iniciativa Proof of Humanity, y nuestra visión es incorporar a todos los humanos que necesitan la plataforma."
+    },
+    "donateCTA": "Donar"
+  },
+  "banner": {
+    "title": "Necesidades Urgentes Requieren Respuestas Urgentes",
+    "bubble1": "Hay al menos 1.300 millones de personas en situación de pobreza en todo el mundo.",
+    "bubble2": "788 millones de personas comparten hogar con una o más personas desnutridas.",
+    "descriptionItem1": "Haz carrera en una criptoorganización que lucha contra la pobreza con total transparencia.",
+    "descriptionItem2": "Usando la tecnología Blockchain, podrá monitorear sus fondos hasta el objetivo final.",
+    "descriptionItem3": "Aplica a nuestros programas y obtén la certificación. Cuidaremos tu privacidad."
+  },
+  "aboutPOI": {
+    "upperTittle": "Acerca de",
+    "tittle": "Proof Of Integrity",
+    "descriptionFirstParagraph": "Con un sistema de recompensas basado en Game Theory, nuestro protocolo certificará quién lucha por cubrir sus necesidades básicas de forma descentralizada y transparente. Una vez certificados, los solicitantes serán elegibles para diferentes programas de filantropía.",
+    "descriptionSecondParagraph": "Cada programa publicará criterios claros de elegibilidad, entrada y salida, y mecanismos pretransparentes para establecer niveles de beneficios.",
+    "descriptionThirdParagraph": "Se aplicará una combinación de Prueba de trabajo, Prueba de participación y Puntos Schelling para incentivar a los trabajadores sociales (Certificadores) a hacer un buen trabajo."
+  },
+  "assistanceProgram": {
+    "title": "Nuestro Primer Programa de Asistencia",
+    "firstBox": {
+      "firstSentence": "Nuestro piloto se centrará en ayudar a los seres humanos necesitados en Buenos Aires, Argentina, a unirse a la plataforma Prueba de Humanidad financiando las ",
+      "secondSentenceBold": "tarifas de transacción y los depósitos ",
+      "thirdSentence": " necesarios para el registro."
+    },
+    "secondBox": {
+      "title": "Mostra que te importa.",
+      "button": "Dona"
+    },
+    "aimBox": {
+      "title": "¿A quién estará dirigido?",
+      "firstItem": "Jóvenes recién graduados de la escuela.",
+      "secondItem": "En 4 barrios vulnerables de Buenos Aires.",
+      "thirdItem": "Nos asociaremos con una organización local sin fines de lucro llamada X"
+    }
+  },
+  "publicAudit": {
+    "title": "Auditoría Pública",
+    "certificationsTable": {
+      "title": "Últimas Certificaciones",
+      "applicantColumn": "Solicitud",
+      "dateColumn": "Fecha",
+      "detailsColumn": "Detalles",
+      "moreDetails": "Más Detalles",
+      "seeMore": "+Ver todas las certificaciones"
+    },
+    "donationsTable": {
+      "title": "Últimas donaciones",
+      "amountColumn": "Cantidad",
+      "typeColumn": "Tipo",
+      "etherscanColumn": "Etherscan",
+      "moreDetails": "Más Detalles",
+      "seeMore": "+Ver todas las donaciones"
+    }
+  },
+  "ourTeam": {
+    "title": "Nuestro equipo",
+    "meetTheAdvisors": "Conozca a los Asesores",
+    "tags": {
+      "all": "Todos",
+      "developers": "Desarrolladores",
+      "designAndMarketing": "Diseño & Marketing",
+      "socialTeam": "Equipo Social"
+    },
+    "roles": {
+      "founderAndDirector": "Founder & Director",
+      "leadSolidityDeveloper": "Lead Solidity Developer",
+      "leadFrontendDeveloper": "Lead Frontend Developer",
+      "srSolidityDeveloper": "Sr Solidity Developer",
+      "uxuiDesigner": "UX/UI Designer",
+      "productManager": "Product Manager",
+      "copywriter": "Redactor",
+      "marketingSpecialist": "Especialista en Marketing",
+      "socialMedia": "Social Media",
+      "socialTeam": "Equipo Social",
+      "fundraisingStrategy": "Fundraising Strategy"
+    }
+  },
+  "advisors": {
+    "title": "Asesores",
+    "hideAdvisors": "Ocultar Asesores",
+    "roles": {
+      "productAdvisor": "Advisor de Product",
+      "strategyAdvisor": "Advisor de Estrategia",
+      "techAdvisor": "Advisor de Tecnología",
+      "cryptoAdvisor": "Asesor de Cripto",
+      "legalAdvisor": "Asesor Legal"
+    },
+    "descriptions": {
+      "damianWasserman": "Fundador de Beon Tech Studio, con 20 años de experiencia en la industria del software.",
+      "juanHeado": "Con más de 20 años de experiencia en tecnología, ayudó a desarrollar la versión 2 de $UBI con Santi Siri.",
+      "pabloSabbatella": "Dedicada a la investigación, inversión y difusión del ecosistema crypto & DeFi.",
+      "brianSztamfater": "Brian es un emprendedor de blockchain, arquitecto de software y autor. Fundó @CromyNFT",
+      "diegoBoryszanski": "Abogado de profesión, Diego es un emprendedor tecnológico en serie y un entusiasta de las criptomonedas."
+    }
+  },
+  "whyUS": {
+    "title": "Con POI, sus donaciones van a las manos correctas.",
+    "button": "Consulte nuestro Whitepaper"
+  },
+  "footer": {
+    "title": "Proof Of Integrity",
+    "subtitle": "Proof Of Integrity es un proyecto sin fines de lucro",
+    "disclaimer": "Diseñado por talento latinoamericano en BEON Tech Studio"
+  }
+}
