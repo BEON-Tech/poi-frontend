@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-param-reassign */
 const withPlugins = require('next-compose-plugins')
+const withOptimizedImages = require('next-optimized-images')
 const withTM = require('next-transpile-modules')([
   'native-base',
   'react-native-svg',
@@ -25,6 +26,10 @@ const withTM = require('next-transpile-modules')([
 module.exports = withPlugins(
   [
     withTM,
+    [
+      withOptimizedImages,
+      { handleImages: ['png'], imagesFolder: 'assets/images' },
+    ],
     // your plugins go here.
   ],
   {
@@ -48,8 +53,6 @@ module.exports = withPlugins(
       return config
     },
     env: {},
-    images: {
-      domains: ['picsum.photos'],
-    },
+    images: { disableStaticImages: true, domains: ['picsum.photos'] },
   }
 )

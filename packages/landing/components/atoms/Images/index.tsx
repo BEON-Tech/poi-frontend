@@ -1,30 +1,30 @@
 import React from 'react'
-import NextImage, { ImageProps } from 'next/image'
+import { ImageProps } from 'next/image'
 
-import PeopleBottomIntroSection from '@assets/images/people_bottom__intro.png'
-import PeopleCenterIntroSection from '@assets/images/people_center__intro.png'
-import PersonTopIntroSection from '@assets/images/person_top__intro.png'
-import PersonLeftAboutPOISection from '@assets/images/about_poi__left.png'
-import PersonBottomAboutPOISection from '@assets/images/about_poi__bottom.png'
-import Banner from '@assets/images/banner.png'
-import Logo from '@assets/images/logo.png'
-import GoldPolygon from '@assets/images/gold_polygon.png'
-import BannerDescriptionItem1 from '@assets/images/banner__description_item_1.png'
-import BannerDescriptionItem2 from '@assets/images/banner__description_item_2.png'
-import BannerDescriptionItem3 from '@assets/images/banner__description_item_3.png'
-import AssistanceProgramMap from '@assets/images/assistance_program__map.png'
+import PeopleCenterIntroSection from '../../../assets/images/people_center__intro.png'
+import PersonTopIntroSection from '../../../assets/images/person_top__intro.png'
+import PersonLeftAboutPOISection from '../../../assets/images/about_poi__left.png'
+import PersonBottomAboutPOISection from '../../../assets/images/about_poi__bottom.png'
+import Banner from '../../../assets/images/banner.png'
+import Logo from '../../../assets/images/logo.png'
+import GoldPolygon from '../../../assets/images/gold_polygon.png'
+import BannerDescriptionItem1 from '../../../assets/images/banner__description_item_1.png'
+import BannerDescriptionItem2 from '../../../assets/images/banner__description_item_2.png'
+import BannerDescriptionItem3 from '../../../assets/images/banner__description_item_3.png'
+import AssistanceProgramMap from '../../../assets/images/assistance_program__map.png'
 
-import AssistanceProgramAimFirstIcon from '@assets/images/assistance_program__aim_first_icon.png'
-import AssistanceProgramAimSecondIcon from '@assets/images/assistance_program__aim_second_icon.png'
-import AssistanceProgramAimThirdIcon from '@assets/images/assistance_program__aim_third_icon.png'
+import AssistanceProgramAimFirstIcon from '../../../assets/images/assistance_program__aim_first_icon.png'
+import AssistanceProgramAimSecondIcon from '../../../assets/images/assistance_program__aim_second_icon.png'
+import AssistanceProgramAimThirdIcon from '../../../assets/images/assistance_program__aim_third_icon.png'
 
-import WhyUsPersonCenter from '@assets/images/why_us__person_center.png'
-import WhyUsPeopleRight from '@assets/images/why_us__people_right.png'
+import WhyUsPersonCenter from '../../../assets/images/why_us__person_center.png'
+import WhyUsPeopleRight from '../../../assets/images/why_us__people_right.png'
 
-import TwitterLogo from '@assets/images/twitter_logo.png'
-import LinkedinLogo from '@assets/images/linkedin_logo.png'
-import MailLogo from '@assets/images/mail_logo.png'
-import UBILogo from '@assets/images/ubi_logo.png'
+import TwitterLogo from '../../../assets/images/twitter_logo.png'
+import LinkedinLogo from '../../../assets/images/linkedin_logo.png'
+import MailLogo from '../../../assets/images/mail_logo.png'
+import UBILogo from '../../../assets/images/ubi_logo.png'
+import PeopleBottomIntroSection from '../../../assets/images/people_bottom__intro.png'
 
 type NextImageRefactor = Omit<ImageProps, 'src'>
 
@@ -164,7 +164,7 @@ const Components: IComponents = (() => {
   const result = {} as any
   imagesToRender.forEach(({ name, source, alt }) => {
     result[name] = (props: ImageProps) => (
-      <NextImage {...props} src={source} alt={alt as string} />
+      <img {...props} src={source} alt={alt as string} />
     )
   })
   return result

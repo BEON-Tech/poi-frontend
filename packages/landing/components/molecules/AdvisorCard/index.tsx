@@ -1,5 +1,4 @@
 import { Text, VStack, View } from 'native-base'
-import NextImage from 'next/image'
 
 import { IAdvisor } from '@constants/types'
 import { useTranslation } from 'next-export-i18n'
@@ -16,11 +15,11 @@ const AdvisorCard = ({ item }: IAdvisorCardProps) => {
   return (
     <VStack w="222px" mx="25px">
       <View maxW="173px" maxH="173px">
-        <NextImage
+        <img
           width="173px"
           height="173px"
           src={imagePath}
-          alt={`${name}'s facial picture`}
+          alt={`${name}'s facial`}
         />
       </View>
       <Text fontWeight="bold" fontSize="lg">

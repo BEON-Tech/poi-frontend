@@ -1,5 +1,4 @@
 import { HStack, View, VStack, Text, Button } from 'native-base'
-import Image from 'next/image'
 
 export interface ICertificationCellProps {
   item: {
@@ -24,7 +23,12 @@ const CertificationCell = ({ item }: ICertificationCellProps) => (
   >
     <HStack flex="1" alignItems="center" justifyContent="flex-start">
       <View w="100px" h="80px" maxW="100px" maxH="80px" borderRadius="20px">
-        <Image src={item.image} width="100px" height="80px" />
+        <img
+          src={item.image}
+          width={100}
+          height={80}
+          alt={`Certification cell item ${item.id}`}
+        />
       </View>
     </HStack>
     <VStack flex="1" justifyContent="center">

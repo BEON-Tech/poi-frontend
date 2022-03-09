@@ -15,7 +15,7 @@ import {
 import { Toolbar, Footer } from '@components/molecules'
 
 const Home: NextPage = () => {
-  const [showAdvisors, setShowAdvisors] = useState(true)
+  const [showAdvisors, setShowAdvisors] = useState(false)
 
   const showAdvisorsHandler = () => setShowAdvisors(true)
   const hideAdvisorsHandler = () => setShowAdvisors(false)

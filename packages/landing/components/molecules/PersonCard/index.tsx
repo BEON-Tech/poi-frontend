@@ -1,5 +1,4 @@
 import { Text, VStack } from 'native-base'
-import NextImage from 'next/image'
 import { useState } from 'react'
 
 import { ICard, IPerson } from '@constants/types'
@@ -41,11 +40,11 @@ const PersonCard = ({ item }: IPersonCardProps) => {
       onFocus={(hasInfo && showInformation) as any}
       onBlur={(hasInfo && hideInformation) as any}
     >
-      <NextImage
+      <img
         width="316px"
         height="223px"
         src={imagePath}
-        alt={`${name}'s facial picture`}
+        alt={`${name}'s facial`}
       />
       {showInfo && (
         <VStack
