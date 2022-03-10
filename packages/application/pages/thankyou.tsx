@@ -2,24 +2,18 @@ import type { NextPage } from 'next'
 import Image from 'next/image'
 import { VStack, Text, Box, HStack } from 'native-base'
 
-import ButonPrimaryWithIcon from '../components/molecules/ButtonPrimaryWithIcon'
+import ButtonPrimary from '../components/molecules/ButtonPrimary'
 import LinkButton from '../components/molecules/LinkButton'
-import { TwitterIcon } from '../components/atoms/Icons'
+import Logo from '../components/molecules/Logo'
 import poiLogo from '../components/atoms/Icons/logoPOI1.png'
-import poiLogo2 from '../components/atoms/Icons/logoPOI2.png'
 
 const ThankYou: NextPage = () => {
   const amount: any = '1.000'
 
   return (
-    <VStack maxW="100vw">
-      <HStack py="5" justifyContent="start" space={5} w="85%">
-        <Box>
-          <Image src={poiLogo2} alt="POI Logo" width={60} height={60} />
-        </Box>
-        <Text fontWeight="700" fontSize="xl">
-          Proof of Integrity
-        </Text>
+    <VStack w="100%" justifyContent="center">
+      <HStack w="90%" justifyContent="start">
+        <Logo />
       </HStack>
       <HStack justifyContent="center" pb="7">
         <Box>
@@ -55,9 +49,9 @@ const ThankYou: NextPage = () => {
         </HStack>
 
         <HStack py="5">
-          <ButonPrimaryWithIcon icon={TwitterIcon}>
-            Share it on Twitter
-          </ButonPrimaryWithIcon>
+          <ButtonPrimary large width={250}>
+            Continue helping
+          </ButtonPrimary>
         </HStack>
       </Box>
 

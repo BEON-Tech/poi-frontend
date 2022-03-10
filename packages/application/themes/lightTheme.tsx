@@ -119,13 +119,13 @@ const lightTheme = extendTheme({
       baseStyle: {},
       defaultProps: {
         fontSize: 'md',
-        borderRadius: 20,
+        borderRadius: 100,
         h: '10',
         _text: {
           color: 'invertedText.900',
           fontSize: { base: 'sm', sm: 'sm', md: 'sm', lg: 'md', xl: 'md' },
         },
-        _pressed: { opacity: 0.5 },
+        // _pressed: { opacity: 0.5 },
       },
       variants: {
         link: {
@@ -252,7 +252,7 @@ const lightTheme = extendTheme({
       500: '#E5E5E5',
     },
     invertedText: { 900: '#FFFFFF' },
-    text: { 900: '#000000', 800: '#2D2D2D' },
+    text: { 900: '#000000', 800: '#2D2D2D', 700: '#1F1939', 600: '#333333' },
     background: {
       900: '#FFFFFF',
       700: '#F9F9F9',
@@ -269,6 +269,8 @@ const lightTheme = extendTheme({
       900: '#2D6320',
       800: '#223D1F',
       700: '#33A117',
+      600: '#172815',
+      500: '#EAFFE4',
     },
   },
 })
