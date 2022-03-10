@@ -31,7 +31,7 @@ const PersonCard = ({ item }: IPersonCardProps) => {
         height: '223px',
         borderRadius: '30px',
         position: 'relative',
-        margin: '15px',
+        margin: '10px',
       }}
       // // the `as any` come from the fact of Typescript
       // // and the event handlers

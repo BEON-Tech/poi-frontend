@@ -14,7 +14,7 @@ const AboutPOISection = () => {
   return (
     <VStack alignItems="center" position="relative">
       <Element name={BANNER_SECTION} />
-      <Images.Banner />
+      <Images.Banner width="100%" />
       <View position="absolute">
         <Heading
           mt="12"
