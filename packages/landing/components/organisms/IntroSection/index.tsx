@@ -18,7 +18,7 @@ const IntroSection = () => {
         </Heading>
         <Text mt="16">{t(keys.introSection.subTitle.firstSection)}</Text>
         <Text mt="5">{t(keys.introSection.subTitle.secondSection)}</Text>
-        <Button colorScheme="primary" variant="solid">
+        <Button colorScheme="primary" variant="solid" borderRadius="3000px" w="40%" mt="5">
           {t(keys.introSection.donateCTA)}
         </Button>
       </VStack>
