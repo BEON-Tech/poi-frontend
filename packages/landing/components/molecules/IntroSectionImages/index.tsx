@@ -39,7 +39,7 @@ const IntroPeopleImage = () => (
     <View
       position="absolute"
       top="656px"
-      right="-49px"
+      right="0px"
       width="305px"
       height="405pxx"
       overflow="hidden"
