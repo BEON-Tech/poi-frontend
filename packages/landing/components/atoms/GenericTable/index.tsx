@@ -51,7 +51,7 @@ const GenericTable = ({
         borderRadius: 30,
         borderColor,
         borderWidth: 1,
-        width: '640px',
+        width: '100%',
         height: '533px',
       }}
       ListHeaderComponent={ListHeaderComponent}
