@@ -38,7 +38,7 @@ const NavigationTools = () => {
           {text}
         </Button>
       ))}
-      <Button variant="solid" onPress={() => {}}>
+      <Button variant="solid" borderRadius={3000} onPress={() => {}}>
         {t(keys.toolbar.goToApp)}
       </Button>
     </>
