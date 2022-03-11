@@ -39,7 +39,6 @@ const AboutPOISection = () => {
         top="237px"
         position="absolute"
       />
-      <DescriptionBlock />
     </VStack>
   )
 }
