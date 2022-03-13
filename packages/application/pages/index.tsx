@@ -1,5 +1,6 @@
 import { Flex, VStack, Text } from 'native-base'
 import type { NextPage } from 'next'
+import Link from 'next/link'
 
 import { DollarSignIcon, HandShakeIcon } from '../components/atoms/Icons'
 import ActionCard from '../components/molecules/ActionCard'
@@ -32,12 +33,14 @@ const Home: NextPage = () => {
             mr={{ base: 0, md: 300 }}
             mb={{ base: 10, md: 0 }}
           />
-          <ActionCard.IconActionCard
-            onPress={onRedirectToDonate}
-            title="I Can Help"
-            Icon={HandShakeIcon}
-            color="secondary.900"
-          />
+          <Link href="/donate">
+            <ActionCard.IconActionCard
+              onPress={onRedirectToDonate}
+              title="I Can Help"
+              Icon={HandShakeIcon}
+              color="secondary.900"
+            />
+          </Link>
         </Flex>
         <Text textAlign="center" flex={1} fontSize="lg">
           A project to support Proof of Humanity initiative
