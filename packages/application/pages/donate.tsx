@@ -43,8 +43,7 @@ const Donate: NextPage = () => {
       setTxError(error)
     }
   }
-  const canSubmit = () => active && amount > 0 && !txError
-  const controlsDisabled = !canSubmit()
+  const controlsDisabled = !(active && amount > 0 && !txError)
 
   useEffect(() => {
     if (txError) {
@@ -66,7 +65,7 @@ const Donate: NextPage = () => {
     color="black"
   >
     <VStack mt={100} w={500}>
-      <Flex direction="row" justify="space-between" alignItems="center" width="100%" pl="10px" pr="10px">
+      <Flex direction="row" justify="space-between" alignItems="center" width="100%" pl={3} pr={3}>
         <Text>
           <StepPill color="primary.700" textColor="#172815">1</StepPill>
           <View ml={1}>Connect your wallet</View>
@@ -108,7 +107,15 @@ const Donate: NextPage = () => {
             />
           </FormControl>
           <FormControl w="40%" isDisabled={controlsDisabled} ml={-1}>
-            <Select minW={8} w={24} borderWidth={1} borderLeftRadius={0} bg="white" onValueChange={updateTokenSymbol}>
+            <Select
+              minW={8}
+              w={24}
+              borderWidth={1}
+              borderLeftRadius={0}
+              bg="white"
+              onValueChange={updateTokenSymbol}
+              defaultValue="ETH"
+            >
               {TOKENS.map(({ symbol }) => <Select.Item key={symbol} value={symbol} label={symbol} />)}
             </Select>
           </FormControl>

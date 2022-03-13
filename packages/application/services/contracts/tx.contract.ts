@@ -58,7 +58,7 @@ export const transfer = async (tokenSymbol, amount, account, chainId, library) =
       to: POOL_ADDRESS,
       value: parseEther(amount),
       gasLimit: BigNumber.from(GAS_LIMIT).toHexString(),
-      // chainId: BigNumber.from(chainId).toHexString(),
+      chainId: BigNumber.from(chainId).toHexString(),
       nonce: BigNumber.from(nonce).toHexString(),
     })
   }
@@ -69,8 +69,8 @@ export const transfer = async (tokenSymbol, amount, account, chainId, library) =
   const tokenWithSigner = contract.connect(signer)
 
   return tokenWithSigner.transfer(POOL_ADDRESS, parseUnits(amount, decimals), {
-    gasLimit: BigNumber.from("100000").toHexString(),
-    // chainId: BigNumber.from(chainId).toHexString(),
+    gasLimit: BigNumber.from(GAS_LIMIT).toHexString(),
+    chainId: BigNumber.from(chainId).toHexString(),
     nonce: BigNumber.from(nonce).toHexString(),
   })
 }
