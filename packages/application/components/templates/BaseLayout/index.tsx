@@ -10,6 +10,7 @@ export interface IBaseLayoutProps {
   subTitle?: string
   withMenu?: boolean
   color?: string
+  bg?: string
   withConnect?: boolean
 }
 
@@ -20,13 +21,14 @@ const BaseLayout = ({
   withMenu = false,
   withConnect = false,
   color,
+  bg = "background.500"
 }: IBaseLayoutProps) => (
   <VStack
     justifyContent="center"
     alignItems="center"
     w="100vw"
     h="100vh"
-    bg="background.500"
+    bg={bg}
   >
     {withMenu && <MenuButton />}
     {withConnect && (

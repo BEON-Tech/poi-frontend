@@ -1,10 +1,24 @@
-import { Flex, VStack, Stack, View, Text, FormControl, Input, Select, Button } from 'native-base'
+import { Flex, VStack, View, Text, FormControl, Input, Select, Divider } from 'native-base'
 import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
 
 import BaseLayout from '../components/templates/BaseLayout'
+import ActionButton from '../components/atoms/Button'
 import { useWallet } from '../hooks/wallet'
 import { TOKENS, transfer, waitTransaction } from '../services/contracts/tx.contract'
+
+const StepPill = ({ children, color, textColor = "invertedText.900", ...props }: any) =>
+  <View
+    borderRadius={100}
+    color={textColor}
+    bg={color}
+    padding={3}
+    pt={1}
+    pb={1}
+    {...props}
+  >
+    {children}
+  </View>
 
 const Donate: NextPage = () => {
   const {
@@ -24,11 +38,13 @@ const Donate: NextPage = () => {
     try {
       const transaction = await transfer(tokenSymbol, amount, account, chainId, library)
       setTx(transaction)
+      // TODO: Redirect to typ
     } catch (error) {
       setTxError(error)
     }
   }
   const canSubmit = () => active && amount > 0 && !txError
+  const controlsDisabled = !canSubmit()
 
   useEffect(() => {
     if (txError) {
@@ -46,44 +62,67 @@ const Donate: NextPage = () => {
     title="Help Humans in Need"
     subTitle="Because urgent needs require urgent answers, we accept crypto donations."
     withConnect
+    bg="#F2E4E3"
+    color="black"
   >
-    <VStack
-      borderWidth={1}
-      borderColor="border.500"
-      borderRadius={20}
-      paddingTop="60px"
-      paddingBottom="60px"
-      padding="100px"
-      width="100%"
-      >
-      <Flex direction="row" justify="space-between">
+    <VStack mt={100} w={500}>
+      <Flex direction="row" justify="space-between" alignItems="center" width="100%" pl="10px" pr="10px">
         <Text>
-          <Text>1</Text>
-          <Text>Connect your wallet</Text>
+          <StepPill color="primary.700" textColor="#172815">1</StepPill>
+          <View ml={1}>Connect your wallet</View>
         </Text>
-        <Text>-----</Text>
-        <Text>
-          <Text>2</Text>
-          <Text>Make a donation</Text>
+        <View flexGrow={1} pl={2} pr={2}>
+          <Divider bg="light.400" thickness="2" mx="2" orientation="horizontal" />
+        </View>
+        <Text ml={4}>
+          <StepPill color="primary.700" textColor="#172815" opacity={controlsDisabled ? "0.3" : "1"}>2</StepPill>
+          <View ml={1} opacity={controlsDisabled ? "0.3" : "1"}>Make a donation</View>
         </Text>
       </Flex>
-      <View>
-        <Flex direction="row" alignItems="bottom">
-          <FormControl w="50px">
-            <Stack>
-              <FormControl.Label>Etner amount</FormControl.Label>
-              <Input type="number" placeholder="Amount" onChange={updateAmount} />
-            </Stack>
+      <Flex
+        direction="column"
+        alignItems="center"
+        borderWidth={1}
+        borderColor="border.500"
+        borderRadius={20}
+        pl={4}
+        pt={10}
+        pb={12}
+        width="100%"
+        mt={4}
+        bg="white"
+        >
+        <Flex direction="row" alignItems="flex-end" mt={5}>
+          <FormControl w="60%">
+            <FormControl.Label>Enter amount</FormControl.Label>
+            <Input
+              type="number"
+              placeholder="Amount"
+              borderWidth={1}
+              borderRightWidth={0}
+              borderRightRadius={0}
+              onChange={updateAmount}
+              mt={5}
+              h={10}
+              bg="white"
+            />
           </FormControl>
-          <FormControl w="50px" isDisabled={!canSubmit()}>
-            <Select minWidth="200" mt={1} onValueChange={updateTokenSymbol}>
+          <FormControl w="40%" isDisabled={controlsDisabled} ml={-1}>
+            <Select minW={8} w={24} borderWidth={1} borderLeftRadius={0} bg="white" onValueChange={updateTokenSymbol}>
               {TOKENS.map(({ symbol }) => <Select.Item key={symbol} value={symbol} label={symbol} />)}
             </Select>
           </FormControl>
-          <Button isDisabled={!canSubmit()} onPress={donate}>Donate</Button>
         </Flex>
+        <ActionButton
+          mt={8}
+          isDisabled={controlsDisabled}
+          onPress={donate}
+          color="secondary.900"
+        >
+          Donate
+        </ActionButton>
         {txError && <View>There was a problem with the transaction. Check your funds and try again.</View>}
-      </View>
+      </Flex>
     </VStack>
   </BaseLayout>
   )
