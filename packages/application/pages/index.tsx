@@ -1,6 +1,7 @@
 import { Flex, VStack, Text } from 'native-base'
 import type { NextPage } from 'next'
 import Link from 'next/link'
+import Router from 'next/router'
 
 import { DollarSignIcon, HandShakeIcon } from '../components/atoms/Icons'
 import ActionCard from '../components/molecules/ActionCard'
@@ -8,7 +9,7 @@ import ActionCard from '../components/molecules/ActionCard'
 import BaseLayout from '../components/templates/BaseLayout'
 
 const Home: NextPage = () => {
-  const onRedirectToDonate = () => {}
+  const onRedirectToDonate = () => { Router.push('/donate') }
   const onRedirectToNeedUBI = () => {}
 
   return (
