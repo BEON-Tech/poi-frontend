@@ -72,7 +72,6 @@ const lightTheme = extendTheme({
         borderWidth: 1,
         borderColor: 'border.500',
         variant: 'unstyled',
-        borderRadius: 20,
         fontSize: 'md',
         _focus: { borderColor: 'border.500' },
       },
