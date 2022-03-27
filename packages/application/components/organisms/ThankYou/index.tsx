@@ -2,15 +2,12 @@ import type { NextPage } from 'next'
 import Image from 'next/image'
 import { VStack, Text, Box, HStack } from 'native-base'
 
-import ButtonPrimary from '../components/molecules/ButtonPrimary'
-import LinkButton from '../components/molecules/LinkButton'
-import Logo from '../components/molecules/Logo'
-import poiLogo from '../components/atoms/Icons/logoPOI1.png'
+import ButtonPrimary from '../../molecules/ButtonPrimary'
+import LinkButton from '../../molecules/LinkButton'
+import Logo from '../../molecules/Logo'
+import poiLogo from '../../atoms/Icons/logoPOI1.png'
 
-const ThankYou: NextPage = () => {
-  const amount: any = '1.000'
-
-  return (
+const ThankYou: NextPage = ({ tokenSymbol, amount }: any) => (
     <VStack w="100%" justifyContent="center">
       <HStack w="90%" justifyContent="start">
         <Logo />
@@ -35,7 +32,7 @@ const ThankYou: NextPage = () => {
 
         <HStack>
           <Text color="text.800" py="4" fontSize="xl">
-            You contributed <strong>${amount} to our pool.</strong>
+            You contributed <strong>${amount} {tokenSymbol} to our pool.</strong>
           </Text>
         </HStack>
         <HStack color="text.800">
@@ -60,6 +57,5 @@ const ThankYou: NextPage = () => {
       </HStack>
     </VStack>
   )
-}
 
 export default ThankYou

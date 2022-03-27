@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
 
 import BaseLayout from '../components/templates/BaseLayout'
+import ThankYou from '../components/organisms/ThankYou'
 import ActionButton from '../components/atoms/Button'
 import { useWallet } from '../hooks/wallet'
 import { TOKENS, transfer, waitTransaction } from '../services/contracts/tx.contract'
@@ -38,7 +39,6 @@ const Donate: NextPage = () => {
     try {
       const transaction = await transfer(tokenSymbol, amount, account, chainId, library)
       setTx(transaction)
-      // TODO: Redirect to typ
     } catch (error) {
       setTxError(error)
     }
@@ -57,7 +57,7 @@ const Donate: NextPage = () => {
     }
   }, [tx])
 
-  return (<BaseLayout
+  return (tx ? <ThankYou tokenSymbol={tokenSymbol} amount={amount} /> : <BaseLayout
     title="Help Humans in Need"
     subTitle="Because urgent needs require urgent answers, we accept crypto donations."
     withConnect
