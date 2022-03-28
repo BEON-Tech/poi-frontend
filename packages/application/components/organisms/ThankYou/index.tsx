@@ -1,8 +1,7 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
-import { VStack, Text, Box, HStack } from 'native-base'
+import { VStack, Text, Box, HStack, Button } from 'native-base'
 
-import ButtonPrimary from '../../molecules/ButtonPrimary'
 import LinkButton from '../../molecules/LinkButton'
 import Logo from '../../molecules/Logo'
 import poiLogo from '../../atoms/Icons/logoPOI1.png'
@@ -46,9 +45,13 @@ const ThankYou: NextPage = ({ tokenSymbol, amount }: any) => (
         </HStack>
 
         <HStack py="5">
-          <ButtonPrimary large width={250}>
+          <Button
+            w={250}
+            py={7}
+            fontSize="2xl"
+          >
             Continue helping
-          </ButtonPrimary>
+          </Button>
         </HStack>
       </Box>
 

@@ -127,6 +127,29 @@ const lightTheme = extendTheme({
         // _pressed: { opacity: 0.5 },
       },
       variants: {
+        solid: {
+          bg: 'primary.900',
+          _text: {
+            color: 'invertedText.900',
+            fontWeight: '700',
+            fontSize: {
+              base: 'lg',
+              sm: 'lg',
+              md: 'xl',
+              lg: '2xl',
+              xl: '2xl',
+            },
+          },
+          _hover: {
+            bg: 'primary.800'
+          },
+          _pressed: {
+            bg: 'primary.700'
+          },
+          _focus: {
+            bg: 'primary.900'
+          }
+        },
         link: {
           _text: {
             color: 'primary.900',
@@ -240,12 +263,14 @@ const lightTheme = extendTheme({
   colors: {
     // color scheme
     primary: {
-      900: '#DE8603',
-      800: '#FF9900',
-      700: '#F6C944',
+      900: '#2D6320',
+      800: '#223D1F',
+      700: '#33A117',
+      600: '#172815',
+      500: '#EAFFE4',
     },
     secondary: {
-      900: '#3B876A',
+      900: '#FFFFFF',
     },
     border: {
       500: '#E5E5E5',
@@ -264,12 +289,10 @@ const lightTheme = extendTheme({
     error: {
       900: '#B83E26',
     },
-    greenColor: {
-      900: '#2D6320',
-      800: '#223D1F',
-      700: '#33A117',
-      600: '#172815',
-      500: '#EAFFE4',
+    amber: {
+      900: '#DE8603',
+      800: '#FF9900',
+      700: '#F6C944',
     },
   },
 })
