@@ -1,32 +1,28 @@
+import Config from '@config'
+
 import { CertificationData, DonationData } from './types'
 
-export const getLatestCertifications =
-  async (): Promise<CertificationData> => ({
-    data: [
-      {
-        id: '1',
-        image: 'https://picsum.photos/100/88.jpg',
-        date: '01/09/2022' as any,
-        range: '9:00  -  9:30pm',
-        detailsLink: 'https://www.audi.com/en.html',
-      },
-      {
-        id: '2',
-        image: 'https://picsum.photos/100/88.jpg',
-        date: '01/09/2022' as any,
-        range: '9:00  -  9:30pm',
-        detailsLink: 'https://www.audi.com/en.html',
-      },
-      {
-        id: '3',
-        image: 'https://picsum.photos/100/88.jpg',
-        date: '01/09/2022' as any,
-        range: '9:00  -  9:30pm',
-        detailsLink: 'https://www.audi.com/en.html',
-      },
-    ],
-    hasMore: true,
-  })
+export interface IGetLatestCertificationsParams {
+  limit?: number
+  offset?: number
+}
+
+export const getLatestCertifications = async ({
+  limit = 3,
+  offset = 0,
+}): Promise<CertificationData> => {
+  const { data, ...response } = await fetch(
+    `${Config.apiURL}/certifiers/latest/${limit}/${offset}`
+  )
+    .then((res) => res.json())
+    .catch(() => ({ data: [], hasMore: false }))
+  const transformedData = data.map(({ cvUrl, avatarUrl, createdAt }: any) => ({
+    detailsLink: cvUrl,
+    image: avatarUrl,
+    date: createdAt,
+  }))
+  return { ...response, data: transformedData }
+}
 
 export const getLatestDonations = async (): Promise<DonationData> => ({
   data: [

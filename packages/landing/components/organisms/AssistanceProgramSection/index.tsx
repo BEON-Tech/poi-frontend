@@ -67,17 +67,11 @@ const AssistanceProgramSection = () => {
             pr="52px"
             alignItems="center"
           >
-            <Text w="240px" lineHeight="60px" fontSize="4xl">
-              Show you care.
+            <Text w="240px" mr="30px" lineHeight="60px" fontSize="4xl">
+              {t(keys.assistanceProgram.secondBox.title)}
             </Text>
-            <Button
-              ml="30px"
-              variant="solid"
-              h="60px"
-              w="250px"
-              borderRadius="3000px"
-            >
-              Donate
+            <Button maxW="250px" h="60px">
+              {t(keys.assistanceProgram.secondBox.button)}
             </Button>
           </HStack>
         </VStack>
@@ -107,7 +101,12 @@ const AssistanceProgramSection = () => {
               {t(keys.assistanceProgram.aimBox.title)}
             </Text>
             {aimBoxItems.map(({ Image, text }) => (
-              <HStack justifyContent="flex-start" alignItems="center" mt="23px">
+              <HStack
+                justifyContent="flex-start"
+                alignItems="center"
+                mt="23px"
+                key={`assistance-program-${text}`}
+              >
                 <View>
                   <Image />
                 </View>

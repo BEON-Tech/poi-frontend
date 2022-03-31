@@ -1,9 +1,9 @@
 import { ICustomTheme } from 'native-base'
-// import {
-//   ButtonThemeDefinition,
-//   InputThemeDefinition,
-//   SelectThemeDefinition,
-// } from './Components'
+import {
+  ButtonThemeDefinition,
+  // InputThemeDefinition,
+  // SelectThemeDefinition,
+} from './Components'
 
 export const fontSizes = {
   '2xs': 8,
@@ -24,9 +24,9 @@ const fontFamily = 'Hauora'
 
 export default {
   components: {
+    Button: ButtonThemeDefinition,
     // Select: SelectThemeDefinition,
     // Input: InputThemeDefinition,
-    // Button: ButtonThemeDefinition,
     Modal: {
       defaultProps: {
         overlayVisible: true,
@@ -159,7 +159,7 @@ export default {
       500: '#D0D0D0',
       400: '#1F1939',
       300: '#C4C4C4',
-      // 200: '#AFAFAF',
+      200: '#E1E1E1',
       100: '#F2E4E3',
       50: '#FFFFFF',
     },

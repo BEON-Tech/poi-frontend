@@ -14,7 +14,7 @@ const Toolbar = () => (
   >
     <Images.Logo width="84px" height="84px" />
     <NavigationTools />
-    <Divider mx="1" color="black" orientation="vertical" />
+    <Divider mx="20px" bg="general.200" orientation="vertical" height="30px" />
     <LanguageSelect />
   </HStack>
 )

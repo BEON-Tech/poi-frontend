@@ -5,7 +5,6 @@ import { useTranslation } from 'next-export-i18n'
 import keys from '@i18n/keys'
 import { BANNER_SECTION } from '@constants'
 import { Images } from '@components/atoms'
-import DescriptionBlock from '../../molecules/DescriptionBlock'
 import ContentBubble from '../../atoms/ContentBubble'
 
 const AboutPOISection = () => {
@@ -14,7 +13,7 @@ const AboutPOISection = () => {
   return (
     <VStack alignItems="center" position="relative">
       <Element name={BANNER_SECTION} />
-      <Images.Banner />
+      <Images.Banner width="100%" />
       <View position="absolute">
         <Heading
           mt="12"
@@ -39,7 +38,15 @@ const AboutPOISection = () => {
         top="237px"
         position="absolute"
       />
-      <DescriptionBlock />
+      <View
+        w="100%"
+        h="101px"
+        borderTopRadius="70px"
+        marginTop="-70px"
+        bg="general.50"
+        justifyContent="space-between"
+        alignItems="center"
+      />
     </VStack>
   )
 }

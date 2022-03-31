@@ -1,5 +1,4 @@
 /* eslint-disable no-underscore-dangle */
-/* eslint-disable no-nested-ternary */
 import { mode, transparentize } from 'native-base/lib/commonjs/theme/tools'
 
 const colorSchemeDefault = ({ colorScheme: c }: any) => `${c}.500`
@@ -8,17 +7,15 @@ const disabledBackgroundColor = 'background.700'
 const disabledStrokeColor = 'background.700'
 const disabledTextColor = 'background.500'
 
+const loadingCursor = (props: any) => (props.isLoading ? 'default' : 'pointer')
+
 const baseStyle = (props: any) => ({
   borderRadius: 'sm',
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
   _web: {
-    cursor: props.isDisabled
-      ? 'not-allowed'
-      : props.isLoading
-      ? 'default'
-      : 'pointer',
+    cursor: props.isDisabled ? 'not-allowed' : loadingCursor(props),
   },
   _text: {
     fontWeight: 'medium',
@@ -99,6 +96,8 @@ function variantSolid(props: any) {
 
   const styleObject = {
     borderRadius: '3000px',
+    maxW: '200px',
+    w: '100%',
     _web: {
       outlineWidth: '0',
     },
@@ -128,7 +127,7 @@ function variantSolid(props: any) {
 }
 
 function variantLink(props: any) {
-  const colorLink = colorSchemeDefault(props)
+  const colorLink = 'general.900'
   const _hover = {
     _text: {
       color: colorLink,
@@ -142,6 +141,7 @@ function variantLink(props: any) {
     bg: 'transparent',
     _text: {
       color: props.isDisabled ? disabledTextColor : colorLink,
+      textDecorationLine: 'none',
     },
     _hover,
     _focusVisible: {
@@ -173,13 +173,12 @@ export default {
   variants,
   sizes: {},
   defaultProps: {
-    w: '100%',
     h: 50,
+    fontWeight: 'semibold',
     colorScheme: 'primary',
     variant: 'solid',
-    fontWeight: 'regular',
     _text: {
-      fontSize: 'lg',
+      fontSize: '18px',
     },
   },
 }

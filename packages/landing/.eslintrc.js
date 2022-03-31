@@ -89,5 +89,6 @@ module.exports = {
   globals: {
     JSX: true,
     window: true,
+    fetch: true,
   },
 }

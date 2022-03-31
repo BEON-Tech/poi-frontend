@@ -134,8 +134,8 @@ const expandedKeys = (
 }
 
 export const Languages = [
-  { name: 'English', lang: 'en' },
-  { name: 'Español', lang: 'es' },
+  { lang: 'en', iconName: 'EnglishFlag' },
+  { lang: 'es', iconName: 'SpanishFlag' },
 ]
 
 export default expandedKeys(keys) as typeof keys

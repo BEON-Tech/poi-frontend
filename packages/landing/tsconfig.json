@@ -18,6 +18,7 @@
     "paths": {
       "@constants": ["./constants"],
       "@constants/*": ["./constants/*"],
+      "@config": ["./constants/config.constants.ts"],
       "@theme": ["./theme"],
       "@theme/*": ["./theme/*"],
       "@i18n": ["./i18n"],

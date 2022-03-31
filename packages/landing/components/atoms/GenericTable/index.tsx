@@ -13,9 +13,10 @@ export interface IGenericTableProps
 
 interface IFooterProps {
   title: string
+  enabled: boolean
 }
 
-const Footer = ({ title }: IFooterProps) => (
+const Footer = ({ title, enabled }: IFooterProps) => (
   <HStack
     pl="20px"
     justifyContent="flex-start"
@@ -25,7 +26,7 @@ const Footer = ({ title }: IFooterProps) => (
     borderTopWidth="1px"
     borderTopColor="general.100"
   >
-    <Button variant="link" _text={{ fontSize: 'lg' }}>
+    <Button variant="link" _text={{ fontSize: 'lg' }} isDisabled={!enabled}>
       {title}
     </Button>
   </HStack>
@@ -43,7 +44,7 @@ const GenericTable = ({
   ListHeaderComponent,
 }: IGenericTableProps) => {
   const borderColor = useToken('colors', 'general.300')
-  const showRenderMoreFooter = !loading && hasMore
+  const footerEnabled = !loading && hasMore
 
   return (
     <FlatList
@@ -62,7 +63,7 @@ const GenericTable = ({
       initialNumToRender={initialNumToRender}
       ItemSeparatorComponent={Divider}
       ListFooterComponent={
-        showRenderMoreFooter ? <Footer title={footerTitle} /> : null
+        <Footer title={footerTitle} enabled={footerEnabled} />
       }
     />
   )

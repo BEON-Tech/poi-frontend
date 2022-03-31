@@ -29,8 +29,7 @@ export interface Certification {
   id: string
   image: string
   detailsLink: string
-  date: number
-  range: string
+  date: string
 }
 
 export interface Donation {

@@ -31,6 +31,7 @@ const NavigationTools = () => {
     <>
       {navigationButtons.map(({ text, sectionName }) => (
         <Button
+          flex="1"
           key={sectionName}
           variant="link"
           onPress={() => onPress(sectionName)}
@@ -38,7 +39,7 @@ const NavigationTools = () => {
           {text}
         </Button>
       ))}
-      <Button variant="solid" onPress={() => {}}>
+      <Button flex="1" variant="solid" onPress={() => {}}>
         {t(keys.toolbar.goToApp)}
       </Button>
     </>

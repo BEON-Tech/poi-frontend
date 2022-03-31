@@ -25,10 +25,12 @@ import LinkedinLogo from '../../../assets/images/linkedin_logo.png'
 import MailLogo from '../../../assets/images/mail_logo.png'
 import UBILogo from '../../../assets/images/ubi_logo.png'
 import PeopleBottomIntroSection from '../../../assets/images/people_bottom__intro.png'
+import EnglishFlag from '../../../assets/images/en_flag.png'
+import SpanishFlag from '../../../assets/images/es_flag.png'
 
 type NextImageRefactor = Omit<ImageProps, 'src'>
 
-interface IComponents {
+interface IComponentsMap {
   Logo: React.FC<NextImageRefactor>
   PeopleBottomIntroSection: React.FC<NextImageRefactor>
   PeopleCenterIntroSection: React.FC<NextImageRefactor>
@@ -50,7 +52,12 @@ interface IComponents {
   LinkedinLogo: React.FC<NextImageRefactor>
   MailLogo: React.FC<NextImageRefactor>
   UBILogo: React.FC<NextImageRefactor>
+  EnglishFlag: React.FC<NextImageRefactor>
+  SpanishFlag: React.FC<NextImageRefactor>
 }
+export type IComponentKeys = keyof IComponentsMap
+
+type IComponents = Record<IComponentKeys, React.FC<NextImageRefactor>>
 
 const imagesToRender = [
   {
@@ -157,6 +164,16 @@ const imagesToRender = [
     name: 'MailLogo',
     source: MailLogo,
     alt: 'Mail Logo',
+  },
+  {
+    name: 'SpanishFlag',
+    source: SpanishFlag,
+    alt: 'Spanish Logo',
+  },
+  {
+    name: 'EnglishFlag',
+    source: EnglishFlag,
+    alt: 'English Logo',
   },
 ]
 

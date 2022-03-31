@@ -21,7 +21,7 @@ const Home: NextPage = () => {
   const hideAdvisorsHandler = () => setShowAdvisors(false)
 
   return (
-    <VStack>
+    <VStack w="100vw">
       <Toolbar />
       <IntroSection />
       <BannerSection />
