@@ -5,7 +5,7 @@ import type { NextPage } from 'next'
 import BaseLayout from '../components/templates/BaseLayout'
 import ThankYou from '../components/organisms/ThankYou'
 import { useWallet } from '../hooks/wallet'
-import { TOKENS, transfer, waitTransaction } from '../services/contracts/tx.contract'
+import { TOKENS, transfer, waitTransaction, buildTransactionExplorerUrl } from '../services/contracts/tx.contract'
 
 const Donate: NextPage = () => {
   const {
@@ -46,7 +46,7 @@ const Donate: NextPage = () => {
     }
   }, [tx])
 
-  return (tx ? <ThankYou tokenSymbol={tokenSymbol} amount={amount} /> : <BaseLayout
+  return (tx ? <ThankYou tokenSymbol={tokenSymbol} amount={amount} transactionUrl={buildTransactionExplorerUrl(tx.hash, chainId)} /> : <BaseLayout
     title="Help Humans in Need"
     subTitle="Because urgent needs require urgent answers, we accept crypto donations."
     withConnect

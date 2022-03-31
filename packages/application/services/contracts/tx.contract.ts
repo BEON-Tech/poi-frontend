@@ -47,6 +47,14 @@ export const TOKENS = [
   },
 ]
 
+export const NETWORK_EXPLORER_URLS = {
+  "1": "https://etherscan.io",
+  "42": "https://kovan.etherscan.io",
+}
+
+export const buildTransactionExplorerUrl = (hash, chainId) =>
+  `${NETWORK_EXPLORER_URLS[chainId]}/tx/${hash}`
+
 export const transfer = async (tokenSymbol, amount, account, chainId, library) => {
   const signer: JsonRpcSigner = library.getSigner()
   const nonce = await library.getTransactionCount(account)

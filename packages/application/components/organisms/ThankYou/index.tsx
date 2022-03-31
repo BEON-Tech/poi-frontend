@@ -2,11 +2,10 @@ import type { NextPage } from 'next'
 import Image from 'next/image'
 import { VStack, Text, Box, HStack, Button } from 'native-base'
 
-import LinkButton from '../../molecules/LinkButton'
 import Logo from '../../molecules/Logo'
 import poiLogo from '../../atoms/Icons/logoPOI1.png'
 
-const ThankYou: NextPage = ({ tokenSymbol, amount }: any) => (
+const ThankYou: NextPage = ({ tokenSymbol, amount, transactionUrl }: any) => (
     <VStack w="100%" justifyContent="center">
       <HStack w="90%" justifyContent="start">
         <Logo />
@@ -41,7 +40,13 @@ const ThankYou: NextPage = ({ tokenSymbol, amount }: any) => (
         </HStack>
 
         <HStack py="5">
-          <LinkButton>More Details</LinkButton>
+          <Button
+            variant="link"
+            _text={{ fontSize: 'lg', color: 'primary.900' }}
+            _hover={{ _text: { color: 'primary.800' } }}
+          >
+            More Details
+          </Button>
         </HStack>
 
         <HStack py="5">
@@ -56,7 +61,13 @@ const ThankYou: NextPage = ({ tokenSymbol, amount }: any) => (
       </Box>
 
       <HStack py="8">
-        <LinkButton>Go back to Home</LinkButton>
+        <Button
+          variant="link"
+          _text={{ fontSize: 'lg', color: 'primary.900' }}
+          _hover={{ _text: { color: 'primary.800' } }}
+        >
+          Go back to Home
+        </Button>
       </HStack>
     </VStack>
   )
