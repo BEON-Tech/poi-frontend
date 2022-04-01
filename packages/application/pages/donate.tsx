@@ -1,24 +1,11 @@
-import { Flex, VStack, View, Text, FormControl, Input, Select, Divider } from 'native-base'
+import { Flex, VStack, View, Text, FormControl, Input, Select, Divider, Button } from 'native-base'
 import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
 
 import BaseLayout from '../components/templates/BaseLayout'
-import ActionButton from '../components/atoms/Button'
+import ThankYou from '../components/organisms/ThankYou'
 import { useWallet } from '../hooks/wallet'
-import { TOKENS, transfer, waitTransaction } from '../services/contracts/tx.contract'
-
-const StepPill = ({ children, color, textColor = "invertedText.900", ...props }: any) =>
-  <View
-    borderRadius={100}
-    color={textColor}
-    bg={color}
-    padding={3}
-    pt={1}
-    pb={1}
-    {...props}
-  >
-    {children}
-  </View>
+import { TOKENS, transfer, waitTransaction, buildTransactionExplorerUrl } from '../services/contracts/tx.contract'
 
 const Donate: NextPage = () => {
   const {
@@ -31,14 +18,15 @@ const Donate: NextPage = () => {
   const [amount, setAmount] = useState(0)
   const [tx, setTx] = useState()
   const [txError, setTxError] = useState()
+  const [submitting, setSubmitting] = useState(false)
   const updateTokenSymbol = (value: String) => setTokenSymbol(value)
   const updateAmount = (event: any) => setAmount(event.target.value)
   const donate = async (event: any) => {
     event.preventDefault()
+    setSubmitting(true)
     try {
       const transaction = await transfer(tokenSymbol, amount, account, chainId, library)
       setTx(transaction)
-      // TODO: Redirect to typ
     } catch (error) {
       setTxError(error)
     }
@@ -47,6 +35,7 @@ const Donate: NextPage = () => {
 
   useEffect(() => {
     if (txError) {
+      setSubmitting(false)
       setTimeout(() => setTxError(null), 5000)
     }
   }, [txError])
@@ -57,7 +46,7 @@ const Donate: NextPage = () => {
     }
   }, [tx])
 
-  return (<BaseLayout
+  return (tx ? <ThankYou tokenSymbol={tokenSymbol} amount={amount} transactionUrl={buildTransactionExplorerUrl(tx.hash, chainId)} /> : <BaseLayout
     title="Help Humans in Need"
     subTitle="Because urgent needs require urgent answers, we accept crypto donations."
     withConnect
@@ -65,19 +54,6 @@ const Donate: NextPage = () => {
     color="black"
   >
     <VStack mt={100} w={500}>
-      <Flex direction="row" justify="space-between" alignItems="center" width="100%" pl={3} pr={3}>
-        <Text>
-          <StepPill color="primary.700" textColor="#172815">1</StepPill>
-          <View ml={1}>Connect your wallet</View>
-        </Text>
-        <View flexGrow={1} pl={2} pr={2}>
-          <Divider bg="light.400" thickness="2" mx="2" orientation="horizontal" />
-        </View>
-        <Text ml={4}>
-          <StepPill color="primary.700" textColor="#172815" opacity={controlsDisabled ? "0.3" : "1"}>2</StepPill>
-          <View ml={1} opacity={controlsDisabled ? "0.3" : "1"}>Make a donation</View>
-        </Text>
-      </Flex>
       <Flex
         direction="column"
         alignItems="center"
@@ -120,14 +96,18 @@ const Donate: NextPage = () => {
             </Select>
           </FormControl>
         </Flex>
-        <ActionButton
+        <Button
           mt={8}
           isDisabled={controlsDisabled}
           onPress={donate}
-          color="secondary.900"
+          maxW={165}
+          w={165}
+          maxH="10"
+          borderRadius={30}
+          onPress={donate}
         >
-          Donate
-        </ActionButton>
+          {submitting ? 'Donating...' : 'Donate'}
+        </Button>
         {txError && <View>There was a problem with the transaction. Check your funds and try again.</View>}
       </Flex>
     </VStack>
