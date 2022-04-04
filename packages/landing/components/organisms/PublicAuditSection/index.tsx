@@ -41,7 +41,7 @@ const PublicAuditSection = () => {
           maxW={{ base: '100%', lg: '50%' }}
         >
           <Text mb="28px">{t(keys.publicAudit.donationsTable.title)}</Text>
-          <DonationTable loadData={API.getLatestDonations} />
+          <DonationTable loadData={API.getLatestDonations as any} />
         </VStack>
       </Flex>
     </VStack>
