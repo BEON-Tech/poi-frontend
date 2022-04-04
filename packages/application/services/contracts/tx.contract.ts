@@ -3,6 +3,11 @@ import { BigNumber } from '@ethersproject/bignumber'
 import { Contract } from '@ethersproject/contracts'
 import { JsonRpcSigner, TransactionReceipt } from '@ethersproject/providers'
 
+import ethImage from '../../public/tokens/ETH.png'
+import daiImage from '../../public/tokens/DAI.png'
+import usdImage from '../../public/tokens/USDC.png'
+import btcImage from '../../public/tokens/WBTC.png'
+
 // Does not work for ETH transfers
 // const POOL_ADDRESS="0x53B5D53101ac06178F419E7888f883C70e6Af7DA"
 const POOL_ADDRESS="0x3BC39941A15745De6c7470E2c0061Cfe30f6D8Bd"
@@ -20,6 +25,7 @@ export const TOKENS = [
   {
     "symbol": "ETH",
     "address": "",
+    "icon": ethImage,
   },
   {
     "symbol": "DAI",
@@ -28,6 +34,7 @@ export const TOKENS = [
       "42": "0x4f96fe3b7a6cf9725f59d353f723c1bdb64ca6aa",
     },
     "decimals": 18,
+    "icon": daiImage
   },
   {
     "symbol": "USDC",
@@ -36,6 +43,7 @@ export const TOKENS = [
       "42": "0x7079f3762805cff9c979a5bdc6f5648bcfee76c8",
     },
     "decimals": 6,
+    "icon": usdImage
   },
   {
     "symbol": "WBTC",
@@ -44,6 +52,7 @@ export const TOKENS = [
       "42": "0x7afe7373126eb5ef766caad2072c4a87810fbfa3",
     },
     "decimals": 8,
+    "icon": btcImage
   },
 ]
 
