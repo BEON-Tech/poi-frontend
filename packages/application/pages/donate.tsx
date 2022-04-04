@@ -1,6 +1,7 @@
-import { Flex, VStack, View, Text, FormControl, Input, Select, Divider, Button } from 'native-base'
+import { Flex, VStack, View, Text, FormControl, Input, Button, Menu, ChevronDownIcon } from 'native-base'
 import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
+import Image from 'next/image'
 
 import BaseLayout from '../components/templates/BaseLayout'
 import ThankYou from '../components/organisms/ThankYou'
@@ -15,6 +16,7 @@ const Donate: NextPage = () => {
     chainId,
   } = useWallet()
   const [tokenSymbol, setTokenSymbol] = useState("ETH")
+  const [token, setToken] = useState({})
   const [amount, setAmount] = useState(0)
   const [tx, setTx] = useState()
   const [txError, setTxError] = useState()
@@ -46,6 +48,12 @@ const Donate: NextPage = () => {
     }
   }, [tx])
 
+  useEffect(() => {
+    if (tokenSymbol) {
+      setToken(TOKENS.find(({ symbol }) => symbol === tokenSymbol))
+    }
+  }, [tokenSymbol])
+
   return (tx ? <ThankYou tokenSymbol={tokenSymbol} amount={amount} transactionUrl={buildTransactionExplorerUrl(tx.hash, chainId)} /> : <BaseLayout
     title="Help Humans in Need"
     subTitle="Because urgent needs require urgent answers, we accept crypto donations."
@@ -74,6 +82,7 @@ const Donate: NextPage = () => {
               type="number"
               placeholder="Amount"
               borderWidth={1}
+              borderRadius={10}
               borderRightWidth={0}
               borderRightRadius={0}
               onChange={updateAmount}
@@ -83,17 +92,33 @@ const Donate: NextPage = () => {
             />
           </FormControl>
           <FormControl w="40%" isDisabled={controlsDisabled} ml={-1}>
-            <Select
-              minW={8}
-              w={24}
-              borderWidth={1}
-              borderLeftRadius={0}
-              bg="white"
-              onValueChange={updateTokenSymbol}
-              defaultValue="ETH"
-            >
-              {TOKENS.map(({ symbol }) => <Select.Item key={symbol} value={symbol} label={symbol} />)}
-            </Select>
+            <Menu trigger={(triggerProps) => (
+              <Button {...triggerProps}
+                background="secondary.900"
+                color="black"
+                borderColor="primary.900"
+                borderWidth={1}
+                borderRadius={10}
+                isDisabled={controlsDisabled}
+              >
+                <Flex direction="row" alignItems="center" justify="space-between" w={120}>
+                  <Flex direction="row" alignItems="center">
+                    {token.icon ? <Image src={token.icon} layout="fixed" width={24} height={24} /> : null}
+                    <Text ml={2}>{tokenSymbol}</Text>
+                  </Flex>
+                  <ChevronDownIcon color="primary.900" />
+                </Flex>
+              </Button>
+            )}>
+              {TOKENS.map(({ symbol, icon }) => (
+                <Menu.Item key={symbol} onPress={() => updateTokenSymbol(symbol)} w={120}>
+                  <Flex direction="row" alignItems="center">
+                    <Image src={icon} layout="fixed" width={24} height={24} />
+                    <Text ml={2}>{symbol}</Text>
+                  </Flex>
+                </Menu.Item>)
+              )}
+            </Menu>
           </FormControl>
         </Flex>
         <Button
