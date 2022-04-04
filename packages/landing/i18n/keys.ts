@@ -1,10 +1,14 @@
 const keys = {
+  unclassified: {
+    comingSoonTitle: 'comingSoonTitle',
+  },
   toolbar: {
     about: 'about',
     assitanceProgram: 'assitanceProgram',
     ourTeam: 'ourTeam',
     publicAudit: 'publicAudit',
     goToApp: 'goToApp',
+    title: 'title',
   },
   introSection: {
     title: 'title',
@@ -18,11 +22,10 @@ const keys = {
     title: 'title',
     bubble1: 'bubble1',
     bubble2: 'bubble2',
-    descriptionItem1: 'descriptionItem1',
-    descriptionItem2: 'descriptionItem2',
-    descriptionItem3: 'descriptionItem3',
   },
   aboutPOI: {
+    hide: 'hide',
+    show: 'show',
     upperTittle: 'upperTittle',
     tittle: 'tittle',
     descriptionFirstParagraph: 'descriptionFirstParagraph',
@@ -67,6 +70,8 @@ const keys = {
     },
   },
   ourTeam: {
+    show: 'show',
+    hide: 'hide',
     title: 'title',
     tags: {
       all: 'all',
@@ -90,6 +95,8 @@ const keys = {
     meetTheAdvisors: 'meetTheAdvisors',
   },
   advisors: {
+    show: 'show',
+    hide: 'hide',
     title: 'title',
     hideAdvisors: 'hideAdvisors',
     roles: {
@@ -107,8 +114,16 @@ const keys = {
       diegoBoryszanski: 'diegoBoryszanski',
     },
   },
+  partnersSection: {
+    defyEducation: 'defyEducation',
+  },
   whyUS: {
     title: 'title',
+    button: 'button',
+  },
+  contactUS: {
+    title: 'title',
+    subtitle: 'subtitle',
     button: 'button',
   },
   footer: {

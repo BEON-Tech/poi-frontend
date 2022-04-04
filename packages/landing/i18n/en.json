@@ -1,10 +1,14 @@
 {
+  "unclassified": {
+    "comingSoonTitle": "Coming soon"
+  },
   "toolbar": {
     "about": "About",
     "assitanceProgram": "Assistance Program",
     "ourTeam": "Our Team",
     "publicAudit": "Public Audit",
-    "goToApp": "Go to the App"
+    "goToApp": "Go to the App",
+    "title": "Proof Of Integrity"
   },
   "introSection": {
     "title": "Using crypto to target social protection",
@@ -17,12 +21,11 @@
   "banner": {
     "title": "Urgent Needs Require Urgent Answers",
     "bubble1": "There are at least 1.3 billion people experiencing poverty worldwide.",
-    "bubble2": "788 million people share household with one or more undernourished person.",
-    "descriptionItem1": "Make a career in a crypto organization that fights poverty with total transparency.",
-    "descriptionItem2": "Make a career in a crypto organization that fights poverty with total transparency.",
-    "descriptionItem3": "Make a career in a crypto organization that fights poverty with total transparency."
+    "bubble2": "788 million people share household with one or more undernourished person."
   },
   "aboutPOI": {
+    "hide": "Hide",
+    "show": "Show More",
     "upperTittle": "About",
     "tittle": "Proof Of Integrity",
     "descriptionFirstParagraph": "With a rewards system based on Game Theory, our protocol will certify who struggles to cover their basic needs in a decentralized and transparent way. Once certified, applicants will be eligible for different philanthropy programs. ",
@@ -68,6 +71,8 @@
   },
   "ourTeam": {
     "title": "Our Team",
+    "show": "Meet the Team",
+    "hide": "Hide Team",
     "meetTheAdvisors": "Meet The Advisors",
     "tags": {
       "all": "All",
@@ -90,6 +95,8 @@
     }
   },
   "advisors": {
+    "show": "Meet the Advisors",
+    "hide": "Hide Advisors",
     "title": "Advisors",
     "hideAdvisors": "Hide Advisors",
     "roles": {
@@ -107,10 +114,17 @@
       "diegoBoryszanski": "Lawyer by profession, Diego is a serial technology entrepreneur and a crypto enthusiast."
     }
   },
-
+  "partnersSection": {
+    "defyEducation": "We are partners with Defy Education."
+  },
   "whyUS": {
     "title": "With POI, your donations go to the right hands.",
     "button": "Check out our Whitepaper"
+  },
+  "contactUS": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with us.  We'd love to hear from you.",
+    "button": "info@proofofintegrity.org"
   },
   "footer": {
     "title": "Proof Of Integrity",

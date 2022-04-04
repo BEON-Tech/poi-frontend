@@ -2,8 +2,11 @@ import { HStack, Text } from 'native-base'
 import { useTranslation } from 'next-export-i18n'
 
 import keys from '@i18n/keys'
+import { useBreakpoint } from '@components/providers'
 
 const DonationTableHeader = () => {
+  const { isDesktop } = useBreakpoint()
+
   const { t } = useTranslation()
   return (
     <HStack
@@ -21,9 +24,11 @@ const DonationTableHeader = () => {
       <HStack flex="1" alignItems="center" justifyContent="flex-start">
         <Text>{t(keys.publicAudit.donationsTable.typeColumn)}</Text>
       </HStack>
-      <HStack flex="1" alignItems="center" justifyContent="center">
-        <Text>{t(keys.publicAudit.donationsTable.etherscanColumn)}</Text>
-      </HStack>
+      {isDesktop && (
+        <HStack flex="1" alignItems="center" justifyContent="center">
+          <Text>{t(keys.publicAudit.donationsTable.etherscanColumn)}</Text>
+        </HStack>
+      )}
     </HStack>
   )
 }

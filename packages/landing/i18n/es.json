@@ -1,10 +1,14 @@
 {
+  "unclassified": {
+    "comingSoonTitle": "En breve"
+  },
   "toolbar": {
     "about": "Sobre Nosotros",
     "assitanceProgram": "Programa de asistencia",
     "ourTeam": "Nuestro Equipo",
     "publicAudit": "Auditoría Pública",
-    "goToApp": "Ir a la App"
+    "goToApp": "Ir a la App",
+    "title": "Proof Of Integrity"
   },
   "introSection": {
     "title": "Usando cripto para dirigir la ayuda social",
@@ -17,12 +21,11 @@
   "banner": {
     "title": "Necesidades Urgentes Requieren Respuestas Urgentes",
     "bubble1": "Hay al menos 1.300 millones de personas en situación de pobreza en todo el mundo.",
-    "bubble2": "788 millones de personas comparten hogar con una o más personas desnutridas.",
-    "descriptionItem1": "Haz carrera en una criptoorganización que lucha contra la pobreza con total transparencia.",
-    "descriptionItem2": "Usando la tecnología Blockchain, podrá monitorear sus fondos hasta el objetivo final.",
-    "descriptionItem3": "Aplica a nuestros programas y obtén la certificación. Cuidaremos tu privacidad."
+    "bubble2": "788 millones de personas comparten hogar con una o más personas desnutridas."
   },
   "aboutPOI": {
+    "hide": "Ocultar",
+    "show": "Mostrar más",
     "upperTittle": "Acerca de",
     "tittle": "Proof Of Integrity",
     "descriptionFirstParagraph": "Con un sistema de recompensas basado en Game Theory, nuestro protocolo certificará quién lucha por cubrir sus necesidades básicas de forma descentralizada y transparente. Una vez certificados, los solicitantes serán elegibles para diferentes programas de filantropía.",
@@ -67,6 +70,8 @@
     }
   },
   "ourTeam": {
+    "show": "Conoce el Equipo",
+    "hide": "Ocultar Equipo",
     "title": "Nuestro equipo",
     "meetTheAdvisors": "Conozca a los Asesores",
     "tags": {
@@ -90,6 +95,8 @@
     }
   },
   "advisors": {
+    "show": "Conoce los Asesores",
+    "hide": "Ocultar Asesores",
     "title": "Asesores",
     "hideAdvisors": "Ocultar Asesores",
     "roles": {
@@ -107,9 +114,17 @@
       "diegoBoryszanski": "Abogado de profesión, Diego es un emprendedor tecnológico en serie y un entusiasta de las criptomonedas."
     }
   },
+  "partnersSection": {
+    "defyEducation": "Somos socios de Defy Education."
+  },
   "whyUS": {
     "title": "Con POI, sus donaciones van a las manos correctas.",
     "button": "Consulte nuestro Whitepaper"
+  },
+  "contactUS": {
+    "title": "Contáctanos",
+    "subtitle": "Contáctanos. Nos encantaría saber de tí.",
+    "button": "info@proofofintegrity.org"
   },
   "footer": {
     "title": "Proof Of Integrity",

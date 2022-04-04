@@ -14,6 +14,7 @@ const baseStyle = (props: any) => ({
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
+  maxH: '50px',
   _web: {
     cursor: props.isDisabled ? 'not-allowed' : loadingCursor(props),
   },
@@ -63,16 +64,19 @@ function variantGhost(props: any) {
 
 const variantOutline = (props: any) => {
   const { colorScheme: c } = props
-  const borderColor = `${c}.400`
+  const borderColor = `${c}.500`
   return {
     ...variantGhost(props),
     borderRadius: '3000px',
     borderWidth: 1,
     borderColor: props.isDisabled ? disabledStrokeColor : borderColor,
+    bg: 'general.50',
     _hover: {
-      bg: 'general.50',
       borderColor,
-      color: borderColor,
+      bg: borderColor,
+      _text: {
+        color: 'general.50',
+      },
     },
     _loading: {
       _text: { display: 'none' },
@@ -84,6 +88,9 @@ const variantOutline = (props: any) => {
       color: borderColor,
     },
     _text: { color: borderColor, fontWeight: 700 },
+    _disabled: {
+      opacity: 0.3,
+    },
   }
 }
 
@@ -115,10 +122,12 @@ function variantSolid(props: any) {
       bg: disabledBackgroundColor,
       _text: { display: 'none' },
     },
-    _disabled: { bg: disabledBackgroundColor },
+    _disabled: {
+      bg: `${c}.700`,
+      opacity: 0.3,
+    },
     _text: {
       color: 'general.50',
-      fontSize: 'lg',
       fontWeight: 'regular',
     },
   }
@@ -127,10 +136,10 @@ function variantSolid(props: any) {
 }
 
 function variantLink(props: any) {
-  const colorLink = 'general.900'
+  const colorLink = 'primary.700'
   const _hover = {
     _text: {
-      color: colorLink,
+      color: 'general.900',
       textDecorationLine: 'underline',
     },
     bg: 'transparent',
@@ -149,6 +158,7 @@ function variantLink(props: any) {
     },
     _pressed: _hover,
     _disabled: {
+      opacity: 0.3,
       _text: {
         color: colorLink,
       },
@@ -178,7 +188,7 @@ export default {
     colorScheme: 'primary',
     variant: 'solid',
     _text: {
-      fontSize: '18px',
+      fontSize: 'lg',
     },
   },
 }

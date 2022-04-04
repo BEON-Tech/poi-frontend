@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import { useTranslation } from 'next-export-i18n'
 
+import { useBreakpoint } from '@components/providers'
 import keys from '@i18n/keys'
 import {
   CertificationTableCell,
@@ -26,13 +27,21 @@ const CertificationTableBare = ({
   hasMore,
   loading,
 }: ICertificationTableBareProps) => {
+  const { isDesktop } = useBreakpoint()
   const { t } = useTranslation()
+
+  const extendedData = useMemo(
+    () => data.map((item) => ({ ...item, collapsed: !isDesktop })),
+    [data, isDesktop]
+  )
+
   return (
     <GenericTable
       footerTitle={t(keys.publicAudit.certificationsTable.seeMore)}
-      data={data}
+      data={extendedData}
       hasMore={hasMore}
       loading={loading}
+      extraData={{ isCollapsed: isDesktop }}
       renderItem={CertificationTableCell}
       ListHeaderComponent={CertificationTableHeader}
     />

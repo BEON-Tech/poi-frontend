@@ -1,10 +1,13 @@
 export const INTRO_SECTION = 'IntroSection'
 export const OUR_TEAM_SECTION = 'OurTeamSection'
+export const ADVISORS_SECTION = 'AdvisorsSection'
 export const ABOUT_POI_SECTION = 'AboutPOISection'
 export const BANNER_SECTION = 'BannerSection'
 export const PUBLIC_AUDIT_SECTION = 'PublicAuditSection'
 export const ASSISTANCE_PROGRAM_SECTION = 'AssistanceProgramSection'
 export const WHY_US_SECTION = 'WhyUsSection'
+export const CONTACT_US_SECTION = 'ContactUsSection'
+export const PARTNERS_SECTION = 'PartnersSection'
 
 
 export const DEVELOPER_TAG = 'developer'

@@ -2,8 +2,10 @@ import { HStack, Text } from 'native-base'
 import { useTranslation } from 'next-export-i18n'
 
 import keys from '@i18n/keys'
+import { useBreakpoint } from '@components/providers'
 
 const CertificationCell = () => {
+  const { isDesktop } = useBreakpoint()
   const { t } = useTranslation()
   return (
     <HStack
@@ -21,9 +23,11 @@ const CertificationCell = () => {
       <HStack flex="1" alignItems="center" justifyContent="flex-start">
         <Text>{t(keys.publicAudit.certificationsTable.dateColumn)}</Text>
       </HStack>
-      <HStack flex="1" alignItems="center" justifyContent="center">
-        <Text>{t(keys.publicAudit.certificationsTable.detailsColumn)}</Text>
-      </HStack>
+      {isDesktop && (
+        <HStack flex="1" alignItems="center" justifyContent="center">
+          <Text>{t(keys.publicAudit.certificationsTable.detailsColumn)}</Text>
+        </HStack>
+      )}
     </HStack>
   )
 }

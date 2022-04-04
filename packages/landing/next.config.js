@@ -4,6 +4,7 @@ const withPlugins = require('next-compose-plugins')
 const withOptimizedImages = require('next-optimized-images')
 const withTM = require('next-transpile-modules')([
   'native-base',
+  'react-native-web',
   'react-native-svg',
   'react-native-safe-area-context',
   '@react-aria/visually-hidden',

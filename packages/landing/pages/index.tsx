@@ -1,6 +1,6 @@
+import { useState } from 'react'
 import { VStack } from 'native-base'
 import type { NextPage } from 'next'
-import { useState } from 'react'
 
 import {
   IntroSection,
@@ -11,29 +11,32 @@ import {
   AdvisorsSection,
   PublicAuditSection,
   WhyUsSection,
+  PartnersSection,
+  ContactUsSection,
+  MobileMenu,
 } from '@components/organisms'
+import { useBreakpoint } from '@components/providers'
 import { Toolbar, Footer } from '@components/molecules'
 
 const Home: NextPage = () => {
-  const [showAdvisors, setShowAdvisors] = useState(false)
-
-  const showAdvisorsHandler = () => setShowAdvisors(true)
-  const hideAdvisorsHandler = () => setShowAdvisors(false)
-
+  const { isDesktop } = useBreakpoint()
+  const [showMenu, setShowMenu] = useState(false)
+  const onShowMenu = () => setShowMenu(true)
+  const onCloseMenu = () => setShowMenu(false)
   return (
-    <VStack w="100vw">
-      <Toolbar />
+    <VStack w="100%" overflowY="hidden">
+      {!isDesktop && showMenu && <MobileMenu onClosePress={onCloseMenu} />}
+      <Toolbar onMenuPress={onShowMenu} />
       <IntroSection />
       <BannerSection />
       <AboutPOISection />
       <AssistanceProgramSection />
-      <OurTeamSection
-        advisorsShown={showAdvisors}
-        onShowAdvisors={showAdvisorsHandler}
-      />
-      {showAdvisors && <AdvisorsSection onHideAdvisors={hideAdvisorsHandler} />}
       <PublicAuditSection />
+      <OurTeamSection />
+      <AdvisorsSection />
+      <PartnersSection />
       <WhyUsSection />
+      <ContactUsSection />
       <Footer />
     </VStack>
   )

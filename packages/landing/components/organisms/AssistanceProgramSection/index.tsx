@@ -1,10 +1,11 @@
 import { Element } from 'react-scroll'
 import { useTranslation } from 'next-export-i18n'
-import { VStack, HStack, Heading, View, Button, Text } from 'native-base'
+import { VStack, HStack, View, Button, Text, Heading } from 'native-base'
 
+import keys from '@i18n/keys'
 import { ASSISTANCE_PROGRAM_SECTION } from '@constants'
-import { Images } from '@components/atoms'
-import keys from '../../../i18n/keys'
+import { BulletedTitle, Images } from '@components/atoms'
+import { useBreakpoint } from '@components/providers'
 
 const aimBoxItems = [
   {
@@ -26,7 +27,8 @@ const aimBoxItems = [
     text: keys.assistanceProgram.aimBox.thirdItem,
   },
 ]
-const AssistanceProgramSection = () => {
+
+const AssistanceProgramSectionDesktop = () => {
   const { t } = useTranslation()
 
   return (
@@ -119,6 +121,77 @@ const AssistanceProgramSection = () => {
         </VStack>
       </HStack>
     </VStack>
+  )
+}
+
+const AssistanceProgramSectionMobile = () => {
+  const { t } = useTranslation()
+
+  return (
+    <VStack px="20px" pt="147px">
+      <Element name={ASSISTANCE_PROGRAM_SECTION} />
+      <View pr="80px">
+        <BulletedTitle
+          hideBullet
+          imageName="Pentagon"
+          title={t(keys.assistanceProgram.title)}
+        />
+      </View>
+      <VStack
+        mt="40px"
+        maxH="auto"
+        borderWidth="1px"
+        borderColor="general.100"
+        borderRadius="20px"
+        py="36px"
+        px="28px"
+      >
+        <Images.UBILogo width="57.68px" height="59.03px" />
+        <Text mt="17px" fontSize="lg" lineHeight="40px">
+          <Text>{t(keys.assistanceProgram.firstBox.firstSentence)}</Text>
+          <Text fontWeight="bold">
+            {t(keys.assistanceProgram.firstBox.secondSentenceBold)}
+          </Text>
+          <Text>{t(keys.assistanceProgram.firstBox.thirdSentence)}</Text>
+        </Text>
+      </VStack>
+      <VStack
+        mt="60px"
+        borderColor="general.100"
+        borderRadius="20px"
+        borderWidth="1px"
+        p="34px"
+        bg="general.50"
+      >
+        <Text fontSize="xl" lineHeight="40px" textAlign="center">
+          {t(keys.assistanceProgram.aimBox.title)}
+        </Text>
+        {aimBoxItems.map(({ Image, text }) => (
+          <HStack
+            justifyContent="flex-start"
+            alignItems="center"
+            mt="23px"
+            key={`assistance-program-${text}`}
+          >
+            <View>
+              <Image />
+            </View>
+            <Text ml="26px" fontSize="xs">
+              {t(text)}
+            </Text>
+          </HStack>
+        ))}
+      </VStack>
+    </VStack>
+  )
+}
+
+const AssistanceProgramSection = () => {
+  const { isDesktop } = useBreakpoint()
+  return isDesktop ? (
+    <AssistanceProgramSectionDesktop />
+  ) : (
+    <AssistanceProgramSectionMobile />
   )
 }
 

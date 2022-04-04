@@ -1,32 +1,43 @@
 import { ICustomTheme } from 'native-base'
-import {
-  ButtonThemeDefinition,
-  // InputThemeDefinition,
-  // SelectThemeDefinition,
-} from './Components'
+import { ButtonThemeDefinition } from './Components'
 
-export const fontSizes = {
-  '2xs': 8,
-  xs: 12,
-  sm: 14,
-  md: 16,
-  lg: 20,
-  xl: 30,
-  '2xl': 38,
-  '3xl': 50,
-  '4xl': 56,
-  '5xl': 70,
-  '6xl': 80,
-  '7xl': 90,
+const fontSizes = {
+  '2xs': '8px',
+  xs: '12px',
+  sm: '14px',
+  md: '16px',
+  lg: '18px',
+  xl: '30px',
+  '2xl': '38px',
+  '3xl': '50px',
+  '4xl': '56px',
+  '5xl': '70px',
+  '6xl': '80px',
+  '7xl': '90px',
 }
+
+const fontSizesMobile = {
+  '2xs': '8px',
+  xs: '14px',
+  sm: '14px',
+  md: '16px',
+  lg: '16px',
+  xl: '20px',
+  '2xl': '26px',
+  '3xl': '30px',
+  '4xl': '30px',
+  '5xl': '35px',
+  '6xl': '40px',
+  '7xl': '40px',
+}
+
+// 16
 
 const fontFamily = 'Hauora'
 
 export default {
   components: {
     Button: ButtonThemeDefinition,
-    // Select: SelectThemeDefinition,
-    // Input: InputThemeDefinition,
     Modal: {
       defaultProps: {
         overlayVisible: true,
@@ -57,7 +68,9 @@ export default {
       baseStyle: {},
       defaultProps: {
         fontFamily,
+        size: '4xl',
         color: 'general.900',
+        fontWeight: 'semibold',
       },
       variants: {},
       sizes: {
@@ -113,7 +126,7 @@ export default {
       sizes: {},
     },
   },
-  fontSizes,
+  fontSizes: fontSizesMobile,
   fontConfig: {
     Hauora: {
       200: {

@@ -1,82 +1,93 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Element } from 'react-scroll'
 import { useTranslation } from 'next-export-i18n'
 import {
   VStack,
-  Heading,
-  HStack,
-  Button,
-  ChevronDownIcon,
-  View,
   FlatList,
+  View,
+  Button,
+  ChevronUpIcon,
+  ChevronDownIcon,
 } from 'native-base'
 
 import keys from '@i18n/keys'
-import { TagsType } from '@constants/types'
 import { OUR_TEAM_SECTION } from '@constants'
 import { PersonCard } from '@components/molecules'
+import { BulletedTitle } from '@components/atoms'
 
-import { FILTERS, LIST_ITEMS } from './helpers'
+import { useBreakpoint } from '@components/providers'
+import ListItems, { POI_LOGO_ITEM } from './helpers'
 
-interface IOurTeamSectionsProps {
-  onShowAdvisors: () => void
-  advisorsShown: boolean
-}
+const Separator = () => <View h={{ base: '76px', lg: 0 }} />
 
-const OurTeamSection = ({
-  advisorsShown,
-  onShowAdvisors,
-}: IOurTeamSectionsProps) => {
+const OurTeamSectionDesktop = () => {
   const { t } = useTranslation()
-  const [data, setData] = useState(LIST_ITEMS)
-  const [currentFilter, setCurrentFilter] = useState()
-
-  const filterData = (filter?: TagsType) => {
-    if (filter !== currentFilter) {
-      if (filter) {
-        const filteredList = LIST_ITEMS.filter(
-          (item) => item.tags && item.tags.includes(filter)
-        )
-        setData(filteredList)
-      } else {
-        setData(LIST_ITEMS)
-      }
-      setCurrentFilter(filter as any)
-    }
-  }
 
   return (
     <VStack pt="217px" alignItems="center">
       <Element name={OUR_TEAM_SECTION} />
-      <Heading lineHeight="76.5px" size="4xl" fontWeight="semibold">
-        {t(keys.ourTeam.title)}
-      </Heading>
-      <HStack mt="12px">
-        {FILTERS.map(({ label, filterKey }) => (
-          <Button variant="link" onPress={() => filterData(filterKey)}>
-            {t(label)}
-          </Button>
-        ))}
-      </HStack>
+      <BulletedTitle imageName="Pentagon" title={t(keys.ourTeam.title)} />
       <FlatList
-        data={data}
+        data={ListItems}
         numColumns={4}
         renderItem={(item) => <PersonCard item={item.item} />}
         keyExtractor={(item) => item.name}
       />
-      {!advisorsShown && (
-        <View mt="81px">
-          <Button
-            bg="general.100"
-            rightIcon={<ChevronDownIcon />}
-            onPress={onShowAdvisors}
-          >
-            {t(keys.ourTeam.meetTheAdvisors)}
-          </Button>
-        </View>
+    </VStack>
+  )
+}
+
+const OurTeamSectionMobile = () => {
+  const [show, setShow] = useState(false)
+  const { t } = useTranslation()
+
+  const onShowHide = () => setShow(!show)
+
+  const Items = useMemo(
+    () => [...ListItems.filter((item) => item.role), POI_LOGO_ITEM],
+    []
+  )
+
+  return (
+    <VStack pt={{ base: '100px', lg: '217px' }} alignItems="center" px="16px">
+      <Element name={OUR_TEAM_SECTION} />
+      <BulletedTitle
+        separation={30}
+        imageName="Pentagon"
+        title={t(keys.ourTeam.title)}
+        pl="20px"
+        justifyContent="flex-start"
+        alignItems="flex-start"
+        alignSelf="flex-start"
+        w={{ base: '150px', lg: '100%' }}
+        pb="64px"
+      />
+      <Button
+        w="100%"
+        maxW="100%"
+        onPress={onShowHide}
+        variant="solid"
+        mb={show ? '28px' : 0}
+        rightIcon={show ? <ChevronUpIcon /> : <ChevronDownIcon />}
+      >
+        {show ? t(keys.ourTeam.hide) : t(keys.ourTeam.show)}
+      </Button>
+      {show && (
+        <FlatList
+          data={Items}
+          numColumns={2}
+          ItemSeparatorComponent={Separator}
+          renderItem={(item) => <PersonCard item={item.item} />}
+          keyExtractor={(item) => item.name}
+        />
       )}
     </VStack>
   )
+}
+
+const OurTeamSection = () => {
+  const { isDesktop } = useBreakpoint()
+  return isDesktop ? <OurTeamSectionDesktop /> : <OurTeamSectionMobile />
 }
 
 export default OurTeamSection

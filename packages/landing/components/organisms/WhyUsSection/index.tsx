@@ -1,4 +1,4 @@
-import { HStack, Heading, VStack, Button, View } from 'native-base'
+import { Flex, Heading, VStack, Button, View } from 'native-base'
 import { Element } from 'react-scroll'
 
 import { WHY_US_SECTION } from '@constants'
@@ -9,23 +9,48 @@ import { Images } from '@components/atoms'
 const PublicAuditSection = () => {
   const { t } = useTranslation()
   return (
-    <HStack pl="130px" pt="200px" pb="134px" pr="80px">
+    <Flex
+      w="100%"
+      pt={{ base: '100px', lg: '200px' }}
+      px={{ base: '20px', lg: '80px' }}
+      flexDirection={{ base: 'column', sm: 'row' }}
+    >
       <Element name={WHY_US_SECTION} />
-      <VStack mt="30px" flex="1">
-        <Heading w="480px" size="2xl" fontWeight="normal" lineHeight="70px">
-          {t(keys.whyUS.title)}
-        </Heading>
-        <Button mt="60px" w="313px" variant="outline">
+      <VStack mt="30px" flex="1" w={{ base: '100%', lg: '480px' }}>
+        <Flex flexDirection={{ base: 'column', sm: 'row' }}>
+          <Images.Polygon width="55.23px" height="55.23px" />
+          <Heading
+            size="2xl"
+            fontWeight="normal"
+            lineHeight="70px"
+            ml={{ base: 0, lg: '23px' }}
+            w={{ base: '100%', lg: '492px' }}
+          >
+            {t(keys.whyUS.title)}
+          </Heading>
+        </Flex>
+        <Button mt="60px" w={{ base: '100%', lg: '313px' }} variant="outline">
           {t(keys.whyUS.button)}
         </Button>
       </VStack>
-      <HStack flex="1" justifyContent="flex-end">
-        <View mt="54px" mr="50px">
-          <Images.WhyUsPersonCenter width="149px" height="149px" />
+      <Flex
+        flex="1"
+        justifyContent="flex-end"
+        flexDirection={{ base: 'column', sm: 'row' }}
+      >
+        <View mt="54px" mr="50px" width="149px" height="149px">
+          <Images.WhyUsPersonCenter width="100%" height="100%" />
         </View>
-        <Images.WhyUsPeopleRight width="324px" height="324px" />
-      </HStack>
-    </HStack>
+        <View
+          mt={{ base: '-23px', lg: 0 }}
+          alignSelf="flex-end"
+          width={{ base: '252px', lg: '324px' }}
+          height={{ base: '252px', lg: '324px' }}
+        >
+          <Images.WhyUsPeopleRight width="100%" height="100%" />
+        </View>
+      </Flex>
+    </Flex>
   )
 }
 

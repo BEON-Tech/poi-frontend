@@ -1,48 +1,80 @@
+import { useState } from 'react'
 import { Element } from 'react-scroll'
 import { useTranslation } from 'next-export-i18n'
 import {
   VStack,
-  Heading,
-  Button,
-  ChevronDownIcon,
-  View,
   FlatList,
+  View,
+  Button,
+  ChevronUpIcon,
+  ChevronDownIcon,
 } from 'native-base'
 
 import keys from '@i18n/keys'
-import { OUR_TEAM_SECTION } from '@constants'
+import { ADVISORS_SECTION } from '@constants'
 import { AdvisorCard } from '@components/molecules'
 
+import { BulletedTitle } from '@components/atoms'
+import { useBreakpoint } from '@components/providers'
 import { LIST_ITEMS } from './helpers'
 
-interface IAdvisorsSectionProps {
-  onHideAdvisors: () => void
-}
+const Separator = () => <View h={{ base: '76px', lg: 0 }} />
 
-const AdvisorsSection = ({ onHideAdvisors }: IAdvisorsSectionProps) => {
+const AdvisorsSection = () => {
+  const [show, setShow] = useState(false)
+  const { isDesktop } = useBreakpoint()
   const { t } = useTranslation()
 
+  const onShowHide = () => setShow(!show)
+
+  const showList = isDesktop || show
+
+  const titleProps = isDesktop
+    ? { separation: 60 }
+    : {
+        separation: 30,
+        pl: '20px',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+        alignSelf: 'flex-start',
+      }
+
   return (
-    <VStack alignItems="center">
-      <Element name={OUR_TEAM_SECTION} />
-      <View mb="83px">
+    <VStack
+      alignItems="center"
+      mt={isDesktop ? '161px' : '37px'}
+      px={{ base: '20px', lg: '80px' }}
+      pt={{ base: '40px', lg: 0 }}
+    >
+      {!isDesktop && (
         <Button
-          variant="link"
-          rightIcon={<ChevronDownIcon />}
-          onPress={onHideAdvisors}
+          w="100%"
+          onPress={onShowHide}
+          variant="outline"
+          mb={show ? '28px' : 0}
+          rightIcon={show ? <ChevronUpIcon /> : <ChevronDownIcon />}
         >
-          {t(keys.advisors.hideAdvisors)}
+          {show ? t(keys.advisors.hide) : t(keys.advisors.show)}
         </Button>
-      </View>
-      <Heading mb="73px" lineHeight="76.5px" size="4xl" fontWeight="semibold">
-        {t(keys.advisors.title)}
-      </Heading>
-      <FlatList
-        data={LIST_ITEMS}
-        numColumns={5}
-        renderItem={(item) => <AdvisorCard item={item.item} />}
-        keyExtractor={(item) => item.name}
-      />
+      )}
+      <Element name={ADVISORS_SECTION} />
+      {showList && (
+        <>
+          <BulletedTitle
+            imageName="Pentagon"
+            title={t(keys.advisors.title)}
+            {...titleProps}
+          />
+          <FlatList
+            mt={{ base: '47px', lg: '73px' }}
+            data={LIST_ITEMS}
+            ItemSeparatorComponent={Separator}
+            numColumns={isDesktop ? 5 : 1}
+            renderItem={(item) => <AdvisorCard item={item.item} />}
+            keyExtractor={(item) => item.name}
+          />
+        </>
+      )}
     </VStack>
   )
 }

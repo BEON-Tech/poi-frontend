@@ -36,5 +36,5 @@ export interface Donation {
   id: string
   type: string
   amount: string
-  etherscanLink: string
+  transactionUrl: string
 }

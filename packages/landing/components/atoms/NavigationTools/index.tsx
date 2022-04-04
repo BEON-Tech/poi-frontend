@@ -9,8 +9,13 @@ import {
   OUR_TEAM_SECTION,
   PUBLIC_AUDIT_SECTION,
 } from '@constants'
+import { ComingSoon } from '@components/atoms'
 
-const NavigationTools = () => {
+export interface INavigationToolsProps {
+  onOperationPress?: () => void
+}
+
+const NavigationTools = ({ onOperationPress }: INavigationToolsProps) => {
   const { t } = useTranslation()
 
   const navigationButtons = [
@@ -24,6 +29,7 @@ const NavigationTools = () => {
   ]
 
   const onPress = (sectionName: string) => {
+    if (onOperationPress) onOperationPress()
     scroller.scrollTo(sectionName, { smooth: true, duration: 1000 })
   }
 
@@ -39,9 +45,13 @@ const NavigationTools = () => {
           {text}
         </Button>
       ))}
-      <Button flex="1" variant="solid" onPress={() => {}}>
-        {t(keys.toolbar.goToApp)}
-      </Button>
+      <ComingSoon
+        Component={(props: any) => (
+          <Button isDisabled flex="1" onPress={() => {}} {...props}>
+            {t(keys.toolbar.goToApp)}
+          </Button>
+        )}
+      />
     </>
   )
 }

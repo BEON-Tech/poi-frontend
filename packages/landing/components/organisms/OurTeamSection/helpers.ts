@@ -22,32 +22,14 @@ import POILogoFiller from '@assets/images/our_team__poi_logo_table_filler.png'
 import ColorFiller1 from '@assets/images/our_team__colors_1_table_filler.png'
 import ColorFiller2 from '@assets/images/our_team__colors_2_table_filler.png'
 
-import { ICard, IPerson, TagsType } from '@constants/types'
+import { ICard, IPerson } from '@constants/types'
 
-interface IFilter {
-  label: string
-  filterKey?: TagsType
+export const POI_LOGO_ITEM = {
+  name: 'POILogoFiller',
+  imagePath: POILogoFiller,
 }
 
-export const FILTERS: IFilter[] = [
-  {
-    label: keys.ourTeam.tags.all,
-  },
-  {
-    label: keys.ourTeam.tags.developers,
-    filterKey: DEVELOPER_TAG,
-  },
-  {
-    label: keys.ourTeam.tags.designAndMarketing,
-    filterKey: DESIGN_AND_MARKETING_TAG,
-  },
-  {
-    label: keys.ourTeam.tags.socialTeam,
-    filterKey: SOCIAL_TEAM_TAG,
-  },
-]
-
-export const LIST_ITEMS: (IPerson | ICard)[] = [
+export default [
   {
     imagePath: MichelCohenImage,
     name: 'Michel Cohen',
@@ -84,10 +66,7 @@ export const LIST_ITEMS: (IPerson | ICard)[] = [
     role: keys.ourTeam.roles.productManager,
     tags: [DESIGN_AND_MARKETING_TAG],
   },
-  {
-    name: 'POILogoFiller',
-    imagePath: POILogoFiller,
-  },
+  POI_LOGO_ITEM,
   {
     name: 'ColorFiller1',
     imagePath: ColorFiller1,
@@ -138,4 +117,4 @@ export const LIST_ITEMS: (IPerson | ICard)[] = [
     role: keys.ourTeam.roles.fundraisingStrategy,
     tags: [SOCIAL_TEAM_TAG],
   },
-]
+] as (IPerson | ICard)[]

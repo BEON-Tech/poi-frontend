@@ -1,34 +1,49 @@
 import { Element } from 'react-scroll'
 import { useTranslation } from 'next-export-i18n'
 import { useEffect } from 'react'
-import { Heading, HStack, Text, VStack } from 'native-base'
+import { Text, VStack, Flex } from 'native-base'
 
 import keys from '@i18n/keys'
 import { PUBLIC_AUDIT_SECTION } from '@constants'
 import { CertificationTable, DonationTable } from '@components/molecules'
 import { API } from '@services'
+import { BulletedTitle } from '@components/atoms'
+import { useBreakpoint } from '@components/providers'
 
 const PublicAuditSection = () => {
+  const { isDesktop } = useBreakpoint()
   const { t } = useTranslation()
 
   useEffect(() => {}, [])
 
   return (
-    <VStack px="80px" pt="150px">
+    <VStack px={{ base: '20px', lg: '80px' }} pt="150px">
       <Element name={PUBLIC_AUDIT_SECTION} />
-      <Heading textAlign="center" size="4xl" fontWeight="semibold">
-        {t(keys.publicAudit.title)}
-      </Heading>
-      <HStack mt="43px">
-        <VStack flex="1" pr="36px">
+      <BulletedTitle
+        pl="30px"
+        separation={isDesktop ? 60 : 30}
+        imageName="Polygon"
+        title={t(keys.publicAudit.title)}
+      />
+      <Flex mt="43px" flexDirection={{ base: 'column', lg: 'row' }} w="100%">
+        <VStack
+          flex="1"
+          pr={{ base: '0', lg: '90px' }}
+          maxW={{ base: '100%', lg: '50%' }}
+        >
           <Text mb="28px">{t(keys.publicAudit.certificationsTable.title)}</Text>
-          <CertificationTable loadData={API.getLatestCertifications} />
+          <CertificationTable loadData={API.getLatestCertifications as any} />
         </VStack>
-        <VStack flex="1" pl="36px">
+        <VStack
+          flex="1"
+          pl={{ base: 0, lg: '36px' }}
+          pt={{ base: '36px', lg: 0 }}
+          maxW={{ base: '100%', lg: '50%' }}
+        >
           <Text mb="28px">{t(keys.publicAudit.donationsTable.title)}</Text>
           <DonationTable loadData={API.getLatestDonations} />
         </VStack>
-      </HStack>
+      </Flex>
     </VStack>
   )
 }

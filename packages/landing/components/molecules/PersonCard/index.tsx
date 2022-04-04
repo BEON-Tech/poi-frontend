@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 import { ICard, IPerson } from '@constants/types'
 import { useTranslation } from 'next-export-i18n'
+import { useBreakpoint } from '../../providers'
 
 interface IPersonCardProps {
   item: IPerson | ICard
@@ -10,7 +11,7 @@ interface IPersonCardProps {
 
 const overlayBGColor = `rgba(242, 228, 227, 0.5)`
 
-const PersonCard = ({ item }: IPersonCardProps) => {
+const PersonCardDesktop = ({ item }: IPersonCardProps) => {
   const { imagePath, name, role } = item
 
   const { t } = useTranslation()
@@ -66,6 +67,50 @@ const PersonCard = ({ item }: IPersonCardProps) => {
         </VStack>
       )}
     </div>
+  )
+}
+
+const PersonCardMobile = ({ item }: IPersonCardProps) => {
+  const { imagePath, name, role } = item
+  const { t } = useTranslation()
+
+  const displayName = name && role
+
+  return (
+    <VStack
+      display="flex"
+      justifyContent="flex-start"
+      alignItems="center"
+      flex="1"
+      margin={{ base: 0, sm: '15px' }}
+    >
+      <img
+        width="145px"
+        height="102px"
+        src={imagePath}
+        alt={`${name}'s facial`}
+      />
+      {displayName && (
+        <VStack justifyContent="center" alignItems="center" w="100%">
+          <Text lineHeight="28px" fontWeight="bold" textAlign="center">
+            {name}
+          </Text>
+          <Text lineHeight="28px" fontSize="md" textAlign="center">
+            {t(role)}
+          </Text>
+        </VStack>
+      )}
+    </VStack>
+  )
+}
+
+const PersonCard = (props: IPersonCardProps) => {
+  const { isDesktop } = useBreakpoint()
+
+  return isDesktop ? (
+    <PersonCardDesktop {...props} />
+  ) : (
+    <PersonCardMobile {...props} />
   )
 }
 

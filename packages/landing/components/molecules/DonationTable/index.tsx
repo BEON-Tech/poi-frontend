@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useTranslation } from 'next-export-i18n'
 
 import keys from '@i18n/keys'
@@ -8,6 +8,7 @@ import {
   GenericTable,
 } from '@components/atoms'
 import type { DonationData } from '@services/API/types'
+import { useBreakpoint } from '@components/providers'
 
 const AMOUNT_ITEMS = 3
 
@@ -26,12 +27,18 @@ const DonationTableBare = ({
   hasMore,
   loading,
 }: IDonationTableBareProps) => {
+  const { isDesktop } = useBreakpoint()
   const { t } = useTranslation()
+
+  const extendedData = useMemo(
+    () => data.map((item) => ({ ...item, collapsed: !isDesktop })),
+    [data, isDesktop]
+  )
 
   return (
     <GenericTable
       footerTitle={t(keys.publicAudit.donationsTable.seeMore)}
-      data={data}
+      data={extendedData}
       hasMore={hasMore}
       loading={loading}
       renderItem={DonationTableCell}

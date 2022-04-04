@@ -1,10 +1,15 @@
 import { FlatList, Button, useToken, View, HStack } from 'native-base'
 import type { IFlatListProps } from 'native-base/lib/typescript/components/basic/FlatList/types'
+import { ComingSoon } from '@components/atoms'
 
 export interface IGenericTableProps
   extends Pick<
-    IFlatListProps,
-    'initialNumToRender' | 'renderItem' | 'data' | 'ListHeaderComponent'
+    IFlatListProps<any>,
+    | 'initialNumToRender'
+    | 'renderItem'
+    | 'data'
+    | 'ListHeaderComponent'
+    | 'extraData'
   > {
   footerTitle: string
   hasMore: boolean
@@ -21,14 +26,22 @@ const Footer = ({ title, enabled }: IFooterProps) => (
     pl="20px"
     justifyContent="flex-start"
     alignItems="center"
-    // py="20px"
     h="70px"
     borderTopWidth="1px"
     borderTopColor="general.100"
   >
-    <Button variant="link" _text={{ fontSize: 'lg' }} isDisabled={!enabled}>
-      {title}
-    </Button>
+    <ComingSoon
+      Component={(props) => (
+        <Button
+          variant="link"
+          _text={{ fontSize: 'lg' }}
+          isDisabled={!enabled}
+          {...props}
+        >
+          {title}
+        </Button>
+      )}
+    />
   </HStack>
 )
 
@@ -42,6 +55,7 @@ const GenericTable = ({
   hasMore,
   loading,
   ListHeaderComponent,
+  extraData,
 }: IGenericTableProps) => {
   const borderColor = useToken('colors', 'general.300')
   const footerEnabled = !loading && hasMore
@@ -52,9 +66,10 @@ const GenericTable = ({
         borderRadius: 30,
         borderColor,
         borderWidth: 1,
-        width: '640px',
-        height: '533px',
+        width: '100%',
+        maxHeight: '533px',
       }}
+      extraData={extraData}
       ListHeaderComponent={ListHeaderComponent}
       keyExtractor={(item) => item.id}
       data={data}

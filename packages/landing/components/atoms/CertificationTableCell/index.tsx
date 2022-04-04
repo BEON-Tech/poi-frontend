@@ -5,10 +5,23 @@ interface ICertificationCellItems extends Certification {
   detailsLabel: string
 }
 export interface ICertificationCellProps {
-  item: ICertificationCellItems
+  item: ICertificationCellItems & { collapsed: boolean }
 }
 
 const redirectToURL = (url: string) => window.open(url, '_blank')
+
+const MoreDetails = ({ item }: ICertificationCellProps) => (
+  <Button
+    p="0"
+    h="100%"
+    alignSelf="flex-start"
+    variant="link"
+    _text={{ fontSize: 'md' }}
+    onPress={() => redirectToURL(item.detailsLink)}
+  >
+    {item.detailsLabel}
+  </Button>
+)
 
 const CertificationCell = ({ item }: ICertificationCellProps) => {
   const dateFormatted = new Date(item.date).toLocaleDateString()
@@ -17,6 +30,9 @@ const CertificationCell = ({ item }: ICertificationCellProps) => {
     minute: '2-digit',
     hour12: false,
   })
+
+  const { collapsed } = item
+
   return (
     <HStack
       w="100%"
@@ -26,33 +42,29 @@ const CertificationCell = ({ item }: ICertificationCellProps) => {
       h="123px"
     >
       <HStack flex="1" alignItems="center" justifyContent="flex-start">
-        <View w="100px" h="80px" maxW="100px" maxH="80px" borderRadius="20px">
+        <View maxW="100px" maxH="80px" borderRadius="20px" overflow="hidden">
           <img
             src={item.image}
-            width={100}
-            height={80}
+            width="100%"
+            height="100%"
             alt={`Certification cell item ${item.id}`}
           />
         </View>
       </HStack>
-      <VStack flex="1" justifyContent="center">
+      <VStack flex="1" justifyContent="flex-start">
         <Text fontWeight="semibold" fontSize="xl">
           {dateFormatted}
         </Text>
         <Text fontWeight="semibold" fontSize="sm">
           {timeFormatted}
         </Text>
+        {collapsed && <MoreDetails item={item} />}
       </VStack>
-      <HStack flex="1" alignItems="center" justifyContent="center">
-        <Button
-          variant="link"
-          textDecorationLine="underline"
-          _text={{ fontSize: 'md' }}
-          onPress={() => redirectToURL(item.detailsLink)}
-        >
-          {item.detailsLabel}
-        </Button>
-      </HStack>
+      {!collapsed && (
+        <HStack flex="1" alignItems="center" justifyContent="center">
+          <MoreDetails item={item} />
+        </HStack>
+      )}
     </HStack>
   )
 }
