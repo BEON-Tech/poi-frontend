@@ -1,7 +1,8 @@
 import { Divider, HStack, IconButton, Text } from 'native-base'
 
 import { Images, NavigationTools, LanguageSelect } from '@components/atoms'
-import { useBreakpoint } from '@components/providers'
+import { Container } from '@components/templates'
+import { useBreakpoint } from '@hooks'
 import { useTranslation } from 'next-export-i18n'
 import keys from '@i18n/keys'
 

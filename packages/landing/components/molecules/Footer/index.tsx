@@ -3,7 +3,8 @@ import { useTranslation } from 'next-export-i18n'
 import keys from '@i18n/keys'
 
 import { Images, NavigationTools } from '@components/atoms'
-import { useBreakpoint } from '@components/providers'
+import { Container } from '@components/templates'
+import { useBreakpoint } from '@hooks'
 
 const socialButtons = [
   {
@@ -30,52 +31,56 @@ const Toolbar = () => {
   const { t } = useTranslation()
 
   return (
-    <HStack bg="general.100" px="80px" pt="40px" pb="51px" w="100%">
-      <VStack flex="1">
-        <View width="84px" height="84px">
-          <Images.Logo width="84px" height="84px" />
-        </View>
-        <Text mt="18px" fontWeight="bold">
-          {t(keys.footer.title)}
-        </Text>
-        <Text mt="11px" fontSize="xs" color="general.400" opacity="50%">
-          {t(keys.footer.subtitle)}
-        </Text>
-        <HStack mt="52px">
-          {socialButtons.map(
-            ({ name, Icon, onPress: onIconPress, ...props }) => (
-              <IconButton
-                {...props}
-                key={name}
-                p="0"
-                m="0"
-                onPress={onIconPress}
-                icon={<Icon />}
-              />
-            )
+    <View bg="general.100" w="100%">
+      <Container>
+        <HStack bg="general.100" px="80px" pt="40px" pb="51px" w="100%">
+          <VStack flex="1">
+            <View width="84px" height="84px">
+              <Images.Logo width="84px" height="84px" />
+            </View>
+            <Text mt="18px" fontWeight="bold">
+              {t(keys.footer.title)}
+            </Text>
+            <Text mt="11px" fontSize="xs" color="general.400" opacity="50%">
+              {t(keys.footer.subtitle)}
+            </Text>
+            <HStack mt="52px">
+              {socialButtons.map(
+                ({ name, Icon, onPress: onIconPress, ...props }) => (
+                  <IconButton
+                    {...props}
+                    key={name}
+                    p="0"
+                    m="0"
+                    onPress={onIconPress}
+                    icon={<Icon />}
+                  />
+                )
+              )}
+            </HStack>
+          </VStack>
+          {isDesktop && (
+            <VStack flex="3" h="100%">
+              <HStack
+                justifyContent="space-between"
+                alignItems="center"
+                mt="34px"
+                maxH="50px"
+                w="100%"
+                pr="50px"
+              >
+                <NavigationTools />
+              </HStack>
+              <View justifySelf="flex-end" alignSelf="flex-end" mt="140px">
+                <Text fontSize="xs" color="general.400" opacity="50%">
+                  {t(keys.footer.disclaimer)}
+                </Text>
+              </View>
+            </VStack>
           )}
         </HStack>
-      </VStack>
-      {isDesktop && (
-        <VStack flex="3" h="100%">
-          <HStack
-            justifyContent="space-between"
-            alignItems="center"
-            mt="34px"
-            maxH="50px"
-            w="100%"
-            pr="50px"
-          >
-            <NavigationTools />
-          </HStack>
-          <View justifySelf="flex-end" alignSelf="flex-end" mt="140px">
-            <Text fontSize="xs" color="general.400" opacity="50%">
-              {t(keys.footer.disclaimer)}
-            </Text>
-          </View>
-        </VStack>
-      )}
-    </HStack>
+      </Container>
+    </View>
   )
 }
 

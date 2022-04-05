@@ -1,7 +1,7 @@
 import { useMemo, useState, useEffect } from 'react'
 import { useTranslation } from 'next-export-i18n'
 
-import { useBreakpoint } from '@components/providers'
+import { useBreakpoint } from '@hooks'
 import keys from '@i18n/keys'
 import {
   CertificationTableCell,

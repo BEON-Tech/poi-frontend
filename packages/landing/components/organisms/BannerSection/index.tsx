@@ -5,7 +5,7 @@ import { useTranslation } from 'next-export-i18n'
 import keys from '@i18n/keys'
 import { BANNER_SECTION } from '@constants'
 import { Images, ContentBubble } from '@components/atoms'
-import { useBreakpoint } from '@components/providers'
+import { useBreakpoint } from '@hooks'
 
 const BannerSectionDesktop = () => {
   const { t } = useTranslation()

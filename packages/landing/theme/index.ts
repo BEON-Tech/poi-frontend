@@ -31,11 +31,9 @@ const fontSizesMobile = {
   '7xl': '40px',
 }
 
-// 16
-
 const fontFamily = 'Hauora'
 
-export default {
+const defaultTheme = {
   components: {
     Button: ButtonThemeDefinition,
     Modal: {
@@ -55,6 +53,7 @@ export default {
         },
       },
       defaultProps: {
+        allowFontScaling: true,
         fontSize: 'lg',
         fontFamily,
         fontVariant: 'normal',
@@ -126,7 +125,7 @@ export default {
       sizes: {},
     },
   },
-  fontSizes: fontSizesMobile,
+  fontSizes,
   fontConfig: {
     Hauora: {
       200: {
@@ -178,3 +177,7 @@ export default {
     },
   },
 } as ICustomTheme
+
+export const webTheme = defaultTheme
+
+export const mobileTheme = { ...defaultTheme, fontSizes: fontSizesMobile }

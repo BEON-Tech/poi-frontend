@@ -9,7 +9,8 @@ export const WHY_US_SECTION = 'WhyUsSection'
 export const CONTACT_US_SECTION = 'ContactUsSection'
 export const PARTNERS_SECTION = 'PartnersSection'
 
-
 export const DEVELOPER_TAG = 'developer'
 export const DESIGN_AND_MARKETING_TAG = 'design&marketing'
 export const SOCIAL_TEAM_TAG = 'socialTeam'
+
+export const MAX_WIDTH = '1512px'

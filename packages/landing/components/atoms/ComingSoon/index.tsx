@@ -1,6 +1,6 @@
 import React from 'react'
 import { Popover, Tooltip } from 'native-base'
-import { useBreakpoint } from '@components/providers'
+import { useBreakpoint } from '@hooks'
 import { useTranslation } from 'next-export-i18n'
 import keys from '@i18n/keys'
 

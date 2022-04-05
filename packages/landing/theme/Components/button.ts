@@ -103,8 +103,7 @@ function variantSolid(props: any) {
 
   const styleObject = {
     borderRadius: '3000px',
-    maxW: '200px',
-    w: '100%',
+
     _web: {
       outlineWidth: '0',
     },
@@ -183,6 +182,8 @@ export default {
   variants,
   sizes: {},
   defaultProps: {
+    maxWidth: '250px',
+    w: '100%',
     h: 50,
     fontWeight: 'semibold',
     colorScheme: 'primary',

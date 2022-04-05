@@ -6,28 +6,31 @@ import keys from '@i18n/keys'
 import { INTRO_SECTION } from '@constants'
 import { IntroSectionImages } from '@components/molecules'
 import { Images } from '@components/atoms'
-import { useBreakpoint } from '@components/providers'
+import { useBreakpoint } from '@hooks'
+import { Container } from '@components/templates'
 
 const IntroSectionDesktop = () => {
   const { t } = useTranslation()
 
   return (
-    <HStack pb="140px">
-      <Element name={INTRO_SECTION} />
-      <VStack mt="100px" ml="80px" maxW="640px" flex="1">
-        <Heading size="7xl" fontWeight="normal" lineHeight="110px">
-          {t(keys.introSection.title)}
-        </Heading>
-        <Text mt="16">{t(keys.introSection.subTitle.firstSection)}</Text>
-        <Text mt="5" mb="16">
-          {t(keys.introSection.subTitle.secondSection)}
-        </Text>
-        <Button variant="solid" maxW="250px" w="100%" h="60px">
-          {t(keys.introSection.donateCTA)}
-        </Button>
-      </VStack>
-      <IntroSectionImages />
-    </HStack>
+    <Container>
+      <HStack pb="140px">
+        <Element name={INTRO_SECTION} />
+        <VStack mt="100px" ml="80px" maxW="640px" flex="1">
+          <Heading size="7xl" fontWeight="normal" lineHeight="110px">
+            {t(keys.introSection.title)}
+          </Heading>
+          <Text mt="16">{t(keys.introSection.subTitle.firstSection)}</Text>
+          <Text mt="5" mb="16">
+            {t(keys.introSection.subTitle.secondSection)}
+          </Text>
+          <Button variant="solid" maxW="250px" w="100%" h="60px">
+            {t(keys.introSection.donateCTA)}
+          </Button>
+        </VStack>
+        <IntroSectionImages />
+      </HStack>
+    </Container>
   )
 }
 
@@ -44,7 +47,7 @@ const IntroSectionMobile = () => {
         <Heading mb="31px" size="7xl" fontWeight="normal" lineHeight="60px">
           {t(keys.introSection.title)}
         </Heading>
-        <Button variant="solid" maxW="100%" w="100%" h="60px">
+        <Button variant="solid" h="60px">
           {t(keys.introSection.donateCTA)}
         </Button>
         <View mb="30px" mt="59px">

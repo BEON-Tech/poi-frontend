@@ -9,7 +9,7 @@ import {
   VStack,
 } from 'native-base'
 
-import { useBreakpoint } from '@components/providers'
+import { useBreakpoint } from '@hooks'
 import Images, { IComponentKeys } from '@components/atoms/Images'
 import { IHStackProps } from 'native-base/lib/typescript/components/primitives/Stack/HStack'
 import { IVStackProps } from 'native-base/lib/typescript/components/primitives/Stack/VStack'

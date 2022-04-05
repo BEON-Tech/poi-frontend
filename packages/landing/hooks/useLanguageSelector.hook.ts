@@ -11,7 +11,7 @@ export interface IUseLanguageSelectorResult {
   restLangs: typeof Languages
 }
 
-export const useLanguageSelector = (): IUseLanguageSelectorResult => {
+const useLanguageSelector = (): IUseLanguageSelectorResult => {
   const [query] = useLanguageQuery()
   const router = useRouter()
 
@@ -30,3 +30,5 @@ export const useLanguageSelector = (): IUseLanguageSelectorResult => {
 
   return { onChange, currentLang: current, restLangs: rest }
 }
+
+export default useLanguageSelector

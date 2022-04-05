@@ -14,8 +14,9 @@ import keys from '@i18n/keys'
 import { OUR_TEAM_SECTION } from '@constants'
 import { PersonCard } from '@components/molecules'
 import { BulletedTitle } from '@components/atoms'
+import { Container } from '@components/templates'
 
-import { useBreakpoint } from '@components/providers'
+import { useBreakpoint } from '@hooks'
 import ListItems, { POI_LOGO_ITEM } from './helpers'
 
 const Separator = () => <View h={{ base: '76px', lg: 0 }} />
@@ -24,16 +25,18 @@ const OurTeamSectionDesktop = () => {
   const { t } = useTranslation()
 
   return (
-    <VStack pt="217px" alignItems="center">
-      <Element name={OUR_TEAM_SECTION} />
-      <BulletedTitle imageName="Pentagon" title={t(keys.ourTeam.title)} />
-      <FlatList
-        data={ListItems}
-        numColumns={4}
-        renderItem={(item) => <PersonCard item={item.item} />}
-        keyExtractor={(item) => item.name}
-      />
-    </VStack>
+    <Container>
+      <VStack pt="217px" alignItems="center">
+        <Element name={OUR_TEAM_SECTION} />
+        <BulletedTitle imageName="Pentagon" title={t(keys.ourTeam.title)} />
+        <FlatList
+          data={ListItems}
+          numColumns={4}
+          renderItem={(item) => <PersonCard item={item.item} />}
+          keyExtractor={(item) => item.name}
+        />
+      </VStack>
+    </Container>
   )
 }
 
@@ -64,7 +67,7 @@ const OurTeamSectionMobile = () => {
       />
       <Button
         w="100%"
-        maxW="100%"
+        // maxW="100%"
         onPress={onShowHide}
         variant="solid"
         mb={show ? '28px' : 0}

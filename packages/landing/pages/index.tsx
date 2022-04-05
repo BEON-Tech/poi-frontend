@@ -15,8 +15,9 @@ import {
   ContactUsSection,
   MobileMenu,
 } from '@components/organisms'
-import { useBreakpoint } from '@components/providers'
+import { useBreakpoint } from '@hooks'
 import { Toolbar, Footer } from '@components/molecules'
+import { MAX_WIDTH } from '@constants'
 
 const Home: NextPage = () => {
   const { isDesktop } = useBreakpoint()
@@ -26,6 +27,7 @@ const Home: NextPage = () => {
   return (
     <VStack w="100%" overflowY="hidden">
       {!isDesktop && showMenu && <MobileMenu onClosePress={onCloseMenu} />}
+
       <Toolbar onMenuPress={onShowMenu} />
       <IntroSection />
       <BannerSection />

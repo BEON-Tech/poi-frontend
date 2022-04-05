@@ -8,7 +8,7 @@ import {
   GenericTable,
 } from '@components/atoms'
 import type { DonationData } from '@services/API/types'
-import { useBreakpoint } from '@components/providers'
+import { useBreakpoint } from '@hooks'
 
 const AMOUNT_ITEMS = 3
 

@@ -15,55 +15,57 @@ import keys from '@i18n/keys'
 import { ABOUT_POI_SECTION } from '@constants'
 import { Images } from '@components/atoms'
 import { AboutPOIOutlinedImage } from '@components/molecules'
-import { useBreakpoint } from '@components/providers'
+import { Container } from '@components/templates'
+import { useBreakpoint } from '@hooks'
 import { useState } from 'react'
 
 const AboutPOISectionDesktop = () => {
   const { t } = useTranslation()
   return (
-    <HStack
-      zIndex="2"
-      bg="general.50"
-      justifyContent="center"
-      alignItems="flex-start"
-      mt="-70px"
-      pt="101px"
-      borderRadius="70px"
-    >
-      <Element name={ABOUT_POI_SECTION} />
-      <AboutPOIOutlinedImage />
-      <VStack flex="1" pt="51px">
-        <Text fontSize="4xl" lineHeight="76.5px">
-          {t(keys.aboutPOI.upperTittle)}
-        </Text>
-        <Heading size="6xl" fontWeight="semibold" lineHeight="109.28px">
-          {t(keys.aboutPOI.tittle)}
-        </Heading>
-        <HStack mt="37px" w="601px">
-          <View w="60px">
-            <Images.Polygon height="35px" width="35px" />
-          </View>
-          <View w="100%">
-            <Text>{t(keys.aboutPOI.descriptionFirstParagraph)}</Text>
-            <Text mt="5">{t(keys.aboutPOI.descriptionSecondParagraph)}</Text>
-            <Text mt="5">{t(keys.aboutPOI.descriptionThirdParagraph)}</Text>
-          </View>
+    <View zIndex="2" bg="general.50" mt="-70px" pt="101px" borderRadius="70px">
+      <Container>
+        <HStack justifyContent="center" alignItems="flex-start">
+          <Element name={ABOUT_POI_SECTION} />
+          <AboutPOIOutlinedImage />
+          <VStack flex="1" pt="51px">
+            <Text fontSize="4xl" lineHeight="76.5px">
+              {t(keys.aboutPOI.upperTittle)}
+            </Text>
+            <Heading size="6xl" fontWeight="semibold" lineHeight="109.28px">
+              {t(keys.aboutPOI.tittle)}
+            </Heading>
+            <HStack mt="37px" w="601px">
+              <View w="60px">
+                <Images.Polygon height="35px" width="35px" />
+              </View>
+              <View w="100%">
+                <Text>{t(keys.aboutPOI.descriptionFirstParagraph)}</Text>
+                <Text mt="5">
+                  {t(keys.aboutPOI.descriptionSecondParagraph)}
+                </Text>
+                <Text mt="5">{t(keys.aboutPOI.descriptionThirdParagraph)}</Text>
+              </View>
+            </HStack>
+            <View
+              mt="40px"
+              justifySelf="flex-end"
+              alignSelf="flex-end"
+              width="606px"
+              height="266px"
+              borderTopLeftRadius="315px"
+              borderTopRightRadius="315px"
+              borderBottomRadius="20px"
+              overflow="hidden"
+            >
+              <Images.PersonBottomAboutPOISection
+                width="606px"
+                height="266px"
+              />
+            </View>
+          </VStack>
         </HStack>
-        <View
-          mt="40px"
-          justifySelf="flex-end"
-          alignSelf="flex-end"
-          width="606px"
-          height="266px"
-          borderTopLeftRadius="315px"
-          borderTopRightRadius="315px"
-          borderBottomRadius="20px"
-          overflow="hidden"
-        >
-          <Images.PersonBottomAboutPOISection width="606px" height="266px" />
-        </View>
-      </VStack>
-    </HStack>
+      </Container>
+    </View>
   )
 }
 

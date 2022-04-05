@@ -28,7 +28,9 @@
       "@services": ["./services"],
       "@services/*": ["./services/*"],
       "@assets": ["./assets"],
-      "@assets/*": ["./assets/*"]
+      "@assets/*": ["./assets/*"],
+      "@context": ["./context"],
+      "@hooks": ["./hooks"]
     }
   },
   "files": ["./custom.d.ts"],

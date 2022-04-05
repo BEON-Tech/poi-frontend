@@ -2,7 +2,7 @@ import { HStack, Text } from 'native-base'
 import { useTranslation } from 'next-export-i18n'
 
 import keys from '@i18n/keys'
-import { useBreakpoint } from '@components/providers'
+import { useBreakpoint } from '@hooks'
 
 const DonationTableHeader = () => {
   const { isDesktop } = useBreakpoint()
