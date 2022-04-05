@@ -17,7 +17,6 @@ import {
 } from '@components/organisms'
 import { useBreakpoint } from '@hooks'
 import { Toolbar, Footer } from '@components/molecules'
-import { MAX_WIDTH } from '@constants'
 
 const Home: NextPage = () => {
   const { isDesktop } = useBreakpoint()
