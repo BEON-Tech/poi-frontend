@@ -47,7 +47,13 @@ const NavigationTools = ({ onOperationPress }: INavigationToolsProps) => {
       ))}
       <ComingSoon
         Component={(props: any) => (
-          <Button isDisabled flex="1" onPress={() => {}} {...props}>
+          <Button
+            w={{ base: '200px', lg: 'unset' }}
+            isDisabled
+            flex="1"
+            onPress={() => {}}
+            {...props}
+          >
             {t(keys.toolbar.goToApp)}
           </Button>
         )}

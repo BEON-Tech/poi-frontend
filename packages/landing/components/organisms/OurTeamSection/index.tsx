@@ -30,6 +30,7 @@ const OurTeamSectionDesktop = () => {
         <Element name={OUR_TEAM_SECTION} />
         <BulletedTitle imageName="Pentagon" title={t(keys.ourTeam.title)} />
         <FlatList
+          mt="73px"
           data={ListItems}
           numColumns={4}
           renderItem={(item) => <PersonCard item={item.item} />}
@@ -67,7 +68,6 @@ const OurTeamSectionMobile = () => {
       />
       <Button
         w="100%"
-        // maxW="100%"
         onPress={onShowHide}
         variant="solid"
         mb={show ? '28px' : 0}
@@ -77,6 +77,7 @@ const OurTeamSectionMobile = () => {
       </Button>
       {show && (
         <FlatList
+          mt="47px"
           data={Items}
           numColumns={2}
           ItemSeparatorComponent={Separator}

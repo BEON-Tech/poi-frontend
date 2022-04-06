@@ -23,7 +23,7 @@ const PersonCardDesktop = ({ item }: IPersonCardProps) => {
   const hideInformation = () => setShowInfo(false)
 
   return (
-    <View maxW="316px" maxH="223px" m="10px">
+    <View w="auto" h="100%" maxW="316px" maxH="223px" m="10px" flex="1">
       <div
         style={{
           display: 'flex',

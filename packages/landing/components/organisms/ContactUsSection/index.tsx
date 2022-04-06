@@ -1,4 +1,4 @@
-import { Flex, HStack, Heading, VStack, Button, View, Text } from 'native-base'
+import { Flex, Heading, VStack, Button, View, Text } from 'native-base'
 import { Element } from 'react-scroll'
 
 import { CONTACT_US_SECTION } from '@constants'
@@ -10,66 +10,83 @@ import { Container } from '@components/templates'
 const ConctactUsSection = () => {
   const { t } = useTranslation()
 
-  const buttonText = t(keys.contactUS.button)
+  const buttonText = 'info@proofofintegrity.org'
   const onMailPress = () => {
     window.location.href = `mailto:${buttonText}`
   }
   return (
     <Container>
+      <Element name={CONTACT_US_SECTION} />
       <Flex
         position="relative"
         pb={{ base: '100px', lg: '210px' }}
         pt={{ base: '100px', lg: '170px' }}
         px={{ base: '20px', lg: '80px' }}
-        flexDirection={{ base: 'column', md: 'row' }}
+        alignItems="center"
+        flexDirection={{ base: 'column', xl: 'row' }}
       >
-        <Element name={CONTACT_US_SECTION} />
-        <HStack flex="1" mb="35px">
+        <View
+          flex="1"
+          height="100%"
+          maxH="345px"
+          maxW={{ base: '100%', sm: '600px', lg: '633px' }}
+          mb={{ base: '35px', xl: 0 }}
+          mr={{ lg: '10px' }}
+        >
           <View
+            flex="1"
             position="absolute"
             borderWidth="1px"
             borderColor="general.100"
-            top="15px"
-            left="40px"
+            top="20px"
+            left="50px"
             borderRadius={{ base: '30px', lg: '50px' }}
             w={{ base: '90%', lg: '595px' }}
             h={{ base: '100%', lg: '327px' }}
           />
           <View
-            mr="50px"
             overflow="hidden"
+            maxW={{ lg: '633px' }}
+            flex="1"
             borderRadius={{ base: '30px', lg: '50px' }}
-            w={{ base: '90%', lg: '595px' }}
-            h={{ base: 'auto', lg: '325px' }}
+            w="100%"
+            h="auto"
           >
-            <Images.ContactUsLeftImage width="100%" height="100%" />
+            <Images.ContactUsLeftImage width="100%" height="auto" />
           </View>
-        </HStack>
-        <VStack
+        </View>
+        <View
+          maxW={{ base: '100%', sm: '600px', lg: '633px' }}
+          maxH="345px"
+          h={{ lg: '100%', xl: '345px' }}
           flex="1"
-          bg="general.100"
-          height="325px"
-          maxW={{ base: '100%', lg: '633px' }}
-          width="100%"
-          py={{ base: '27px', lg: '50px' }}
-          px={{ base: '33px', lg: '87px' }}
-          borderRadius="50px"
+          w="100%"
+          ml={{ lg: '10px' }}
         >
-          <Heading w="480px" size="2xl" fontWeight="normal" lineHeight="70px">
-            {t(keys.contactUS.title)}
-          </Heading>
-          <Text fontSize="lg">{t(keys.contactUS.subtitle)}</Text>
-          <Button
-            onPress={onMailPress}
-            leftIcon={<Images.MailLogoGreen width="40px" height="40px" />}
-            mt="45px"
-            maxW="300px"
-            w={{ base: '100%', lg: '313px' }}
-            variant="outline"
+          <VStack
+            h="100%"
+            bg="general.100"
+            // maxW={{ base: '100%', lg: '633px' }}
+            py={{ base: '27px', lg: '50px' }}
+            px={{ base: '33px', lg: '87px' }}
+            borderRadius="50px"
           >
-            {buttonText}
-          </Button>
-        </VStack>
+            <Heading size="2xl" fontWeight="normal" lineHeight="70px">
+              {t(keys.contactUS.title)}
+            </Heading>
+            <Text fontSize="lg">{t(keys.contactUS.subtitle)}</Text>
+            <Button
+              onPress={onMailPress}
+              leftIcon={<Images.MailLogoGreen width="40px" height="40px" />}
+              mt="45px"
+              maxW="300px"
+              w={{ base: '100%', lg: '313px' }}
+              variant="outline"
+            >
+              {buttonText}
+            </Button>
+          </VStack>
+        </View>
       </Flex>
     </Container>
   )

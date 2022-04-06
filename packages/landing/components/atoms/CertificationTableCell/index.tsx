@@ -14,6 +14,7 @@ const MoreDetails = ({ item }: ICertificationCellProps) => (
   <Button
     p="0"
     h="100%"
+    w="auto"
     alignSelf="flex-start"
     variant="link"
     _text={{ fontSize: 'md' }}
@@ -42,7 +43,13 @@ const CertificationCell = ({ item }: ICertificationCellProps) => {
       h="123px"
     >
       <HStack flex="1" alignItems="center" justifyContent="flex-start">
-        <View maxW="100px" maxH="80px" borderRadius="20px" overflow="hidden">
+        <View
+          w="100%"
+          maxW="100px"
+          maxH="80px"
+          borderRadius="20px"
+          overflow="hidden"
+        >
           <img
             src={item.image}
             width="100%"
@@ -52,13 +59,17 @@ const CertificationCell = ({ item }: ICertificationCellProps) => {
         </View>
       </HStack>
       <VStack flex="1" justifyContent="flex-start">
-        <Text fontWeight="semibold" fontSize="xl">
+        <Text fontWeight="semibold" fontSize="md">
           {dateFormatted}
         </Text>
         <Text fontWeight="semibold" fontSize="sm">
           {timeFormatted}
         </Text>
-        {collapsed && <MoreDetails item={item} />}
+        {collapsed && (
+          <View>
+            <MoreDetails item={item} />
+          </View>
+        )}
       </VStack>
       {!collapsed && (
         <HStack flex="1" alignItems="center" justifyContent="center">

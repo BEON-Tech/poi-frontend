@@ -15,6 +15,7 @@ const MoreDetails = ({ item }: IDonationTableCellProps) => (
   <Button
     p="0"
     h="100%"
+    w="auto"
     alignSelf="flex-start"
     variant="link"
     _text={{ fontSize: 'md' }}

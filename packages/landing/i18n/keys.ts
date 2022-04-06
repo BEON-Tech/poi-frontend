@@ -1,3 +1,10 @@
+import {
+  CERTIFIER_PAYMENT_TYPE,
+  DONATION_TYPE,
+  EXPENSE_TYPE,
+  POH_FUNDING_TYPE,
+} from '../constants'
+
 const keys = {
   unclassified: {
     comingSoonTitle: 'comingSoonTitle',
@@ -124,12 +131,18 @@ const keys = {
   contactUS: {
     title: 'title',
     subtitle: 'subtitle',
-    button: 'button',
   },
   footer: {
     title: 'title',
     subtitle: 'subtitle',
     disclaimer: 'disclaimer',
+  },
+  transactions: {
+    administrativeExpenses: 'administrativeExpenses',
+    donation: 'donation',
+    pohFunding: 'pohFunding',
+    certifierPayment: 'certifierPayment',
+    genericTransaction: 'genericTransaction',
   },
 }
 
@@ -153,4 +166,13 @@ export const Languages = [
   { lang: 'es', iconName: 'SpanishFlag' },
 ]
 
-export default expandedKeys(keys) as typeof keys
+const expandedKeysObject = expandedKeys(keys) as typeof keys
+
+export const TRANSACTION_TYPE_TO_LANGUAGE_KEY = {
+  [EXPENSE_TYPE]: expandedKeysObject.transactions.administrativeExpenses,
+  [DONATION_TYPE]: expandedKeysObject.transactions.donation,
+  [POH_FUNDING_TYPE]: expandedKeysObject.transactions.pohFunding,
+  [CERTIFIER_PAYMENT_TYPE]: expandedKeysObject.transactions.certifierPayment,
+}
+
+export default expandedKeysObject

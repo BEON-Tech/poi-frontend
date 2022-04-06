@@ -24,9 +24,8 @@ const Home: NextPage = () => {
   const onShowMenu = () => setShowMenu(true)
   const onCloseMenu = () => setShowMenu(false)
   return (
-    <VStack w="100%" overflowY="hidden">
+    <VStack overflowY="hidden" testID="testing">
       {!isDesktop && showMenu && <MobileMenu onClosePress={onCloseMenu} />}
-
       <Toolbar onMenuPress={onShowMenu} />
       <IntroSection />
       <BannerSection />

@@ -1,3 +1,4 @@
+import React from 'react'
 import { Element } from 'react-scroll'
 import { useTranslation } from 'next-export-i18n'
 import { VStack, HStack, View, Button, Text, Heading } from 'native-base'
@@ -7,8 +8,14 @@ import { ASSISTANCE_PROGRAM_SECTION } from '@constants'
 import { BulletedTitle, Images } from '@components/atoms'
 import { Container } from '@components/templates'
 import { useBreakpoint } from '@hooks'
+import { IHStackProps } from 'native-base/lib/typescript/components/primitives/Stack/HStack'
 
-const aimBoxItems = [
+interface IAimBoxItem extends IHStackProps {
+  Image: React.FC
+  text: string
+}
+
+const aimBoxItems: IAimBoxItem[] = [
   {
     Image: () => (
       <Images.AssistanceProgramAimFirstIcon width="24px" height="24px" />
@@ -26,6 +33,8 @@ const aimBoxItems = [
       <Images.AssistanceProgramAimThirdIcon width="24px" height="24px" />
     ),
     text: keys.assistanceProgram.aimBox.thirdItem,
+    pr: '150',
+    alignItems: 'flex-start',
   },
 ]
 
@@ -39,10 +48,10 @@ const AssistanceProgramSectionDesktop = () => {
         <Heading textAlign="center" size="4xl" fontWeight="semibold">
           {t(keys.assistanceProgram.title)}
         </Heading>
-        <HStack mt="60px">
-          <VStack flex="1">
+        <HStack mt="60px" justifyContent="space-between">
+          <VStack flex="1" mr="20px">
             <HStack
-              maxH="243px"
+              maxH="auto"
               maxW="643px"
               borderWidth="1px"
               borderColor="general.100"
@@ -64,52 +73,48 @@ const AssistanceProgramSectionDesktop = () => {
               mt="28px"
               h="180px"
               maxH="180px"
-              maxW="643px"
+              maxW="auto"
               borderRadius="20px"
               bg="general.100"
-              pl="70px"
-              pr="52px"
+              px="20px"
               alignItems="center"
             >
-              <Text w="240px" mr="30px" lineHeight="60px" fontSize="4xl">
+              <Text flex="1" lineHeight="60px" fontSize="4xl">
                 {t(keys.assistanceProgram.secondBox.title)}
               </Text>
-              <Button maxW="250px" h="60px">
+              <Button
+                flex="3"
+                minW="200px"
+                maxW="250px"
+                w="100%"
+                h="60px"
+                alignSelf="center"
+              >
                 {t(keys.assistanceProgram.secondBox.button)}
               </Button>
             </HStack>
           </VStack>
           <VStack flex="1" justifyContent="flex-start">
             <VStack
-              borderWidth="1px"
-              p="25px"
-              w="405px"
-              h="405px"
-              borderRadius="20px"
-              borderColor="general.100"
-            >
-              <Images.AssistanceProgramMap width="355px" height="355px" />
-            </VStack>
-            <VStack
-              position="absolute"
-              left="291px"
-              top="171px"
               borderColor="general.100"
               borderRadius="20px"
               borderWidth="1px"
               py="32px"
               px="24px"
+              maxW="405px"
+              maxH="405px"
               bg="general.50"
             >
               <Text fontSize="xl" lineHeight="40px">
                 {t(keys.assistanceProgram.aimBox.title)}
               </Text>
-              {aimBoxItems.map(({ Image, text }) => (
+              {aimBoxItems.map(({ Image, text, ...props }) => (
                 <HStack
                   justifyContent="flex-start"
                   alignItems="center"
                   mt="23px"
                   key={`assistance-program-${text}`}
+                  {...props}
                 >
                   <View>
                     <Image />
@@ -119,6 +124,18 @@ const AssistanceProgramSectionDesktop = () => {
                   </Text>
                 </HStack>
               ))}
+            </VStack>
+            <VStack
+              borderRadius="20px"
+              bg="general.100"
+              p="21px"
+              w={{ lg: '225px', xl: '270px' }}
+              h={{ lg: '225px', xl: '270px' }}
+              position="absolute"
+              left="255px"
+              top="185px"
+            >
+              <Images.AssistanceProgramMap width="100%" height="100%" />
             </VStack>
           </VStack>
         </HStack>

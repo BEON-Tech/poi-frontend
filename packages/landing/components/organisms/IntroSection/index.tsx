@@ -14,17 +14,25 @@ const IntroSectionDesktop = () => {
 
   return (
     <Container>
-      <HStack pb="140px">
+      <HStack pb="140px" mt="60px">
         <Element name={INTRO_SECTION} />
-        <VStack mt="100px" ml="80px" maxW="640px" flex="1">
-          <Heading size="7xl" fontWeight="normal" lineHeight="110px">
+        <VStack ml="80px" maxW="640px" flex="1">
+          <Heading size="7xl" fontWeight="light" lineHeight="110px">
             {t(keys.introSection.title)}
           </Heading>
           <Text mt="16">{t(keys.introSection.subTitle.firstSection)}</Text>
           <Text mt="5" mb="16">
             {t(keys.introSection.subTitle.secondSection)}
           </Text>
-          <Button variant="solid" maxW="250px" w="100%" h="60px">
+          <Button
+            variant="solid"
+            maxW="250px"
+            w="100%"
+            h="60px"
+            onPress={() => {
+              console.log('donate')
+            }}
+          >
             {t(keys.introSection.donateCTA)}
           </Button>
         </VStack>
@@ -40,14 +48,14 @@ const IntroSectionMobile = () => {
   return (
     <VStack zIndex="-1">
       <Element name={INTRO_SECTION} />
-      <View width="100%" height="auto" mt="-70px">
-        <Images.PeopleCenterIntroSection width="100%" height="auto" />
+      <View width="auto" height="auto" maxH="750px" mt="-70px">
+        <Images.PeopleCenterIntroSection width="100%" height="100%" />
       </View>
       <VStack bg="general.50" p="20px" borderRadius="30px" mt="-44px">
         <Heading mb="31px" size="7xl" fontWeight="normal" lineHeight="60px">
           {t(keys.introSection.title)}
         </Heading>
-        <Button variant="solid" h="60px">
+        <Button variant="solid" h="60px" alignSelf="center" onPress={() => {}}>
           {t(keys.introSection.donateCTA)}
         </Button>
         <View mb="30px" mt="59px">

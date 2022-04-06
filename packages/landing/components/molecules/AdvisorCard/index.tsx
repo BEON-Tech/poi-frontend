@@ -16,8 +16,7 @@ const AdvisorCard = ({ item }: IAdvisorCardProps) => {
     <Flex
       w={{ base: '100%', lg: '222px' }}
       px={{ base: '10px', lg: '25px' }}
-      // mb={{ base: '76px', lg: '0' }}
-      flexDirection={{ base: 'row', sm: 'column' }}
+      flexDirection={{ base: 'row', lg: 'column' }}
     >
       <View
         flex={{ base: '1', lg: 'unset' }}

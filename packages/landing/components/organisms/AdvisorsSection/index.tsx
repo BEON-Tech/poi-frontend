@@ -44,9 +44,8 @@ const AdvisorsSection = () => {
     <Container>
       <VStack
         alignItems="center"
-        mt={isDesktop ? '161px' : '37px'}
+        mt={isDesktop ? '161px' : '50px'}
         px={{ base: '20px', lg: '80px' }}
-        pt={{ base: '40px', lg: 0 }}
       >
         {!isDesktop && (
           <Button

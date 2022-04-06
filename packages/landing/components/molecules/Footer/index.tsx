@@ -10,18 +10,24 @@ const socialButtons = [
   {
     name: 'twitter',
     Icon: () => <Images.TwitterLogo width="23.83px" height="19.44px" />,
-    onPress: () => window.open('https://twitter.com/poi_app', '_blank'),
+    onPress: () => window.open('https://twitter.com/proof_integrity', '_blank'),
   },
   {
     name: 'linkedin',
     Icon: () => <Images.LinkedinLogo width="25px" height="26px" />,
-    onPress: () => window.open('https://twitter.com/poi_app', '_blank'),
+    onPress: () =>
+      window.open(
+        'https://www.linkedin.com/company/proof-of-integrity/',
+        '_blank'
+      ),
     ml: '46px',
   },
   {
     name: 'mail',
     Icon: () => <Images.MailLogo width="26px" height="26px" />,
-    onPress: () => window.open('https://twitter.com/poi_app', '_blank'),
+    onPress: () => {
+      window.location.href = `mailto:info@proofofintegrity.org`
+    },
     ml: '46px',
   },
 ]

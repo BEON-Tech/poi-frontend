@@ -61,7 +61,7 @@
       "seeMore": "+Ver todas las certificaciones"
     },
     "donationsTable": {
-      "title": "Últimas donaciones",
+      "title": "Últimas transacciones",
       "amountColumn": "Cantidad",
       "typeColumn": "Tipo",
       "etherscanColumn": "Etherscan",
@@ -123,12 +123,18 @@
   },
   "contactUS": {
     "title": "Contáctanos",
-    "subtitle": "Contáctanos. Nos encantaría saber de tí.",
-    "button": "info@proofofintegrity.org"
+    "subtitle": "Contáctanos. Nos encantaría saber de tí."
   },
   "footer": {
     "title": "Proof Of Integrity",
     "subtitle": "Proof Of Integrity es un proyecto sin fines de lucro",
     "disclaimer": "Diseñado por talento latinoamericano en BEON Tech Studio"
+  },
+  "transactions": {
+    "administrativeExpenses": "Gasto administrativo",
+    "donation": "Donación",
+    "pohFunding": "Fondeo a PoH",
+    "certifierPayment": "Pago a certificador",
+    "genericTransaction": "Transacción"
   }
 }

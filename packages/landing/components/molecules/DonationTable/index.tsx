@@ -31,7 +31,12 @@ const DonationTableBare = ({
   const { t } = useTranslation()
 
   const extendedData = useMemo(
-    () => data.map((item) => ({ ...item, collapsed: !isDesktop })),
+    () =>
+      data.map((item) => ({
+        ...item,
+        type: t(item.type),
+        collapsed: !isDesktop,
+      })),
     [data, isDesktop]
   )
 

@@ -1,4 +1,12 @@
-import { DESIGN_AND_MARKETING_TAG, DEVELOPER_TAG, SOCIAL_TEAM_TAG } from '.'
+import {
+  DESIGN_AND_MARKETING_TAG,
+  DEVELOPER_TAG,
+  SOCIAL_TEAM_TAG,
+  EXPENSE_TYPE,
+  DONATION_TYPE,
+  POH_FUNDING_TYPE,
+  CERTIFIER_PAYMENT_TYPE,
+} from '.'
 
 const TAGS = [DESIGN_AND_MARKETING_TAG, DEVELOPER_TAG, SOCIAL_TEAM_TAG] as const
 
@@ -38,3 +46,12 @@ export interface Donation {
   amount: string
   transactionUrl: string
 }
+
+const AVAILABLE_TRANSACTIONS = [
+  EXPENSE_TYPE,
+  DONATION_TYPE,
+  POH_FUNDING_TYPE,
+  CERTIFIER_PAYMENT_TYPE,
+] as const
+
+export type TransactionType = typeof AVAILABLE_TRANSACTIONS[number]

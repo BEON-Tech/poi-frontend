@@ -29,6 +29,7 @@ const ComingSoon = ({ Component }: IComingSoonProps) => {
       placement="bottom"
     >
       <Popover.Content
+        ml="10px"
         accessibilityLabel={t(keys.unclassified.comingSoonTitle)}
         w="160px"
       >

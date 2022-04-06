@@ -50,17 +50,14 @@ const AboutPOISectionDesktop = () => {
               mt="40px"
               justifySelf="flex-end"
               alignSelf="flex-end"
-              width="606px"
-              height="266px"
+              maxW="606px"
+              maxH="266px"
               borderTopLeftRadius="315px"
               borderTopRightRadius="315px"
               borderBottomRadius="20px"
               overflow="hidden"
             >
-              <Images.PersonBottomAboutPOISection
-                width="606px"
-                height="266px"
-              />
+              <Images.PersonBottomAboutPOISection width="100%" height="100%" />
             </View>
           </VStack>
         </HStack>
@@ -73,7 +70,9 @@ const AboutPOISectionMobile = () => {
   const [showMore, setShowMore] = useState(false)
   const { t } = useTranslation()
 
-  const onShowHide = () => setShowMore(!showMore)
+  const onShowHide = () => {
+    setShowMore(!showMore)
+  }
   return (
     <HStack
       bg="general.50"
@@ -106,6 +105,7 @@ const AboutPOISectionMobile = () => {
           alignSelf="flex-start"
           mt="42px"
           mb="30px"
+          w="auto"
           onPress={onShowHide}
           variant="link"
           leftIcon={

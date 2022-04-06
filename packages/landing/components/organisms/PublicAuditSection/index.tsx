@@ -30,7 +30,7 @@ const PublicAuditSection = () => {
         <Flex mt="43px" flexDirection={{ base: 'column', lg: 'row' }} w="100%">
           <VStack
             flex="1"
-            pr={{ base: '0', lg: '90px' }}
+            pr={{ base: '0', lg: '20px' }}
             maxW={{ base: '100%', lg: '50%' }}
           >
             <Text mb="28px">

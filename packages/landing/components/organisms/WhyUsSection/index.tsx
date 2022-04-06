@@ -1,13 +1,15 @@
 import { Flex, Heading, VStack, Button, View } from 'native-base'
 import { Element } from 'react-scroll'
 
-import { WHY_US_SECTION } from '@constants'
-import { useTranslation } from 'next-export-i18n'
 import keys from '@i18n/keys'
-import { Images, ComingSoon } from '@components/atoms'
+import { useBreakpoint } from '@hooks'
+import { WHY_US_SECTION } from '@constants'
 import { Container } from '@components/templates'
+import { useTranslation } from 'next-export-i18n'
+import { Images, ComingSoon } from '@components/atoms'
 
 const PublicAuditSection = () => {
+  const { isTablet } = useBreakpoint()
   const { t } = useTranslation()
   return (
     <Container>
@@ -35,7 +37,8 @@ const PublicAuditSection = () => {
             Component={(props) => (
               <Button
                 mt="60px"
-                w={{ base: '100%', lg: '313px' }}
+                maxW={{ base: '250px', lg: '350px' }}
+                w={{ base: '100%', lg: '350px' }}
                 variant="outline"
                 {...props}
               >
@@ -49,9 +52,16 @@ const PublicAuditSection = () => {
           justifyContent="flex-end"
           flexDirection={{ base: 'column', sm: 'row' }}
         >
-          <View mt="54px" mr="50px" width="149px" height="149px">
-            <Images.WhyUsPersonCenter width="100%" height="100%" />
-          </View>
+          {!isTablet && (
+            <View
+              mt={{ base: '40px', lg: '-40px' }}
+              mr="10px"
+              width="149px"
+              height="149px"
+            >
+              <Images.WhyUsPersonCenter width="100%" height="100%" />
+            </View>
+          )}
           <View
             mt={{ base: '-23px', lg: 0 }}
             alignSelf="flex-end"

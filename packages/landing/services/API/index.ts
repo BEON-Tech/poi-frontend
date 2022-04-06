@@ -1,4 +1,6 @@
 import Config from '@config'
+import keys, { TRANSACTION_TYPE_TO_LANGUAGE_KEY } from '@i18n/keys'
+import { TransactionType } from '@constants/types'
 
 import { CertificationData, DonationData } from './types'
 
@@ -33,6 +35,11 @@ export const getLatestCertifications = async ({
   return { ...response, data: transformedData }
 }
 
+const transformDonationType = (type: TransactionType): string => {
+  const value = TRANSACTION_TYPE_TO_LANGUAGE_KEY[type]
+  return value || keys.transactions.genericTransaction
+}
+
 export const getLatestDonations = async ({
   limit = 3,
   offset = 0,
@@ -48,32 +55,9 @@ export const getLatestDonations = async ({
     ({ amount, type, transactionUrl, id, tokenName }: any) => ({
       id,
       amount: `${amount} ${tokenName}`,
-      type,
+      type: transformDonationType(type),
       transactionUrl,
     })
   )
   return { ...response, data: transformedData }
 }
-// ({
-//   data: [
-//     {
-//       id: '1',
-//       type: 'Crowfounfing Pool',
-//       amount: '500 USDT',
-//       transactionUrl: 'https://www.audi.com/en.html',
-//     },
-//     {
-//       id: '2',
-//       type: 'Crowfounfing Pool',
-//       amount: '300 DAO',
-//       transactionUrl: 'https://www.audi.com/en.html',
-//     },
-//     {
-//       id: '3',
-//       type: 'Crowfounfing Pool',
-//       amount: '500 USDT',
-//       transactionUrl: 'https://www.audi.com/en.html',
-//     },
-//   ],
-//   hasMore: true,
-// })
