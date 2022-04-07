@@ -8,6 +8,7 @@ import {
   ThemeProvider,
   BreakpointProvider,
 } from '@components/context'
+import { SSRDisabler } from '@components/atoms'
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
@@ -18,14 +19,16 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
     <ThemeProvider>
       <ThemeContext.Consumer>
         {({ theme }) => (
-          <NativeBaseProvider
-            theme={extendTheme(theme)}
-            config={{ suppressColorAccessibilityWarning: true }}
-          >
-            <BreakpointProvider>
-              <Component {...pageProps} />
-            </BreakpointProvider>
-          </NativeBaseProvider>
+          <SSRDisabler>
+            <NativeBaseProvider
+              theme={extendTheme(theme)}
+              config={{ suppressColorAccessibilityWarning: true }}
+            >
+              <BreakpointProvider>
+                <Component {...pageProps} />
+              </BreakpointProvider>
+            </NativeBaseProvider>
+          </SSRDisabler>
         )}
       </ThemeContext.Consumer>
     </ThemeProvider>

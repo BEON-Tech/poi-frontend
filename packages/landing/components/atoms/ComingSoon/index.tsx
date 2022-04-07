@@ -1,43 +1,82 @@
 import React from 'react'
-import { Popover, Tooltip } from 'native-base'
-import { useBreakpoint } from '@hooks'
 import { useTranslation } from 'next-export-i18n'
 import keys from '@i18n/keys'
+import { useState } from 'react'
+import { HStack, Text, View } from 'native-base'
 
 interface IComingSoonProps {
   Component: React.FC<any>
 }
 
+// import { Popover, Tooltip } from 'native-base'
+// const ComingSoon = ({ Component }: IComingSoonProps) => {
+//   const { t } = useTranslation()
+//   const { isDesktop } = useBreakpoint()
+
+//   return isDesktop ? (
+//     <Tooltip
+//       label={t(keys.unclassified.comingSoonTitle)}
+//       placement="bottom"
+//       hasArrow
+//     >
+//       <Component onPress={() => {}} isDisabled />
+//     </Tooltip>
+//   ) : (
+//     <Popover
+//       trigger={(triggerProps) => (
+//       )}
+//       placement="bottom"
+//     >
+//       <Popover.Content
+//         ml="10px"
+//         accessibilityLabel={t(keys.unclassified.comingSoonTitle)}
+//         w="160px"
+//       >
+//         <Popover.Arrow />
+//         <Popover.CloseButton />
+//         <Popover.Header>{t(keys.unclassified.comingSoonTitle)}</Popover.Header>
+//       </Popover.Content>
+//     </Popover>
+//   )
+// }
+
 const ComingSoon = ({ Component }: IComingSoonProps) => {
   const { t } = useTranslation()
-  const { isDesktop } = useBreakpoint()
+  const [showInfo, setShowInfo] = useState(false)
 
-  return isDesktop ? (
-    <Tooltip
-      label={t(keys.unclassified.comingSoonTitle)}
-      openDelay={500}
-      placement="top"
-      hasArrow
+  const showInformation = () => setShowInfo(true)
+  const hideInformation = () => setShowInfo(false)
+
+  return (
+    <div
+      style={{
+        position: 'relative',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 'auto',
+        height: 'auto',
+      }}
+      onMouseEnter={showInformation}
+      onMouseLeave={hideInformation}
+      onFocus={showInformation}
+      onBlur={hideInformation}
     >
-      <Component onPress={() => {}} isDisabled />
-    </Tooltip>
-  ) : (
-    <Popover
-      trigger={(triggerProps) => (
-        <Component {...triggerProps} isDisabled={false} />
+      <Component isDisabled />
+      {showInfo && (
+        <View position="absolute" bottom="-30px">
+          <HStack
+            p="10px"
+            h="20px"
+            borderRadius="20px"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Text color="primary.500" fontSize="xs">{t(keys.unclassified.comingSoonTitle)}</Text>
+          </HStack>
+        </View>
       )}
-      placement="bottom"
-    >
-      <Popover.Content
-        ml="10px"
-        accessibilityLabel={t(keys.unclassified.comingSoonTitle)}
-        w="160px"
-      >
-        <Popover.Arrow />
-        <Popover.CloseButton />
-        <Popover.Header>{t(keys.unclassified.comingSoonTitle)}</Popover.Header>
-      </Popover.Content>
-    </Popover>
+    </div>
   )
 }
 

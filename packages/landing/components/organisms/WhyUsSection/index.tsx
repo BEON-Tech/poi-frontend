@@ -1,5 +1,5 @@
 import { Flex, Heading, VStack, Button, View } from 'native-base'
-import { Element } from 'react-scroll'
+
 
 import keys from '@i18n/keys'
 import { useBreakpoint } from '@hooks'
@@ -18,8 +18,8 @@ const PublicAuditSection = () => {
         pt={{ base: '100px', lg: '200px' }}
         px={{ base: '20px', lg: '80px' }}
         flexDirection={{ base: 'column', sm: 'row' }}
+        nativeID={WHY_US_SECTION}
       >
-        <Element name={WHY_US_SECTION} />
         <VStack mt="30px" flex="1" w={{ base: '100%', lg: '480px' }}>
           <Flex flexDirection={{ base: 'column', sm: 'row' }}>
             <Images.Polygon width="55.23px" height="55.23px" />

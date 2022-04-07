@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Element } from 'react-scroll'
+
 import { useTranslation } from 'next-export-i18n'
 import {
   VStack,
@@ -43,9 +43,11 @@ const AdvisorsSection = () => {
   return (
     <Container>
       <VStack
+        w="100%"
         alignItems="center"
         mt={isDesktop ? '161px' : '50px'}
         px={{ base: '20px', lg: '80px' }}
+        nativeID={ADVISORS_SECTION}
       >
         {!isDesktop && (
           <Button
@@ -57,7 +59,6 @@ const AdvisorsSection = () => {
             {show ? t(keys.advisors.hide) : t(keys.advisors.show)}
           </Button>
         )}
-        <Element name={ADVISORS_SECTION} />
         {showList && (
           <>
             <BulletedTitle
@@ -66,6 +67,10 @@ const AdvisorsSection = () => {
               {...titleProps}
             />
             <FlatList
+              contentContainerStyle={{
+                alignItems: 'center',
+                width: '100%',
+              }}
               mt={{ base: '47px', lg: '73px' }}
               data={LIST_ITEMS}
               ItemSeparatorComponent={Separator}

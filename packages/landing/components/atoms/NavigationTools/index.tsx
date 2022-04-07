@@ -1,5 +1,4 @@
 import { Button, IButtonProps } from 'native-base'
-import { scroller } from 'react-scroll'
 import { useTranslation } from 'next-export-i18n'
 
 import keys from '@i18n/keys'
@@ -10,6 +9,7 @@ import {
   PUBLIC_AUDIT_SECTION,
 } from '@constants'
 import { ComingSoon } from '@components/atoms'
+import Link from 'next/link'
 
 export interface INavigationToolsProps {
   onOperationPress?: () => void
@@ -29,22 +29,14 @@ const NavigationTools = ({ onOperationPress }: INavigationToolsProps) => {
     { text: t(keys.toolbar.publicAudit), sectionName: PUBLIC_AUDIT_SECTION },
   ]
 
-  const onPress = (sectionName: string) => {
-    if (onOperationPress) onOperationPress()
-    scroller.scrollTo(sectionName, { smooth: true, duration: 1000 })
-  }
-
   return (
     <>
       {navigationButtons.map(({ text, sectionName }) => (
-        <Button
-          w="auto"
-          key={sectionName}
-          variant="link"
-          onPress={() => onPress(sectionName)}
-        >
-          {text}
-        </Button>
+        <Link key={sectionName} href={`#${sectionName}`} passHref>
+          <Button w="auto" variant="link" onPress={onOperationPress}>
+            {text}
+          </Button>
+        </Link>
       ))}
       <ComingSoon
         Component={(props: any) => (

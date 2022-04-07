@@ -7,6 +7,7 @@ const Container: React.FC<IViewProps> = ({ children, ...props }) => (
   <View
     maxW={{ base: '100%', lg: MAX_WIDTH }}
     w="100%"
+    overflow="none"
     overflowY="hidden"
     mx="auto"
     {...props}

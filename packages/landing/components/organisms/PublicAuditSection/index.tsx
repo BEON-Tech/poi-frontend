@@ -1,4 +1,3 @@
-import { Element } from 'react-scroll'
 import { useTranslation } from 'next-export-i18n'
 import { useEffect } from 'react'
 import { Text, VStack, Flex } from 'native-base'
@@ -19,8 +18,11 @@ const PublicAuditSection = () => {
 
   return (
     <Container>
-      <VStack px={{ base: '20px', lg: '80px' }} pt="150px">
-        <Element name={PUBLIC_AUDIT_SECTION} />
+      <VStack
+        px={{ base: '20px', lg: '80px' }}
+        pt="150px"
+        nativeID={PUBLIC_AUDIT_SECTION}
+      >
         <BulletedTitle
           pl="30px"
           separation={isDesktop ? 60 : 30}
@@ -29,7 +31,7 @@ const PublicAuditSection = () => {
         />
         <Flex mt="43px" flexDirection={{ base: 'column', lg: 'row' }} w="100%">
           <VStack
-            flex="1"
+            flex={{ base: 'unset', lg: '1' }}
             pr={{ base: '0', lg: '20px' }}
             maxW={{ base: '100%', lg: '50%' }}
           >
@@ -39,7 +41,7 @@ const PublicAuditSection = () => {
             <CertificationTable loadData={API.getLatestCertifications as any} />
           </VStack>
           <VStack
-            flex="1"
+            flex={{ base: 'unset', lg: '1' }}
             pl={{ base: 0, lg: '36px' }}
             pt={{ base: '36px', lg: 0 }}
             maxW={{ base: '100%', lg: '50%' }}

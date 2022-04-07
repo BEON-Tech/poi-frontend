@@ -1,5 +1,5 @@
 import React from 'react'
-import { Element } from 'react-scroll'
+
 import { useTranslation } from 'next-export-i18n'
 import { VStack, HStack, View, Button, Text, Heading } from 'native-base'
 
@@ -43,8 +43,7 @@ const AssistanceProgramSectionDesktop = () => {
 
   return (
     <Container>
-      <VStack px="80px" pt="147px">
-        <Element name={ASSISTANCE_PROGRAM_SECTION} />
+      <VStack px="80px" pt="147px" nativeID={ASSISTANCE_PROGRAM_SECTION}>
         <Heading textAlign="center" size="4xl" fontWeight="semibold">
           {t(keys.assistanceProgram.title)}
         </Heading>
@@ -79,7 +78,11 @@ const AssistanceProgramSectionDesktop = () => {
               px="20px"
               alignItems="center"
             >
-              <Text flex="1" lineHeight="60px" fontSize="3xl">
+              <Text
+                flex="1"
+                lineHeight="60px"
+                fontSize={{ lg: '2xl', xl: '3xl' }}
+              >
                 {t(keys.assistanceProgram.secondBox.title)}
               </Text>
               <Button
@@ -101,8 +104,8 @@ const AssistanceProgramSectionDesktop = () => {
               borderWidth="1px"
               py="32px"
               px="24px"
-              maxW="405px"
-              maxH="405px"
+              maxW="600px"
+              maxH="500px"
               bg="general.50"
             >
               <Text fontSize="xl" lineHeight="40px">
@@ -119,7 +122,7 @@ const AssistanceProgramSectionDesktop = () => {
                   <View>
                     <Image />
                   </View>
-                  <Text ml="26px" fontSize="xs">
+                  <Text ml="26px" fontSize="md">
                     {t(text)}
                   </Text>
                 </HStack>
@@ -132,8 +135,8 @@ const AssistanceProgramSectionDesktop = () => {
               w={{ lg: '225px', xl: '270px' }}
               h={{ lg: '225px', xl: '270px' }}
               position="absolute"
-              left="255px"
-              top="185px"
+              right="-70px"
+              bottom={{ lg: '50px', xl: '0px' }}
             >
               <Images.AssistanceProgramMap width="100%" height="100%" />
             </VStack>
@@ -148,8 +151,7 @@ const AssistanceProgramSectionMobile = () => {
   const { t } = useTranslation()
 
   return (
-    <VStack px="20px" pt="147px">
-      <Element name={ASSISTANCE_PROGRAM_SECTION} />
+    <VStack px="20px" pt="147px" nativeID={ASSISTANCE_PROGRAM_SECTION}>
       <View pr="80px">
         <BulletedTitle
           hideBullet

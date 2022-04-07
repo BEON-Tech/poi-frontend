@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+// import document from '@native-base/next-adapter/document';
 
 const fontNames = [
   'Bold',

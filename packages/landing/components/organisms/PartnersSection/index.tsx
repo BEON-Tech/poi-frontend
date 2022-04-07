@@ -1,4 +1,4 @@
-import { Element } from 'react-scroll'
+
 import { useTranslation } from 'next-export-i18n'
 import { Text, Flex, View, HStack } from 'native-base'
 
@@ -16,8 +16,8 @@ const PartnersSection = () => {
       <View
         px={{ base: '20px', lg: '80px' }}
         mt={{ base: '50px', lg: '161px' }}
+        nativeID={PARTNERS_SECTION}
       >
-        <Element name={PARTNERS_SECTION} />
         <Flex
           py="27px"
           px="32px"

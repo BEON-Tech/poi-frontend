@@ -23,7 +23,7 @@ const PersonCardDesktop = ({ item }: IPersonCardProps) => {
   const hideInformation = () => setShowInfo(false)
 
   return (
-    <View w="auto" h="100%" maxW="316px" maxH="223px" m="10px" flex="1">
+    <View w="100%" h="100%" maxW="316px" maxH="223px" m="10px" flex="1">
       <div
         style={{
           display: 'flex',
@@ -42,8 +42,8 @@ const PersonCardDesktop = ({ item }: IPersonCardProps) => {
         onBlur={(hasInfo && hideInformation) as any}
       >
         <img
-          width="316px"
-          height="223px"
+          width="100%"
+          height="100%"
           src={imagePath}
           alt={`${name}'s facial`}
         />
@@ -84,13 +84,16 @@ const PersonCardMobile = ({ item }: IPersonCardProps) => {
       alignItems="center"
       flex="1"
       margin={{ base: 0, sm: '15px' }}
+      px={{ base: '10px', sm: '0' }}
     >
-      <img
-        width="145px"
-        height="102px"
-        src={imagePath}
-        alt={`${name}'s facial`}
-      />
+      <View maxW="290px" maxH="204px">
+        <img
+          width="100%"
+          height="100%"
+          src={imagePath}
+          alt={`${name}'s facial`}
+        />
+      </View>
       {displayName && (
         <VStack justifyContent="center" alignItems="center" w="100%">
           <Text lineHeight="28px" fontWeight="bold" textAlign="center">

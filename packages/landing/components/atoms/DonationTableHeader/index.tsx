@@ -25,7 +25,7 @@ const DonationTableHeader = () => {
         <Text>{t(keys.publicAudit.donationsTable.typeColumn)}</Text>
       </HStack>
       {isDesktop && (
-        <HStack flex="1" alignItems="center" justifyContent="center">
+        <HStack flex="1" alignItems="center" justifyContent="flex-start">
           <Text>{t(keys.publicAudit.donationsTable.etherscanColumn)}</Text>
         </HStack>
       )}

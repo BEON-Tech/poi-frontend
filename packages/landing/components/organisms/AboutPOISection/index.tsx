@@ -1,4 +1,3 @@
-import { Element } from 'react-scroll'
 import {
   Text,
   View,
@@ -22,10 +21,16 @@ import { useState } from 'react'
 const AboutPOISectionDesktop = () => {
   const { t } = useTranslation()
   return (
-    <View zIndex="2" bg="general.50" mt="-70px" pt="101px" borderRadius="70px">
+    <View
+      nativeID={ABOUT_POI_SECTION}
+      zIndex="2"
+      bg="general.50"
+      mt="-70px"
+      pt="101px"
+      borderRadius="70px"
+    >
       <Container>
         <HStack justifyContent="center" alignItems="flex-start">
-          <Element name={ABOUT_POI_SECTION} />
           <AboutPOIOutlinedImage />
           <VStack flex="1" pt="51px">
             <Text fontSize="4xl" lineHeight="76.5px">
@@ -75,6 +80,7 @@ const AboutPOISectionMobile = () => {
   }
   return (
     <HStack
+      nativeID={ABOUT_POI_SECTION}
       bg="general.50"
       justifyContent="center"
       alignItems="flex-start"
@@ -83,7 +89,6 @@ const AboutPOISectionMobile = () => {
       borderRadius="30px"
       px="20px"
     >
-      <Element name={ABOUT_POI_SECTION} />
       <VStack flex="1" pt="51px">
         <Text fontSize="4xl" lineHeight="41px">
           {t(keys.aboutPOI.upperTittle)}

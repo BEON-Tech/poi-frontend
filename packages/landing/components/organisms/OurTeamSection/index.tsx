@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { Element } from 'react-scroll'
+
 import { useTranslation } from 'next-export-i18n'
 import {
   VStack,
@@ -26,8 +26,7 @@ const OurTeamSectionDesktop = () => {
 
   return (
     <Container>
-      <VStack pt="217px" alignItems="center">
-        <Element name={OUR_TEAM_SECTION} />
+      <VStack pt="217px" alignItems="center" nativeID={OUR_TEAM_SECTION}>
         <BulletedTitle imageName="Pentagon" title={t(keys.ourTeam.title)} />
         <FlatList
           mt="73px"
@@ -42,6 +41,7 @@ const OurTeamSectionDesktop = () => {
 }
 
 const OurTeamSectionMobile = () => {
+  const { isTablet } = useBreakpoint()
   const [show, setShow] = useState(false)
   const { t } = useTranslation()
 
@@ -53,8 +53,12 @@ const OurTeamSectionMobile = () => {
   )
 
   return (
-    <VStack pt={{ base: '100px', lg: '217px' }} alignItems="center" px="16px">
-      <Element name={OUR_TEAM_SECTION} />
+    <VStack
+      pt={{ base: '100px', lg: '217px' }}
+      alignItems="center"
+      px="16px"
+      nativeID={OUR_TEAM_SECTION}
+    >
       <BulletedTitle
         separation={30}
         imageName="Pentagon"
@@ -77,9 +81,11 @@ const OurTeamSectionMobile = () => {
       </Button>
       {show && (
         <FlatList
+          w="100%"
+          key={isTablet ? 'tabletTeamList' : 'mobileTeamList'}
           mt="47px"
           data={Items}
-          numColumns={2}
+          numColumns={isTablet ? 3 : 2}
           ItemSeparatorComponent={Separator}
           renderItem={(item) => <PersonCard item={item.item} />}
           keyExtractor={(item) => item.name}

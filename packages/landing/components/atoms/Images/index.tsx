@@ -195,15 +195,19 @@ const imagesToRender = [
   },
 ]
 
-const Components: IComponents = (() => {
+const [Components, Sources]: [IComponents, any] = (() => {
   const result = {} as any
+  const sources = {} as any
   imagesToRender.forEach(({ name, source, alt }) => {
     result[name] = (props: HTMLImageElement) => (
       <img {...props} src={source} alt={alt as string} />
     )
+    sources[name] = source
   })
-  return result
+  return [result, sources]
 })()
+
+export const ImageSources = Sources as Record<keyof IComponentsMap, string>
 
 export default {
   ...Components,

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { VStack } from 'native-base'
+import { Modal, VStack } from 'native-base'
 import type { NextPage } from 'next'
 
 import {
@@ -24,9 +24,18 @@ const Home: NextPage = () => {
   const onShowMenu = () => setShowMenu(true)
   const onCloseMenu = () => setShowMenu(false)
   return (
-    <VStack overflowY="hidden" testID="testing">
+    <VStack overflowY="hidden">
       {!isDesktop && showMenu && <MobileMenu onClosePress={onCloseMenu} />}
       <Toolbar onMenuPress={onShowMenu} />
+      <Modal
+        w="800px"
+        h="800px"
+        overlayVisible
+        backdropVisible
+        _backdrop={{ bg: 'black' }}
+      >
+        <Modal.Body>here</Modal.Body>
+      </Modal>
       <IntroSection />
       <BannerSection />
       <AboutPOISection />

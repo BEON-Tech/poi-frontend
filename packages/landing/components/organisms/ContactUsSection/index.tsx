@@ -1,5 +1,4 @@
 import { Flex, Heading, VStack, Button, View, Text } from 'native-base'
-import { Element } from 'react-scroll'
 
 import { CONTACT_US_SECTION } from '@constants'
 import { useTranslation } from 'next-export-i18n'
@@ -15,8 +14,7 @@ const ConctactUsSection = () => {
     window.location.href = `mailto:${buttonText}`
   }
   return (
-    <Container>
-      <Element name={CONTACT_US_SECTION} />
+    <Container nativeID={CONTACT_US_SECTION}>
       <Flex
         position="relative"
         pb={{ base: '100px', lg: '210px' }}
@@ -43,6 +41,8 @@ const ConctactUsSection = () => {
             borderRadius={{ base: '30px', lg: '50px' }}
             w="100%"
             h="100%"
+            maxW={{ base: '90%', md: 'unset' }}
+            maxH={{ base: '85%', md: 'unset' }}
           />
           <View
             overflow="hidden"
@@ -77,7 +77,8 @@ const ConctactUsSection = () => {
             <Button
               onPress={onMailPress}
               leftIcon={<Images.MailLogoGreen width="40px" height="40px" />}
-              mt="45px"
+              mt={{ base: '20px', md: '45px' }}
+              mb={{ base: '40px', md: '0' }}
               maxW="300px"
               w={{ base: '100%', lg: '313px' }}
               variant="outline"

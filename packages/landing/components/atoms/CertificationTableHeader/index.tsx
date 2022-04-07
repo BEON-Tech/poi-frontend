@@ -24,7 +24,7 @@ const CertificationCell = () => {
         <Text>{t(keys.publicAudit.certificationsTable.dateColumn)}</Text>
       </HStack>
       {isDesktop && (
-        <HStack flex="1" alignItems="center" justifyContent="center">
+        <HStack flex="1" alignItems="center" justifyContent="flex-start">
           <Text>{t(keys.publicAudit.certificationsTable.detailsColumn)}</Text>
         </HStack>
       )}

@@ -72,7 +72,7 @@ const CertificationCell = ({ item }: ICertificationCellProps) => {
         )}
       </VStack>
       {!collapsed && (
-        <HStack flex="1" alignItems="center" justifyContent="center">
+        <HStack flex="1" alignItems="center" justifyContent="flex-start">
           <MoreDetails item={item} />
         </HStack>
       )}
