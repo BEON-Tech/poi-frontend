@@ -1,4 +1,4 @@
-import { Divider, HStack, IconButton, Text } from 'native-base'
+import { Divider, HStack, IconButton, Text, View } from 'native-base'
 
 import { Images, NavigationTools, LanguageSelect } from '@components/atoms'
 import { useBreakpoint } from '@hooks'
@@ -13,17 +13,24 @@ const size = '26px'
 
 const DesktopToolbar = () => (
   <HStack
-    justifyContent="space-between"
-    alignItems="center"
-    mt="34px"
-    mb="50px"
-    maxH="50px"
     w="100%"
+    justifyContent=""
+    alignItems="center"
+    maxH="50px"
+    pt="34px"
     pr="4"
     pl="80px"
+    mb="50px"
   >
     <Images.Logo width="84px" height="84px" />
-    <NavigationTools />
+    <HStack
+      pl="30px"
+      flexGrow="1"
+      justifyContent="space-between"
+      alignItems="center"
+    >
+      <NavigationTools />
+    </HStack>
     <Divider mx="20px" bg="general.200" orientation="vertical" height="30px" />
     <LanguageSelect />
   </HStack>

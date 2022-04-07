@@ -41,17 +41,18 @@ const IntroPeopleImage = () => {
         <Images.PeopleCenterIntroSection width="412px" height="582px" />
       </View>
 
-      <View
-        zIndex="-1"
-        position="absolute"
-        top="650px"
-        right="0px"
-        width="305px"
-        height="405pxx"
-        overflow="hidden"
-      >
-        <Images.PeopleBottomIntroSection width="305px" height="305px" />
-      </View>
+      {isBigDesktop && (
+        <View
+          position="absolute"
+          top="450px"
+          right="0"
+          width="305px"
+          height="405pxx"
+          overflow="hidden"
+        >
+          <Images.PeopleBottomIntroSection width="305px" height="305px" />
+        </View>
+      )}
     </VStack>
   )
 }

@@ -35,9 +35,11 @@
   "assistanceProgram": {
     "title": "Our First Assistance Program",
     "firstBox": {
-      "firstSentence": "Our pilot will focus on helping humans in need in Buenos Aires, Argentina join the Proof of Humanity platform by funding the ",
-      "secondSentenceBold": "transactions fees and deposits",
-      "thirdSentence": " needed for the registration."
+      "firstSentence": "Our pilot will focus on offering a crypto-finance educational program and funding the ",
+
+       
+      "secondSentenceBold": "transaction fees and deposits",
+      "thirdSentence": " needed to join the Proof of Humanity platform."
     },
     "secondBox": {
       "title": "Show you care.",

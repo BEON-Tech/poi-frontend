@@ -28,21 +28,21 @@ const ConctactUsSection = () => {
         <View
           flex="1"
           height="100%"
-          maxH="345px"
+          maxH="314px"
           maxW={{ base: '100%', sm: '600px', lg: '633px' }}
           mb={{ base: '35px', xl: 0 }}
-          mr={{ lg: '10px' }}
+          mr={{ xl: '200px' }}
         >
           <View
             flex="1"
             position="absolute"
             borderWidth="1px"
             borderColor="general.100"
-            top="20px"
-            left="50px"
+            mt="20px"
+            ml="50px"
             borderRadius={{ base: '30px', lg: '50px' }}
-            w={{ base: '90%', lg: '595px' }}
-            h={{ base: '100%', lg: '327px' }}
+            w="100%"
+            h="100%"
           />
           <View
             overflow="hidden"
@@ -57,11 +57,10 @@ const ConctactUsSection = () => {
         </View>
         <View
           maxW={{ base: '100%', sm: '600px', lg: '633px' }}
-          maxH="345px"
+          maxH="314px"
           h={{ lg: '100%', xl: '345px' }}
           flex="1"
           w="100%"
-          ml={{ lg: '10px' }}
         >
           <VStack
             h="100%"

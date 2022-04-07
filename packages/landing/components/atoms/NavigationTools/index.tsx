@@ -1,4 +1,4 @@
-import { Button } from 'native-base'
+import { Button, IButtonProps } from 'native-base'
 import { scroller } from 'react-scroll'
 import { useTranslation } from 'next-export-i18n'
 
@@ -13,6 +13,7 @@ import { ComingSoon } from '@components/atoms'
 
 export interface INavigationToolsProps {
   onOperationPress?: () => void
+  buttonProps?: IButtonProps
 }
 
 const NavigationTools = ({ onOperationPress }: INavigationToolsProps) => {
@@ -37,7 +38,7 @@ const NavigationTools = ({ onOperationPress }: INavigationToolsProps) => {
     <>
       {navigationButtons.map(({ text, sectionName }) => (
         <Button
-          flex="1"
+          w="auto"
           key={sectionName}
           variant="link"
           onPress={() => onPress(sectionName)}
@@ -48,9 +49,9 @@ const NavigationTools = ({ onOperationPress }: INavigationToolsProps) => {
       <ComingSoon
         Component={(props: any) => (
           <Button
-            w={{ base: '200px', lg: 'unset' }}
+            w="200px"
             isDisabled
-            flex="1"
+            // flex="1"
             onPress={() => {}}
             {...props}
           >

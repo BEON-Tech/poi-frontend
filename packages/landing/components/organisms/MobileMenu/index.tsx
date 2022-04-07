@@ -11,7 +11,7 @@ const MobileMenu = ({ onClosePress }: IMobileMenuProps) => (
       h="100vh"
       position="relative"
       alignItems="center"
-      justifyContent="space-between"
+      justifyContent="flex-start"
       pb="20px"
     >
       <HStack justifyContent="center" alignItems="center" w="100%">
@@ -27,7 +27,7 @@ const MobileMenu = ({ onClosePress }: IMobileMenuProps) => (
       </HStack>
       <VStack
         w="100%"
-        h="85%"
+        h="75%"
         alignItems="center"
         justifyContent="space-between"
         pb="80px"

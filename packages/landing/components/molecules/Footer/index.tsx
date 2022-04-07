@@ -32,7 +32,7 @@ const socialButtons = [
   },
 ]
 
-const Toolbar = () => {
+const Footer = () => {
   const { isDesktop } = useBreakpoint()
   const { t } = useTranslation()
 
@@ -68,12 +68,11 @@ const Toolbar = () => {
           {isDesktop && (
             <VStack flex="3" h="100%">
               <HStack
-                justifyContent="space-between"
                 alignItems="center"
+                justifyContent="space-between"
                 mt="34px"
                 maxH="50px"
                 w="100%"
-                pr="50px"
               >
                 <NavigationTools />
               </HStack>
@@ -90,4 +89,4 @@ const Toolbar = () => {
   )
 }
 
-export default Toolbar
+export default Footer

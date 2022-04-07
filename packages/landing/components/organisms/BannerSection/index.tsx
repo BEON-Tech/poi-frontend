@@ -11,14 +11,15 @@ const BannerSectionDesktop = () => {
   const { t } = useTranslation()
 
   return (
-    <ZStack alignItems="center" height="494px">
+    <ZStack alignItems="center" height="600px">
       <Element name={BANNER_SECTION} />
-      <Images.Banner width="100%" height="494px" />
+      <Images.Banner width="100%" height="100%" />
       <VStack w="100%">
         <View maxW="100%">
           <Heading
             mt="12"
-            w="700px"
+            w="100%"
+            maxW="700px"
             justifySelf="center"
             alignSelf="center"
             fontWeight="extrabold"
@@ -32,8 +33,8 @@ const BannerSectionDesktop = () => {
         <Flex
           h="100%"
           alignSelf={{ lg: 'center', xl: 'flex-end' }}
-          mt={{ lg: '30px', xl: '-50px' }}
-          mr={{ xl: '80px' }}
+          mt={{ lg: '30px', xl: '-100px' }}
+          mr={{ xl: '40px' }}
           flexDir={{ lg: 'row', xl: 'column' }}
         >
           <ContentBubble
@@ -55,7 +56,7 @@ const BannerSectionMobile = () => {
     <ZStack alignItems="center" height="831px">
       <Element name={BANNER_SECTION} />
       <View maxW="100%" height="831px">
-        <Images.Banner width="auto" height="100%" objectFit="fill" />
+        <Images.Banner width="100%" height="100%" objectFit="cover" />
       </View>
       <VStack w="100%" alignItems="center">
         <Heading

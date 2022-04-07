@@ -79,7 +79,7 @@ const AssistanceProgramSectionDesktop = () => {
               px="20px"
               alignItems="center"
             >
-              <Text flex="1" lineHeight="60px" fontSize="4xl">
+              <Text flex="1" lineHeight="60px" fontSize="3xl">
                 {t(keys.assistanceProgram.secondBox.title)}
               </Text>
               <Button
