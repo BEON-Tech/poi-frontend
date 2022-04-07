@@ -61,12 +61,12 @@
       "seeMore": "+Ver todas las certificaciones"
     },
     "donationsTable": {
-      "title": "Últimas transacciones",
+      "title": "Últimas Transacciones",
       "amountColumn": "Cantidad",
       "typeColumn": "Tipo",
       "etherscanColumn": "Detalles",
       "moreDetails": "Más Detalles",
-      "seeMore": "+Ver todas las donaciones"
+      "seeMore": "+Ver todas las transacciones"
     }
   },
   "ourTeam": {
