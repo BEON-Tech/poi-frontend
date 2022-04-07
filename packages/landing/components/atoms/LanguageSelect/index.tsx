@@ -73,7 +73,7 @@ const LanguageSelectDesktop = (props: ILanguageSelectProps) => {
         <VStack w="100%" position="absolute" mt="55px">
           {restLangs.map(({ lang, iconName }) => (
             <LanguageItem
-              rightIcon={<View w={lang == 'es' ? '34px' : '30px'} />}
+              rightIcon={<View w={lang === 'es' ? '34px' : '30px'} />}
               key={lang}
               iconName={iconName as any}
               label={lang.toUpperCase()}
