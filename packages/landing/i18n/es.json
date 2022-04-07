@@ -64,7 +64,7 @@
       "title": "Últimas transacciones",
       "amountColumn": "Cantidad",
       "typeColumn": "Tipo",
-      "etherscanColumn": "Etherscan",
+      "etherscanColumn": "Detalles",
       "moreDetails": "Más Detalles",
       "seeMore": "+Ver todas las donaciones"
     }
