@@ -1,7 +1,6 @@
-import React from 'react'
 import { useTranslation } from 'next-export-i18n'
 import keys from '@i18n/keys'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { HStack, Text, View } from 'native-base'
 
 interface IComingSoonProps {

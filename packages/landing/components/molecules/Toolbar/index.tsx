@@ -1,4 +1,4 @@
-import { Divider, HStack, IconButton, Text, View } from 'native-base'
+import { Divider, HStack, IconButton, Text } from 'native-base'
 
 import { Images, NavigationTools, LanguageSelect } from '@components/atoms'
 import { useBreakpoint } from '@hooks'
