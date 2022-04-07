@@ -31,14 +31,8 @@ const ConnectWalletButton = ({
         openDelay={0}
         placement="bottom"
       >
-        <Button
-          px={29}
-          isDisabled={isConnected}
-          onPress={handleConnectWallet}
-          bg="primary.800"
-          color="invertedText.900"
-        >
-          {isConnected ? 'Disconnect' : 'Connect'}
+        <Button px={29} isDisabled={isConnected} onPress={handleConnectWallet}>
+          {isConnected ? 'Disconnect' : 'Connect Wallet'}
         </Button>
       </Tooltip>
     </HStack>

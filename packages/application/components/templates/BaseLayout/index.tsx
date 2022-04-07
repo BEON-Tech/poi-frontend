@@ -1,64 +1,88 @@
 import { ReactNode } from 'react'
-import { Heading, Text, VStack, View } from 'native-base'
+import {
+  VStack,
+  Button,
+  Flex,
+  Container,
+  useBreakpointValue,
+  HStack,
+  Divider,
+} from 'native-base'
 
 import ConnectWalletButton from '../../molecules/ConnectWalletButton'
 import MenuButton from '../../molecules/MenuButton'
+import Logo from '../../molecules/Logo'
 
 export interface IBaseLayoutProps {
   children?: ReactNode
-  title: string
-  subTitle?: string
   withMenu?: boolean
-  color?: string
   withConnect?: boolean
+  withLang?: boolean
+  bgColor?: any
 }
 
 const BaseLayout = ({
-  title,
-  subTitle,
   children,
   withMenu = false,
   withConnect = false,
-  color,
-}: IBaseLayoutProps) => (
-  <VStack
-    justifyContent="center"
-    alignItems="center"
-    w="100vw"
-    h="100vh"
-    bg="background.500"
-  >
-    {withMenu && <MenuButton />}
-    {withConnect && (
-      <ConnectWalletButton
-        containerProps={{
-          right: { base: 'none', sm: 'none', md: 50 },
-          top: { base: 5, sm: 5, md: 39 },
-          position: 'absolute',
-        }}
-      />
-    )}
-    <Heading mt={20} color={color} maxW={750}>
-      {title}
-    </Heading>
-    {subTitle && (
-      <Text
-        textAlign="center"
-        maxW={700}
-        color="text.900"
-        fontSize="lg"
-        lineHeight={31}
-        mt={22}
-        flex={{ base: 0.25, sm: 0 }}
+  withLang = false,
+  bgColor,
+}: IBaseLayoutProps) => {
+  const display = useBreakpointValue({
+    base: 'none',
+    lg: 'flex',
+  })
+
+  return (
+    <VStack maxW="100vw" overflowX="hidden">
+      <Flex
+        direction="row"
+        align="center"
+        justify="space-between"
+        w="100%"
+        px={{ base: '2', lg: '10' }}
+        py="3"
+        wrap="nowrap"
+        position="fixed"
+        top="0"
+        zIndex="99"
+        bgColor={bgColor}
       >
-        {subTitle}
-      </Text>
-    )}
+        <HStack
+          display="flex"
+          flexDirection="row"
+          alignItems="center"
+          justifyContent="space-between"
+          space={40}
+        >
+          <Logo>Proof of Humanity</Logo>
+          <Button variant="link" display={display}>
+            Donate
+          </Button>
+          <Button variant="link" display={display}>
+            Public Audit
+          </Button>
+        </HStack>
+        <HStack
+          display={display}
+          flexDirection="row"
+          justifyContent="center"
+          alignItems="center"
+          space={5}
+        >
+          {withConnect && <ConnectWalletButton />}
+          {withConnect && withLang && (
+            <Divider h="10" mx="2" orientation="vertical" />
+          )}
+          {withLang && <Button>En</Button>}
+        </HStack>
+      </Flex>
+      {withMenu && <MenuButton />}
 
-    <View overflowY="scroll" flex={4}>
-      {children}
-    </View>
-  </VStack>
-)
-
+      <Container maxW="100vw" w="100%" overflowX="hidden" flex={4}>
+        {children}
+      </Container>
+    </VStack>
+  )
+}
 export default BaseLayout

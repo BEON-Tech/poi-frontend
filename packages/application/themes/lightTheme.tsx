@@ -39,13 +39,13 @@ const lightTheme = extendTheme({
         textAlign: 'center',
         fontWeight: 700,
         // fontSize: '7xl',
-        fontSize: {
-          base: '3xl',
-          sm: '3xl',
-          md: '5xl',
-          lg: '7xl',
-          xl: '7xl',
-        },
+        // fontSize: {
+        //   base: '3xl',
+        //   sm: '3xl',
+        //   md: '5xl',
+        //   lg: '7xl',
+        //   xl: '7xl',
+        // },
       },
       variants: {},
       sizes: {},
@@ -122,44 +122,61 @@ const lightTheme = extendTheme({
         borderRadius: 100,
         h: '10',
         _text: {
-          color: 'invertedText.900',
           fontSize: { base: 'sm', sm: 'sm', md: 'sm', lg: 'md', xl: 'md' },
         },
         // _pressed: { opacity: 0.5 },
       },
       variants: {
-        link: {
+        solid: {
+          bgColor: 'greenColor.900',
           _text: {
-            color: 'primary.900',
+            color: 'invertedText.900',
+          },
+          _hover: {
+            bgColor: 'greenColor.800',
+          },
+          _pressed: {
+            bgColor: 'greenColor.700',
+          },
+        },
+        outline: {
+          border: '1px',
+          borderColor: 'greenColor.900',
+          bgColor: 'invertedText.900',
+          _text: {
+            color: 'greenColor.900',
+          },
+          _hover: {
+            borderColor: 'greenColor.800',
+            _text: {
+              color: 'greenColor.800',
+            },
+          },
+          _pressed: {
+            borderColor: 'greenColor.700',
+            _text: {
+              color: 'greenColor.700',
+            },
+          },
+        },
+        link: {
+          bgColor: 'transparent',
+          _text: {
+            color: 'greenColor.900',
             fontSize: 'md',
             margin: 0,
             padding: 0,
             textDecorationLine: 'none',
             fontWeight: '600',
           },
-          _web: {
+          _hover: {
             _text: {
-              textDecorationLine: 'none',
-            },
-            _hover: {
-              _text: {
-                textDecorationLine: 'none',
-              },
-            },
-            _focusVisible: {
-              _text: {
-                textDecorationLine: 'none',
-              },
+              color: 'greenColor.800',
             },
           },
-          _ios: {
+          _pressed: {
             _text: {
-              textDecorationLine: 'none',
-            },
-          },
-          _android: {
-            _text: {
-              textDecorationLine: 'none',
+              color: 'greenColor.700',
             },
           },
         },
