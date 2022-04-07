@@ -35,9 +35,9 @@
   "assistanceProgram": {
     "title": "Nuestro Primer Programa de Asistencia",
     "firstBox": {
-      "firstSentence": "Nuestro piloto se centrará en ayudar a los seres humanos necesitados en Buenos Aires, Argentina, a unirse a la plataforma Prueba de Humanidad financiando las ",
-      "secondSentenceBold": "tarifas de transacción y los depósitos ",
-      "thirdSentence": " necesarios para el registro."
+      "firstSentence": "Nuestro piloto se centrará en ofrecer un programa educativo de criptofinanzas y ",
+      "secondSentenceBold": "financiar las tarifas de transacción y depósitos",
+      "thirdSentence": " necesarios para unirse a la plataforma Proof of Humanity."
     },
     "secondBox": {
       "title": "Mostra que te importa.",
@@ -45,9 +45,9 @@
     },
     "aimBox": {
       "title": "¿A quién estará dirigido?",
-      "firstItem": "Jóvenes recién graduados de la escuela.",
-      "secondItem": "En 4 barrios vulnerables de Buenos Aires.",
-      "thirdItem": "Nos asociaremos con una organización local sin fines de lucro llamada X"
+      "firstItem": "Jóvenes recién graduados de la escuela",
+      "secondItem": "En un barrio popular de Buenos Aires",
+      "thirdItem": "Nos asociaremos con Club Mugica, un centro comunitario local"
     }
   },
   "publicAudit": {
@@ -61,12 +61,12 @@
       "seeMore": "+Ver todas las certificaciones"
     },
     "donationsTable": {
-      "title": "Últimas transacciones",
+      "title": "Últimas Transacciones",
       "amountColumn": "Cantidad",
       "typeColumn": "Tipo",
-      "etherscanColumn": "Etherscan",
+      "etherscanColumn": "Detalles",
       "moreDetails": "Más Detalles",
-      "seeMore": "+Ver todas las donaciones"
+      "seeMore": "+Ver todas las transacciones"
     }
   },
   "ourTeam": {
@@ -131,9 +131,9 @@
     "disclaimer": "Diseñado por talento latinoamericano en BEON Tech Studio"
   },
   "transactions": {
-    "administrativeExpenses": "Gasto administrativo",
+    "administrativeExpenses": "Gastos administrativos",
     "donation": "Donación",
-    "pohFunding": "Fondeo a PoH",
+    "pohFunding": "Fondeo para PoH",
     "certifierPayment": "Pago a certificador",
     "genericTransaction": "Transacción"
   }

@@ -36,9 +36,7 @@
     "title": "Our First Assistance Program",
     "firstBox": {
       "firstSentence": "Our pilot will focus on offering a crypto-finance educational program and funding the ",
-
-       
-      "secondSentenceBold": "transaction fees and deposits",
+      "secondSentenceBold": "transactions fees and deposits",
       "thirdSentence": " needed to join the Proof of Humanity platform."
     },
     "secondBox": {
@@ -66,9 +64,9 @@
       "title": "Latest Transactions",
       "amountColumn": "Amount",
       "typeColumn": "Type",
-      "etherscanColumn": "Etherscan",
+      "etherscanColumn": "Details",
       "moreDetails": "More Details",
-      "seeMore": "+See all donations"
+      "seeMore": "+See all transactions"
     }
   },
   "ourTeam": {
@@ -135,7 +133,7 @@
   "transactions": {
     "administrativeExpenses": "Administrative expenses",
     "donation": "Donation",
-    "pohFunding": "PoH funding",
+    "pohFunding": "Funding for PoH",
     "certifierPayment": "Certifier payment",
     "genericTransaction": "Transacción"
   }
