@@ -41,13 +41,13 @@ const Home: NextPage = () => {
         mt="20"
         w="100%"
         overflow="hidden"
-        h={{ base: '80vh', lg: 400 }}
+        h={{ base: '90vh', lg: 400 }}
         justifyContent="start"
         bg="background.100"
         mb={{ base: '20', lg: '20' }}
       >
         <VStack
-          pt={{ base: '0', lg: '10' }}
+          pt={{ base: '5', lg: '10' }}
           pb="10"
           px={{ base: '5', lg: '16' }}
           h="full"
