@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useTranslation } from 'next-export-i18n'
 import keys from '@i18n/keys'
-import { useState } from 'react'
 import { HStack, Text, View } from 'native-base'
 
 interface IComingSoonProps {
   Component: React.FC<any>
+  rightPlacement?: boolean
 }
 
 // import { Popover, Tooltip } from 'native-base'
@@ -40,12 +40,18 @@ interface IComingSoonProps {
 //   )
 // }
 
-const ComingSoon = ({ Component }: IComingSoonProps) => {
+const ComingSoon = ({ Component, rightPlacement }: IComingSoonProps) => {
   const { t } = useTranslation()
   const [showInfo, setShowInfo] = useState(false)
 
   const showInformation = () => setShowInfo(true)
   const hideInformation = () => setShowInfo(false)
+
+  const positionProps = rightPlacement
+    ? { right: '-80px' }
+    : {
+        bottom: '-30px',
+      }
 
   return (
     <div
@@ -64,7 +70,7 @@ const ComingSoon = ({ Component }: IComingSoonProps) => {
     >
       <Component isDisabled />
       {showInfo && (
-        <View position="absolute" bottom="-30px">
+        <View position="absolute" {...positionProps}>
           <HStack
             p="10px"
             h="20px"
@@ -72,7 +78,9 @@ const ComingSoon = ({ Component }: IComingSoonProps) => {
             alignItems="center"
             justifyContent="center"
           >
-            <Text color="primary.500" fontSize="xs">{t(keys.unclassified.comingSoonTitle)}</Text>
+            <Text color="primary.500" fontSize="xs">
+              {t(keys.unclassified.comingSoonTitle)}
+            </Text>
           </HStack>
         </View>
       )}

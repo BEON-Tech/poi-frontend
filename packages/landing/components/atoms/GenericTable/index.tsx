@@ -31,6 +31,7 @@ const Footer = ({ title, enabled }: IFooterProps) => (
     borderTopColor="general.100"
   >
     <ComingSoon
+      rightPlacement
       Component={(props) => (
         <Button
           variant="link"

@@ -32,14 +32,14 @@ const AboutPOISectionDesktop = () => {
       <Container>
         <HStack justifyContent="center" alignItems="flex-start">
           <AboutPOIOutlinedImage />
-          <VStack flex="1" pt="51px">
+          <VStack flex="1" pt="51px" px={{ lg: '100px',xl:'unset' }}>
             <Text fontSize="4xl" lineHeight="76.5px">
               {t(keys.aboutPOI.upperTittle)}
             </Text>
             <Heading size="6xl" fontWeight="semibold" lineHeight="109.28px">
               {t(keys.aboutPOI.tittle)}
             </Heading>
-            <HStack mt="37px" w="601px">
+            <HStack mt="37px" maxW={{ xl: '601px' }} w="100%">
               <View w="60px">
                 <Images.Polygon height="35px" width="35px" />
               </View>

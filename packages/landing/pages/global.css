@@ -77,8 +77,8 @@ body {
   position: relative;
 }
 /* These styles disable body scrolling if you are using <ScrollView> */
-body {
-  /* overflow: hidden; */
+html {
+  scroll-behavior: smooth;
 }
 /* These styles make the root element full-height */
 #root {

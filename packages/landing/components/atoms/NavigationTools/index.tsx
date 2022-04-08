@@ -32,7 +32,7 @@ const NavigationTools = ({ onOperationPress }: INavigationToolsProps) => {
   return (
     <>
       {navigationButtons.map(({ text, sectionName }) => (
-        <Link key={sectionName} href={`#${sectionName}`} passHref>
+        <Link key={sectionName} href={`#${sectionName}`} replace passHref scroll>
           <Button w="auto" variant="link" onPress={onOperationPress}>
             {text}
           </Button>

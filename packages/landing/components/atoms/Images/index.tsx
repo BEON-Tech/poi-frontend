@@ -199,7 +199,7 @@ const [Components, Sources]: [IComponents, any] = (() => {
   const result = {} as any
   const sources = {} as any
   imagesToRender.forEach(({ name, source, alt }) => {
-    result[name] = (props: HTMLImageElement) => (
+    result[name] = (props: ImageProps) => (
       <img {...props} src={source} alt={alt as string} />
     )
     sources[name] = source

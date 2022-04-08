@@ -53,8 +53,8 @@ const IntroSectionMobile = () => {
 
   return (
     <VStack zIndex="-1" nativeID={INTRO_SECTION}>
-      <View width="auto" height="auto" maxH="750px" mt="-70px">
-        <View width="100%" h="1200px" position="relative" top="-400px">
+      <View width="auto" height="auto" maxH="620px" mt="-0px">
+        <View width="100%" h="1200px" position="relative" top="-500px">
           <Image
             src={ImageSources.PeopleCenterIntroSection}
             width="100%"
