@@ -62,7 +62,7 @@ const IntroSectionMobile = () => {
 
   return (
     <VStack zIndex="-1" nativeID={INTRO_SECTION}>
-      <View width="100%" height="100%" maxH="620px" mt="-120px">
+      <View width="100%" height="100%" maxH="620px" mt="-120px" overflow="hidden">
         <View
           width="auto"
           h="1200px"

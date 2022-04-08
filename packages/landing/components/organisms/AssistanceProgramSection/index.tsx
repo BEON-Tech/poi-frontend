@@ -5,7 +5,7 @@ import { VStack, HStack, View, Button, Text, Heading } from 'native-base'
 
 import keys from '@i18n/keys'
 import { ASSISTANCE_PROGRAM_SECTION } from '@constants'
-import { BulletedTitle, Images } from '@components/atoms'
+import { BulletedTitle, Images, ComingSoon } from '@components/atoms'
 import { Container } from '@components/templates'
 import { useBreakpoint } from '@hooks'
 import { IHStackProps } from 'native-base/lib/typescript/components/primitives/Stack/HStack'
@@ -37,6 +37,25 @@ const aimBoxItems: IAimBoxItem[] = [
     alignItems: 'flex-start',
   },
 ]
+
+const DonateButton = ({ title, ...props }: any) => (
+  <ComingSoon
+    Component={(comingSoonProps) => (
+      <Button
+        flex="3"
+        minW="200px"
+        maxW="250px"
+        w="100%"
+        h="60px"
+        alignSelf="center"
+        {...props}
+        {...comingSoonProps}
+      >
+        {title}
+      </Button>
+    )}
+  />
+)
 
 const AssistanceProgramSectionDesktop = () => {
   const { t } = useTranslation()
@@ -85,16 +104,9 @@ const AssistanceProgramSectionDesktop = () => {
               >
                 {t(keys.assistanceProgram.secondBox.title)}
               </Text>
-              <Button
-                flex="3"
-                minW="200px"
-                maxW="250px"
-                w="100%"
-                h="60px"
-                alignSelf="center"
-              >
-                {t(keys.assistanceProgram.secondBox.button)}
-              </Button>
+              <DonateButton
+                title={t(keys.assistanceProgram.secondBox.button)}
+              />
             </HStack>
           </VStack>
           <VStack flex="1" justifyContent="flex-start">

@@ -51,9 +51,11 @@ const BannerSectionMobile = () => {
   const { t } = useTranslation()
 
   return (
-    <ZStack alignItems="center" height="831px" nativeID={BANNER_SECTION}>
-      <View>
-        <Images.Banner objectFit="cover" height="831px" width="3600px" />
+    <ZStack alignItems="center" height="631px" nativeID={BANNER_SECTION}>
+      <View width="100%" overflow="hidden">
+        <View left="-1500px" top="-130px">
+          <Images.Banner objectFit="cover" height="831px" width="3600px" />
+        </View>
       </View>
       <VStack w="100%" alignItems="center">
         <Heading

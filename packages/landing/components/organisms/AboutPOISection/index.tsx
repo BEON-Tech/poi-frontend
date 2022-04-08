@@ -32,7 +32,7 @@ const AboutPOISectionDesktop = () => {
       <Container>
         <HStack justifyContent="center" alignItems="flex-start">
           <AboutPOIOutlinedImage />
-          <VStack flex="1" pt="51px" px={{ lg: '100px',xl:'unset' }}>
+          <VStack flex="1" pt="51px" px={{ lg: '100px', xl: 'unset' }}>
             <Text fontSize="4xl" lineHeight="76.5px">
               {t(keys.aboutPOI.upperTittle)}
             </Text>
@@ -85,7 +85,6 @@ const AboutPOISectionMobile = () => {
       justifyContent="center"
       alignItems="flex-start"
       mt="-30px"
-      pt="59px"
       borderRadius="30px"
       px="20px"
     >
@@ -123,7 +122,7 @@ const AboutPOISectionMobile = () => {
         >
           {showMore ? t(keys.aboutPOI.hide) : t(keys.aboutPOI.show)}
         </Button>
-        <AboutPOIOutlinedImage />
+        <AboutPOIOutlinedImage center />
       </VStack>
     </HStack>
   )

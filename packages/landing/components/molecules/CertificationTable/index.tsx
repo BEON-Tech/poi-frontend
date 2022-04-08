@@ -1,5 +1,6 @@
 import { useMemo, useState, useEffect } from 'react'
 import { useTranslation } from 'next-export-i18n'
+import { Text } from 'native-base'
 
 import { useBreakpoint } from '@hooks'
 import keys from '@i18n/keys'
@@ -60,7 +61,7 @@ const CertificationTable = ({ loadData }: ICertificationTableProps) => {
       setData(
         newData.data.map((item) => ({
           ...item,
-          detailsLabel: t(keys.publicAudit.certificationsTable.moreDetails),
+          detailsLabel: t(keys.publicAudit.moreDetails),
         }))
       )
       setHasMore(newData.hasMore)
@@ -68,8 +69,14 @@ const CertificationTable = ({ loadData }: ICertificationTableProps) => {
     })()
   }, [])
 
-  return (
+  return data.length > 0 ? (
     <CertificationTableBare data={data} hasMore={hasMore} loading={loading} />
+  ) : (
+    <Text mt={{ lg: '50px' }}>
+      <Text color="primary.500">{t(keys.publicAudit.noDataTitle)}</Text>
+      <Text>{t(keys.publicAudit.noDataText)}</Text>
+      <Text fontWeight="bold">{t(keys.publicAudit.noDataDate)}</Text>
+    </Text>
   )
 }
 

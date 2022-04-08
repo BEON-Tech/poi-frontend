@@ -28,9 +28,9 @@
     "show": "Show More",
     "upperTittle": "About",
     "tittle": "Proof Of Integrity",
-    "descriptionFirstParagraph": "With a rewards system based on Game Theory, our protocol will certify who struggles to cover their basic needs in a decentralized and transparent way. Once certified, applicants will be eligible for different philanthropy programs. ",
-    "descriptionSecondParagraph": "Every program will publish clear criteria for eligibility, entry and exit, and pre-transparent mechanisms for establishing benefit levels.",
-    "descriptionThirdParagraph": "A combination of Proof of Work, Proof of Stake, and Schelling Points will be applied to incentivize social workers (Certifiers) to do a good job."
+    "descriptionFirstParagraph": "We believe in the social impact of the blockchain. Our mission is to lay bridges between donors and beneficiaries, giving the latter financial instruments to help them thrive.",
+    "descriptionSecondParagraph": "Addressing the main problem of donors is the key to unlocking these new bonds in a transparent and decentralized way. By contributing through the blockchain, there are 0 intermediaries between the donors and the beneficiaries.",
+    "descriptionThirdParagraph": "Our team is composed of programmers, impact measurement experts, communicators, social workers and crypto enthusiasts who share the same vision: reducing poverty by bringing blockchain to the most people possible."
   },
   "assistanceProgram": {
     "title": "Our First Assistance Program",
@@ -52,12 +52,15 @@
   },
   "publicAudit": {
     "title": "Public Audit",
+    "moreDetails": "More Details",
+    "noDataTitle": "Coming soon!",
+    "noDataText": " Our pilot program is aimed to start on ",
+    "noDataDate": "May 3rd.",
     "certificationsTable": {
       "title": "Latest Certifications",
       "applicantColumn": "Application",
       "dateColumn": "Date",
       "detailsColumn": "Details",
-      "moreDetails": "More Details",
       "seeMore": "+See all certifications"
     },
     "donationsTable": {

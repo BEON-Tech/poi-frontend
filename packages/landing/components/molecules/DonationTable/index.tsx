@@ -64,7 +64,7 @@ const DonationTable = ({ loadData }: IDonationTableProps) => {
       setData(
         newData.data.map((item) => ({
           ...item,
-          detailsLabel: t(keys.publicAudit.donationsTable.moreDetails),
+          detailsLabel: t(keys.publicAudit.moreDetails),
         }))
       )
       setHasMore(newData.hasMore)

@@ -40,6 +40,8 @@ const transformDonationType = (type: TransactionType): string => {
   return value || keys.transactions.genericTransaction
 }
 
+const amountDivision = 1000 * 1000 * 1000 * 1000 * 1000 * 1000
+
 export const getLatestDonations = async ({
   limit = 3,
   offset = 0,
@@ -54,7 +56,7 @@ export const getLatestDonations = async ({
   const transformedData = data.map(
     ({ amount, type, transactionUrl, id, tokenName }: any) => ({
       id,
-      amount: `${amount} ${tokenName}`,
+      amount: `${amount / amountDivision} ${tokenName}`,
       type: transformDonationType(type),
       transactionUrl,
     })

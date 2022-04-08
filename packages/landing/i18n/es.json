@@ -28,9 +28,9 @@
     "show": "Mostrar más",
     "upperTittle": "Acerca de",
     "tittle": "Proof Of Integrity",
-    "descriptionFirstParagraph": "Con un sistema de recompensas basado en Game Theory, nuestro protocolo certificará quién lucha por cubrir sus necesidades básicas de forma descentralizada y transparente. Una vez certificados, los solicitantes serán elegibles para diferentes programas de filantropía.",
-    "descriptionSecondParagraph": "Cada programa publicará criterios claros de elegibilidad, entrada y salida, y mecanismos pretransparentes para establecer niveles de beneficios.",
-    "descriptionThirdParagraph": "Se aplicará una combinación de Prueba de trabajo, Prueba de participación y Puntos Schelling para incentivar a los trabajadores sociales (Certificadores) a hacer un buen trabajo."
+    "descriptionFirstParagraph": "Creemos en el impacto social de la blockchain. Nuestra misión es tender puentes entre donantes y beneficiarios, brindando a estos últimos instrumentos financieros para ayudarlos a prosperar.",
+    "descriptionSecondParagraph": "Abordar la transparencia de las donaciones, el principal problema de los contribuyentes, es la clave para desbloquear estos nuevos lazos de manera descentralizada. Al contribuir a través del blockchain, no existen intermediarios entre el donativo y su beneficiario.",
+    "descriptionThirdParagraph": "Nuestro equipo está compuesto por programadores, expertos en medición de impacto, comunicadores, trabajadores sociales y entusiastas de las criptomonedas que comparten la misma visión: reducir la pobreza llevando el blockchain a la mayor cantidad de personas posible."
   },
   "assistanceProgram": {
     "title": "Nuestro Primer Programa de Asistencia",
@@ -52,12 +52,15 @@
   },
   "publicAudit": {
     "title": "Auditoría Pública",
+    "noDataTitle": "En breve!",
+    "noDataText": " Nuestro programa piloto tiene fecha de comienzo el ",
+    "noDataDate": "3 de Mayo.",
+    "moreDetails": "Más Detalles",
     "certificationsTable": {
       "title": "Últimas Certificaciones",
       "applicantColumn": "Solicitud",
       "dateColumn": "Fecha",
       "detailsColumn": "Detalles",
-      "moreDetails": "Más Detalles",
       "seeMore": "+Ver todas las certificaciones"
     },
     "donationsTable": {
@@ -65,7 +68,6 @@
       "amountColumn": "Cantidad",
       "typeColumn": "Tipo",
       "etherscanColumn": "Detalles",
-      "moreDetails": "Más Detalles",
       "seeMore": "+Ver todas las transacciones"
     }
   },

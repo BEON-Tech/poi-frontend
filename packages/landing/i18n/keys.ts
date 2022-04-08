@@ -59,12 +59,15 @@ const keys = {
   },
   publicAudit: {
     title: 'title',
+    moreDetails: 'moreDetails',
+    noDataTitle: 'noDataTitle',
+    noDataText: 'noDataText',
+    noDataDate: 'noDataDate',
     certificationsTable: {
       title: 'title',
       applicantColumn: 'applicantColumn',
       dateColumn: 'dateColumn',
       detailsColumn: 'detailsColumn',
-      moreDetails: 'moreDetails',
       seeMore: 'seeMore',
     },
     donationsTable: {
@@ -72,7 +75,6 @@ const keys = {
       amountColumn: 'amountColumn',
       typeColumn: 'typeColumn',
       etherscanColumn: 'etherscanColumn',
-      moreDetails: 'moreDetails',
       seeMore: 'seeMore',
     },
   },

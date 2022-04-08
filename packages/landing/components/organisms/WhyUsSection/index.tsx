@@ -1,6 +1,5 @@
 import { Flex, Heading, VStack, Button, View } from 'native-base'
 
-
 import keys from '@i18n/keys'
 import { useBreakpoint } from '@hooks'
 import { WHY_US_SECTION } from '@constants'
@@ -8,7 +7,7 @@ import { Container } from '@components/templates'
 import { useTranslation } from 'next-export-i18n'
 import { Images, ComingSoon } from '@components/atoms'
 
-const PublicAuditSection = () => {
+const WhyUsSection = () => {
   const { isTablet } = useBreakpoint()
   const { t } = useTranslation()
   return (
@@ -76,4 +75,4 @@ const PublicAuditSection = () => {
   )
 }
 
-export default PublicAuditSection
+export default WhyUsSection
