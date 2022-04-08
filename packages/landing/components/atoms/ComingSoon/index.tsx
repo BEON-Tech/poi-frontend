@@ -48,10 +48,8 @@ const ComingSoon = ({ Component, rightPlacement }: IComingSoonProps) => {
   const hideInformation = () => setShowInfo(false)
 
   const positionProps = rightPlacement
-    ? { right: '-80px' }
-    : {
-        bottom: '-30px',
-      }
+    ? { right: '-90px' }
+    : { bottom: '-30px' }
 
   return (
     <div

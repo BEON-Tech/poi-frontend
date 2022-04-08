@@ -56,19 +56,19 @@ const IntroSectionMobile = () => {
         height: '800px',
       }
     : {
-        width: '1250px',
-        height: '1500px',
+        width: '1000px',
+        height: '1300px',
       }
 
   return (
     <VStack zIndex="-1" nativeID={INTRO_SECTION}>
-      <View width="100%" height="100%" maxH="620px" mt="-0px">
+      <View width="100%" height="100%" maxH="620px" mt="-120px">
         <View
           width="auto"
           h="1200px"
           position="relative"
-          top={{base:"-100px", sm:'-700px'}}
-          left={{base:"-100px", sm:'-200px'}}
+          top={{base:"-150px", sm:'-500px'}}
+          left={{base:"-100px", sm:'-10px'}}
         >
           <Images.PeopleCenterIntroSection {...imageProps} />
         </View>

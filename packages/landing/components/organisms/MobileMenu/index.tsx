@@ -27,7 +27,7 @@ const MobileMenu = ({ onClosePress }: IMobileMenuProps) => (
       </HStack>
       <VStack
         w="100%"
-        h="75%"
+        h="65%"
         alignItems="center"
         justifyContent="space-between"
         pb="80px"
