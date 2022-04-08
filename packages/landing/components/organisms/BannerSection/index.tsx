@@ -1,12 +1,10 @@
 import { Heading, VStack, ZStack, View, Flex } from 'native-base'
 import { useTranslation } from 'next-export-i18n'
-import Image from 'next/image'
 
 import keys from '@i18n/keys'
 import { BANNER_SECTION } from '@constants'
 import { Images, ContentBubble } from '@components/atoms'
 import { useBreakpoint } from '@hooks'
-import { ImageSources } from '../../atoms/Images'
 
 const BannerSectionDesktop = () => {
   const { t } = useTranslation()
@@ -54,8 +52,8 @@ const BannerSectionMobile = () => {
 
   return (
     <ZStack alignItems="center" height="831px" nativeID={BANNER_SECTION}>
-      <View w="100%" height="100%" position="relative">
-        <Image src={ImageSources.Banner} layout="fill" objectFit="cover" />
+      <View>
+        <Images.Banner objectFit="cover" height="831px" width="3600px" />
       </View>
       <VStack w="100%" alignItems="center">
         <Heading

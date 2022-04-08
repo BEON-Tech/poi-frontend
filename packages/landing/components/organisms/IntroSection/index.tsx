@@ -7,8 +7,6 @@ import { IntroSectionImages } from '@components/molecules'
 import { Images, ComingSoon } from '@components/atoms'
 import { useBreakpoint } from '@hooks'
 import { Container } from '@components/templates'
-import Image from 'next/image'
-import { ImageSources } from '@components/atoms/Images'
 
 const DonateButton = ({ title, ...props }: any) => (
   <ComingSoon
@@ -50,18 +48,29 @@ const IntroSectionDesktop = () => {
 
 const IntroSectionMobile = () => {
   const { t } = useTranslation()
+  const { isMobile } = useBreakpoint()
+
+  const imageProps = isMobile
+    ? {
+        width: '600px',
+        height: '800px',
+      }
+    : {
+        width: '1250px',
+        height: '1500px',
+      }
 
   return (
     <VStack zIndex="-1" nativeID={INTRO_SECTION}>
-      <View width="auto" height="auto" maxH="620px" mt="-0px">
-        <View width="100%" h="1200px" position="relative" top="-500px">
-          <Image
-            src={ImageSources.PeopleCenterIntroSection}
-            width="100%"
-            height="100%"
-            layout="fill"
-            objectFit="cover"
-          />
+      <View width="100%" height="100%" maxH="620px" mt="-0px">
+        <View
+          width="auto"
+          h="1200px"
+          position="relative"
+          top={{base:"-100px", sm:'-700px'}}
+          left={{base:"-100px", sm:'-200px'}}
+        >
+          <Images.PeopleCenterIntroSection {...imageProps} />
         </View>
       </View>
       <VStack bg="general.50" p="20px" borderRadius="30px" mt="-44px">
