@@ -1,0 +1,142 @@
+{
+  "unclassified": {
+    "comingSoonTitle": "En breve"
+  },
+  "toolbar": {
+    "about": "Sobre Nosotros",
+    "assitanceProgram": "Programa de asistencia",
+    "ourTeam": "Nuestro Equipo",
+    "publicAudit": "Auditoría Pública",
+    "goToApp": "Ir a la App",
+    "title": "Proof Of Integrity"
+  },
+  "introSection": {
+    "title": "Usando cripto para dirigir la ayuda social",
+    "subTitle": {
+      "firstSection": "Proof of Integrity es un protocolo descentralizado y sin fines de lucro para certificar a los humanos que necesitan un ingreso básico.",
+      "secondSection": "Estamos integrados con la iniciativa Proof of Humanity, y nuestra visión es incorporar a todos los humanos que necesitan la plataforma."
+    },
+    "donateCTA": "Donar"
+  },
+  "banner": {
+    "title": "Necesidades Urgentes Requieren Respuestas Urgentes",
+    "bubble1": "Hay al menos 1.300 millones de personas en situación de pobreza en todo el mundo.",
+    "bubble2": "788 millones de personas comparten hogar con una o más personas desnutridas."
+  },
+  "aboutPOI": {
+    "hide": "Ocultar",
+    "show": "Mostrar más",
+    "upperTittle": "Acerca de",
+    "tittle": "Proof Of Integrity",
+    "descriptionFirstParagraph": "Creemos en el impacto social de la blockchain. Nuestra misión es tender puentes entre donantes y beneficiarios, brindando a estos últimos instrumentos financieros para ayudarlos a prosperar.",
+    "descriptionSecondParagraph": "Abordar la transparencia de las donaciones, el principal problema de los contribuyentes, es la clave para desbloquear estos nuevos lazos de manera descentralizada. Al contribuir a través del blockchain, no existen intermediarios entre el donativo y su beneficiario.",
+    "descriptionThirdParagraph": "Nuestro equipo está compuesto por programadores, expertos en medición de impacto, comunicadores, trabajadores sociales y entusiastas de las criptomonedas que comparten la misma visión: reducir la pobreza llevando el blockchain a la mayor cantidad de personas posible."
+  },
+  "assistanceProgram": {
+    "title": "Nuestro Primer Programa de Asistencia",
+    "firstBox": {
+      "firstSentence": "Nuestro piloto se centrará en ofrecer un programa educativo de criptofinanzas y ",
+      "secondSentenceBold": "financiar las tarifas de transacción y depósitos",
+      "thirdSentence": " necesarios para unirse a la plataforma Proof of Humanity."
+    },
+    "secondBox": {
+      "title": "Mostra que te importa.",
+      "button": "Dona"
+    },
+    "aimBox": {
+      "title": "¿A quién estará dirigido?",
+      "firstItem": "Jóvenes recién graduados de la escuela",
+      "secondItem": "En un barrio popular de Buenos Aires",
+      "thirdItem": "Nos asociaremos con Club Mugica, un centro comunitario local"
+    }
+  },
+  "publicAudit": {
+    "title": "Auditoría Pública",
+    "noDataTitle": "En breve!",
+    "noDataText": " Nuestro programa piloto tiene fecha de comienzo el ",
+    "noDataDate": "3 de Mayo.",
+    "moreDetails": "Más Detalles",
+    "certificationsTable": {
+      "title": "Últimas Certificaciones",
+      "applicantColumn": "Solicitud",
+      "dateColumn": "Fecha",
+      "detailsColumn": "Detalles",
+      "seeMore": "+Ver todas las certificaciones"
+    },
+    "donationsTable": {
+      "title": "Últimas Transacciones",
+      "amountColumn": "Cantidad",
+      "typeColumn": "Tipo",
+      "etherscanColumn": "Detalles",
+      "seeMore": "+Ver todas las transacciones"
+    }
+  },
+  "ourTeam": {
+    "show": "Conoce el Equipo",
+    "hide": "Ocultar Equipo",
+    "title": "Nuestro equipo",
+    "meetTheAdvisors": "Conozca a los Asesores",
+    "tags": {
+      "all": "Todos",
+      "developers": "Desarrolladores",
+      "designAndMarketing": "Diseño & Marketing",
+      "socialTeam": "Equipo Social"
+    },
+    "roles": {
+      "founderAndDirector": "Founder & Director",
+      "leadSolidityDeveloper": "Lead Solidity Developer",
+      "leadFrontendDeveloper": "Lead Frontend Developer",
+      "srSolidityDeveloper": "Sr Solidity Developer",
+      "uxuiDesigner": "UX/UI Designer",
+      "productManager": "Product Manager",
+      "copywriter": "Redactor",
+      "marketingSpecialist": "Especialista en Marketing",
+      "socialMedia": "Social Media",
+      "socialTeam": "Equipo Social",
+      "fundraisingStrategy": "Fundraising Strategy"
+    }
+  },
+  "advisors": {
+    "show": "Conoce los Asesores",
+    "hide": "Ocultar Asesores",
+    "title": "Asesores",
+    "hideAdvisors": "Ocultar Asesores",
+    "roles": {
+      "productAdvisor": "Advisor de Product",
+      "strategyAdvisor": "Advisor de Estrategia",
+      "techAdvisor": "Advisor de Tecnología",
+      "cryptoAdvisor": "Asesor de Cripto",
+      "legalAdvisor": "Asesor Legal"
+    },
+    "descriptions": {
+      "damianWasserman": "Fundador de Beon Tech Studio, con 20 años de experiencia en la industria del software.",
+      "juanHeado": "Con más de 20 años de experiencia en tecnología, ayudó a desarrollar la versión 2 de $UBI con Santi Siri.",
+      "pabloSabbatella": "Dedicada a la investigación, inversión y difusión del ecosistema crypto & DeFi.",
+      "brianSztamfater": "Brian es un emprendedor de blockchain, arquitecto de software y autor. Fundó @CromyNFT",
+      "diegoBoryszanski": "Abogado de profesión, Diego es un emprendedor tecnológico en serie y un entusiasta de las criptomonedas."
+    }
+  },
+  "partnersSection": {
+    "defyEducation": "Somos socios de Defy Education."
+  },
+  "whyUS": {
+    "title": "Con POI, sus donaciones van a las manos correctas.",
+    "button": "Consulte nuestro Whitepaper"
+  },
+  "contactUS": {
+    "title": "Contáctanos",
+    "subtitle": "Contáctanos. Nos encantaría saber de tí."
+  },
+  "footer": {
+    "title": "Proof Of Integrity",
+    "subtitle": "Proof Of Integrity es un proyecto sin fines de lucro",
+    "disclaimer": "Diseñado por talento latinoamericano en BEON Tech Studio"
+  },
+  "transactions": {
+    "administrativeExpenses": "Gastos administrativos",
+    "donation": "Donación",
+    "pohFunding": "Fondeo para PoH",
+    "certifierPayment": "Pago a certificador",
+    "genericTransaction": "Transacción"
+  }
+}
