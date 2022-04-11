@@ -67,15 +67,15 @@ const Donate: NextPage = () => {
     <VStack mt={100} w={500}>
       <Flex direction="row" justify="space-between" alignItems="center" width="100%" pl={3} pr={3}>
         <Text>
-          <StepPill color="primary.700" textColor="#172815">1</StepPill>
-          <View ml={1}>Connect your wallet</View>
+          <StepPill color="primary.700" textColor="#172815"><Text>1</Text></StepPill>
+          <View ml={1}><Text>Connect your wallet</Text></View>
         </Text>
         <View flexGrow={1} pl={2} pr={2}>
           <Divider bg="light.400" thickness="2" mx="2" orientation="horizontal" />
         </View>
         <Text ml={4}>
-          <StepPill color="primary.700" textColor="#172815" opacity={controlsDisabled ? "0.3" : "1"}>2</StepPill>
-          <View ml={1} opacity={controlsDisabled ? "0.3" : "1"}>Make a donation</View>
+          <StepPill color="primary.700" textColor="#172815" opacity={controlsDisabled ? "0.3" : "1"}><Text>2</Text></StepPill>
+          <View ml={1} opacity={controlsDisabled ? "0.3" : "1"}><Text>Make a donation</Text></View>
         </Text>
       </Flex>
       <Flex
@@ -128,7 +128,7 @@ const Donate: NextPage = () => {
         >
           Donate
         </ActionButton>
-        {txError && <View>There was a problem with the transaction. Check your funds and try again.</View>}
+        {txError && <View><Text>There was a problem with the transaction. Check your funds and try again.</Text></View>}
       </Flex>
     </VStack>
   </BaseLayout>
