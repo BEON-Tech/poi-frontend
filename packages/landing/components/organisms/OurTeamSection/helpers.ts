@@ -95,7 +95,7 @@ export default [
   },
   {
     imagePath: BarbaraFernandezImage,
-    name: 'Barara Fernandez',
+    name: 'Barbara Fernandez',
     role: keys.ourTeam.roles.socialTeam,
     tags: [SOCIAL_TEAM_TAG],
   },
