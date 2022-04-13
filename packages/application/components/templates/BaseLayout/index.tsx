@@ -57,7 +57,7 @@ const BaseLayout = ({
       </Text>
     )}
 
-    <View overflowY="scroll" flex={4}>
+    <View overflowY="hidden" flex={4}>
       {children}
     </View>
   </VStack>
