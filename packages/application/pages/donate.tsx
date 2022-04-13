@@ -8,6 +8,11 @@ import {
   Select,
   Divider,
   HStack,
+  Menu,
+  Button,
+  CheckIcon,
+  ArrowDownIcon,
+  ChevronDownIcon,
 } from 'native-base'
 import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
@@ -20,7 +25,12 @@ import {
   transfer,
   waitTransaction,
 } from '../services/contracts/tx.contract'
-import { EthereumIcon, DaiIcon, UsdcIcon, WbtcIcon } from '../components/atoms/Icons/Crypto'
+import {
+  EthereumIcon,
+  DaiIcon,
+  UsdcIcon,
+  WbtcIcon,
+} from '../components/atoms/Icons/Crypto'
 
 const StepPill = ({
   children,
@@ -39,6 +49,46 @@ const StepPill = ({
   >
     {children}
   </View>
+)
+
+const CryptoIcon = ({ tokenSymbol }: any) => {
+  switch (tokenSymbol) {
+    case 'DAI':
+      return <DaiIcon />
+    case 'USDC':
+      return <UsdcIcon />
+    case 'WBTC':
+      return <WbtcIcon />
+    default:
+      return <EthereumIcon />
+  }
+}
+
+const TriggerMenu = ({ tokenIcon, ...triggerProps }: any) => (
+  <Button
+    minW={8}
+    w={32}
+    pl={3}
+    pr={3}
+    borderWidth={1}
+    borderColor="#2D6320"
+    borderRadius={8}
+    backgroundColor="white"
+    overflowY="hidden"
+    fontSize="sm"
+    variant="solid"
+    {...triggerProps}
+    endIcon={<ChevronDownIcon width="auto" size={3} color="#2D6320" justifySelf="flex-end" />}
+    _stack={{
+      width: "100%",
+      justifyContent: "space-between"
+    }}
+  >
+    <HStack w="auto" space={2}>
+      <CryptoIcon tokenSymbol={tokenIcon} />
+      <Text>{tokenIcon}</Text>
+    </HStack>
+  </Button>
 )
 
 const Donate: NextPage = () => {
@@ -66,15 +116,6 @@ const Donate: NextPage = () => {
     }
   }
   const controlsDisabled = !(active && amount > 0 && !txError)
-
-  const setCryptoIcon = () => {
-    switch(tokenSymbol) {
-      case 'DAI': return <DaiIcon />
-      case 'USDC': return <UsdcIcon />
-      case 'WBTC': return <WbtcIcon />
-      default: return <EthereumIcon />
-    }
-  }
 
   useEffect(() => {
     if (txError) {
@@ -173,26 +214,20 @@ const Donate: NextPage = () => {
               bottom={0}
               width="auto"
             >
-              <Select
-                minW={8}
-                w={32}
-                pl={10}
-                borderWidth={1}
-                borderColor="#2D6320"
-                borderRadius={8}
-                bg="white"
-                onValueChange={updateTokenSymbol}
-                defaultValue="ETH"
-                overflowY="hidden"
-                fontSize="sm"
+              <Menu
+                placement="bottom"
+                // eslint-disable-next-line react/no-unstable-nested-components
+                trigger={(triggerProps) => TriggerMenu({tokenIcon: tokenSymbol, ...triggerProps})}
               >
                 {TOKENS.map(({ symbol }) => (
-                  <Select.Item key={symbol} value={symbol} label={symbol} />
+                  <Menu.Item
+                    key={symbol}
+                    onPress={() => updateTokenSymbol(symbol)}
+                  >
+                    {symbol}
+                  </Menu.Item>
                 ))}
-              </Select>
-              <View position="absolute" h="100%" pl={2} justifyContent="center">
-                {setCryptoIcon()}
-              </View>
+              </Menu>
             </FormControl>
           </HStack>
           <ActionButton
