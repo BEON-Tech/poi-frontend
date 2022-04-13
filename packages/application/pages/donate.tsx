@@ -5,14 +5,12 @@ import {
   Text,
   FormControl,
   Input,
-  Select,
   Divider,
   HStack,
   Menu,
   Button,
-  CheckIcon,
-  ArrowDownIcon,
   ChevronDownIcon,
+  ChevronUpIcon,
 } from 'native-base'
 import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
@@ -64,7 +62,29 @@ const CryptoIcon = ({ tokenSymbol }: any) => {
   }
 }
 
-const TriggerMenu = ({ tokenIcon, ...triggerProps }: any) => (
+const MenuChevronIcon = (isMenuOpen: boolean) => {
+  if (isMenuOpen) {
+    return (
+      <ChevronUpIcon
+        width="auto"
+        size={3}
+        color="#2D6320"
+        justifySelf="flex-end"
+      />
+    )
+  }
+
+  return (
+    <ChevronDownIcon
+      width="auto"
+      size={3}
+      color="#2D6320"
+      justifySelf="flex-end"
+    />
+  )
+}
+
+const TriggerMenu = ({ tokenIcon, menuOpen, ...triggerProps }: any) => (
   <Button
     minW={8}
     w={32}
@@ -72,16 +92,18 @@ const TriggerMenu = ({ tokenIcon, ...triggerProps }: any) => (
     pr={3}
     borderWidth={1}
     borderColor="#2D6320"
+    borderBottomColor={menuOpen ? "white" : "#2D6320"}
     borderRadius={8}
+    borderBottomRadius={menuOpen ? 0 : 8}
     backgroundColor="white"
     overflowY="hidden"
     fontSize="sm"
     variant="solid"
     {...triggerProps}
-    endIcon={<ChevronDownIcon width="auto" size={3} color="#2D6320" justifySelf="flex-end" />}
+    endIcon={MenuChevronIcon(menuOpen)}
     _stack={{
-      width: "100%",
-      justifyContent: "space-between"
+      width: '100%',
+      justifyContent: 'space-between',
     }}
   >
     <HStack w="auto" space={2}>
@@ -93,10 +115,12 @@ const TriggerMenu = ({ tokenIcon, ...triggerProps }: any) => (
 
 const Donate: NextPage = () => {
   const { active, account, library, chainId } = useWallet()
+  const [isMenuOpen, setMenuOpen] = useState(false)
   const [tokenSymbol, setTokenSymbol] = useState('ETH')
   const [amount, setAmount] = useState(0)
   const [tx, setTx] = useState()
   const [txError, setTxError] = useState()
+  const updateIsMenuOpen = (isOpen: boolean) => setMenuOpen(isOpen)
   const updateTokenSymbol = (value: String) => setTokenSymbol(value)
   const updateAmount = (event: any) => setAmount(event.target.value)
   const donate = async (event: any) => {
@@ -216,15 +240,35 @@ const Donate: NextPage = () => {
             >
               <Menu
                 placement="bottom"
+                bg="white"
+                w={32}
+                shadow={0}
+                borderWidth={1}
+                borderTopWidth={0}
+                borderTopRadius={0}
+                borderBottomRadius={8}
+                borderColor="#2D6320"
                 // eslint-disable-next-line react/no-unstable-nested-components
-                trigger={(triggerProps) => TriggerMenu({tokenIcon: tokenSymbol, ...triggerProps})}
+                trigger={(triggerProps) =>
+                  TriggerMenu({
+                    tokenIcon: tokenSymbol,
+                    menuOpen: isMenuOpen,
+                    ...triggerProps,
+                  })
+                }
+                onOpen={() => updateIsMenuOpen(true)}
+                onClose={() => updateIsMenuOpen(false)}
               >
                 {TOKENS.map(({ symbol }) => (
                   <Menu.Item
                     key={symbol}
                     onPress={() => updateTokenSymbol(symbol)}
+                    pl={0}
                   >
-                    {symbol}
+                    <HStack justifyContent="flex-start" pl={3} space={2}>
+                      <CryptoIcon tokenSymbol={symbol} />
+                      <Text>{symbol}</Text>
+                    </HStack>
                   </Menu.Item>
                 ))}
               </Menu>
