@@ -1,8 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-param-reassign */
 const withPlugins = require('next-compose-plugins')
+const withOptimizedImages = require('next-optimized-images')
 const withTM = require('next-transpile-modules')([
   'native-base',
+  'react-native-web',
   'react-native-svg',
   'react-native-safe-area-context',
   '@react-aria/visually-hidden',
@@ -25,6 +27,10 @@ const withTM = require('next-transpile-modules')([
 module.exports = withPlugins(
   [
     withTM,
+    [
+      withOptimizedImages,
+      { handleImages: ['png'], imagesFolder: 'assets/images' },
+    ],
     // your plugins go here.
   ],
   {
@@ -40,8 +46,14 @@ module.exports = withPlugins(
         '.web.tsx',
         ...config.resolve.extensions,
       ]
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ['url-loader'],
+      })
+
       return config
     },
     env: {},
+    images: { disableStaticImages: true, domains: ['picsum.photos'] },
   }
 )

@@ -118,15 +118,38 @@ const lightTheme = extendTheme({
       baseStyle: {},
       defaultProps: {
         fontSize: 'md',
-        borderRadius: 20,
+        borderRadius: 100,
         h: '10',
         _text: {
           color: 'invertedText.900',
           fontSize: { base: 'sm', sm: 'sm', md: 'sm', lg: 'md', xl: 'md' },
         },
-        _pressed: { opacity: 0.5 },
+        // _pressed: { opacity: 0.5 },
       },
       variants: {
+        solid: {
+          bg: 'primary.900',
+          _text: {
+            color: 'invertedText.900',
+            fontWeight: '700',
+            fontSize: {
+              base: 'lg',
+              sm: 'lg',
+              md: 'xl',
+              lg: '2xl',
+              xl: '2xl',
+            },
+          },
+          _hover: {
+            bg: 'primary.800'
+          },
+          _pressed: {
+            bg: 'primary.700'
+          },
+          _focus: {
+            bg: 'primary.900'
+          }
+        },
         link: {
           _text: {
             color: 'primary.900',
@@ -240,28 +263,36 @@ const lightTheme = extendTheme({
   colors: {
     // color scheme
     primary: {
-      900: '#DE8603',
-      800: '#FF9900',
-      700: '#F6C944',
+      900: '#2D6320',
+      800: '#223D1F',
+      700: '#33A117',
+      600: '#172815',
+      500: '#EAFFE4',
     },
     secondary: {
-      900: '#3B876A',
+      900: '#FFFFFF',
     },
     border: {
       500: '#E5E5E5',
     },
     invertedText: { 900: '#FFFFFF' },
-    text: { 900: '#000000' },
+    text: { 900: '#000000', 800: '#2D2D2D', 700: '#1F1939', 600: '#333333' },
     background: {
       900: '#FFFFFF',
       700: '#F9F9F9',
       400: '#acacac',
+      100: '#F2E4E3',
     },
     success: {
       900: '#009200',
     },
     error: {
       900: '#B83E26',
+    },
+    amber: {
+      900: '#DE8603',
+      800: '#FF9900',
+      700: '#F6C944',
     },
   },
 })

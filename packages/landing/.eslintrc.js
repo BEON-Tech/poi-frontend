@@ -16,19 +16,24 @@ module.exports = {
     },
     ecmaVersion: 13,
     sourceType: 'module',
+    project: './tsconfig.json',
+    tsconfigRootDir: './',
   },
   settings: {
     'import/resolver': {
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
+      typescript: {},
     },
     jest: {
       version: 'latest',
     },
   },
-  plugins: ['react', '@typescript-eslint', 'react-native'],
+  plugins: ['react', '@typescript-eslint', 'react-native', 'import'],
   rules: {
+    'react-native/no-inline-styles': 'off',
+    'react-native/no-color-literals': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/require-default-props': 'off',
     'react/jsx-one-expression-per-line': 'off',
@@ -79,12 +84,12 @@ module.exports = {
     'react-native/no-raw-text': 'off',
     'react-native/no-unused-styles': 'error',
     'react-native/split-platform-components': 'warn',
-    'react-native/no-inline-styles': 'error',
-    'react-native/no-color-literals': 'error',
     'react-native/no-single-element-style-arrays': 'error',
+    'react/no-unstable-nested-components': 'warn'
   },
   globals: {
     JSX: true,
     window: true,
+    fetch: true,
   },
 }

@@ -1,3 +1,143 @@
 {
-    "home": "Casa"
+  "unclassified": {
+    "comingSoonTitle": "Coming soon"
+  },
+  "toolbar": {
+    "about": "About",
+    "assitanceProgram": "Assistance Program",
+    "ourTeam": "Our Team",
+    "publicAudit": "Public Audit",
+    "goToApp": "Go to the App",
+    "title": "Proof Of Integrity"
+  },
+  "introSection": {
+    "title": "Using crypto to target social protection",
+    "subTitle": {
+      "firstSection": "Proof of Integrity is a decentralized and non-profit protocol to certify humans needing a basic income.",
+      "secondSection": "We are integrated with the Proof of Humanity initiative, and our vision is to onboard every human in need to the platform."
+    },
+    "donateCTA": "Donate"
+  },
+  "banner": {
+    "title": "Urgent Needs Require Urgent Answers",
+    "bubble1": "There are at least 1.3 billion people experiencing poverty worldwide.",
+    "bubble2": "788 million people share household with one or more undernourished person."
+  },
+  "aboutPOI": {
+    "hide": "Hide",
+    "show": "Show More",
+    "upperTittle": "About",
+    "tittle": "Proof Of Integrity",
+    "descriptionFirstParagraph": "We believe in the social impact of the blockchain. Our mission is to lay bridges between donors and beneficiaries, giving the latter financial instruments to help them thrive.",
+    "descriptionSecondParagraph": "Addressing the main problem of donors is the key to unlocking these new bonds in a transparent and decentralized way. By contributing through the blockchain, there are 0 intermediaries between the donors and the beneficiaries.",
+    "descriptionThirdParagraph": "Our team is composed of programmers, impact measurement experts, communicators, social workers and crypto enthusiasts who share the same vision: reducing poverty by bringing blockchain to the most people possible."
+  },
+  "assistanceProgram": {
+    "title": "Our First Assistance Program",
+    "firstBox": {
+      "firstSentence": "Our pilot will focus on offering a crypto-finance educational program and funding the ",
+      "secondSentenceBold": "transactions fees and deposits",
+      "thirdSentence": " needed to join the Proof of Humanity platform."
+    },
+    "secondBox": {
+      "title": "Show you care.",
+      "button": "Donate"
+    },
+    "aimBox": {
+      "title": "Who will be aimed at?",
+      "firstItem": "Young people recently graduated from school",
+      "secondItem": "In a low-income neighborhood in Buenos Aires",
+      "thirdItem": "We'll partner with Club Mugica, a local community center"
+    }
+  },
+  "publicAudit": {
+    "title": "Public Audit",
+    "moreDetails": "More Details",
+    "noDataTitle": "Coming soon!",
+    "noDataText": " Our pilot program is aimed to start on ",
+    "noDataDate": "May 3rd.",
+    "certificationsTable": {
+      "title": "Latest Certifications",
+      "applicantColumn": "Application",
+      "dateColumn": "Date",
+      "detailsColumn": "Details",
+      "seeMore": "+See all certifications"
+    },
+    "donationsTable": {
+      "title": "Latest Transactions",
+      "amountColumn": "Amount",
+      "typeColumn": "Type",
+      "etherscanColumn": "Details",
+      "moreDetails": "More Details",
+      "seeMore": "+See all transactions"
+    }
+  },
+  "ourTeam": {
+    "title": "Our Team",
+    "show": "Meet the Team",
+    "hide": "Hide Team",
+    "meetTheAdvisors": "Meet The Advisors",
+    "tags": {
+      "all": "All",
+      "developers": "Developers",
+      "designAndMarketing": "Design & Marketing",
+      "socialTeam": "Social Team"
+    },
+    "roles": {
+      "founderAndDirector": "Founder & Director",
+      "leadSolidityDeveloper": "Lead Solidity Developer",
+      "leadFrontendDeveloper": "Lead Frontend Developer",
+      "srSolidityDeveloper": "Sr Solidity Developer",
+      "uxuiDesigner": "UX/UI Designer",
+      "productManager": "Product Manager",
+      "copywriter": "Copywriter",
+      "marketingSpecialist": "Marketing Specialist",
+      "socialMedia": "Social Media",
+      "socialTeam": "Social Team",
+      "fundraisingStrategy": "Fundraising Strategy"
+    }
+  },
+  "advisors": {
+    "show": "Meet the Advisors",
+    "hide": "Hide Advisors",
+    "title": "Advisors",
+    "hideAdvisors": "Hide Advisors",
+    "roles": {
+      "productAdvisor": "Product Advisor",
+      "strategyAdvisor": "Strategy Advisor",
+      "techAdvisor": "Tech Advisor",
+      "cryptoAdvisor": "Crypto Advisor",
+      "legalAdvisor": "Legal Advisor"
+    },
+    "descriptions": {
+      "damianWasserman": "Founder of Beon Tech Studio, with 20 years of experience in the software industry.",
+      "juanHeado": "With 20+ years of experience in tech, he helped develop version 2 of $UBI with Santi Siri.",
+      "pabloSabbatella": "Dedicated to the research, investment, and dissemination of the crypto & DeFi ecosystem.",
+      "brianSztamfater": "Brian is a blockchain entrepreneur, software architect & author. He founded @CromyNFT.",
+      "diegoBoryszanski": "Lawyer by profession, Diego is a serial technology entrepreneur and a crypto enthusiast."
+    }
+  },
+  "partnersSection": {
+    "defyEducation": "We are partners with Defy Education."
+  },
+  "whyUS": {
+    "title": "With POI, your donations go to the right hands.",
+    "button": "Check out our Whitepaper"
+  },
+  "contactUS": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with us.  We'd love to hear from you."
+  },
+  "footer": {
+    "title": "Proof Of Integrity",
+    "subtitle": "Proof Of Integrity is a nonprofit project.",
+    "disclaimer": "Designed by Latin American talent at BEON Tech Studio"
+  },
+  "transactions": {
+    "administrativeExpenses": "Administrative expenses",
+    "donation": "Donation",
+    "pohFunding": "Funding for PoH",
+    "certifierPayment": "Certifier payment",
+    "genericTransaction": "Transacción"
+  }
 }
