@@ -8,15 +8,12 @@ import {
   Divider,
   HStack,
   Menu,
-  Button,
-  ChevronDownIcon,
-  ChevronUpIcon,
+  Button
 } from 'native-base'
 import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
 
 import BaseLayout from '../components/templates/BaseLayout'
-import ActionButton from '../components/atoms/Button'
 import { useWallet } from '../hooks/wallet'
 import {
   TOKENS,
@@ -29,6 +26,9 @@ import {
   UsdcIcon,
   WbtcIcon,
 } from '../components/atoms/Icons/Crypto'
+import { t } from '../i18n'
+import keys from '../i18n/keys'
+import MenuChevronIcon from '../components/atoms/MenuChevronIcon'
 
 const StepPill = ({
   children,
@@ -62,28 +62,6 @@ const CryptoIcon = ({ tokenSymbol }: any) => {
   }
 }
 
-const MenuChevronIcon = (isMenuOpen: boolean) => {
-  if (isMenuOpen) {
-    return (
-      <ChevronUpIcon
-        width="auto"
-        size={3}
-        color="#2D6320"
-        justifySelf="flex-end"
-      />
-    )
-  }
-
-  return (
-    <ChevronDownIcon
-      width="auto"
-      size={3}
-      color="#2D6320"
-      justifySelf="flex-end"
-    />
-  )
-}
-
 const TriggerMenu = ({ tokenIcon, menuOpen, ...triggerProps }: any) => (
   <Button
     minW={8}
@@ -100,7 +78,7 @@ const TriggerMenu = ({ tokenIcon, menuOpen, ...triggerProps }: any) => (
     fontSize="sm"
     variant="solid"
     {...triggerProps}
-    endIcon={MenuChevronIcon(menuOpen)}
+    endIcon={MenuChevronIcon(3, menuOpen)}
     _stack={{
       width: '100%',
       justifyContent: 'space-between',
@@ -157,9 +135,8 @@ const Donate: NextPage = () => {
 
   return (
     <BaseLayout
-      title="Help Humans in Need"
-      subTitle="Because urgent needs require urgent answers, we accept crypto donations."
-      withConnect
+      title={t(keys.header.title)}
+      subTitle={t(keys.header.subtitle)}
       bg="#F2E4E3"
       color="black"
     >
@@ -216,10 +193,10 @@ const Donate: NextPage = () => {
         >
           <HStack alignItems="flex-end" mt={5} w="100%">
             <FormControl width="100%">
-              <Text fontSize="xl">Enter amount</Text>
+              <Text fontSize="xl">{t(keys.form.label)}</Text>
               <Input
                 type="number"
-                placeholder="Amount"
+                placeholder={t(keys.form.placeholder)}
                 borderWidth={1}
                 borderRadius={8}
                 onChange={updateAmount}
@@ -274,14 +251,14 @@ const Donate: NextPage = () => {
               </Menu>
             </FormControl>
           </HStack>
-          <ActionButton
+          <Button
             mt={16}
             isDisabled={controlsDisabled}
             onPress={donate}
             color="secondary.900"
           >
             Donate
-          </ActionButton>
+          </Button>
           {txError && (
             <View>
               <Text>

@@ -38,7 +38,7 @@ const ConnectWalletButton = ({
           bg="primary.800"
           color="invertedText.900"
         >
-          {isConnected ? 'Disconnect' : 'Connect'}
+          {isConnected ? 'Disconnect' : 'Connect Wallet'}
         </Button>
       </Tooltip>
     </HStack>

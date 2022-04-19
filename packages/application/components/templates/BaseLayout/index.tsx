@@ -1,27 +1,21 @@
 import { ReactNode } from 'react'
 import { Heading, Text, VStack, View } from 'native-base'
-
-import ConnectWalletButton from '../../molecules/ConnectWalletButton'
-import MenuButton from '../../molecules/MenuButton'
+import NavigationBar from '../../organisms/NavigationBar'
 
 export interface IBaseLayoutProps {
   children?: ReactNode
   title: string
   subTitle?: string
-  withMenu?: boolean
   color?: string
   bg?: string
-  withConnect?: boolean
 }
 
 const BaseLayout = ({
   title,
   subTitle,
   children,
-  withMenu = false,
-  withConnect = false,
   color,
-  bg = "background.500"
+  bg = 'background.500',
 }: IBaseLayoutProps) => (
   <VStack
     justifyContent="center"
@@ -30,16 +24,7 @@ const BaseLayout = ({
     h="100vh"
     bg={bg}
   >
-    {withMenu && <MenuButton />}
-    {withConnect && (
-      <ConnectWalletButton
-        containerProps={{
-          right: { base: 'none', sm: 'none', md: 50 },
-          top: { base: 5, sm: 5, md: 39 },
-          position: 'absolute',
-        }}
-      />
-    )}
+    <NavigationBar />
     <Heading mt={20} color={color} maxW={750}>
       {title}
     </Heading>
@@ -56,7 +41,6 @@ const BaseLayout = ({
         {subTitle}
       </Text>
     )}
-
     <View overflowY="hidden" flex={4}>
       {children}
     </View>
