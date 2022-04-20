@@ -5,15 +5,7 @@ import { Web3ReactContextInterface } from '@web3-react/core/dist/types'
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { useEffect } from 'react'
 
-export const injectedConnector = new InjectedConnector({
-  supportedChainIds: [
-    1, // Mainet
-    // 3, // Ropsten
-    // 4, // Rinkeby
-    // 5, // Goerli
-    42, // Kovan
-  ],
-})
+export const injectedConnector = new InjectedConnector({})
 
 interface IUseWalletResult
   extends Omit<Web3ReactContextInterface<Web3Provider>, 'activate'> {
