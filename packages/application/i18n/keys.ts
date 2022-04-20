@@ -6,6 +6,10 @@ const keys = {
   form: {
     label: 'label',
     placeholder: 'placeholder',
+    transactionErrorTitle: 'transactionErrorTitle',
+    transactionErrorDescription: 'transactionErrorDescription',
+    invalidNetworkTitle: 'invalidNetworkTitle',
+    invalidNetworkDescription: 'invalidNetworkDescription',
   },
 }
 
@@ -26,7 +30,7 @@ const expandedKeys = (
 
 export const Languages = [
   { lang: 'en', iconName: 'EnglishFlag' },
-  { lang: 'es', iconName: 'SpanishFlag' }
+  { lang: 'es', iconName: 'SpanishFlag' },
 ]
 
 const expandedKeysObject = expandedKeys(keys) as typeof keys

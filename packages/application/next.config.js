@@ -40,6 +40,8 @@ module.exports = withPlugins(
     },
     env: {
       POI_ADDRESS: '0xe82d8437cfE311c88708275bAa7ac3AB672A5219',
+      // CHAIN_ID: 1 // Production
+      CHAIN_ID: 42 // Dev - Staging
     },
   }
 );

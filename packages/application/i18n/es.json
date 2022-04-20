@@ -5,6 +5,10 @@
   },
   "form": {
     "label": "Enter amount",
-    "placeholder": "Amount"
+    "placeholder": "Amount",
+    "transactionErrorTitle": "Transaction Error",
+    "transactionErrorDescription": "There was a problem with the transaction. Check your funds and try again.",
+    "invalidNetworkTitle": "Change the network",
+    "invalidNetworkDescription": "Please make sure you are connected to the Ethereum Network."
   }
 }

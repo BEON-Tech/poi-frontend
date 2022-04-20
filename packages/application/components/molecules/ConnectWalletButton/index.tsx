@@ -1,7 +1,6 @@
 import { Button, HStack, Tooltip, Text } from 'native-base'
 // eslint-disable-next-line import/no-unresolved
 import { IHStackProps } from 'native-base/lib/typescript/components/primitives/Stack/HStack'
-
 import { useWallet } from '../../../hooks/wallet'
 
 interface IConnectWalletButtonProps {

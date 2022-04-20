@@ -1,5 +1,13 @@
 import { useEffect, useState } from 'react'
-import { HStack, VStack, Text, Input, Button, FormControl, Menu, View } from 'native-base'
+import {
+  HStack,
+  VStack,
+  Text,
+  Input,
+  Button,
+  FormControl,
+  Menu,
+} from 'native-base'
 import MenuChevronIcon from '../../atoms/MenuChevronIcon'
 import {
   EthereumIcon,
@@ -15,6 +23,9 @@ import {
   transfer,
   waitTransaction,
 } from '../../../services/contracts/tx.contract'
+import AlertIcon from '../../atoms/Icons/AlertIcon'
+import config from '../../../config/index'
+import { Pressable } from 'react-native'
 
 const TriggerMenu = ({ tokenIcon, menuOpen, ...triggerProps }: any) => (
   <Button
@@ -58,6 +69,37 @@ const CryptoIcon = ({ tokenSymbol }: any) => {
   }
 }
 
+const BlockchainErrorMessage = ({
+  title,
+  description,
+  onPress = null,
+}: any) => (
+  <Pressable onPress={onPress}>
+    <VStack
+      mt={100}
+      w={500}
+      bg="white"
+      borderWidth={1}
+      borderColor="#F5841F"
+      borderRadius={10}
+      px={8}
+      py={6}
+      alignItems="flex-start"
+      space={4}
+    >
+      <HStack space={4}>
+        <AlertIcon alignSelf="start" />
+        <VStack flex="fit-content" alignItems="flex-start" space={4}>
+          <Text fontSize="2xl" bold>
+            {title}
+          </Text>
+          <Text fontSize="xl">{description}</Text>
+        </VStack>
+      </HStack>
+    </VStack>
+  </Pressable>
+)
+
 const DonationForm = () => {
   const { active, account, library, chainId } = useWallet()
   const [isMenuOpen, setMenuOpen] = useState(false)
@@ -86,12 +128,9 @@ const DonationForm = () => {
   }
 
   const controlsDisabled = !(active && amount > 0 && !txError)
-
-  useEffect(() => {
-    if (txError) {
-      setTimeout(() => setTxError(null), 5000)
-    }
-  }, [txError])
+  const invalidNetwork = chainId !== config.validChainId
+  const blockchainError = txError || (invalidNetwork && active)
+  const resetTxError = () => setTxError(null)
 
   useEffect(() => {
     if (tx) {
@@ -101,7 +140,7 @@ const DonationForm = () => {
     }
   }, [tx])
 
-  return (
+  const normalForm = (
     <VStack mt={100} w={660}>
       <VStack
         alignItems="center"
@@ -190,17 +229,33 @@ const DonationForm = () => {
             Donate
           </Text>
         </Button>
-        {txError && (
-          <View>
-            <Text>
-              There was a problem with the transaction. Check your funds and try
-              again.
-            </Text>
-          </View>
-        )}
       </VStack>
     </VStack>
   )
+
+  if (blockchainError) {
+    if (txError) {
+      return (
+        <BlockchainErrorMessage
+          title={t(keys.form.transactionErrorTitle)}
+          description={t(keys.form.transactionErrorDescription)}
+          onPress={resetTxError}
+        />
+      )
+    }
+
+    if (invalidNetwork) {
+      return (
+        <BlockchainErrorMessage
+          title={t(keys.form.invalidNetworkTitle)}
+          description={t(keys.form.invalidNetworkDescription)}
+          dismissable
+        />
+      )
+    }
+  }
+
+  return normalForm
 }
 
 export default DonationForm
