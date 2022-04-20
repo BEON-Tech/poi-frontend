@@ -1,12 +1,12 @@
 import { ReactNode } from 'react'
-import { Heading, Text, VStack, View } from 'native-base'
+import { Text, VStack, View } from 'native-base'
 import NavigationBar from '../../organisms/NavigationBar'
 
 export interface IBaseLayoutProps {
   children?: ReactNode
   title: string
-  subTitle?: string,
-  activeItem: number,
+  subTitle?: string
+  activeItem: number
   color?: string
   bg?: string
 }
@@ -27,22 +27,20 @@ const BaseLayout = ({
     bg={bg}
   >
     <NavigationBar activeItem={activeItem} />
-    <Heading mt={20} color={color} maxW={750}>
+    <Text fontSize="6xl" bold mt={20} color={color} maxW={750}>
       {title}
-    </Heading>
-    {subTitle && (
-      <Text
-        textAlign="center"
-        maxW={700}
-        color="text.900"
-        fontSize="lg"
-        lineHeight={31}
-        mt={22}
-        flex={{ base: 0.25, sm: 0 }}
-      >
-        {subTitle}
-      </Text>
-    )}
+    </Text>
+    <Text
+      textAlign="center"
+      maxW={700}
+      color="text.900"
+      fontSize="xl"
+      lineHeight={31}
+      mt={4}
+      flex={{ base: 0.25, sm: 0 }}
+    >
+      {subTitle}
+    </Text>
     <View overflowY="hidden" flex={4}>
       {children}
     </View>
