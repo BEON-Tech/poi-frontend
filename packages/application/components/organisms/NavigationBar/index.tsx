@@ -1,9 +1,10 @@
-import { Button, Divider, HStack, Text } from 'native-base'
+import { Divider, HStack, Text } from 'native-base'
 import POILogo from '../../atoms/Icons/Logo'
 import LanguageSelect from '../../molecules/LanguageSelect'
+import NavigationBarButton from '../../molecules/NavigationBarButton'
 import ConnectWalletButton from '../../molecules/ConnectWalletButton'
 
-const DesktopNavigationBar = () => (
+const DesktopNavigationBar = ({activeItem} : any) => (
   <HStack
     w="100%"
     justifyContent="space-between"
@@ -21,21 +22,23 @@ const DesktopNavigationBar = () => (
         Proof Of Integrity
       </Text>
     </HStack>
-    <HStack space={4}>
-      <Button>Donate</Button>
-      <Button>Public Audit</Button>
+    <HStack justifyContent="space-between" w="25%">
+      <NavigationBarButton title="Donate" isActive={activeItem === 0} />
+      <NavigationBarButton title="Public Audit" isActive={activeItem === 1} />
     </HStack>
-    <ConnectWalletButton />
-    <Divider mx="20px" bg="general.200" orientation="vertical" height="30px" />
-    <LanguageSelect />
+    <HStack>
+      <ConnectWalletButton />
+      <Divider mx="20px" bg="#e1e1e1" orientation="vertical" height="30px" />
+      <LanguageSelect />
+    </HStack>
   </HStack>
 )
 
-const NavigationBar = () => {
+const NavigationBar = ({activeItem} : any) => {
   //const { isDesktop } = useBreakpoint()
   const isDesktop = true
   return isDesktop ? (
-    <DesktopNavigationBar />
+    <DesktopNavigationBar activeItem={activeItem} />
   ) : (
     //<MobileToolbar />
     <DesktopNavigationBar />

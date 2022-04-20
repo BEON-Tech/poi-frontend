@@ -134,7 +134,7 @@ const Donate: NextPage = () => {
   }, [tx])
 
   return (
-    <BaseLayout
+    <BaseLayout activeItem={0}
       title={t(keys.header.title)}
       subTitle={t(keys.header.subtitle)}
       bg="#F2E4E3"

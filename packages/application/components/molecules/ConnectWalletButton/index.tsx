@@ -1,4 +1,4 @@
-import { Button, HStack, Tooltip } from 'native-base'
+import { Button, HStack, Tooltip, Text } from 'native-base'
 // eslint-disable-next-line import/no-unresolved
 import { IHStackProps } from 'native-base/lib/typescript/components/primitives/Stack/HStack'
 
@@ -32,13 +32,15 @@ const ConnectWalletButton = ({
         placement="bottom"
       >
         <Button
-          px={29}
+          w="200px"
+          h="50px"
+          borderRadius={100}
           isDisabled={isConnected}
           onPress={handleConnectWallet}
-          bg="primary.800"
-          color="invertedText.900"
+          bg="#2d6320"
+          color="white"
         >
-          {isConnected ? 'Disconnect' : 'Connect Wallet'}
+          <Text color="white" fontSize="lg">{isConnected ? 'Disconnect' : 'Connect Wallet'}</Text>
         </Button>
       </Tooltip>
     </HStack>

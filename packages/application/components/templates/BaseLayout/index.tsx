@@ -5,15 +5,17 @@ import NavigationBar from '../../organisms/NavigationBar'
 export interface IBaseLayoutProps {
   children?: ReactNode
   title: string
-  subTitle?: string
+  subTitle?: string,
+  activeItem: number,
   color?: string
   bg?: string
 }
 
 const BaseLayout = ({
+  children,
   title,
   subTitle,
-  children,
+  activeItem,
   color,
   bg = 'background.500',
 }: IBaseLayoutProps) => (
@@ -24,7 +26,7 @@ const BaseLayout = ({
     h="100vh"
     bg={bg}
   >
-    <NavigationBar />
+    <NavigationBar activeItem={activeItem} />
     <Heading mt={20} color={color} maxW={750}>
       {title}
     </Heading>
