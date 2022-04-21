@@ -6,7 +6,6 @@ export interface IBaseLayoutProps {
   children?: ReactNode
   title: string
   subTitle?: string
-  activeItem: number
   color?: string
   bg?: string
 }
@@ -15,7 +14,6 @@ const BaseLayout = ({
   children,
   title,
   subTitle,
-  activeItem,
   color,
   bg = 'background.500',
 }: IBaseLayoutProps) => (
@@ -25,8 +23,9 @@ const BaseLayout = ({
     w="100vw"
     h="100vh"
     bg={bg}
+    position="fixed"
   >
-    <NavigationBar activeItem={activeItem} />
+    <NavigationBar />
     <Text fontSize="6xl" bold mt={20} color={color} maxW={750}>
       {title}
     </Text>

@@ -7,7 +7,7 @@ interface INavigationBarButtonProps {
   isActive: boolean
 }
 
-const NavigationBarButton = ({ onPress, title, isActive }: INavigationBarButtonProps) => {
+const NavigationBarButton = ({ onPress, title, isActive = false }: INavigationBarButtonProps) => {
   const handlePressButton = () => {
     if (onPress) onPress()
   }

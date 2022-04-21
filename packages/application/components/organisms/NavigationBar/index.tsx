@@ -1,11 +1,31 @@
 import { Divider, HStack, Text } from 'native-base'
+import { useRouter } from 'next/router'
 import POILogo from '../../atoms/Icons/Logo'
 import LanguageSelect from '../../molecules/LanguageSelect'
 import NavigationBarButton from '../../molecules/NavigationBarButton'
 import ConnectWalletButton from '../../molecules/ConnectWalletButton'
+import NavigationBarButtonMobile from '../../molecules/NavigationBarButtonMobile'
+import {
+  HomeIcon,
+  DonateIcon,
+  PublicAuditIcon,
+  WalletIcon,
+} from '../../atoms/Icons/Mobile'
 import { useBreakpoint } from '../../../hooks/device'
 
-const DesktopNavigationBar = ({ activeItem }: any) => (
+const desktopButtons = [
+  { title: 'Donate', key: '/donate' },
+  { title: 'Public Audit', key: '/publicAudit' },
+]
+
+const mobileButtons = [
+  { title: 'Home', Icon: HomeIcon, key: '/' },
+  { title: 'Donate', Icon: DonateIcon, key: '/donate' },
+  { title: 'Public Audit', Icon: PublicAuditIcon, key: '/publicAudit' },
+  { title: 'Wallet', Icon: WalletIcon, key: '/wallet' }
+]
+
+const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => (
   <HStack
     w="100%"
     justifyContent="space-between"
@@ -24,8 +44,14 @@ const DesktopNavigationBar = ({ activeItem }: any) => (
       </Text>
     </HStack>
     <HStack justifyContent="space-between" w="25%">
-      <NavigationBarButton title="Donate" isActive={activeItem === 0} />
-      <NavigationBarButton title="Public Audit" isActive={activeItem === 1} />
+      {desktopButtons.map(({ key, ...props }) => (
+        <NavigationBarButton
+          {...props}
+          key={key}
+          isActive={activeItem === key}
+          onPress={() => onNavigate(key)}
+        />
+      ))}
     </HStack>
     <HStack>
       <ConnectWalletButton />
@@ -35,15 +61,37 @@ const DesktopNavigationBar = ({ activeItem }: any) => (
   </HStack>
 )
 
-const MobileToolbar = (/* { activeItem }: any */) => <Text>To Do</Text>
+const MobileNavigationBar = ({ activeItem, onNavigate }: any) => (
+  <HStack
+    w="100%"
+    h="90px"
+    maxH="90px"
+    bg="white"
+    position="absolute"
+    bottom={0}
+    borderTopColor="#EDB6A3"
+    borderTopWidth="1px"
+  >
+    {mobileButtons.map(({ key, ...props }) => (
+        <NavigationBarButtonMobile
+          {...props}
+          key={key}
+          isActive={activeItem === key}
+          onPress={() => onNavigate(key)}
+        />
+      ))}
+  </HStack>
+)
 
-const NavigationBar = ({ activeItem }: any) => {
+const NavigationBar = () => {
+  const router = useRouter()
   const { isDesktop } = useBreakpoint()
-  console.log("IS DESKTOP: ", isDesktop)
+  const activeItem = router.pathname
+  const onNavigate = (newRoute: string) => router.push(newRoute)
   return isDesktop ? (
-    <DesktopNavigationBar activeItem={activeItem} />
+    <DesktopNavigationBar activeItem={activeItem} onNavigate={onNavigate} />
   ) : (
-    <MobileToolbar />
+    <MobileNavigationBar activeItem={activeItem} onNavigate={onNavigate} />
   )
 }
 
