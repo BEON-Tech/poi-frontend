@@ -7,6 +7,7 @@ import {
   Button,
   FormControl,
   Menu,
+  Pressable,
 } from 'native-base'
 import MenuChevronIcon from '../../atoms/MenuChevronIcon'
 import {
@@ -25,7 +26,6 @@ import {
 } from '../../../services/contracts/tx.contract'
 import AlertIcon from '../../atoms/Icons/AlertIcon'
 import config from '../../../config/index'
-import { Pressable } from 'react-native'
 
 const TriggerMenu = ({ tokenIcon, menuOpen, ...triggerProps }: any) => (
   <Button
@@ -106,9 +106,9 @@ const DonationForm = () => {
   const [tokenSymbol, setTokenSymbol] = useState('ETH')
   const [amount, setAmount] = useState(0)
   const [tx, setTx] = useState()
-  const [txError, setTxError] = useState()
+  const [txError, setTxError] = useState(false)
   const updateIsMenuOpen = (isOpen: boolean) => setMenuOpen(isOpen)
-  const updateTokenSymbol = (value: String) => setTokenSymbol(value)
+  const updateTokenSymbol = (value: String) => setTokenSymbol(value as string)
   const updateAmount = (event: any) => setAmount(event.target.value)
   const donate = async (event: any) => {
     event.preventDefault()
@@ -123,18 +123,18 @@ const DonationForm = () => {
       setTx(transaction)
       // TODO: Redirect to typ
     } catch (error) {
-      setTxError(error)
+      setTxError(true)
     }
   }
 
   const controlsDisabled = !(active && amount > 0 && !txError)
   const invalidNetwork = chainId !== config.validChainId
   const blockchainError = txError || (invalidNetwork && active)
-  const resetTxError = () => setTxError(null)
+  const resetTxError = () => setTxError(false)
 
   useEffect(() => {
     if (tx) {
-      waitTransaction(tx, (receipt) =>
+      waitTransaction(tx, (receipt: any) =>
         console.info('Transaction complete', receipt)
       )
     }

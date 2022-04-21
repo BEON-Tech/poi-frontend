@@ -3,8 +3,9 @@ import POILogo from '../../atoms/Icons/Logo'
 import LanguageSelect from '../../molecules/LanguageSelect'
 import NavigationBarButton from '../../molecules/NavigationBarButton'
 import ConnectWalletButton from '../../molecules/ConnectWalletButton'
+import { useBreakpoint } from '../../../hooks/device'
 
-const DesktopNavigationBar = ({activeItem} : any) => (
+const DesktopNavigationBar = ({ activeItem }: any) => (
   <HStack
     w="100%"
     justifyContent="space-between"
@@ -34,14 +35,15 @@ const DesktopNavigationBar = ({activeItem} : any) => (
   </HStack>
 )
 
-const NavigationBar = ({activeItem} : any) => {
-  //const { isDesktop } = useBreakpoint()
-  const isDesktop = true
+const MobileToolbar = (/* { activeItem }: any */) => <Text>To Do</Text>
+
+const NavigationBar = ({ activeItem }: any) => {
+  const { isDesktop } = useBreakpoint()
+  console.log("IS DESKTOP: ", isDesktop)
   return isDesktop ? (
     <DesktopNavigationBar activeItem={activeItem} />
   ) : (
-    //<MobileToolbar />
-    <DesktopNavigationBar />
+    <MobileToolbar />
   )
 }
 

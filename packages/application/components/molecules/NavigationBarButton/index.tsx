@@ -1,6 +1,5 @@
 import { Button, Text } from 'native-base'
 import { useState } from 'react'
-// eslint-disable-next-line import/no-unresolved
 
 interface INavigationBarButtonProps {
   onPress?: () => void

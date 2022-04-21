@@ -9,7 +9,9 @@ import {
   Text,
 } from 'native-base'
 
+// eslint-disable-next-line import/no-unresolved
 import { IHStackProps } from 'native-base/lib/typescript/components/primitives/Stack/HStack'
+// eslint-disable-next-line import/no-unresolved
 import { IVStackProps } from 'native-base/lib/typescript/components/primitives/Stack/VStack'
 import { useLanguageSelector } from '../../../hooks/language'
 import Flag from '../../atoms/Icons/Languages'
@@ -60,7 +62,7 @@ const LanguageItem = ({
   selected = false,
   ...props
 }: ILanguageItemProps) => {
-  //const { isDesktop } = useBreakpoint()
+  // const { isDesktop } = useBreakpoint()
   const isDesktop = true
   const ImageComponent = Flag(iconName, 4)
   const selectedProps = isDesktop
@@ -161,7 +163,7 @@ const LanguageSelectMobile = (props: ILanguageSelectProps) => {
 }
 
 const LanguageSelect = (props: ILanguageSelectProps) => {
-  //const { isDesktop } = useBreakpoint()
+  // const { isDesktop } = useBreakpoint()
   const isDesktop = true
   return isDesktop ? (
     <LanguageSelectDesktop />
