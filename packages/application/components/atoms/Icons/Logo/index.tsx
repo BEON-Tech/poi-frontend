@@ -1,11 +1,11 @@
 import { Image } from 'native-base'
 import PoiLogo from '../../../../assets/images/poi.svg'
 
-const POILogo = () => (
+const POILogo = ({ size = "84px" } : any) => (
   <Image
     alt="POI"
-    w="84px"
-    h="84px"
+    w={size}
+    h={size}
     source={{
       uri: PoiLogo.src,
     }}

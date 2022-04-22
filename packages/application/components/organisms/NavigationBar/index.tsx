@@ -12,6 +12,8 @@ import {
   WalletIcon,
 } from '../../atoms/Icons/Mobile'
 import { useBreakpoint } from '../../../hooks/device'
+import { t } from '../../../i18n'
+import keys from '../../../i18n/keys'
 
 const desktopButtons = [
   { title: 'Donate', key: '/donate' },
@@ -39,8 +41,8 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => (
   >
     <HStack space={4}>
       <POILogo />
-      <Text fontSize="xl" bold>
-        Proof Of Integrity
+      <Text fontSize="xl" color="#172815" bold>
+        {t(keys.main.poi)}
       </Text>
     </HStack>
     <HStack justifyContent="space-between" w="25%">
@@ -62,27 +64,44 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => (
 )
 
 const MobileNavigationBar = ({ activeItem, onNavigate }: any) => (
-  <HStack
-    w="100%"
-    bg="white"
-    position="absolute"
-    bottom={0}
-    borderTopColor="#EDB6A3"
-    borderTopWidth="1px"
-    px={4}
-    justifyContent="space-evenly"
-    zIndex={1}
-  >
-    {mobileButtons.map(({ key, ...props }) => (
-      <NavigationBarButtonMobile
-        {...props}
-        width="25%"
-        key={key}
-        isActive={activeItem === key}
-        onPress={() => onNavigate(key)}
-      />
-    ))}
-  </HStack>
+  <>
+    <HStack
+      top={0}
+      bg="white"
+      w="100%"
+      justifyContent="space-between"
+      px={4}
+      py={2}
+    >
+      <HStack space={4}>
+        <POILogo size={10} />
+        <Text fontSize="md" color="#172815" bold>
+          {t(keys.main.poi)}
+        </Text>
+      </HStack>
+      <LanguageSelect />
+    </HStack>
+    <HStack
+      w="100%"
+      bg="white"
+      position="absolute"
+      bottom={0}
+      borderTopColor="#EDB6A3"
+      borderTopWidth="1px"
+      px={4}
+      zIndex={1}
+    >
+      {mobileButtons.map(({ key, ...props }) => (
+        <NavigationBarButtonMobile
+          {...props}
+          width="25%"
+          key={key}
+          isActive={activeItem === key}
+          onPress={() => onNavigate(key)}
+        />
+      ))}
+    </HStack>
+  </>
 )
 
 const NavigationBar = () => {

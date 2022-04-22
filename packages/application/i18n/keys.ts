@@ -1,4 +1,7 @@
 const keys = {
+  main: {
+    poi: "poi"
+  },
   header: {
     title: 'title',
     subtitle: 'subtitle',
