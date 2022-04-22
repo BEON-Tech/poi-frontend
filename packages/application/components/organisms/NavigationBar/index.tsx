@@ -39,7 +39,6 @@ const MobileToolbar = (/* { activeItem }: any */) => <Text>To Do</Text>
 
 const NavigationBar = ({ activeItem }: any) => {
   const { isDesktop } = useBreakpoint()
-  console.log("IS DESKTOP: ", isDesktop)
   return isDesktop ? (
     <DesktopNavigationBar activeItem={activeItem} />
   ) : (
