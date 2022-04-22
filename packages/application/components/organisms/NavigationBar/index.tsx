@@ -76,6 +76,7 @@ const MobileNavigationBar = ({ activeItem, onNavigate }: any) => (
     {mobileButtons.map(({ key, ...props }) => (
       <NavigationBarButtonMobile
         {...props}
+        width="25%"
         key={key}
         isActive={activeItem === key}
         onPress={() => onNavigate(key)}
