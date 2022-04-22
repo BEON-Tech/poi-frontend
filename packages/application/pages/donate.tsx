@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { BreakpointProvider } from '../components/context'
+import { BreakpointProvider } from '../providers'
 import BaseLayout from '../components/templates/BaseLayout'
 import DonationForm from '../components/organisms/DonationForm'
 import { t } from '../i18n'
