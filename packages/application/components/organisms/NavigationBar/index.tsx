@@ -22,7 +22,7 @@ const mobileButtons = [
   { title: 'Home', Icon: HomeIcon, key: '/' },
   { title: 'Donate', Icon: DonateIcon, key: '/donate' },
   { title: 'Public Audit', Icon: PublicAuditIcon, key: '/publicAudit' },
-  { title: 'Wallet', Icon: WalletIcon, key: '/wallet' }
+  { title: 'Wallet', Icon: WalletIcon, key: '/wallet' },
 ]
 
 const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => (
@@ -64,22 +64,23 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => (
 const MobileNavigationBar = ({ activeItem, onNavigate }: any) => (
   <HStack
     w="100%"
-    h="90px"
-    maxH="90px"
     bg="white"
     position="absolute"
     bottom={0}
     borderTopColor="#EDB6A3"
     borderTopWidth="1px"
+    px={4}
+    justifyContent="space-evenly"
+    zIndex={1}
   >
     {mobileButtons.map(({ key, ...props }) => (
-        <NavigationBarButtonMobile
-          {...props}
-          key={key}
-          isActive={activeItem === key}
-          onPress={() => onNavigate(key)}
-        />
-      ))}
+      <NavigationBarButtonMobile
+        {...props}
+        key={key}
+        isActive={activeItem === key}
+        onPress={() => onNavigate(key)}
+      />
+    ))}
   </HStack>
 )
 

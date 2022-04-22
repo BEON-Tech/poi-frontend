@@ -2,8 +2,8 @@ import { Icon } from 'native-base'
 import type { IIconProps } from 'native-base'
 import { Path } from 'react-native-svg'
 
-const DonateIcon = ({ color = '#172815', ...props }: IIconProps) => (
-  <Icon size="3xl" viewBox="0 0 24 24" {...props}>
+const DonateIcon = ({ color = '#172815', size = "3xl", ...props }: IIconProps) => (
+  <Icon size={size} viewBox="0 0 24 24" {...props}>
     <Path
       d="M16 6.27975C16 6.88118 15.7625 7.45883 15.3383 7.88611C14.3619 8.87007 13.415 9.89605 12.4021 10.8443C12.17 11.0585 11.8017 11.0507 11.5795 10.8268L8.6615 7.88611C7.7795 6.99725 7.7795 5.56225 8.6615 4.67339C9.55218 3.77579 11.0032 3.77579 11.8938 4.67339L11.9999 4.78027L12.1059 4.67345C12.533 4.24286 13.1146 4 13.7221 4C14.3297 4 14.9113 4.24284 15.3383 4.67339C15.7625 5.10073 16 5.67835 16 6.27975Z"
       fill="none"

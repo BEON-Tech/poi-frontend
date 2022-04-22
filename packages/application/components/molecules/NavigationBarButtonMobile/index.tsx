@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { Button, Text, IIconProps } from 'native-base'
 
 interface INavigationBarButtonMobileProps {
@@ -13,13 +13,34 @@ const NavigationBarButtonMobile = ({
   title,
   Icon,
   isActive = false,
-}: INavigationBarButtonMobileProps) => (
-  <Button borderRadius={0} onPress={onPress} bg="white">
-    {Icon && <Icon color={isActive ? '#AB124f' : 'black'} />}
-    <Text color="black" fontSize={12}>
-      {title}
-    </Text>
-  </Button>
-)
+}: INavigationBarButtonMobileProps) => {
+  const [isPressed, setPressed] = useState(false)
+  const showActive = isActive || isPressed
+  return (
+    <Button
+      borderRadius={0}
+      onPress={onPress}
+      onPressIn={() => setPressed(true)}
+      onPressOut={() => setPressed(false)}
+      backgroundColor="white"
+      borderTopColor="#E7BB41"
+      borderTopWidth={showActive ? '1px' : 0}
+      pb={12}
+      pt={10}
+    >
+      {Icon && (
+        <Icon
+          color={showActive ? '#E7BB41' : '#172815'}
+          size="xl"
+          alignSelf="center"
+          mb={2}
+        />
+      )}
+      <Text color="#172815" fontSize={12} bold={showActive} alignSelf="center">
+        {title}
+      </Text>
+    </Button>
+  )
+}
 
 export default NavigationBarButtonMobile

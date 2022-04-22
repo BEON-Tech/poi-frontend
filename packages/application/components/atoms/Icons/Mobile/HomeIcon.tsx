@@ -2,8 +2,8 @@ import { Icon } from 'native-base'
 import type { IIconProps } from 'native-base'
 import { Path } from 'react-native-svg'
 
-const HomeIcon = ({ color = '#172815', ...props }: IIconProps) => (
-  <Icon size="3xl" viewBox="0 0 24 24" {...props}>
+const HomeIcon = ({ color = '#172815', size = "3xl", ...props }: IIconProps) => (
+  <Icon size={size} viewBox="0 0 24 24" {...props}>
     <Path
       d="M3 9.5L12 4L21 9.5"
       fill="none"
