@@ -11,9 +11,9 @@ export interface IUseLanguageSelectorResult {
 }
 
 const useLanguageSelector = (): IUseLanguageSelectorResult => {
-  const query = {lang: 'en'}
-  const router = useRouter()  
-
+  const router = useRouter()
+  const query = {lang: 'lang' in router.query ? router.query.lang : 'en'} 
+  
   const onChange = (lang: string) => {
     router.push({ ...router, query: { ...router.query, lang } })
   }

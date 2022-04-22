@@ -1,32 +1,15 @@
 import React, { useState } from 'react'
 import {
   Button,
-  IButtonProps,
-  ChevronDownIcon,
-  Divider,
   HStack,
   Menu,
-  Text,
+  Text
 } from 'native-base'
 
-// eslint-disable-next-line import/no-unresolved
-import { IHStackProps } from 'native-base/lib/typescript/components/primitives/Stack/HStack'
-// eslint-disable-next-line import/no-unresolved
-import { IVStackProps } from 'native-base/lib/typescript/components/primitives/Stack/VStack'
 import { useLanguageSelector } from '../../../hooks/language'
 import Flag from '../../atoms/Icons/Languages'
 import MenuChevronIcon from '../../atoms/MenuChevronIcon'
-
-type ILanguageItemProps = IButtonProps & {
-  onPress: () => void
-  label: string
-  selected?: boolean
-  iconName: string
-}
-
-type ILanguageSelectProps = IVStackProps | IHStackProps
-
-const isLast = (index: number, length: number) => index === length - 1
+import { useBreakpoint } from '../../../hooks/device'
 
 const TriggerMenu = ({ currentLang, menuOpen, ...triggerProps }: any) => (
   <Button
@@ -54,40 +37,6 @@ const TriggerMenu = ({ currentLang, menuOpen, ...triggerProps }: any) => (
     </HStack>
   </Button>
 )
-
-const LanguageItem = ({
-  onPress,
-  iconName,
-  label,
-  selected = false,
-  ...props
-}: ILanguageItemProps) => {
-  // const { isDesktop } = useBreakpoint()
-  const isDesktop = true
-  const ImageComponent = Flag(iconName, 4)
-  const selectedProps = isDesktop
-    ? {
-        rightIcon: <ChevronDownIcon w="20px" color="general.900" />,
-      }
-    : {
-        borderColor: 'general.100',
-        variant: 'outline',
-        rightIcon: undefined,
-      }
-  const extraProps = selected ? selectedProps : {}
-  return (
-    <Button
-      leftIcon={ImageComponent}
-      variant="link"
-      onPress={onPress}
-      {...extraProps}
-      {...props}
-      zIndex={2}
-    >
-      {label}
-    </Button>
-  )
-}
 
 const LanguageSelectDesktop = () => {
   const [openMenu, setOpenMenu] = useState(false)
@@ -132,43 +81,13 @@ const LanguageSelectDesktop = () => {
   )
 }
 
-const LanguageSelectMobile = (props: ILanguageSelectProps) => {
-  const { currentLang, restLangs, onChange } = useLanguageSelector()
-  const langs = [currentLang, ...restLangs]
-  return (
-    <HStack w="100%" justifyContent="center" alignItems="center" {...props}>
-      {langs.map(({ lang, iconName }, index) => (
-        <>
-          <LanguageItem
-            selected={lang === currentLang.lang}
-            key={lang}
-            iconName={iconName as any}
-            label={lang.toUpperCase()}
-            onPress={() => {
-              onChange(lang)
-            }}
-          />
-          {!isLast(index, langs.length) && (
-            <Divider
-              mx="20px"
-              bg="general.200"
-              orientation="vertical"
-              height="30px"
-            />
-          )}
-        </>
-      ))}
-    </HStack>
-  )
-}
 
-const LanguageSelect = (props: ILanguageSelectProps) => {
-  // const { isDesktop } = useBreakpoint()
-  const isDesktop = true
+const LanguageSelect = () => {
+  const { isDesktop } = useBreakpoint()
   return isDesktop ? (
     <LanguageSelectDesktop />
   ) : (
-    <LanguageSelectMobile {...props} />
+    <LanguageSelectDesktop />
   )
 }
 
