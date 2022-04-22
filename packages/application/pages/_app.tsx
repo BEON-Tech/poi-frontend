@@ -5,6 +5,7 @@ import {
   Web3Provider,
   NativeBaseProvider,
   TermsAndAgreementProvider,
+  BreakpointProvider
 } from '../providers'
 
 import EnvTag from '../components/atoms/EnvTag'
@@ -30,7 +31,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <TermsAndAgreementProvider>
           {loaded ? (
             <>
-              <Component {...pageProps} />
+              <BreakpointProvider>
+                <Component {...pageProps} />
+              </BreakpointProvider>
               <EnvTag env="alpha" />
             </>
           ) : (
