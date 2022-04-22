@@ -18,6 +18,7 @@ const NavigationBarButtonMobile = ({
   const showActive = isActive || isPressed
   return (
     <Button
+      w="25%"
       borderRadius={0}
       onPress={onPress}
       onPressIn={() => setPressed(true)}
