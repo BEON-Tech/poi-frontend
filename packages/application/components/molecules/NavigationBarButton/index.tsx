@@ -26,11 +26,11 @@ const NavigationBarButton = ({ onPress, title, isActive = false }: INavigationBa
       onHoverIn={() => updateIsHoverActive(true)}
       onHoverOut={() => updateIsHoverActive(false)}
       onPress={handlePressButton}
-      backgroundColor="#00000000"
+      backgroundColor="transparent"
       mx={4}
       px={0}
       py={0}
-      borderBottomColor={isHoverActive ? "#E7BB41" : "#00000000"}
+      borderBottomColor={isHoverActive ? "#E7BB41" : "transparent"}
       borderBottomWidth="3px"
     >
       <Text color={isHoverActive ? "black" : "#2d6320"} fontSize="lg">

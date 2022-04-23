@@ -189,7 +189,6 @@ const DonationForm = () => {
               borderTopRadius={0}
               borderBottomRadius={8}
               borderColor="#2D6320"
-              // eslint-disable-next-line react/no-unstable-nested-components
               trigger={(triggerProps) =>
                 TriggerMenu({
                   tokenIcon: tokenSymbol,

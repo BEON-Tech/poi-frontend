@@ -1,10 +1,5 @@
 import React, { useState } from 'react'
-import {
-  Button,
-  HStack,
-  Menu,
-  Text
-} from 'native-base'
+import { Button, HStack, Menu, Text } from 'native-base'
 
 import { useLanguageSelector } from '../../../hooks/language'
 import Flag from '../../atoms/Icons/Languages'
@@ -17,7 +12,7 @@ const TriggerMenu = ({ currentLang, menuOpen, ...triggerProps }: any) => (
     w={24}
     pl={3}
     pr={3}
-    backgroundColor="#f2e4e3"
+    backgroundColor="transparent"
     overflowY="hidden"
     variant="solid"
     {...triggerProps}
@@ -28,7 +23,7 @@ const TriggerMenu = ({ currentLang, menuOpen, ...triggerProps }: any) => (
       alignContent: 'center',
     }}
     _hover={{
-      textDecorationLine: 'underline'
+      textDecorationLine: 'underline',
     }}
   >
     <HStack w="auto" space={2}>
@@ -38,7 +33,7 @@ const TriggerMenu = ({ currentLang, menuOpen, ...triggerProps }: any) => (
   </Button>
 )
 
-const LanguageSelectDesktop = () => {
+const LanguageMenu = ({ bg, withBorderRadius = false }: any) => {
   const [openMenu, setOpenMenu] = useState(false)
   const { currentLang, restLangs, onChange } = useLanguageSelector()
   const updateIsMenuOpen = (isOpen: boolean) => setOpenMenu(isOpen)
@@ -46,11 +41,10 @@ const LanguageSelectDesktop = () => {
     <Menu
       placement="bottom"
       w={24}
-      bg="#f2e4e3"
+      bg={bg}
       pl={0}
       pr={4}
       shadow={-1}
-      // eslint-disable-next-line react/no-unstable-nested-components
       trigger={(triggerProps) =>
         TriggerMenu({
           currentLang: currentLang.lang,
@@ -60,18 +54,20 @@ const LanguageSelectDesktop = () => {
       }
       onOpen={() => updateIsMenuOpen(true)}
       onClose={() => updateIsMenuOpen(false)}
+      borderBottomRadius={withBorderRadius ? 8 : 0}
+      overflow="hidden"
     >
       {restLangs.map(({ lang }) => (
         <Menu.Item
           key={lang}
           onPress={() => onChange(lang)}
           pl={0}
-          background="#f2e4e3"
+          background={bg}
           _hover={{
-            textDecorationLine: 'underline'
+            textDecorationLine: 'underline',
           }}
         >
-          <HStack w="auto" space={2} bg="#f2e4e3">
+          <HStack w="auto" space={2} bg={bg}>
             {Flag(lang, 4)}
             <Text fontSize="md">{lang.toUpperCase()}</Text>
           </HStack>
@@ -81,13 +77,12 @@ const LanguageSelectDesktop = () => {
   )
 }
 
-
 const LanguageSelect = () => {
   const { isDesktop } = useBreakpoint()
   return isDesktop ? (
-    <LanguageSelectDesktop />
+    <LanguageMenu bg="transparent" />
   ) : (
-    <LanguageSelectDesktop />
+    <LanguageMenu bg="white" withBorderRadius />
   )
 }
 
