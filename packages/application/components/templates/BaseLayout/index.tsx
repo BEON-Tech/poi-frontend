@@ -23,7 +23,6 @@ const BaseLayout = ({
     w="100vw"
     h="100vh"
     bg={bg}
-    position="fixed"
   >
     <NavigationBar />
     <Text fontSize="6xl" bold mt={20} color={color} maxW={750}>
@@ -40,7 +39,7 @@ const BaseLayout = ({
     >
       {subTitle}
     </Text>
-    <View overflowY="hidden" flex={4}>
+    <View overflowY="hidden" flex={4} w={620} maxW="90%">
       {children}
     </View>
   </VStack>

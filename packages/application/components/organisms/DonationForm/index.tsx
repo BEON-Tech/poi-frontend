@@ -141,7 +141,7 @@ const DonationForm = () => {
   }, [tx])
 
   const normalForm = (
-    <VStack mt={100} w={660}>
+    <VStack mt={100} w="100%">
       <VStack
         alignItems="center"
         justifyContent="center"
