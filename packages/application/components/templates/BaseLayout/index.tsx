@@ -1,8 +1,14 @@
 import { ReactNode } from 'react'
-import { Heading, Text, VStack, View } from 'native-base'
+import {
+  Heading,
+  Text,
+  VStack,
+  View,
+  IconButton,
+  HamburgerIcon,
+} from 'native-base'
 
-import ConnectWalletButton from '../../molecules/ConnectWalletButton'
-import MenuButton from '../../molecules/MenuButton'
+import { ConnectWallet } from '@components/molecules'
 
 export interface IBaseLayoutProps {
   children?: ReactNode
@@ -21,7 +27,7 @@ const BaseLayout = ({
   withMenu = false,
   withConnect = false,
   color,
-  bg = "background.500"
+  bg = 'background.500',
 }: IBaseLayoutProps) => (
   <VStack
     justifyContent="center"
@@ -30,9 +36,16 @@ const BaseLayout = ({
     h="100vh"
     bg={bg}
   >
-    {withMenu && <MenuButton />}
+    {withMenu && (
+      <IconButton
+        left={50}
+        top={39}
+        position="absolute"
+        icon={<HamburgerIcon />}
+      />
+    )}
     {withConnect && (
-      <ConnectWalletButton
+      <ConnectWallet
         containerProps={{
           right: { base: 'none', sm: 'none', md: 50 },
           top: { base: 5, sm: 5, md: 39 },

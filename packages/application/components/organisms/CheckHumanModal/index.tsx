@@ -10,11 +10,9 @@ import {
 } from 'native-base'
 
 import { useEffect } from 'react'
-import ConnectWalletButton from '../../molecules/ConnectWalletButton'
-import { useIsRegisteredPoH } from '../../../hooks/contracts'
-import { useWallet } from '../../../hooks/wallet'
-import { useIsMounted } from '../../../hooks/components'
-import RegisterOnPoHLink from '../../atoms/RegisterOnPoHLink'
+import { ConnectWallet } from '@components/molecules'
+import { useIsRegisteredPoH, useWallet, useIsMounted } from '@hooks'
+import { RegisterOnPoHLink } from '@components/atoms'
 
 const CLOSE_MODAL_SECONDS = 3
 
@@ -55,7 +53,7 @@ const CheckHumanModal = ({ onClose }: ICheckHumanModalProps) => {
         >
           Connect your Wallet to continue
         </Heading>
-        <ConnectWalletButton />
+        <ConnectWallet />
         <VStack mt="5" alignItems="flex-start" justifyContent="center">
           <HStack mb="10" w="100%" space={2}>
             <View flex={1} justifyContent="center" alignItems="center">

@@ -7,8 +7,8 @@ import {
   UBIV2ContractABI,
   PoH_CONTRACT_ADDRESS,
   UBIv2_CONTRACT_ADDRESS,
-} from '../../constants'
-import { useWallet } from '../../hooks/wallet'
+} from '@constants'
+import { useWallet } from '@hooks'
 
 const GAS_LIMIT = 200 * 21000
 
