@@ -194,10 +194,10 @@ const DonationForm = () => {
       >
         <HStack alignItems="flex-end" mt={5} w="100%">
           <FormControl width="100%">
-            <Text fontSize="xl">{t(keys.form.label)}</Text>
+            <Text fontSize="xl">{t(keys.donate.label)}</Text>
             <Input
               type="number"
-              placeholder={t(keys.form.placeholder)}
+              placeholder={t(keys.donate.placeholder)}
               borderWidth={1}
               borderRadius={8}
               onChange={updateAmount}
@@ -273,8 +273,8 @@ const DonationForm = () => {
     if (txError) {
       return (
         <BlockchainErrorMessage
-          title={t(keys.form.transactionErrorTitle)}
-          description={t(keys.form.transactionErrorDescription)}
+          title={t(keys.donate.transactionErrorTitle)}
+          description={t(keys.donate.transactionErrorDescription)}
           onPress={resetTxError}
         />
       )
@@ -283,8 +283,8 @@ const DonationForm = () => {
     if (invalidNetwork) {
       return (
         <BlockchainErrorMessage
-          title={t(keys.form.invalidNetworkTitle)}
-          description={t(keys.form.invalidNetworkDescription)}
+          title={t(keys.donate.invalidNetworkTitle)}
+          description={t(keys.donate.invalidNetworkDescription)}
           dismissable
         />
       )

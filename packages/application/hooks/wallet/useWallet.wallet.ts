@@ -13,23 +13,30 @@ interface IUseWalletResult
     onError?: ((error: Error) => void) | undefined,
     throwErrors?: boolean | undefined
   ) => void
+  deactivate: () => void
+}
+
+let connect = async (callback: () => void) => {
+  const isAuthorized = await injectedConnector.isAuthorized()
+  if (isAuthorized) callback()
 }
 
 const useWallet = (): IUseWalletResult => {
-  const { activate, account, ...rest } = useWeb3React<Web3Provider>()
+  const { activate, deactivate, account, active, ...rest } = useWeb3React<Web3Provider>()
 
   useEffect(() => {
-    ;(async () => {
-      const isAuthorized = await injectedConnector.isAuthorized()
-      if (isAuthorized) activate(injectedConnector, undefined, false)
-    })()
+    // Try to connect only the first time
+    connect(() => activate(injectedConnector, undefined, false))
+    connect = async () => {}
   }, [])
 
   return {
     account,
+    active,
     ...rest,
     activate: (onError, throwErrors = false) =>
       activate(injectedConnector, onError, throwErrors),
+    deactivate: () => deactivate(),
   }
 }
 

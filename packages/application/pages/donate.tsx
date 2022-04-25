@@ -10,8 +10,8 @@ const Donate: NextPage = () => {
   const { active } = useWallet()
   return (
     <BaseLayout
-      title={t(keys.header.title)}
-      subTitle={t(keys.header.subtitle)}
+      title={t(keys.donateHeader.title)}
+      subTitle={t(keys.donateHeader.subtitle)}
       bg="#F2E4E3"
       color="black"
     >

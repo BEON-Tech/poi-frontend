@@ -1,7 +1,9 @@
-import { Button, HStack, Tooltip, Text } from 'native-base'
+import { Button, HStack, Text } from 'native-base'
 // eslint-disable-next-line import/no-unresolved
 import { IHStackProps } from 'native-base/lib/typescript/components/primitives/Stack/HStack'
 import { useWallet } from '../../../hooks/wallet'
+import { t } from '../../../i18n'
+import keys from '../../../i18n/keys'
 
 interface IConnectWalletButtonProps {
   containerProps?: IHStackProps
@@ -12,36 +14,36 @@ const ConnectWalletButton = ({
   containerProps = {},
   onConnectPress,
 }: IConnectWalletButtonProps) => {
-  const { account, activate } = useWallet()
-
-  const handleConnectWallet = () => {
-    if (onConnectPress) onConnectPress()
-    activate()
-  }
+  const { account, activate, deactivate } = useWallet()
 
   const isConnected = !!account
 
+  const handleConnectWallet = () => {
+    if (onConnectPress) onConnectPress()
+    
+    if (isConnected) {
+      deactivate()
+    } else {
+      activate()
+    }
+  }
+
+  
+
   return (
     <HStack {...containerProps}>
-      <Tooltip
-        bg="indigo.500"
-        label="To disconnect use MetaMask plugin"
-        isDisabled={!isConnected}
-        openDelay={0}
-        placement="bottom"
+      <Button
+        w="200px"
+        h="50px"
+        borderRadius={100}
+        onPress={handleConnectWallet}
+        bg="#2d6320"
+        color="white"
       >
-        <Button
-          w="200px"
-          h="50px"
-          borderRadius={100}
-          isDisabled={isConnected}
-          onPress={handleConnectWallet}
-          bg="#2d6320"
-          color="white"
-        >
-          <Text color="white" fontSize="lg">{isConnected ? 'Disconnect' : 'Connect Wallet'}</Text>
-        </Button>
-      </Tooltip>
+        <Text color="white" fontSize="lg">
+          {t(keys.donate.connectWallet)}
+        </Text>
+      </Button>
     </HStack>
   )
 }

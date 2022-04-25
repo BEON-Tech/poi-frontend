@@ -42,17 +42,18 @@ const CheckConnection = () => {
       >
         <HStack w="100%" space={3}>
           <MetamaskIcon />
-          <Text
-            color={isHover ? 'white' : '#2d6320'}
-            fontSize="lg"
-            bold
-          >
+          <Text color={isHover ? 'white' : '#2d6320'} fontSize="lg" bold>
             {t(keys.donate.metamask)}
           </Text>
         </HStack>
       </Button>
       <Text
-        maxW="80%"
+        maxW={{
+          base: '80%',
+          sm: '100%',
+          lg: '100%',
+          xl: '100%',
+        }}
         mt={5}
         textAlign="center"
         fontSize={{
@@ -62,7 +63,7 @@ const CheckConnection = () => {
           xl: 'xl',
         }}
       >
-        {t(keys.donate.checkConnection)}
+        {t(keys.donate.invalidNetworkDescription)}
       </Text>
     </View>
   )
