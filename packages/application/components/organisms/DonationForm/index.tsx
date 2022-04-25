@@ -76,24 +76,61 @@ const BlockchainErrorMessage = ({
 }: any) => (
   <Pressable onPress={onPress}>
     <VStack
-      mt={100}
+      mt={{
+        base: 10,
+        sm: 100,
+        lg: 100,
+        xl: 100,
+      }}
+      maxW="96%"
       w={500}
       bg="white"
       borderWidth={1}
       borderColor="#F5841F"
       borderRadius={10}
-      px={8}
+      px={{
+        base: 6,
+        sm: 8,
+        lg: 8,
+        xl: 8,
+      }}
       py={6}
       alignItems="flex-start"
+      alignSelf="center"
       space={4}
     >
       <HStack space={4}>
-        <AlertIcon alignSelf="start" />
+        <AlertIcon
+          alignSelf="start"
+          size={{
+            base: 'xl',
+            sm: '3xl',
+            lg: '3xl',
+            xl: '3xl',
+          }}
+        />
         <VStack flex="fit-content" alignItems="flex-start" space={4}>
-          <Text fontSize="2xl" bold>
+          <Text
+            fontSize={{
+              base: 'lg',
+              sm: '2xl',
+              lg: '2xl',
+              xl: '2xl',
+            }}
+            bold
+          >
             {title}
           </Text>
-          <Text fontSize="xl">{description}</Text>
+          <Text
+            fontSize={{
+              base: 'md',
+              sm: 'xl',
+              lg: 'xl',
+              xl: 'xl',
+            }}
+          >
+            {description}
+          </Text>
         </VStack>
       </HStack>
     </VStack>
