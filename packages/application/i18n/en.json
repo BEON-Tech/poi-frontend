@@ -10,5 +10,9 @@
     "transactionErrorDescription": "There was a problem with the transaction. Check your funds and try again.",
     "invalidNetworkTitle": "Change the network",
     "invalidNetworkDescription": "Please make sure you are connected to the Ethereum Network."
+  },
+  "donate": {
+    "metamask": "Metamask",
+    "checkConnection": "Please make sure you are connected to the Ethereum Network."
   }
 }
