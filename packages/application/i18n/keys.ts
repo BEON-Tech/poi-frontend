@@ -2,22 +2,21 @@ const keys = {
   main: {
     poi: "poi"
   },
-  header: {
+  donateHeader: {
     title: 'title',
     subtitle: 'subtitle',
   },
-  form: {
+  donate: {
     label: 'label',
     placeholder: 'placeholder',
     transactionErrorTitle: 'transactionErrorTitle',
     transactionErrorDescription: 'transactionErrorDescription',
     invalidNetworkTitle: 'invalidNetworkTitle',
     invalidNetworkDescription: 'invalidNetworkDescription',
-  },
-  donate: {
     metamask: 'metamask',
-    checkConnection: 'checkConnection',
-  },
+    connectWallet: 'connectWallet',
+    disconnect: 'disconnect'
+  }
 }
 
 const expandedKeys = (
