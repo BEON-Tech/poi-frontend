@@ -5,6 +5,7 @@ import LanguageSelect from '../../molecules/LanguageSelect'
 import NavigationBarButton from '../../molecules/NavigationBarButton'
 import ConnectWalletButton from '../../molecules/ConnectWalletButton'
 import NavigationBarButtonMobile from '../../molecules/NavigationBarButtonMobile'
+import ConnectedWalletButtonMenu from '../ConnectedWalletButtonMenu'
 import {
   HomeIcon,
   DonateIcon,
@@ -12,6 +13,7 @@ import {
   WalletIcon,
 } from '../../atoms/Icons/Mobile'
 import { useBreakpoint } from '../../../hooks/device'
+import { useWallet } from '../../../hooks/wallet'
 import { t } from '../../../i18n'
 import keys from '../../../i18n/keys'
 
@@ -27,41 +29,45 @@ const mobileButtons = [
   { title: 'Wallet', Icon: WalletIcon, key: '/wallet' },
 ]
 
-const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => (
-  <HStack
-    w="100%"
-    justifyContent="space-between"
-    alignItems="center"
-    maxH="50px"
-    pt="34px"
-    pr="34px"
-    pl="80px"
-    mt="20px"
-    mb="50px"
-  >
-    <HStack space={4}>
-      <POILogo />
-      <Text fontSize="xl" color="#172815" bold>
-        {t(keys.main.poi)}
-      </Text>
+const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
+  const { isConnected } = useWallet()
+
+  return (
+    <HStack
+      w="100%"
+      justifyContent="space-between"
+      alignItems="center"
+      maxH="50px"
+      pt="34px"
+      pr="34px"
+      pl="80px"
+      mt="20px"
+      mb="50px"
+    >
+      <HStack space={4}>
+        <POILogo />
+        <Text fontSize="xl" color="#172815" bold>
+          {t(keys.main.poi)}
+        </Text>
+      </HStack>
+      <HStack justifyContent="space-between" w="25%">
+        {desktopButtons.map(({ key, ...props }) => (
+          <NavigationBarButton
+            {...props}
+            key={key}
+            isActive={activeItem === key}
+            onPress={() => onNavigate(key)}
+          />
+        ))}
+      </HStack>
+      <HStack>
+        {isConnected ? <ConnectedWalletButtonMenu width="200px" height="50px" /> : <ConnectWalletButton width="200px" height="50px" />}
+        <Divider mx="20px" bg="#e1e1e1" orientation="vertical" height="30px" />
+        <LanguageSelect />
+      </HStack>
     </HStack>
-    <HStack justifyContent="space-between" w="25%">
-      {desktopButtons.map(({ key, ...props }) => (
-        <NavigationBarButton
-          {...props}
-          key={key}
-          isActive={activeItem === key}
-          onPress={() => onNavigate(key)}
-        />
-      ))}
-    </HStack>
-    <HStack>
-      <ConnectWalletButton />
-      <Divider mx="20px" bg="#e1e1e1" orientation="vertical" height="30px" />
-      <LanguageSelect />
-    </HStack>
-  </HStack>
-)
+  )
+}
 
 const MobileNavigationBar = ({ activeItem, onNavigate }: any) => (
   <>

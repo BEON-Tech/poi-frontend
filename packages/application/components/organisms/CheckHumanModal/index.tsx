@@ -55,7 +55,7 @@ const CheckHumanModal = ({ onClose }: ICheckHumanModalProps) => {
         >
           Connect your Wallet to continue
         </Heading>
-        <ConnectWalletButton />
+        <ConnectWalletButton width="200px" height="50px" />
         <VStack mt="5" alignItems="flex-start" justifyContent="center">
           <HStack mb="10" w="100%" space={2}>
             <View flex={1} justifyContent="center" alignItems="center">

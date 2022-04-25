@@ -9,6 +9,7 @@ export const injectedConnector = new InjectedConnector({})
 
 interface IUseWalletResult
   extends Omit<Web3ReactContextInterface<Web3Provider>, 'activate'> {
+  isConnected: boolean,
   activate: (
     onError?: ((error: Error) => void) | undefined,
     throwErrors?: boolean | undefined
@@ -22,7 +23,8 @@ let connect = async (callback: () => void) => {
 }
 
 const useWallet = (): IUseWalletResult => {
-  const { activate, deactivate, account, active, ...rest } = useWeb3React<Web3Provider>()
+  const { activate, deactivate, account, ...rest } = useWeb3React<Web3Provider>()
+  const isConnected = !!account
 
   useEffect(() => {
     // Try to connect only the first time
@@ -32,8 +34,8 @@ const useWallet = (): IUseWalletResult => {
 
   return {
     account,
-    active,
     ...rest,
+    isConnected,
     activate: (onError, throwErrors = false) =>
       activate(injectedConnector, onError, throwErrors),
     deactivate: () => deactivate(),

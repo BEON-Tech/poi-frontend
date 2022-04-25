@@ -8,37 +8,31 @@ import keys from '../../../i18n/keys'
 interface IConnectWalletButtonProps {
   containerProps?: IHStackProps
   onConnectPress?: () => void
+  width: any,
+  height: any
 }
 
 const ConnectWalletButton = ({
   containerProps = {},
   onConnectPress,
+  width,
+  height
 }: IConnectWalletButtonProps) => {
-  const { account, activate, deactivate } = useWallet()
-
-  const isConnected = !!account
+  const { activate } = useWallet()
 
   const handleConnectWallet = () => {
     if (onConnectPress) onConnectPress()
-    
-    if (isConnected) {
-      deactivate()
-    } else {
-      activate()
-    }
+    activate()
   }
-
-  
 
   return (
     <HStack {...containerProps}>
       <Button
-        w="200px"
-        h="50px"
+        w={width}
+        h={height}
         borderRadius={100}
-        onPress={handleConnectWallet}
         bg="#2d6320"
-        color="white"
+        onPress={handleConnectWallet}
       >
         <Text color="white" fontSize="lg">
           {t(keys.donate.connectWallet)}
