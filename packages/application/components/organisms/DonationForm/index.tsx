@@ -43,7 +43,7 @@ const TriggerMenu = ({ tokenIcon, menuOpen, ...triggerProps }: any) => (
     fontSize="sm"
     variant="solid"
     {...triggerProps}
-    endIcon={MenuChevronIcon(3, menuOpen)}
+    endIcon={<MenuChevronIcon size={3} isMenuOpen={menuOpen} />}
     _stack={{
       width: '100%',
       justifyContent: 'space-between',
@@ -284,7 +284,7 @@ const DonationForm = () => {
       return (
         <BlockchainErrorMessage
           title={t(keys.donate.invalidNetworkTitle)}
-          description={t(keys.donate.invalidNetworkDescription)}
+          description={t(keys.form.invalidNetworkDescription)}
           dismissable
         />
       )
