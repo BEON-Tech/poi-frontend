@@ -1,11 +1,33 @@
 import { Divider, HStack, Text } from 'native-base'
+import { useRouter } from 'next/router'
 import POILogo from '../../atoms/Icons/Logo'
 import LanguageSelect from '../../molecules/LanguageSelect'
 import NavigationBarButton from '../../molecules/NavigationBarButton'
 import ConnectWalletButton from '../../molecules/ConnectWalletButton'
+import NavigationBarButtonMobile from '../../molecules/NavigationBarButtonMobile'
+import {
+  HomeIcon,
+  DonateIcon,
+  PublicAuditIcon,
+  WalletIcon,
+} from '../../atoms/Icons/Mobile'
 import { useBreakpoint } from '../../../hooks/device'
+import { t } from '../../../i18n'
+import keys from '../../../i18n/keys'
 
-const DesktopNavigationBar = ({ activeItem }: any) => (
+const desktopButtons = [
+  { title: 'Donate', key: '/donate' },
+  { title: 'Public Audit', key: '/publicAudit' },
+]
+
+const mobileButtons = [
+  { title: 'Home', Icon: HomeIcon, key: '/' },
+  { title: 'Donate', Icon: DonateIcon, key: '/donate' },
+  { title: 'Public Audit', Icon: PublicAuditIcon, key: '/publicAudit' },
+  { title: 'Wallet', Icon: WalletIcon, key: '/wallet' },
+]
+
+const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => (
   <HStack
     w="100%"
     justifyContent="space-between"
@@ -19,13 +41,19 @@ const DesktopNavigationBar = ({ activeItem }: any) => (
   >
     <HStack space={4}>
       <POILogo />
-      <Text fontSize="xl" bold>
-        Proof Of Integrity
+      <Text fontSize="xl" color="#172815" bold>
+        {t(keys.main.poi)}
       </Text>
     </HStack>
     <HStack justifyContent="space-between" w="25%">
-      <NavigationBarButton title="Donate" isActive={activeItem === 0} />
-      <NavigationBarButton title="Public Audit" isActive={activeItem === 1} />
+      {desktopButtons.map(({ key, ...props }) => (
+        <NavigationBarButton
+          {...props}
+          key={key}
+          isActive={activeItem === key}
+          onPress={() => onNavigate(key)}
+        />
+      ))}
     </HStack>
     <HStack>
       <ConnectWalletButton />
@@ -35,14 +63,56 @@ const DesktopNavigationBar = ({ activeItem }: any) => (
   </HStack>
 )
 
-const MobileToolbar = (/* { activeItem }: any */) => <Text>To Do</Text>
+const MobileNavigationBar = ({ activeItem, onNavigate }: any) => (
+  <>
+    <HStack
+      top={0}
+      bg="white"
+      w="100%"
+      justifyContent="space-between"
+      px={4}
+      py={2}
+    >
+      <HStack space={4}>
+        <POILogo size={10} />
+        <Text fontSize="md" color="#172815" bold>
+          {t(keys.main.poi)}
+        </Text>
+      </HStack>
+      <LanguageSelect />
+    </HStack>
+    <HStack
+      w="100%"
+      bg="white"
+      position="absolute"
+      bottom={0}
+      borderTopColor="#EDB6A3"
+      borderTopWidth="1px"
+      px={4}
+      zIndex={1}
+    >
+      {mobileButtons.map(({ key, ...props }) => (
+        <NavigationBarButtonMobile
+          {...props}
+          width="25%"
+          key={key}
+          isActive={activeItem === key}
+          onPress={() => onNavigate(key)}
+        />
+      ))}
+    </HStack>
+  </>
+)
 
-const NavigationBar = ({ activeItem }: any) => {
+const NavigationBar = () => {
+  const router = useRouter()
   const { isDesktop } = useBreakpoint()
+  const activeItem = router.pathname
+  const onNavigate = (newRoute: string) => router.push(newRoute)
   return isDesktop ? (
-    <DesktopNavigationBar activeItem={activeItem} />
+    <DesktopNavigationBar activeItem={activeItem} onNavigate={onNavigate} />
   ) : (
-    <MobileToolbar />
+    <MobileNavigationBar activeItem={activeItem} onNavigate={onNavigate} />
   )
 }
 
