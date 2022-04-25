@@ -6,18 +6,16 @@ import { useWallet } from '../hooks/wallet'
 import { t } from '../i18n'
 import keys from '../i18n/keys'
 
+const Donate: NextPage = () => {
   const { active } = useWallet()
-
-  return (<BaseLayout
-      activeItem={0}
+  return (
+    <BaseLayout
       title={t(keys.header.title)}
       subTitle={t(keys.header.subtitle)}
       bg="#F2E4E3"
       color="black"
     >
-      {active
-        ? <DonationForm />
-        : <CheckConnection />}
+      {active ? <DonationForm /> : <CheckConnection />}
     </BaseLayout>
   )
 }
