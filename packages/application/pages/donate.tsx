@@ -6,7 +6,6 @@ import { useWallet } from '../hooks/wallet'
 import { t } from '../i18n'
 import keys from '../i18n/keys'
 
-const Donate: NextPage = () => {
   const { active } = useWallet()
 
   return (<BaseLayout

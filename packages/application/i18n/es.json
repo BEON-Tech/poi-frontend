@@ -1,4 +1,7 @@
 {
+  "main": {
+    "poi": "Proof Of Integrity"
+  },
   "header": {
     "title": "Help Humans in Need",
     "subtitle": "Because urgent needs require urgent answers, we accept crypto donations."
