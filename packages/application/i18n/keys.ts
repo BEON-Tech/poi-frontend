@@ -14,6 +14,10 @@ const keys = {
     invalidNetworkTitle: 'invalidNetworkTitle',
     invalidNetworkDescription: 'invalidNetworkDescription',
   },
+  donate: {
+    metamask: 'metamask',
+    checkConnection: 'checkConnection',
+  },
 }
 
 const expandedKeys = (
