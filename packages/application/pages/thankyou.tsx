@@ -9,7 +9,7 @@ import {
   useBreakpointValue,
 } from 'native-base'
 
-import BaseLayout from '../components/templates/BaseLayout'
+import BaseLayout from '../components/templates/BaseLayoutSecondary'
 import poiLogo from '../components/atoms/Icons/logoPOI1.png'
 import closeIcon from '../components/atoms/Icons/closeIcon.svg'
 import Corner1 from '../components/atoms/Icons/Corner1.svg'

@@ -11,7 +11,7 @@ import {
 import type { NextPage } from 'next'
 import Image from 'next/image'
 
-import BaseLayout from '../components/templates/BaseLayout'
+import BaseLayout from '../components/templates/BaseLayoutSecondary'
 
 import Footer from '../components/organisms/Footer'
 
