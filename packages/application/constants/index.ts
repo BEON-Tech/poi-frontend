@@ -73,3 +73,5 @@ export const PoH_CONTRACT_ADDRESS = '0x73bcce92806bce146102c44c4d9c3b9b9d745794'
 export const PoHMethods = {
   isRegistered: { name: 'isRegistered' },
 }
+
+export * from './routes.constants'

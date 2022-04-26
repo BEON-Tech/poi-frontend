@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react'
 
-import { useContractCall } from '../../services/contracts'
+import { PoHMethods } from '@constants'
+import { ContractService } from '@services'
+
 import { useWallet } from '../wallet'
 
-import { PoHMethods } from '../../constants'
+const { useContractCall } = ContractService
 
 const {
   isRegistered: { name: isRegisteredMethod },
 } = PoHMethods
 
-// eslint-disable-next-line import/prefer-default-export
 export const useIsRegisteredPoH = () => {
   const { active, account } = useWallet()
   const [data, setData] = useState<any>()
