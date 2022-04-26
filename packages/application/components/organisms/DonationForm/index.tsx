@@ -178,23 +178,56 @@ const DonationForm = () => {
   }, [tx])
 
   const normalForm = (
-    <VStack mt={100} w="100%">
+    <VStack
+      mt={{
+        base: 10,
+        sm: 10,
+        lg: 10,
+        xl: 100,
+      }}
+      w="100%"
+    >
       <VStack
         alignItems="center"
         justifyContent="center"
         borderWidth={1}
         borderColor="border.500"
         borderRadius={12}
-        pt={10}
-        pb={16}
-        px={32}
+        pt={{
+          base: 4,
+          sm: 10,
+          lg: 10,
+          xl: 10,
+        }}
+        pb={{
+          base: 12,
+          sm: 16,
+          lg: 16,
+          xl: 16,
+        }}
+        px={{
+          base: 6,
+          sm: 32,
+          lg: 32,
+          xl: 32,
+        }}
         width="100%"
         mt={4}
         bg="white"
       >
         <HStack alignItems="flex-end" mt={5} w="100%">
           <FormControl width="100%">
-            <Text fontSize="xl">{t(keys.donate.label)}</Text>
+            <Text
+              fontSize="xl"
+              pl={{
+                base: 2,
+                sm: 0,
+                lg: 0,
+                xl: 0,
+              }}
+            >
+              {t(keys.donate.label)}
+            </Text>
             <Input
               type="number"
               placeholder={t(keys.donate.placeholder)}
@@ -254,7 +287,12 @@ const DonationForm = () => {
         <Button
           w="200px"
           h="50px"
-          mt={16}
+          mt={{
+            base: 12,
+            sm: 16,
+            lg: 16,
+            xl: 16,
+          }}
           borderRadius={100}
           isDisabled={controlsDisabled}
           onPress={donate}

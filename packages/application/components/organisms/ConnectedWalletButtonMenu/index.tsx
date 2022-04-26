@@ -65,7 +65,6 @@ const ConnectedWalletButtonMenu = ({
       borderTopRadius={0}
       borderTopWidth={0}
       top="-1px"
-      marginTop={0}
       overflow="hidden"
       trigger={(triggerProps) =>
         TriggerMenu({
