@@ -1,13 +1,13 @@
 import type { AppProps } from 'next/app'
 import { useEffect, useState } from 'react'
+import '@i18n'
 
+import { EnvTag } from '@components/atoms'
 import {
   Web3Provider,
   NativeBaseProvider,
   TermsAndAgreementProvider,
-} from '../providers'
-
-import EnvTag from '../components/atoms/EnvTag'
+} from '@providers'
 
 const styleObject = {
   display: 'flex',

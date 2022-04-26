@@ -17,9 +17,23 @@
     "incremental": true,
     "baseUrl": "./",
     "paths": {
-      "@@config": ["./config/index.ts"]
+      "@components": ["./components"],
+      "@components/*": ["./components/*"],
+      "@config": ["./config"],
+      "@config/*": ["./config/*"],
+      "@constants": ["./constants"],
+      "@constants/*": ["./constants/*"],
+      "@i18n": ["./i18n"],
+      "@hooks": ["./hooks"],
+      "@hooks/*": ["./hooks/*"],
+      "@services": ["./services"],
+      "@services/*": ["./services/*"],
+      "@providers": ["./providers"],
+      "@providers/*": ["./providers/*"],
+      "@themes": ["./themes"],
+      "@themes/*": ["./themes/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "next-i18next.config.js"]
 }

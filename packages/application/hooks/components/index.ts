@@ -1,5 +1,5 @@
 import { useEffect, useRef, useContext } from 'react'
-import { TermsAndAgreementContext } from '../../providers/termsAndAgreement.provider'
+import { TermsAndAgreementContext } from '@providers/termsAndAgreement.provider'
 
 export const useIsMounted = () => {
   const isMountedRef = useRef(true)
