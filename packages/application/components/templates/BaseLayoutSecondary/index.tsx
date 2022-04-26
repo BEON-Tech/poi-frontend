@@ -2,11 +2,11 @@ import { ReactNode } from 'react'
 import {
   VStack,
   Button,
-  Flex,
   Container,
   useBreakpointValue,
   HStack,
   Divider,
+  Stack,
 } from 'native-base'
 
 import ConnectWalletButton from '../../molecules/ConnectWalletButton'
@@ -19,6 +19,7 @@ export interface IBaseLayoutProps {
   withConnect?: boolean
   withLang?: boolean
   bgColor?: any
+  display?: any
 }
 
 const BaseLayout = ({
@@ -27,23 +28,25 @@ const BaseLayout = ({
   withConnect = false,
   withLang = false,
   bgColor,
+  display = 'flex',
 }: IBaseLayoutProps) => {
-  const display = useBreakpointValue({
+  const d = useBreakpointValue({
     base: 'none',
     lg: 'flex',
   })
 
   return (
     <VStack maxW="100vw" overflowX="hidden">
-      <Flex
-        direction="row"
-        align="center"
-        justify="space-between"
+      <Stack
+        display={display}
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
         w="100%"
         px={{ base: '2', lg: '10' }}
         py="3"
-        wrap="nowrap"
-        position="fixed"
+        flexWrap="nowrap"
+        position="absolute"
         top="0"
         zIndex="99"
         bgColor={bgColor}
@@ -56,15 +59,15 @@ const BaseLayout = ({
           space={40}
         >
           <Logo>Proof of Humanity</Logo>
-          <Button variant="link" display={display}>
+          <Button variant="link" display={d}>
             Donate
           </Button>
-          <Button variant="link" display={display}>
+          <Button variant="link" display={d}>
             Public Audit
           </Button>
         </HStack>
         <HStack
-          display={display}
+          display={d}
           flexDirection="row"
           justifyContent="center"
           alignItems="center"
@@ -76,7 +79,7 @@ const BaseLayout = ({
           )}
           {withLang && <Button>En</Button>}
         </HStack>
-      </Flex>
+      </Stack>
       {withMenu && <MenuButton />}
 
       <Container maxW="100vw" w="100%" overflowX="hidden" flex={4}>
