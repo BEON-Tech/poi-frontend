@@ -2,7 +2,7 @@ import { ChevronUpIcon, ChevronDownIcon } from 'native-base'
 
 interface IMenuChevronIconProps {
   size: number
-  isMenuOpen: boolean
+  isMenuOpen?: boolean
 }
 
 const MenuChevronIcon = ({size, isMenuOpen} : IMenuChevronIconProps) => {

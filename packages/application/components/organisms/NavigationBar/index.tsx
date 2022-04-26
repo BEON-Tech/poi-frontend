@@ -61,7 +61,7 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
         ))}
       </HStack>
       <HStack>
-        {isConnected ? <ConnectedWalletButtonMenu width="200px" height="50px" /> : <ConnectWalletButton width="200px" height="50px" />}
+        {isConnected ? <ConnectedWalletButtonMenu width="240px" height="50px" borderRadius={25} /> : <ConnectWalletButton width="200px" height="50px" />}
         <Divider mx="20px" bg="#e1e1e1" orientation="vertical" height="30px" />
         <LanguageSelect />
       </HStack>
