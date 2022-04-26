@@ -284,7 +284,7 @@ const DonationForm = () => {
       return (
         <BlockchainErrorMessage
           title={t(keys.donate.invalidNetworkTitle)}
-          description={t(keys.form.invalidNetworkDescription)}
+          description={t(keys.donate.invalidNetworkDescription)}
           dismissable
         />
       )
