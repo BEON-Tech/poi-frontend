@@ -234,7 +234,7 @@ const DonationForm = () => {
               borderWidth={1}
               borderRadius={8}
               onChange={updateAmount}
-              mt={5}
+              mt={{ base: 3, sm: 5, lg: 5, xl: 5 }}
               h={10}
               bg="white"
               overflowY="hidden"
