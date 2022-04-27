@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import { Icon } from 'native-base'
 import type { IIconProps } from 'native-base'
 import { Path } from 'react-native-svg'

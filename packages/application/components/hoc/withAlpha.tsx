@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { useTermsAndAgreements } from '../../hooks/components'
+
+import { useTermsAndAgreements } from '@hooks'
 
 const isAlpha = true
 

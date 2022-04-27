@@ -39,13 +39,13 @@ const lightTheme = extendTheme({
         textAlign: 'center',
         fontWeight: 700,
         // fontSize: '7xl',
-        fontSize: {
-          base: '3xl',
-          sm: '3xl',
-          md: '5xl',
-          lg: '7xl',
-          xl: '7xl',
-        },
+        // fontSize: {
+        //   base: '3xl',
+        //   sm: '3xl',
+        //   md: '5xl',
+        //   lg: '7xl',
+        //   xl: '7xl',
+        // },
       },
       variants: {},
       sizes: {},
@@ -72,6 +72,7 @@ const lightTheme = extendTheme({
         borderWidth: 1,
         borderColor: 'border.500',
         variant: 'unstyled',
+        borderRadius: 20,
         fontSize: 'md',
         _focus: { borderColor: 'border.500' },
       },
@@ -121,67 +122,61 @@ const lightTheme = extendTheme({
         borderRadius: 100,
         h: '10',
         _text: {
-          color: 'invertedText.900',
           fontSize: { base: 'sm', sm: 'sm', md: 'sm', lg: 'md', xl: 'md' },
         },
         // _pressed: { opacity: 0.5 },
       },
       variants: {
         solid: {
-          bg: 'primary.900',
+          bgColor: 'greenColor.900',
           _text: {
             color: 'invertedText.900',
-            fontWeight: '700',
-            fontSize: {
-              base: 'lg',
-              sm: 'lg',
-              md: 'xl',
-              lg: '2xl',
-              xl: '2xl',
-            },
           },
           _hover: {
-            bg: 'primary.800'
+            bgColor: 'greenColor.800',
           },
           _pressed: {
-            bg: 'primary.700'
+            bgColor: 'greenColor.700',
           },
-          _focus: {
-            bg: 'primary.900'
-          }
+        },
+        outline: {
+          border: '1px',
+          borderColor: 'greenColor.900',
+          bgColor: 'invertedText.900',
+          _text: {
+            color: 'greenColor.900',
+          },
+          _hover: {
+            borderColor: 'greenColor.800',
+            _text: {
+              color: 'greenColor.800',
+            },
+          },
+          _pressed: {
+            borderColor: 'greenColor.700',
+            _text: {
+              color: 'greenColor.700',
+            },
+          },
         },
         link: {
+          bgColor: 'transparent',
           _text: {
-            color: 'primary.900',
+            color: 'greenColor.900',
             fontSize: 'md',
             margin: 0,
             padding: 0,
             textDecorationLine: 'none',
             fontWeight: '600',
           },
-          _web: {
+          _hover: {
             _text: {
-              textDecorationLine: 'none',
-            },
-            _hover: {
-              _text: {
-                textDecorationLine: 'none',
-              },
-            },
-            _focusVisible: {
-              _text: {
-                textDecorationLine: 'none',
-              },
+              color: 'greenColor.800',
             },
           },
-          _ios: {
+          _pressed: {
             _text: {
-              textDecorationLine: 'none',
-            },
-          },
-          _android: {
-            _text: {
-              textDecorationLine: 'none',
+              color: 'greenColor.700',
             },
           },
         },
@@ -263,14 +258,12 @@ const lightTheme = extendTheme({
   colors: {
     // color scheme
     primary: {
-      900: '#2D6320',
-      800: '#223D1F',
-      700: '#33A117',
-      600: '#172815',
-      500: '#EAFFE4',
+      900: '#DE8603',
+      800: '#FF9900',
+      700: '#F6C944',
     },
     secondary: {
-      900: '#FFFFFF',
+      900: '#3B876A',
     },
     border: {
       500: '#E5E5E5',
@@ -289,10 +282,12 @@ const lightTheme = extendTheme({
     error: {
       900: '#B83E26',
     },
-    amber: {
-      900: '#DE8603',
-      800: '#FF9900',
-      700: '#F6C944',
+    greenColor: {
+      900: '#2D6320',
+      800: '#223D1F',
+      700: '#33A117',
+      600: '#172815',
+      500: '#EAFFE4',
     },
   },
 })

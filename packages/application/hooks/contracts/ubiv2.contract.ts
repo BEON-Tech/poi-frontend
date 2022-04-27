@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react'
 import { BigNumber } from '@ethersproject/bignumber'
 
-import {
-  useContractCall,
-  transformBigNumber,
-  transformStream,
-} from '../../services/contracts'
+import { ContractService } from '@services'
+import { UBIv2_CONTRACT_ADDRESS, UBIv2Methods } from '@constants'
+
 import { useWallet } from '../wallet'
 
-import { UBIv2_CONTRACT_ADDRESS, UBIv2Methods } from '../../constants'
+const { useContractCall, transformBigNumber, transformStream } = ContractService
 
 const {
   createStream: { name: createStreamMethod },
@@ -24,7 +22,6 @@ const MINING_TRANSACTION_STATE = 'Mining'
 const CONFIRMING_TRANSACTION_STATE = 'Confirming with 7 blocks'
 const CONFIRMED_TRANSACTION_STATE = 'Confirmed'
 const REJECTED_TRANSACTION_STATE = 'Rejected'
-const CONFIRM_TRANSACTION_NUMBER = 7
 
 interface IUseDelegateToHumanProps {
   onConfirm?: (receipt: any) => void
