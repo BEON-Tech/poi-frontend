@@ -24,3 +24,5 @@ i18n
 export default i18n
 
 export * from './keys'
+
+export { default as Languages } from './locales'

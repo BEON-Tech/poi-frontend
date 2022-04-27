@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
-
 import { PoHMethods } from '@constants'
 import { ContractService } from '@services'
-
-import { useWallet } from '../wallet'
+import { useWallet } from '@hooks'
 
 const { useContractCall } = ContractService
 

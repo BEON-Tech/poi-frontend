@@ -1,8 +1,9 @@
 export interface IConfig {
   addressPOI: string
+  validChainId: number
 }
 
 export default {
   addressPOI: process.env.POI_ADDRESS || '',
-  chainId: process.env.CHAIN_ID || '',
+  validChainId: process.env.CHAIN_ID || 1
 } as IConfig

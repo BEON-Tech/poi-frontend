@@ -1,31 +1,19 @@
 import { ReactNode } from 'react'
-import {
-  Heading,
-  Text,
-  VStack,
-  View,
-  IconButton,
-  HamburgerIcon,
-} from 'native-base'
-
-import { ConnectWallet } from '@components/molecules'
+import { Text, VStack, View } from 'native-base'
+import { NavigationBar } from '@components/organisms'
 
 export interface IBaseLayoutProps {
   children?: ReactNode
   title: string
   subTitle?: string
-  withMenu?: boolean
   color?: string
   bg?: string
-  withConnect?: boolean
 }
 
 const BaseLayout = ({
+  children,
   title,
   subTitle,
-  children,
-  withMenu = false,
-  withConnect = false,
   color,
   bg = 'background.500',
 }: IBaseLayoutProps) => (
@@ -36,41 +24,48 @@ const BaseLayout = ({
     h="100vh"
     bg={bg}
   >
-    {withMenu && (
-      <IconButton
-        left={50}
-        top={39}
-        position="absolute"
-        icon={<HamburgerIcon />}
-      />
-    )}
-    {withConnect && (
-      <ConnectWallet
-        containerProps={{
-          right: { base: 'none', sm: 'none', md: 50 },
-          top: { base: 5, sm: 5, md: 39 },
-          position: 'absolute',
-        }}
-      />
-    )}
-    <Heading mt={20} color={color} maxW={750}>
+    <NavigationBar />
+    <Text
+      maxW="90%"
+      textAlign="center"
+      color={color}
+      fontSize={{
+        base: '3xl',
+        sm: '6xl',
+        lg: '6xl',
+        xl: '6xl',
+      }}
+      bold
+      mt={{
+        base: 6,
+        sm: 6,
+        lg: 6,
+        xl: 20,
+      }}
+    >
       {title}
-    </Heading>
-    {subTitle && (
-      <Text
-        textAlign="center"
-        maxW={700}
-        color="text.900"
-        fontSize="lg"
-        lineHeight={31}
-        mt={22}
-        flex={{ base: 0.25, sm: 0 }}
-      >
-        {subTitle}
-      </Text>
-    )}
-
-    <View overflowY="scroll" flex={4}>
+    </Text>
+    <Text
+      maxW="80%"
+      textAlign="center"
+      color="text.900"
+      fontSize={{
+        base: 'md',
+        sm: '2xl',
+        lg: 'xl',
+        xl: 'xl',
+      }}
+      lineHeight={32}
+      mt={{
+        base: 2,
+        sm: 2,
+        lg: 2,
+        xl: 0,
+      }}
+    >
+      {subTitle}
+    </Text>
+    <View overflowY="hidden" flex={4} w={620} maxW="90%">
       {children}
     </View>
   </VStack>

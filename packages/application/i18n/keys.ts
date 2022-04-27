@@ -1,7 +1,21 @@
 const rawKeys = {
-  general: {
-    disconnectCTA: 'disconnectCTA',
-    connectCTA: 'connectCTA',
+  main: {
+    poi: 'poi',
+  },
+  donateHeader: {
+    title: 'title',
+    subtitle: 'subtitle',
+  },
+  donate: {
+    label: 'label',
+    placeholder: 'placeholder',
+    transactionErrorTitle: 'transactionErrorTitle',
+    transactionErrorDescription: 'transactionErrorDescription',
+    invalidNetworkTitle: 'invalidNetworkTitle',
+    invalidNetworkDescription: 'invalidNetworkDescription',
+    metamask: 'metamask',
+    connectWallet: 'connectWallet',
+    disconnect: 'disconnect',
   },
 }
 

@@ -1,13 +1,14 @@
 import type { AppProps } from 'next/app'
 import { useEffect, useState } from 'react'
-import '@i18n'
 
-import { EnvTag } from '@components/atoms'
 import {
   Web3Provider,
   NativeBaseProvider,
   TermsAndAgreementProvider,
+  BreakpointProvider,
 } from '@providers'
+
+import '@i18n'
 
 const styleObject = {
   display: 'flex',
@@ -29,10 +30,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <NativeBaseProvider>
         <TermsAndAgreementProvider>
           {loaded ? (
-            <>
+            <BreakpointProvider>
               <Component {...pageProps} />
-              <EnvTag env="alpha" />
-            </>
+            </BreakpointProvider>
           ) : (
             <div style={styleObject}>
               <p>Loading</p>

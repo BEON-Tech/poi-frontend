@@ -1,3 +1,6 @@
 export { default as ActionCard } from './ActionCard'
-export { default as ConnectWallet } from './ConnectWallet'
+export { default as ConnectWalletButton } from './ConnectWalletButton'
+export { default as LanguageSelect } from './LanguageSelect'
 export { default as Logo } from './Logo'
+export { default as NavigationBarButton } from './NavigationBarButton'
+export { default as NavigationBarButtonMobile } from './NavigationBarButtonMobile' 

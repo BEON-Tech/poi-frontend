@@ -8,7 +8,7 @@ import {
 } from 'native-base'
 import Image from 'next/image'
 
-import poiLogo2 from '../../atoms/Icons/logoPOI2.png'
+import poiLogo2 from '@components/atoms/Icons/logoPOI2.png'
 
 const Footer = () => {
   const display = useBreakpointValue({
