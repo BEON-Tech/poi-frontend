@@ -4,7 +4,7 @@ import Image from 'next/image'
 import poiLogo2 from '@components/atoms/Icons/logoPOI2.png'
 
 const Logo = ({ children }: any) => (
-  <HStack py="3" justifyContent="start" space={5}>
+  <HStack justifyContent="start" space={{ base: 2, lg: 5 }}>
     <Box>
       <Image src={poiLogo2} alt="POI Logo" width={60} height={60} />
     </Box>
