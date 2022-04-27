@@ -10,7 +10,7 @@ import {
 } from 'native-base'
 
 import ConnectWalletButton from '../../molecules/ConnectWalletButton'
-import MenuButton from '../../molecules/MenuButton'
+// import MenuButton from '../../molecules/MenuButton'
 import Logo from '../../molecules/Logo'
 
 export interface IBaseLayoutProps {
@@ -80,7 +80,7 @@ const BaseLayout = ({
           {withLang && <Button>En</Button>}
         </HStack>
       </Stack>
-      {withMenu && <MenuButton />}
+      {withMenu /* && <MenuButton /> */}
 
       <Container maxW="100vw" w="100%" overflowX="hidden" flex={4}>
         {children}
