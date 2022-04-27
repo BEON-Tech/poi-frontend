@@ -1,15 +1,13 @@
 import type { NextPage } from 'next'
+import { useTranslation } from 'react-i18next'
 import { HStack } from 'native-base'
-import BaseLayout from '../components/templates/BaseLayout'
-import DonationForm from '../components/organisms/DonationForm'
-import CheckConnection from '../components/organisms/DonationForm/CheckConnection'
-import ConnectedWalletButtonMenu from '../components/organisms/ConnectedWalletButtonMenu'
-import { useBreakpoint } from '../hooks/device'
-import { useWallet } from '../hooks/wallet'
-import { t } from '../i18n'
-import keys from '../i18n/keys'
+import BaseLayout from '@components/templates/BaseLayout'
+import { ConnectedWalletButtonMenu, DonationForm, CheckConnection }  from '@components/organisms'
+import { useWallet, useBreakpoint } from '@hooks'
+import { keys } from '@i18n'
 
 const Donate: NextPage = () => {
+  const { t } = useTranslation()
   const { isDesktop } = useBreakpoint()
   const { isConnected } = useWallet()
   return (

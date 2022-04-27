@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { Text, VStack, View } from 'native-base'
-import NavigationBar from '../../organisms/NavigationBar'
+import { NavigationBar } from '@components/organisms'
 
 export interface IBaseLayoutProps {
   children?: ReactNode

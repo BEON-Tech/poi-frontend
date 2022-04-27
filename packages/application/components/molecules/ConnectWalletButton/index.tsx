@@ -1,14 +1,14 @@
 import { Button, HStack, Text } from 'native-base'
+import { useTranslation } from 'react-i18next'
 // eslint-disable-next-line import/no-unresolved
 import { IHStackProps } from 'native-base/lib/typescript/components/primitives/Stack/HStack'
-import { useWallet } from '../../../hooks/wallet'
-import { t } from '../../../i18n'
-import keys from '../../../i18n/keys'
+import { useWallet } from '@hooks/wallet'
+import { keys } from '@i18n'
 
 interface IConnectWalletButtonProps {
   containerProps?: IHStackProps
   onConnectPress?: () => void
-  width: any,
+  width: any
   height: any
 }
 
@@ -16,8 +16,9 @@ const ConnectWalletButton = ({
   containerProps = {},
   onConnectPress,
   width,
-  height
+  height,
 }: IConnectWalletButtonProps) => {
+  const { t } = useTranslation()
   const { activate } = useWallet()
 
   const handleConnectWallet = () => {

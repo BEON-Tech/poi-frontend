@@ -17,7 +17,6 @@ const Home: NextPage = () => {
     <BaseLayout
       title="#ProofOfIntegrity"
       subTitle="A descentralized protocol to certify who is in need of Universal Basic Income"
-      withConnect
     >
       <VStack flex={1} space={2}>
         <Flex

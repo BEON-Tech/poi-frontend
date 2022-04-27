@@ -4,7 +4,7 @@ import { BigNumber } from '@ethersproject/bignumber'
 import { ContractService } from '@services'
 import { UBIv2_CONTRACT_ADDRESS, UBIv2Methods } from '@constants'
 
-import { useWallet } from '../wallet'
+import { useWallet } from '@hooks'
 
 const { useContractCall, transformBigNumber, transformStream } = ContractService
 

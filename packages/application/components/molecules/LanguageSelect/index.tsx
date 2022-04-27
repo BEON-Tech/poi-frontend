@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { Button, HStack, Menu, Text } from 'native-base'
 
-import { useLanguageSelector } from '../../../hooks/language'
-import Flag from '../../atoms/Icons/Languages'
-import MenuChevronIcon from '../../atoms/MenuChevronIcon'
-import { useBreakpoint } from '../../../hooks/device'
+import { useLanguageSelector, useBreakpoint } from '@hooks'
+import Flag from '@components/atoms/Icons/Languages'
+import MenuChevronIcon from '@components/atoms/MenuChevronIcon'
 
 const TriggerMenu = ({ currentLang, menuOpen, ...triggerProps }: any) => (
   <Button
@@ -57,7 +56,7 @@ const LanguageMenu = ({ bg, withBorderRadius = false }: any) => {
       borderBottomRadius={withBorderRadius ? 8 : 0}
       overflow="hidden"
     >
-      {restLangs.map(({ lang }) => (
+      {restLangs.map(({ lang } : any) => (
         <Menu.Item
           key={lang}
           onPress={() => onChange(lang)}

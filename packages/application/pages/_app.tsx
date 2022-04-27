@@ -5,10 +5,10 @@ import {
   Web3Provider,
   NativeBaseProvider,
   TermsAndAgreementProvider,
-  BreakpointProvider
-} from '../providers'
+  BreakpointProvider,
+} from '@providers'
 
-import EnvTag from '../components/atoms/EnvTag'
+import '@i18n'
 
 const styleObject = {
   display: 'flex',
@@ -30,12 +30,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <NativeBaseProvider>
         <TermsAndAgreementProvider>
           {loaded ? (
-            <>
-              <BreakpointProvider>
-                <Component {...pageProps} />
-              </BreakpointProvider>
-              <EnvTag env="alpha" />
-            </>
+            <BreakpointProvider>
+              <Component {...pageProps} />
+            </BreakpointProvider>
           ) : (
             <div style={styleObject}>
               <p>Loading</p>

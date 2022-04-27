@@ -9,23 +9,24 @@ import {
   Menu,
   Pressable,
 } from 'native-base'
-import MenuChevronIcon from '../../atoms/MenuChevronIcon'
+import { useTranslation } from 'react-i18next'
+import { keys } from '@i18n'
+import MenuChevronIcon from '@components/atoms/MenuChevronIcon'
 import {
   EthereumIcon,
   DaiIcon,
   UsdcIcon,
   WbtcIcon,
-} from '../../atoms/Icons/Crypto'
-import { t } from '../../../i18n'
-import keys from '../../../i18n/keys'
-import { useWallet } from '../../../hooks/wallet'
+} from '@components/atoms/Icons/Crypto'
+import AlertIcon from '@components/atoms/Icons/AlertIcon'
+
+import { useWallet } from '@hooks'
 import {
   TOKENS,
   transfer,
   waitTransaction,
-} from '../../../services/contracts/tx.contract'
-import AlertIcon from '../../atoms/Icons/AlertIcon'
-import config from '../../../config/index'
+} from '@services/contracts/tx.contract'
+import config from '@config/index'
 
 const TriggerMenu = ({ tokenIcon, menuOpen, ...triggerProps }: any) => (
   <Button
@@ -138,6 +139,7 @@ const BlockchainErrorMessage = ({
 )
 
 const DonationForm = () => {
+  const { t } = useTranslation()
   const { active, account, library, chainId } = useWallet()
   const [isMenuOpen, setMenuOpen] = useState(false)
   const [tokenSymbol, setTokenSymbol] = useState('ETH')

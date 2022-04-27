@@ -1,3 +1,5 @@
 export * from './components'
 export * from './contracts'
 export * from './wallet'
+export * from './device'
+export * from './language'

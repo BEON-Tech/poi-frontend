@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Button, HStack, Text, Menu } from 'native-base'
-import { useWallet } from '../../../hooks/wallet'
-import MenuChevronIcon from '../../atoms/MenuChevronIcon'
-import { t } from '../../../i18n'
-import keys from '../../../i18n/keys'
+import { useTranslation } from 'react-i18next'
+import { useWallet } from '@hooks'
+import { keys } from '@i18n'
+import MenuChevronIcon from '@components/atoms/MenuChevronIcon'
 
 interface IConnectedWalletButtonMenuProps {
   onDisconnect?: () => void
@@ -44,6 +44,7 @@ const ConnectedWalletButtonMenu = ({
   height,
   borderRadius
 }: IConnectedWalletButtonMenuProps) => {
+  const { t } = useTranslation()
   const { account, deactivate } = useWallet()
   const [isMenuOpen, setOpenMenu] = useState(false)
   const updateIsMenuOpen = (isOpen: boolean) => setOpenMenu(isOpen)

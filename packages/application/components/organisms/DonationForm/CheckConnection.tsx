@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { Button, Text, View, HStack } from 'native-base'
+import { useTranslation } from 'react-i18next'
+import { useWallet } from '@hooks'
+import { keys } from '@i18n'
 
-import { t } from '../../../i18n'
-import keys from '../../../i18n/keys'
-import { useWallet } from '../../../hooks/wallet'
-import MetamaskIcon from '../../atoms/Icons/Metamask'
+import MetamaskIcon from '@components/atoms/Icons/Metamask'
 
 const CheckConnection = () => {
+  const { t } = useTranslation()
   const [isHover, updateHover] = useState(false)
   const hoverStart = () => updateHover(true)
   const hoverEnd = () => updateHover(false)

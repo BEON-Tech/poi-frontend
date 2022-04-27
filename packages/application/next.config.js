@@ -35,13 +35,17 @@ module.exports = withPlugins(
         // Transform all direct `react-native` imports to `react-native-web`
         'react-native$': 'react-native-web',
       };
-      config.resolve.extensions = ['.web.js', '.web.ts', '.web.tsx', ...config.resolve.extensions];
-      return config;
+      config.resolve.extensions = [
+        '.web.js',
+        '.web.ts',
+        '.web.tsx',
+        ...config.resolve.extensions,
+      ]
+      return config
     },
-    env: {
-      POI_ADDRESS: '0xe82d8437cfE311c88708275bAa7ac3AB672A5219',
-      // CHAIN_ID: 1 // Production
-      CHAIN_ID: 42 // Dev - Staging
-    },
+    i18n: {
+      locales: ['en-US', 'es-ES'],
+      defaultLocale: 'es-ES',
+    }
   }
 );

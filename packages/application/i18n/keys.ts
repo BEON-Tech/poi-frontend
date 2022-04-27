@@ -1,6 +1,6 @@
-const keys = {
+const rawKeys = {
   main: {
-    poi: "poi"
+    poi: 'poi',
   },
   donateHeader: {
     title: 'title',
@@ -15,9 +15,11 @@ const keys = {
     invalidNetworkDescription: 'invalidNetworkDescription',
     metamask: 'metamask',
     connectWallet: 'connectWallet',
-    disconnect: 'disconnect'
-  }
+    disconnect: 'disconnect',
+  },
 }
+
+export type LanguageKeys = typeof rawKeys
 
 const expandedKeys = (
   objectToExtend: any,
@@ -34,11 +36,4 @@ const expandedKeys = (
   return result
 }
 
-export const Languages = [
-  { lang: 'en', iconName: 'EnglishFlag' },
-  { lang: 'es', iconName: 'SpanishFlag' },
-]
-
-const expandedKeysObject = expandedKeys(keys) as typeof keys
-
-export default expandedKeysObject
+export const keys = expandedKeys(rawKeys) as LanguageKeys
