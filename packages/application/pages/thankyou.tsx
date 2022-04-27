@@ -9,9 +9,9 @@ import {
   useBreakpointValue,
 } from 'native-base'
 
-import BaseLayout from '../components/templates/BaseLayoutSecondary'
+import BaseLayout from '@components/templates/BaseLayoutSecondary'
+import { CloseIcon } from '@components/atoms/Icons'
 import poiLogo from '../components/atoms/Icons/logoPOI1.png'
-import closeIcon from '../components/atoms/Icons/closeIcon.svg'
 import Corner1 from '../components/atoms/Icons/Corner1.svg'
 import Corner2 from '../components/atoms/Icons/Corner2.svg'
 import Corner3 from '../components/atoms/Icons/Corner3.svg'
@@ -30,7 +30,6 @@ const ThankYou: NextPage = () => {
   })
 
   return (
-    // <ZStack h="auto" minH="100vh">
     <BaseLayout bgColor="transparent" display={{ base: 'none', lg: 'flex' }}>
       <HStack
         position="static"
@@ -44,7 +43,7 @@ const ThankYou: NextPage = () => {
         display={{ base: 'flex', lg: 'none' }}
       >
         <Text fontSize="2xl">Donation</Text>
-        <Image src={closeIcon} />
+        <CloseIcon />
       </HStack>
       <VStack
         w="100%"
