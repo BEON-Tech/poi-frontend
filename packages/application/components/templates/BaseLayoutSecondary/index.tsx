@@ -73,7 +73,7 @@ const BaseLayout = ({
           alignItems="center"
           space={5}
         >
-          {withConnect && <ConnectWalletButton />}
+          {withConnect && <ConnectWalletButton width="200px" height="50px" />}
           {withConnect && withLang && (
             <Divider h="10" mx="2" orientation="vertical" />
           )}
