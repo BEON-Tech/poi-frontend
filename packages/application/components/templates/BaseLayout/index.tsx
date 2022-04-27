@@ -25,17 +25,43 @@ const BaseLayout = ({
     bg={bg}
   >
     <NavigationBar />
-    <Text fontSize="6xl" bold mt={20} color={color} maxW={750}>
+    <Text
+      maxW="90%"
+      textAlign="center"
+      color={color}
+      fontSize={{
+        base: '3xl',
+        sm: '6xl',
+        lg: '6xl',
+        xl: '6xl',
+      }}
+      bold
+      mt={{
+        base: 6,
+        sm: 6,
+        lg: 6,
+        xl: 20,
+      }}
+    >
       {title}
     </Text>
     <Text
+      maxW="80%"
       textAlign="center"
-      maxW={700}
       color="text.900"
-      fontSize="xl"
-      lineHeight={31}
-      mt={4}
-      flex={{ base: 0.25, sm: 0 }}
+      fontSize={{
+        base: 'md',
+        sm: '2xl',
+        lg: 'xl',
+        xl: 'xl',
+      }}
+      lineHeight={32}
+      mt={{
+        base: 2,
+        sm: 2,
+        lg: 2,
+        xl: 0,
+      }}
     >
       {subTitle}
     </Text>

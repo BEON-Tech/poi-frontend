@@ -43,7 +43,7 @@ const TriggerMenu = ({ tokenIcon, menuOpen, ...triggerProps }: any) => (
     fontSize="sm"
     variant="solid"
     {...triggerProps}
-    endIcon={MenuChevronIcon(3, menuOpen)}
+    endIcon={<MenuChevronIcon size={3} isMenuOpen={menuOpen} />}
     _stack={{
       width: '100%',
       justifyContent: 'space-between',
@@ -76,24 +76,61 @@ const BlockchainErrorMessage = ({
 }: any) => (
   <Pressable onPress={onPress}>
     <VStack
-      mt={100}
+      mt={{
+        base: 10,
+        sm: 100,
+        lg: 100,
+        xl: 100,
+      }}
+      maxW="96%"
       w={500}
       bg="white"
       borderWidth={1}
       borderColor="#F5841F"
       borderRadius={10}
-      px={8}
+      px={{
+        base: 6,
+        sm: 8,
+        lg: 8,
+        xl: 8,
+      }}
       py={6}
       alignItems="flex-start"
+      alignSelf="center"
       space={4}
     >
       <HStack space={4}>
-        <AlertIcon alignSelf="start" />
+        <AlertIcon
+          alignSelf="start"
+          size={{
+            base: 'xl',
+            sm: '3xl',
+            lg: '3xl',
+            xl: '3xl',
+          }}
+        />
         <VStack flex="fit-content" alignItems="flex-start" space={4}>
-          <Text fontSize="2xl" bold>
+          <Text
+            fontSize={{
+              base: 'lg',
+              sm: '2xl',
+              lg: '2xl',
+              xl: '2xl',
+            }}
+            bold
+          >
             {title}
           </Text>
-          <Text fontSize="xl">{description}</Text>
+          <Text
+            fontSize={{
+              base: 'md',
+              sm: 'xl',
+              lg: 'xl',
+              xl: 'xl',
+            }}
+          >
+            {description}
+          </Text>
         </VStack>
       </HStack>
     </VStack>
@@ -141,30 +178,63 @@ const DonationForm = () => {
   }, [tx])
 
   const normalForm = (
-    <VStack mt={100} w="100%">
+    <VStack
+      mt={{
+        base: 10,
+        sm: 10,
+        lg: 10,
+        xl: 100,
+      }}
+      w="100%"
+    >
       <VStack
         alignItems="center"
         justifyContent="center"
         borderWidth={1}
         borderColor="border.500"
         borderRadius={12}
-        pt={10}
-        pb={16}
-        px={32}
+        pt={{
+          base: 4,
+          sm: 10,
+          lg: 10,
+          xl: 10,
+        }}
+        pb={{
+          base: 12,
+          sm: 16,
+          lg: 16,
+          xl: 16,
+        }}
+        px={{
+          base: 6,
+          sm: 32,
+          lg: 32,
+          xl: 32,
+        }}
         width="100%"
         mt={4}
         bg="white"
       >
         <HStack alignItems="flex-end" mt={5} w="100%">
           <FormControl width="100%">
-            <Text fontSize="xl">{t(keys.form.label)}</Text>
+            <Text
+              fontSize="xl"
+              pl={{
+                base: 2,
+                sm: 0,
+                lg: 0,
+                xl: 0,
+              }}
+            >
+              {t(keys.donate.label)}
+            </Text>
             <Input
               type="number"
-              placeholder={t(keys.form.placeholder)}
+              placeholder={t(keys.donate.placeholder)}
               borderWidth={1}
               borderRadius={8}
               onChange={updateAmount}
-              mt={5}
+              mt={{ base: 3, sm: 5, lg: 5, xl: 5 }}
               h={10}
               bg="white"
               overflowY="hidden"
@@ -217,7 +287,12 @@ const DonationForm = () => {
         <Button
           w="200px"
           h="50px"
-          mt={16}
+          mt={{
+            base: 12,
+            sm: 16,
+            lg: 16,
+            xl: 16,
+          }}
           borderRadius={100}
           isDisabled={controlsDisabled}
           onPress={donate}
@@ -236,8 +311,8 @@ const DonationForm = () => {
     if (txError) {
       return (
         <BlockchainErrorMessage
-          title={t(keys.form.transactionErrorTitle)}
-          description={t(keys.form.transactionErrorDescription)}
+          title={t(keys.donate.transactionErrorTitle)}
+          description={t(keys.donate.transactionErrorDescription)}
           onPress={resetTxError}
         />
       )
@@ -246,8 +321,8 @@ const DonationForm = () => {
     if (invalidNetwork) {
       return (
         <BlockchainErrorMessage
-          title={t(keys.form.invalidNetworkTitle)}
-          description={t(keys.form.invalidNetworkDescription)}
+          title={t(keys.donate.invalidNetworkTitle)}
+          description={t(keys.donate.invalidNetworkDescription)}
           dismissable
         />
       )

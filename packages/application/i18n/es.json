@@ -2,20 +2,19 @@
   "main": {
     "poi": "Proof Of Integrity"
   },
-  "header": {
+  "donateHeader": {
     "title": "Help Humans in Need",
     "subtitle": "Because urgent needs require urgent answers, we accept crypto donations."
   },
-  "form": {
+  "donate": {
     "label": "Enter amount",
     "placeholder": "Amount",
     "transactionErrorTitle": "Transaction Error",
     "transactionErrorDescription": "There was a problem with the transaction. Check your funds and try again.",
     "invalidNetworkTitle": "Change the network",
-    "invalidNetworkDescription": "Please make sure you are connected to the Ethereum Network."
-  },
-  "donate": {
+    "invalidNetworkDescription": "Please make sure you are connected to the Ethereum Network.",
     "metamask": "Metamask",
-    "checkConnection": "Please make sure you are connected to the Ethereum Network."
+    "connectWallet": "Connect Wallet",
+    "disconnect": "Disconnect"
   }
 }

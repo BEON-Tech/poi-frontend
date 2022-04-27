@@ -1,17 +1,16 @@
-import {
-  Button,
-  Text,
-  View,
-  HStack
-} from 'native-base'
+import { useState } from 'react'
+import { Button, Text, View, HStack } from 'native-base'
 
 import { t } from '../../../i18n'
 import keys from '../../../i18n/keys'
 import { useWallet } from '../../../hooks/wallet'
-
 import MetamaskIcon from '../../atoms/Icons/Metamask'
 
 const CheckConnection = () => {
+  const [isHover, updateHover] = useState(false)
+  const hoverStart = () => updateHover(true)
+  const hoverEnd = () => updateHover(false)
+
   const { activate } = useWallet()
 
   const handleConnectWallet = () => {
@@ -19,18 +18,53 @@ const CheckConnection = () => {
   }
 
   return (
-    <View mt={60} display="flex" alignItems="center">
+    <View
+      mt={{
+        base: 10,
+        sm: 10,
+        lg: 10,
+        xl: 20,
+      }}
+      display="flex"
+      alignItems="center"
+    >
       <Button
         borderRadius={100}
         onPress={handleConnectWallet}
         padding={6}
+        backgroundColor={isHover ? '#2d6320' : 'white'}
+        borderColor="#2d6320"
+        borderWidth={1}
+        onHoverIn={hoverStart}
+        onHoverOut={hoverEnd}
+        onTouchStart={hoverStart}
+        onTouchEnd={hoverEnd}
       >
-        <HStack w="100%">
+        <HStack w="100%" space={3}>
           <MetamaskIcon />
-          <Text ml={2} color="white" fontSize="lg">{t(keys.donate.metamask)}</Text>
+          <Text color={isHover ? 'white' : '#2d6320'} fontSize="lg" bold>
+            {t(keys.donate.metamask)}
+          </Text>
         </HStack>
       </Button>
-      <Text mt={5}>{t(keys.donate.checkConnection)}</Text>
+      <Text
+        maxW={{
+          base: '80%',
+          sm: '100%',
+          lg: '100%',
+          xl: '100%',
+        }}
+        mt={5}
+        textAlign="center"
+        fontSize={{
+          base: 'sm',
+          sm: 'sm',
+          lg: 'sm',
+          xl: 'xl',
+        }}
+      >
+        {t(keys.donate.invalidNetworkDescription)}
+      </Text>
     </View>
   )
 }
