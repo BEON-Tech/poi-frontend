@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router'
 import { useMemo } from 'react'
-import { Languages } from '../../i18n/locales'
+import { Languages } from '@i18n'
 
 export interface IUseLanguageSelectorResult {
   onChange: (lang: string) => void
-  currentLang: typeof Languages[number]
-  restLangs: typeof Languages
+  currentLang?: string
+  restLangs: Array<string>
 }
 
 const useLanguageSelector = (): IUseLanguageSelectorResult => {
@@ -18,10 +18,9 @@ const useLanguageSelector = (): IUseLanguageSelectorResult => {
 
   const { current, rest } = useMemo(() => {
     const selected = query ? query.lang : 'en'
-    const currentSelected = Languages.find(
-      ({ lang } : any) => lang === selected
-    ) as typeof Languages[number]
-    const notSelected = Languages.filter(({ lang } : any) => lang !== selected)
+    const availableLanguages = Object.keys(Languages)
+    const currentSelected = availableLanguages.find(lang => lang === selected)
+    const notSelected = availableLanguages.filter(lang => lang !== selected)    
     return { current: currentSelected, rest: notSelected }
   }, [query])
 

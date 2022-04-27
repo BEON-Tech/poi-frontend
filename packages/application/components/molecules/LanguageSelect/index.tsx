@@ -36,6 +36,7 @@ const LanguageMenu = ({ bg, withBorderRadius = false }: any) => {
   const [openMenu, setOpenMenu] = useState(false)
   const { currentLang, restLangs, onChange } = useLanguageSelector()
   const updateIsMenuOpen = (isOpen: boolean) => setOpenMenu(isOpen)
+
   return (
     <Menu
       placement="bottom"
@@ -46,7 +47,7 @@ const LanguageMenu = ({ bg, withBorderRadius = false }: any) => {
       shadow={-1}
       trigger={(triggerProps) =>
         TriggerMenu({
-          currentLang: currentLang.lang,
+          currentLang,
           menuOpen: openMenu,
           ...triggerProps,
         })
@@ -56,7 +57,7 @@ const LanguageMenu = ({ bg, withBorderRadius = false }: any) => {
       borderBottomRadius={withBorderRadius ? 8 : 0}
       overflow="hidden"
     >
-      {restLangs.map(({ lang } : any) => (
+      {restLangs.map(lang => (
         <Menu.Item
           key={lang}
           onPress={() => onChange(lang)}
