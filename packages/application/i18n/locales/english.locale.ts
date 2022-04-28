@@ -22,5 +22,15 @@ const keys: LanguageKeys = {
     connectWallet: 'Connect Wallet',
     disconnect: 'Disconnect',
   },
+  thankYou: {
+    thankYou: 'Thank You!',
+    moreDetails: 'More Details',
+    youContributed: 'You contributed',
+    toOurPool: 'to our pool.',
+    weAreHappy: 'We are so happy to be your partner on fighting poverty.',
+    continueHelping: 'Continue helping',
+    goBackToHome: 'Go back to Home'
+  }
 }
+
 export default keys

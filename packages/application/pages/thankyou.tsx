@@ -7,17 +7,15 @@ import {
   Button,
   useBreakpointValue,
 } from 'native-base'
-
+import { useTranslation } from 'react-i18next'
+import { keys } from '@i18n'
 import BaseLayout from '@components/templates/BaseLayoutSecondary'
 import { Corner, POILogo2 } from '@components/atoms/Icons'
 
 const ThankYou: NextPage = () => {
+  const { t } = useTranslation()
   const amount: any = '1.000'
 
-  const linkText = useBreakpointValue({
-    base: 'See more details in Etherscan',
-    lg: 'More Details',
-  })
   const iconSize = useBreakpointValue({
     base: '70px',
     lg: '130px',
@@ -53,7 +51,7 @@ const ThankYou: NextPage = () => {
             color="text.800"
             py="2"
           >
-            Thank You!
+            {t(keys.thankYou.thankYou)}
           </Text>
 
           <VStack
@@ -62,24 +60,24 @@ const ThankYou: NextPage = () => {
             textAlign={{ base: 'center', lg: 'left' }}
           >
             <Text color="text.800" fontSize={{ base: 'lg', lg: 'xl' }}>
-              You contributed <strong>${amount} to our pool.</strong>
+              {t(keys.thankYou.youContributed)} <strong>${amount} {t(keys.thankYou.toOurPool)}</strong>
             </Text>
             <Text color="text.800" fontSize={{ base: 'lg', lg: 'xl' }}>
-              We are so happy to be your partner on fighting poverty.
+              {t(keys.thankYou.weAreHappy)}
             </Text>
           </VStack>
 
           <HStack py="5">
-            <Button variant="link">{linkText}</Button>
+            <Button variant="link">{t(keys.thankYou.moreDetails)}</Button>
           </HStack>
 
           <HStack py="5">
-            <Button>Continue helping</Button>
+            <Button>{t(keys.thankYou.continueHelping)}</Button>
           </HStack>
         </Box>
 
         <HStack pt="8" pb="100px">
-          <Button variant="link">Go back to Home</Button>
+          <Button variant="link">{t(keys.thankYou.goBackToHome)}</Button>
         </HStack>
         <Box
           top="0"
@@ -119,7 +117,6 @@ const ThankYou: NextPage = () => {
           <Corner position="rightdown" />
         </Box>
       </VStack>
-      {/* // </ZStack> */}
     </BaseLayout>
   )
 }
