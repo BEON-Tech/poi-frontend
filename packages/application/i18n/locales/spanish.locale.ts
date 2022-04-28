@@ -21,6 +21,7 @@ const keys: LanguageKeys = {
     metamask: 'Metamask',
     connectWallet: 'Connect Wallet',
     disconnect: 'Disconnect',
+    donate: 'Donate'
   },
   thankYou: {
     thankYou: 'Thank You!',
