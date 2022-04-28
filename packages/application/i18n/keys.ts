@@ -16,6 +16,7 @@ const rawKeys = {
     metamask: 'metamask',
     connectWallet: 'connectWallet',
     disconnect: 'disconnect',
+    donate: 'donate'
   },
   thankYou: {
     thankYou: 'thankYou',
