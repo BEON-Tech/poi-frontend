@@ -25,7 +25,6 @@ const lightTheme = extendTheme({
       },
       defaultProps: {
         fontSize: 'md',
-        // fontSize: { base: 'sm', xs: 'sm', md: 'md', lg: 'md', xl: 'md' },
         fontFamily,
         fontVariant: 'normal',
       },
@@ -38,14 +37,6 @@ const lightTheme = extendTheme({
         color: 'primary.900',
         textAlign: 'center',
         fontWeight: 700,
-        // fontSize: '7xl',
-        // fontSize: {
-        //   base: '3xl',
-        //   sm: '3xl',
-        //   md: '5xl',
-        //   lg: '7xl',
-        //   xl: '7xl',
-        // },
       },
       variants: {},
       sizes: {},
@@ -118,11 +109,11 @@ const lightTheme = extendTheme({
     Button: {
       baseStyle: {},
       defaultProps: {
-        fontSize: 'md',
+        fontSize: 'lg',
         borderRadius: 100,
         h: '10',
         _text: {
-          fontSize: { base: 'sm', sm: 'sm', md: 'sm', lg: 'md', xl: 'md' },
+          fontSize: { base: 'lg', sm: 'lg', md: 'lg', lg: 'lg', xl: 'lg' },
         },
         // _pressed: { opacity: 0.5 },
       },
@@ -166,7 +157,7 @@ const lightTheme = extendTheme({
             fontSize: 'md',
             margin: 0,
             padding: 0,
-            textDecorationLine: 'none',
+            textDecorationLine: 'underline',
             fontWeight: '600',
           },
           _hover: {
@@ -258,9 +249,8 @@ const lightTheme = extendTheme({
   colors: {
     // color scheme
     primary: {
-      900: '#DE8603',
-      800: '#FF9900',
-      700: '#F6C944',
+      800: '#33A117',
+      600: '#2D6320',
     },
     secondary: {
       900: '#3B876A',

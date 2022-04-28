@@ -37,9 +37,9 @@ const ThankYou: NextPage = () => {
           </Box>
         </HStack>
         <Box
-          h={{ base: '400', lg: '480' }}
           w={{ base: '340', lg: '720' }}
-          py="10"
+          pt={10}
+          pb={16}
           alignSelf="center"
           rounded="3xl"
           bg="background.100"
@@ -53,32 +53,31 @@ const ThankYou: NextPage = () => {
           >
             {t(keys.thankYou.thankYou)}
           </Text>
-
           <VStack
             space={{ base: 0, lg: 4 }}
             px={{ base: 4, lg: 4 }}
             textAlign={{ base: 'center', lg: 'left' }}
           >
             <Text color="text.800" fontSize={{ base: 'lg', lg: 'xl' }}>
-              {t(keys.thankYou.youContributed)} <strong>${amount} {t(keys.thankYou.toOurPool)}</strong>
+              {t(keys.thankYou.youContributed)}{' '}
+              <strong>
+                ${amount} {t(keys.thankYou.toOurPool)}
+              </strong>
             </Text>
             <Text color="text.800" fontSize={{ base: 'lg', lg: 'xl' }}>
               {t(keys.thankYou.weAreHappy)}
             </Text>
           </VStack>
-
-          <HStack py="5">
-            <Button variant="link">{t(keys.thankYou.moreDetails)}</Button>
-          </HStack>
-
-          <HStack py="5">
-            <Button>{t(keys.thankYou.continueHelping)}</Button>
-          </HStack>
+          <Button variant="link" colorScheme="primary" mt={8}>
+            {t(keys.thankYou.moreDetails)}
+          </Button>
+          <Button variant="solid" mt={8} w="200px" h="50px">
+            {t(keys.thankYou.continueHelping)}
+          </Button>
         </Box>
-
-        <HStack pt="8" pb="100px">
-          <Button variant="link">{t(keys.thankYou.goBackToHome)}</Button>
-        </HStack>
+        <Button variant="link" mt={8}>
+          {t(keys.thankYou.goBackToHome)}
+        </Button>
         <Box
           top="0"
           left="0"
@@ -97,7 +96,6 @@ const ThankYou: NextPage = () => {
         >
           <Corner position="rightup" />
         </Box>
-
         <Box
           bottom="0"
           left="0"
