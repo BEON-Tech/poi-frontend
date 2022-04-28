@@ -171,6 +171,43 @@ const lightTheme = extendTheme({
             },
           },
         },
+        menuLink: {
+          bgColor: 'transparent',
+          borderBottomWidth: '3px',
+          borderBottomColor: 'transparent',
+          _text: {
+            color: 'greenColor.900',
+            fontSize: 'lg',
+            margin: 0,
+            padding: 0,
+            textDecorationLine: 'none',
+            fontWeight: '500',
+          },
+          _hover: {
+            _text: {
+              color: 'greenColor.600',
+            },
+            borderBottomColor: 'orangeColor.900',
+          },
+          _pressed: {
+            _text: {
+              color: 'greenColor.600',
+            },
+          },
+        },
+        menuLinkActive: {
+          bgColor: 'transparent',
+          borderBottomWidth: '3px',
+          borderBottomColor: 'orangeColor.900',
+          _text: {
+            color: 'greenColor.600',
+            fontSize: 'lg',
+            margin: 0,
+            padding: 0,
+            textDecorationLine: 'none',
+            fontWeight: '500',
+          },
+        },
       },
     },
     Avatar: {
@@ -278,6 +315,9 @@ const lightTheme = extendTheme({
       700: '#33A117',
       600: '#172815',
       500: '#EAFFE4',
+    },
+    orangeColor: {
+      900: '#E7BB41',
     },
   },
 })
