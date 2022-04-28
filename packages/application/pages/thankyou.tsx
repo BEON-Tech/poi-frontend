@@ -10,6 +10,7 @@ import {
 import { useTranslation } from 'react-i18next'
 import { keys } from '@i18n'
 import BaseLayout from '@components/templates/BaseLayoutSecondary'
+import { NavigationBar } from '@components/organisms'
 import { Corner, POILogo2 } from '@components/atoms/Icons'
 
 const ThankYou: NextPage = () => {
@@ -22,7 +23,7 @@ const ThankYou: NextPage = () => {
   })
 
   return (
-    <BaseLayout bgColor="transparent" display={{ base: 'none', lg: 'flex' }}>
+    <BaseLayout>
       <VStack
         w="100%"
         h={{ base: '93vh', lg: '100%' }}
@@ -31,7 +32,8 @@ const ThankYou: NextPage = () => {
         position="relative"
         overflowY="hidden"
       >
-        <HStack justifyContent="center" pb={7} mt={32}>
+        <NavigationBar hideBottomBar />
+        <HStack justifyContent="center" pb={7} mt={6}>
           <Box>
             <POILogo2 size={iconSize} />
           </Box>
