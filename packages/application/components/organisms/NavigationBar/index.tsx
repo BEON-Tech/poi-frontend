@@ -8,13 +8,13 @@ import {
   NavigationBarButton,
   NavigationBarButtonMobile,
 } from '@components/molecules'
-import POILogo from '@components/atoms/Icons/Logo'
 import {
+  POILogo,
   HomeIcon,
   DonateIcon,
   PublicAuditIcon,
   WalletIcon,
-} from '@components/atoms/Icons/Mobile'
+} from '@components/atoms/Icons'
 import { useWallet, useBreakpoint } from '@hooks'
 import { keys } from '@i18n'
 

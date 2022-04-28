@@ -1,90 +1,37 @@
 import { ReactNode } from 'react'
-import {
-  VStack,
-  Button,
-  Container,
-  useBreakpointValue,
-  HStack,
-  Divider,
-  Stack,
-} from 'native-base'
+import { VStack, Container } from 'native-base'
 
-import { ConnectWalletButton, Logo } from '@components/molecules'
-// import MenuButton from '../../molecules/MenuButton'
+import { NavigationBar } from '@components/organisms'
 
 export interface IBaseLayoutProps {
   children?: ReactNode
-  withMenu?: boolean
-  withConnect?: boolean
-  withLang?: boolean
   bgColor?: any
   display?: any
 }
 
 const BaseLayout = ({
   children,
-  withMenu = false,
-  withConnect = false,
-  withLang = false,
   bgColor,
   display = 'flex',
-}: IBaseLayoutProps) => {
-  const d = useBreakpointValue({
-    base: 'none',
-    lg: 'flex',
-  })
-
-  return (
-    <VStack maxW="100vw" overflowX="hidden">
-      <Stack
-        display={display}
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="space-between"
-        w="100%"
-        px={{ base: '2', lg: '10' }}
-        py="3"
-        flexWrap="nowrap"
-        position="absolute"
-        top="0"
-        zIndex="99"
-        bgColor={bgColor}
-      >
-        <HStack
-          display="flex"
-          flexDirection="row"
-          alignItems="center"
-          justifyContent="space-between"
-          space={40}
-        >
-          <Logo>Proof of Humanity</Logo>
-          <Button variant="link" display={d}>
-            Donate
-          </Button>
-          <Button variant="link" display={d}>
-            Public Audit
-          </Button>
-        </HStack>
-        <HStack
-          display={d}
-          flexDirection="row"
-          justifyContent="center"
-          alignItems="center"
-          space={5}
-        >
-          {withConnect && <ConnectWalletButton width="200px" height="50px" />}
-          {withConnect && withLang && (
-            <Divider h="10" mx="2" orientation="vertical" />
-          )}
-          {withLang && <Button>En</Button>}
-        </HStack>
-      </Stack>
-      {withMenu /* && <MenuButton /> */}
-
-      <Container maxW="100vw" w="100%" overflowX="hidden" flex={4}>
-        {children}
-      </Container>
+}: IBaseLayoutProps) => (
+  <VStack maxW="100vw" overflowX="hidden">
+    <VStack
+      display={display}
+      flexDirection="row"
+      alignItems="center"
+      justifyContent="space-between"
+      w="100%"
+      flexWrap="nowrap"
+      position="absolute"
+      top="0"
+      zIndex="1"
+      bgColor={bgColor}
+    >
+      <NavigationBar />
     </VStack>
-  )
-}
+    <Container maxW="100vw" w="100%" overflowX="hidden" flex={4}>
+      {children}
+    </Container>
+  </VStack>
+)
 export default BaseLayout

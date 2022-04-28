@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import Image from 'next/image'
 import {
   VStack,
   Text,
@@ -10,8 +9,7 @@ import {
 } from 'native-base'
 
 import BaseLayout from '@components/templates/BaseLayoutSecondary'
-import { CloseIcon, Corner } from '@components/atoms/Icons'
-import poiLogo from '@components/atoms/Icons/logoPOI1.png'
+import { Corner, POILogo2 } from '@components/atoms/Icons'
 
 const ThankYou: NextPage = () => {
   const amount: any = '1.000'
@@ -27,20 +25,6 @@ const ThankYou: NextPage = () => {
 
   return (
     <BaseLayout bgColor="transparent" display={{ base: 'none', lg: 'flex' }}>
-      <HStack
-        position="static"
-        top="0"
-        left="0"
-        h="7vh"
-        w="100%"
-        justifyContent="space-between"
-        zIndex="10"
-        px="5"
-        display={{ base: 'flex', lg: 'none' }}
-      >
-        <Text fontSize="2xl">Donation</Text>
-        <CloseIcon />
-      </HStack>
       <VStack
         w="100%"
         h={{ base: '93vh', lg: '100%' }}
@@ -49,14 +33,9 @@ const ThankYou: NextPage = () => {
         position="relative"
         overflowY="hidden"
       >
-        <HStack justifyContent="center" pb="7" mt="20">
+        <HStack justifyContent="center" pb={7} mt={32}>
           <Box>
-            <Image
-              src={poiLogo}
-              alt="POI Logo"
-              width={iconSize}
-              height={iconSize}
-            />
+            <POILogo2 size={iconSize} />
           </Box>
         </HStack>
         <Box
@@ -109,7 +88,7 @@ const ThankYou: NextPage = () => {
           position="absolute"
           w={{ base: '6rem', lg: '9rem' }}
         >
-          <Corner position='leftup' />
+          <Corner position="leftup" />
         </Box>
         <Box
           top="0"
@@ -118,7 +97,7 @@ const ThankYou: NextPage = () => {
           position="absolute"
           w={{ base: '12rem', lg: '20rem' }}
         >
-          <Corner position='rightup' />
+          <Corner position="rightup" />
         </Box>
 
         <Box
@@ -128,7 +107,7 @@ const ThankYou: NextPage = () => {
           position="absolute"
           w={{ base: '7rem', lg: '18rem' }}
         >
-          <Corner position='leftdown' />
+          <Corner position="leftdown" />
         </Box>
         <Box
           bottom="0"
@@ -137,7 +116,7 @@ const ThankYou: NextPage = () => {
           position="absolute"
           w={{ base: '11rem', lg: '28rem' }}
         >
-          <Corner position='rightdown' />
+          <Corner position="rightdown" />
         </Box>
       </VStack>
       {/* // </ZStack> */}
