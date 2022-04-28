@@ -1,5 +1,5 @@
 import { Image } from 'native-base'
-import SpanishFlag from '../../../../assets/images/es_flag.png'
+import SpanishFlag from '@assets/images/es_flag.png'
 
 const ESFlag = (size: number) => (
   <Image

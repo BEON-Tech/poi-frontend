@@ -10,12 +10,8 @@ import {
 } from 'native-base'
 
 import BaseLayout from '@components/templates/BaseLayoutSecondary'
-import { CloseIcon } from '@components/atoms/Icons'
-import poiLogo from '../components/atoms/Icons/logoPOI1.png'
-import Corner1 from '../components/atoms/Icons/Corner1.svg'
-import Corner2 from '../components/atoms/Icons/Corner2.svg'
-import Corner3 from '../components/atoms/Icons/Corner3.svg'
-import Corner4 from '../components/atoms/Icons/Corner4.svg'
+import { CloseIcon, Corner } from '@components/atoms/Icons'
+import poiLogo from '@components/atoms/Icons/logoPOI1.png'
 
 const ThankYou: NextPage = () => {
   const amount: any = '1.000'
@@ -113,7 +109,7 @@ const ThankYou: NextPage = () => {
           position="absolute"
           w={{ base: '6rem', lg: '9rem' }}
         >
-          <Image src={Corner1} />
+          <Corner position='leftup' />
         </Box>
         <Box
           top="0"
@@ -122,7 +118,7 @@ const ThankYou: NextPage = () => {
           position="absolute"
           w={{ base: '12rem', lg: '20rem' }}
         >
-          <Image src={Corner2} />
+          <Corner position='rightup' />
         </Box>
 
         <Box
@@ -132,7 +128,7 @@ const ThankYou: NextPage = () => {
           position="absolute"
           w={{ base: '7rem', lg: '18rem' }}
         >
-          <Image src={Corner3} />
+          <Corner position='leftdown' />
         </Box>
         <Box
           bottom="0"
@@ -141,7 +137,7 @@ const ThankYou: NextPage = () => {
           position="absolute"
           w={{ base: '11rem', lg: '28rem' }}
         >
-          <Image src={Corner4} />
+          <Corner position='rightdown' />
         </Box>
       </VStack>
       {/* // </ZStack> */}

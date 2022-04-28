@@ -1,5 +1,5 @@
 import { Image } from 'native-base'
-import metamask from '../../../assets/images/metamask.svg'
+import metamask from '@assets/images/metamask.svg'
 
 const MetamaskLogo = () => (
   <Image
