@@ -58,7 +58,7 @@ export default [
   },
   {
     imagePath: NicolasAyalaImage,
-    name: 'Nicolas Ayala',
+    name: 'Nicolás Ayala',
     role: keys.ourTeam.roles.srSolidityDeveloper,
     tags: [DEVELOPER_TAG],
   },
@@ -87,7 +87,7 @@ export default [
   },
   {
     imagePath: NicolasManziniImage,
-    name: 'Nicolas Manzini',
+    name: 'Nicolás Manzini',
     role: keys.ourTeam.roles.marketingSpecialist,
     tags: [DESIGN_AND_MARKETING_TAG],
   },
@@ -103,8 +103,8 @@ export default [
   },
   {
     imagePath: BarbaraFernandezImage,
-    name: 'Barbara Fernandez',
-    role: keys.ourTeam.roles.socialTeam,
+    name: 'Bárbara Fernandez',
+    role: keys.ourTeam.roles.institutionalRelations,
     tags: [SOCIAL_TEAM_TAG],
   },
   {
@@ -128,8 +128,8 @@ export default [
 
   {
     imagePath: FabianBaezImage,
-    name: 'Fabian Baez',
-    role: keys.ourTeam.roles.socialTeam,
+    name: 'Fabián Baez',
+    role: keys.ourTeam.roles.territorialDevelopment,
     tags: [SOCIAL_TEAM_TAG],
   },
   {
@@ -141,14 +141,14 @@ export default [
 
   {
     imagePath: AgustinCapdevillaImage,
-    name: 'Agustin Capdevilla',
+    name: 'Agustín Capdevilla',
     role: keys.ourTeam.roles.socialTeam,
     tags: [SOCIAL_TEAM_TAG],
   },
   {
     imagePath: MariaPazPaniegoImage,
     name: 'Maria Paz Paniego',
-    role: keys.ourTeam.roles.socialTeam,
+    role: keys.ourTeam.roles.communicationsTeam,
     tags: [SOCIAL_TEAM_TAG],
   },
   {
@@ -161,8 +161,8 @@ export default [
   },
   {
     imagePath: JoaquinVillaMoretImage,
-    name: 'Joaquin VIlla Moret',
-    role: keys.ourTeam.roles.socialTeam,
+    name: 'Joaquín Villa Moret',
+    role: keys.ourTeam.roles.communicationsTeam,
     tags: [SOCIAL_TEAM_TAG],
   },
   {

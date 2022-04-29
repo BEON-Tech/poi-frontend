@@ -3,10 +3,10 @@
     "comingSoonTitle": "En breve"
   },
   "toolbar": {
-    "about": "Sobre Nosotros",
+    "about": "Sobre nosotros",
     "assitanceProgram": "Programa de asistencia",
-    "ourTeam": "Nuestro Equipo",
-    "publicAudit": "Auditoría Pública",
+    "ourTeam": "Nuestro equipo",
+    "publicAudit": "Auditoría pública",
     "goToApp": "Ir a la App",
     "title": "Proof Of Integrity"
   },
@@ -33,7 +33,7 @@
     "descriptionThirdParagraph": "Nuestro equipo está compuesto por programadores, expertos en medición de impacto, comunicadores, trabajadores sociales y entusiastas de las criptomonedas que comparten la misma visión: reducir la pobreza llevando el blockchain a la mayor cantidad de personas posible."
   },
   "assistanceProgram": {
-    "title": "Nuestro Programa Piloto",
+    "title": "Nuestro programa piloto",
     "firstBox": {
       "firstSentence": "Nuestro programa piloto se centrará en ofrecer un programa educativo de criptofinanzas y ",
       "secondSentenceBold": "financiar las tarifas de transacción y depósitos",
@@ -51,10 +51,10 @@
     }
   },
   "publicAudit": {
-    "title": "Auditoría Pública",
+    "title": "Auditoría pública",
     "noDataTitle": "En breve!",
     "noDataText": " Nuestro programa piloto tiene fecha de comienzo el ",
-    "noDataDate": "3 de Mayo.",
+    "noDataDate": "3 de mayo.",
     "moreDetails": "Más Detalles",
     "certificationsTable": {
       "title": "Últimas Certificaciones",
@@ -72,10 +72,10 @@
     }
   },
   "ourTeam": {
-    "show": "Conoce el Equipo",
-    "hide": "Ocultar Equipo",
+    "show": "Conoce el equipo",
+    "hide": "Ocultar equipo",
     "title": "Nuestro equipo",
-    "meetTheAdvisors": "Conozca a los Asesores",
+    "meetTheAdvisors": "Conozca a los asesores",
     "tags": {
       "all": "Todos",
       "developers": "Desarrolladores",
@@ -83,29 +83,32 @@
       "socialTeam": "Equipo Social"
     },
     "roles": {
-      "founderAndDirector": "Founder & Director",
+      "founderAndDirector": "Fundador & Director",
       "leadSolidityDeveloper": "Lead Solidity Developer",
       "leadFrontendDeveloper": "Lead Frontend Developer",
       "frontendDeveloper": "Frontend Developer",
-      "srSolidityDeveloper": "Sr Solidity Developer",
-      "uxuiDesigner": "UX/UI Designer",
+      "srSolidityDeveloper": "Sr. Solidity Developer",
+      "uxuiDesigner": "Diseñadora UX/UI",
       "productManager": "Product Manager",
-      "copywriter": "Redactor",
+      "copywriter": "Redactora",
       "marketingSpecialist": "Especialista en Marketing",
-      "socialMedia": "Social Media",
+      "socialMedia": "Redes Sociales",
       "socialTeam": "Equipo Social",
-      "fundraisingStrategy": "Fundraising Strategy"
+      "fundraisingStrategy": "Estrategia de Fundraising",
+      "institutionalRelations": "Relaciones Institucionales",
+      "communicationsTeam": "Equipo de Comunicación",
+      "territorialDevelopment": "Desarrollo Territorial"
     }
   },
   "advisors": {
-    "show": "Conoce los Asesores",
-    "hide": "Ocultar Asesores",
+    "show": "Conoce los asesores",
+    "hide": "Ocultar asesores",
     "title": "Asesores",
-    "hideAdvisors": "Ocultar Asesores",
+    "hideAdvisors": "Ocultar asesores",
     "roles": {
-      "productAdvisor": "Advisor de Product",
-      "strategyAdvisor": "Advisor de Estrategia",
-      "techAdvisor": "Advisor de Tecnología",
+      "productAdvisor": "Asesor de Producto",
+      "strategyAdvisor": "Asesor de Estrategia",
+      "techAdvisor": "Asesor de Tecnología",
       "cryptoAdvisor": "Asesor de Cripto",
       "legalAdvisor": "Asesor Legal"
     },

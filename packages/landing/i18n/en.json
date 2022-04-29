@@ -88,14 +88,17 @@
       "leadSolidityDeveloper": "Lead Solidity Developer",
       "leadFrontendDeveloper": "Lead Frontend Developer",
       "frontendDeveloper": "Frontend Developer",
-      "srSolidityDeveloper": "Sr Solidity Developer",
+      "srSolidityDeveloper": "Sr. Solidity Developer",
       "uxuiDesigner": "UX/UI Designer",
       "productManager": "Product Manager",
       "copywriter": "Copywriter",
       "marketingSpecialist": "Marketing Specialist",
       "socialMedia": "Social Media",
       "socialTeam": "Social Team",
-      "fundraisingStrategy": "Fundraising Strategy"
+      "fundraisingStrategy": "Fundraising Strategy",
+      "institutionalRelations": "Institutional Relations",
+      "communicationsTeam": "Communications Team",
+      "territorialDevelopment": "Territorial Development"
     }
   },
   "advisors": {

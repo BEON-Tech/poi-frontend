@@ -101,6 +101,9 @@ const keys = {
       socialMedia: 'socialMedia',
       socialTeam: 'socialTeam',
       fundraisingStrategy: 'fundraisingStrategy',
+      institutionalRelations: 'institutionalRelations',
+      communicationsTeam: 'communicationsTeam',
+      territorialDevelopment: 'territorialDevelopment'
     },
     meetTheAdvisors: 'meetTheAdvisors',
   },

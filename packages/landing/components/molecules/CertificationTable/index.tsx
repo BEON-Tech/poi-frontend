@@ -69,9 +69,17 @@ const CertificationTable = ({ loadData }: ICertificationTableProps) => {
     })()
   }, [])
 
-  return data.length > 0 ? (
+  /* return data.length > 0 ? (
     <CertificationTableBare data={data} hasMore={hasMore} loading={loading} />
   ) : (
+    <Text mt={{ lg: '50px' }}>
+      <Text color="primary.500">{t(keys.publicAudit.noDataTitle)}</Text>
+      <Text>{t(keys.publicAudit.noDataText)}</Text>
+      <Text fontWeight="bold">{t(keys.publicAudit.noDataDate)}</Text>
+    </Text>
+  ) */
+
+  return (
     <Text mt={{ lg: '50px' }}>
       <Text color="primary.500">{t(keys.publicAudit.noDataTitle)}</Text>
       <Text>{t(keys.publicAudit.noDataText)}</Text>
