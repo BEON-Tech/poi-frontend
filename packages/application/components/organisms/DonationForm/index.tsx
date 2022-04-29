@@ -163,7 +163,6 @@ const DonationForm = () => {
       setTx(transaction)
       // TODO: Redirect to typ
     } catch (error) {
-      console.log(error)
       setTxError(true)
     }
   }
