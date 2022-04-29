@@ -12,7 +12,7 @@ import { IAdvisor } from '@constants/types'
 export const LIST_ITEMS: IAdvisor[] = [
   {
     imagePath: DamianWassermanImage,
-    name: 'Damian Wasserman',
+    name: 'Damián Wasserman',
     role: keys.advisors.roles.productAdvisor,
     littleDescription: keys.advisors.descriptions.damianWasserman,
   },

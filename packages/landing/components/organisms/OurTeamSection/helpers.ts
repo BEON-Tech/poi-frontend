@@ -28,7 +28,7 @@ import FabianBaezImage from '@assets/images/fabian_baez.png'
 import AlfonsoCampenniImage from '@assets/images/alfonso_campenni.png'
 import AgustinCapdevillaImage from '@assets/images/agustin_capdevilla.png'
 import MariaPazPaniegoImage from '@assets/images/maria_paz_paniego.png'
-import JoaquinVillaMoretImage from '@assets/images/joaquin_villa_moret.png'
+import JoaquinVilaMoretImage from '@assets/images/joaquin_vila_moret.png'
 
 import { ICard, IPerson } from '@constants/types'
 
@@ -103,7 +103,7 @@ export default [
   },
   {
     imagePath: BarbaraFernandezImage,
-    name: 'Bárbara Fernandez',
+    name: 'Bárbara Fernández',
     role: keys.ourTeam.roles.institutionalRelations,
     tags: [SOCIAL_TEAM_TAG],
   },
@@ -147,7 +147,7 @@ export default [
   },
   {
     imagePath: MariaPazPaniegoImage,
-    name: 'Maria Paz Paniego',
+    name: 'María Paz Paniego',
     role: keys.ourTeam.roles.communicationsTeam,
     tags: [SOCIAL_TEAM_TAG],
   },
@@ -160,8 +160,8 @@ export default [
     imagePath: ColorFiller4,
   },
   {
-    imagePath: JoaquinVillaMoretImage,
-    name: 'Joaquín Villa Moret',
+    imagePath: JoaquinVilaMoretImage,
+    name: 'Joaquín Vila Moret',
     role: keys.ourTeam.roles.communicationsTeam,
     tags: [SOCIAL_TEAM_TAG],
   },

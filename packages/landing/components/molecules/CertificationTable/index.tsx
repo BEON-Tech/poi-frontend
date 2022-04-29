@@ -79,7 +79,9 @@ const CertificationTable = ({ loadData }: ICertificationTableProps) => {
     </Text>
   ) */
 
-  return (
+  return false ? (
+    <CertificationTableBare data={data} hasMore={hasMore} loading={loading} />
+  ) : (
     <Text mt={{ lg: '50px' }}>
       <Text color="primary.500">{t(keys.publicAudit.noDataTitle)}</Text>
       <Text>{t(keys.publicAudit.noDataText)}</Text>
