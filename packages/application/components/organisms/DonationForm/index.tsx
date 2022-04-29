@@ -174,9 +174,7 @@ const DonationForm = () => {
 
   useEffect(() => {
     if (tx) {
-      waitTransaction(tx, (receipt: any) =>
-        console.info('Transaction complete', receipt)
-      )
+      waitTransaction(tx, () => {})
     }
   }, [tx])
 
