@@ -1,5 +1,5 @@
 import { Image } from 'native-base'
-import DaiImage from '../../../../assets/images/dai.svg'
+import DaiImage from '@assets/images/dai.svg'
 
 const DaiIcon = () => (
   <Image

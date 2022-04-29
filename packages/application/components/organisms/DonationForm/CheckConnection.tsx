@@ -30,7 +30,6 @@ const CheckConnection = () => {
       alignItems="center"
     >
       <Button
-        borderRadius={100}
         onPress={handleConnectWallet}
         padding={6}
         backgroundColor={isHover ? '#2d6320' : 'white'}

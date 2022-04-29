@@ -5,5 +5,5 @@ export interface IConfig {
 
 export default {
   addressPOI: process.env.POI_ADDRESS || '',
-  validChainId: process.env.CHAIN_ID || 1
+  validChainId: process.env.CHAIN_ID || 42
 } as IConfig

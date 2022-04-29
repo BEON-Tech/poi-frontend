@@ -16,7 +16,17 @@ const rawKeys = {
     metamask: 'metamask',
     connectWallet: 'connectWallet',
     disconnect: 'disconnect',
+    donate: 'donate'
   },
+  thankYou: {
+    thankYou: 'thankYou',
+    moreDetails: 'moreDetails',
+    youContributed: 'youContributed',
+    toOurPool: 'toOurPool',
+    weAreHappy: 'weAreHappy',
+    continueHelping: 'continueHelping',
+    goBackToHome: 'goBackToHome'
+  }
 }
 
 export type LanguageKeys = typeof rawKeys

@@ -8,13 +8,13 @@ import {
   NavigationBarButton,
   NavigationBarButtonMobile,
 } from '@components/molecules'
-import POILogo from '@components/atoms/Icons/Logo'
 import {
+  POILogo,
   HomeIcon,
   DonateIcon,
   PublicAuditIcon,
   WalletIcon,
-} from '@components/atoms/Icons/Mobile'
+} from '@components/atoms/Icons'
 import { useWallet, useBreakpoint } from '@hooks'
 import { keys } from '@i18n'
 
@@ -29,6 +29,10 @@ const mobileButtons = [
   { title: 'Public Audit', Icon: PublicAuditIcon, key: '/publicAudit' },
   { title: 'Wallet', Icon: WalletIcon, key: '/wallet' },
 ]
+
+interface INavigationBarProps {
+  hideBottomBar?: boolean
+}
 
 const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
   const { t } = useTranslation()
@@ -79,7 +83,7 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
   )
 }
 
-const MobileNavigationBar = ({ activeItem, onNavigate }: any) => {
+const MobileNavigationBar = ({ activeItem, onNavigate, hideBottomBar }: any) => {
   const { t } = useTranslation()
   return (
     <>
@@ -99,7 +103,7 @@ const MobileNavigationBar = ({ activeItem, onNavigate }: any) => {
         </HStack>
         <LanguageSelect />
       </HStack>
-      <HStack
+      {!hideBottomBar && <HStack
         w="100%"
         bg="white"
         position="absolute"
@@ -118,12 +122,12 @@ const MobileNavigationBar = ({ activeItem, onNavigate }: any) => {
             onPress={() => onNavigate(key)}
           />
         ))}
-      </HStack>
+      </HStack>}
     </>
   )
 }
 
-const NavigationBar = () => {
+const NavigationBar = ({ hideBottomBar = false }: INavigationBarProps) => {
   const router = useRouter()
   const { isDesktop } = useBreakpoint()
   const activeItem = router.pathname
@@ -131,7 +135,7 @@ const NavigationBar = () => {
   return isDesktop ? (
     <DesktopNavigationBar activeItem={activeItem} onNavigate={onNavigate} />
   ) : (
-    <MobileNavigationBar activeItem={activeItem} onNavigate={onNavigate} />
+    <MobileNavigationBar activeItem={activeItem} onNavigate={onNavigate} hideBottomBar={hideBottomBar} />
   )
 }
 

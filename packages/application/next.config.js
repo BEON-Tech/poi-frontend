@@ -42,10 +42,6 @@ module.exports = withPlugins(
         ...config.resolve.extensions,
       ]
       return config
-    },
-    i18n: {
-      locales: ['en-US', 'es-ES'],
-      defaultLocale: 'es-ES',
     }
   }
 );

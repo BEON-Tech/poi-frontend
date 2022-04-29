@@ -155,10 +155,11 @@ const DonationForm = () => {
       const transaction = await transfer(
         tokenSymbol,
         amount,
-        account,
-        chainId,
+        account as string,
+        (chainId ? chainId.toString() : ''),
         library
       )
+
       setTx(transaction)
       // TODO: Redirect to typ
     } catch (error) {
@@ -173,9 +174,7 @@ const DonationForm = () => {
 
   useEffect(() => {
     if (tx) {
-      waitTransaction(tx, (receipt: any) =>
-        console.info('Transaction complete', receipt)
-      )
+      waitTransaction(tx, () => {})
     }
   }, [tx])
 
@@ -289,21 +288,17 @@ const DonationForm = () => {
         <Button
           w="200px"
           h="50px"
+          variant="solid"
           mt={{
             base: 12,
             sm: 16,
             lg: 16,
             xl: 16,
           }}
-          borderRadius={100}
           isDisabled={controlsDisabled}
           onPress={donate}
-          bg="#2d6320"
-          color="white"
         >
-          <Text color="white" fontSize="lg">
-            Donate
-          </Text>
+          {t(keys.donate.donate)}
         </Button>
       </VStack>
     </VStack>

@@ -1,5 +1,5 @@
 import { Image } from 'native-base'
-import EthereumImage from '../../../../assets/images/ethereum.svg'
+import EthereumImage from '@assets/images/ethereum.svg'
 
 const EthereumIcon = () => (
   <Image

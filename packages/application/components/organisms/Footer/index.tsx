@@ -6,9 +6,7 @@ import {
   Button,
   useBreakpointValue,
 } from 'native-base'
-import Image from 'next/image'
-
-import poiLogo2 from '@components/atoms/Icons/logoPOI2.png'
+import { POILogo2 } from '@components/atoms/Icons'
 
 const Footer = () => {
   const display = useBreakpointValue({
@@ -38,7 +36,7 @@ const Footer = () => {
         w="full"
       >
         <VStack alignItems="start" space={2}>
-          <Image src={poiLogo2} width={85} height={85} />
+          <POILogo2 size={85} />
           <Text mt="3" color="greenColor.600" fontSize="2xl" fontWeight={700}>
             Proof Of Integrity
           </Text>

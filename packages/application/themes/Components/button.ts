@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import { mode, transparentize } from 'native-base/lib/commonjs/theme/tools'
+// import { mode, transparentize } from '@native-base/lib/commonjs/theme/tools'
 
 const colorSchemeDefault = ({ colorScheme: c }: any) => `${c}.500`
 
@@ -33,7 +33,7 @@ const baseStyle = (props: any) => ({
 })
 
 function variantGhost(props: any) {
-  const { colorScheme: c } = props
+  // const { colorScheme: c } = props
   return {
     _text: {
       color: props.isDisabled ? disabledTextColor : 'general.50',
@@ -46,15 +46,15 @@ function variantGhost(props: any) {
     },
     _hover: {
       borderColor: colorSchemeDefault(props),
-      bg: transparentize(mode(`${c}.200`, `${c}.400`)(props), 0.5)(props.theme),
+      // bg: transparentize(mode(`${c}.200`, `${c}.400`)(props), 0.5)(props.theme),
     },
     _focusVisible: {
-      borderColor: mode(`${c}.700`, `${c}.200`)(props),
-      bg: transparentize(mode(`${c}.200`, `${c}.400`)(props), 0.5)(props.theme),
+      // borderColor: mode(`${c}.700`, `${c}.200`)(props),
+      // bg: transparentize(mode(`${c}.200`, `${c}.400`)(props), 0.5)(props.theme),
     },
     _pressed: {
-      borderColor: mode(`${c}.600`, `${c}.200`)(props),
-      bg: transparentize(mode(`${c}.300`, `${c}.500`)(props), 0.5)(props.theme),
+      // borderColor: mode(`${c}.600`, `${c}.200`)(props),
+      // bg: transparentize(mode(`${c}.300`, `${c}.500`)(props), 0.5)(props.theme),
     },
     _spinner: {
       size: 'sm',

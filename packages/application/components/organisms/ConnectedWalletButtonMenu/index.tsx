@@ -12,7 +12,14 @@ interface IConnectedWalletButtonMenuProps {
   borderRadius: number
 }
 
-const TriggerMenu = ({ account, w, h, borderRadius, isMenuOpen, ...triggerProps }: any) => (
+const TriggerMenu = ({
+  account,
+  w,
+  h,
+  borderRadius,
+  isMenuOpen,
+  ...triggerProps
+}: any) => (
   <Button
     w={w}
     h={h}
@@ -42,7 +49,7 @@ const ConnectedWalletButtonMenu = ({
   onDisconnect,
   width,
   height,
-  borderRadius
+  borderRadius,
 }: IConnectedWalletButtonMenuProps) => {
   const { t } = useTranslation()
   const { account, deactivate } = useWallet()
@@ -82,14 +89,8 @@ const ConnectedWalletButtonMenu = ({
       onClose={() => updateIsMenuOpen(false)}
     >
       <Menu.Item background="white">
-        <Button
-          borderRadius={borderRadius}
-          bg="#2d6320"
-          onPress={handleDisconnectWallet}
-        >
-          <Text color="white" fontSize="lg">
-            {t(keys.donate.disconnect)}
-          </Text>
+        <Button variant="solid" onPress={handleDisconnectWallet}>
+          {t(keys.donate.disconnect)}
         </Button>
       </Menu.Item>
     </Menu>

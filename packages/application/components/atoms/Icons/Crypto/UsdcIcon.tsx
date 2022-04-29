@@ -1,5 +1,5 @@
 import { Image } from 'native-base'
-import UsdcImage from '../../../../assets/images/usdc.svg'
+import UsdcImage from '@assets/images/usdc.svg'
 
 const UsdcIcon = () => (
   <Image

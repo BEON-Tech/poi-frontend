@@ -1,5 +1,5 @@
 import { Image } from 'native-base'
-import WbtcImage from '../../../../assets/images/wbtc.svg'
+import WbtcImage from '@assets/images/wbtc.svg'
 
 const WbtcIcon = () => (
   <Image
