@@ -155,13 +155,15 @@ const DonationForm = () => {
       const transaction = await transfer(
         tokenSymbol,
         amount,
-        account,
-        chainId,
+        account as string,
+        (chainId ? chainId.toString() : ''),
         library
       )
+
       setTx(transaction)
       // TODO: Redirect to typ
     } catch (error) {
+      console.log(error)
       setTxError(true)
     }
   }

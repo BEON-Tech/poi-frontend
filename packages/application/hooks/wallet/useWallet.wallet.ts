@@ -23,7 +23,7 @@ let connect = async (callback: () => void) => {
 }
 
 const useWallet = (): IUseWalletResult => {
-  const { activate, deactivate, account, ...rest } = useWeb3React<Web3Provider>()
+  const { activate, deactivate, account, chainId, ...rest } = useWeb3React<Web3Provider>()
   const isConnected = !!account
 
   useEffect(() => {
@@ -34,6 +34,7 @@ const useWallet = (): IUseWalletResult => {
 
   return {
     account,
+    chainId,
     ...rest,
     isConnected,
     activate: (onError, throwErrors = false) =>

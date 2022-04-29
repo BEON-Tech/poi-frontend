@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import { useRouter } from 'next/router'
 import {
   VStack,
   Text,
@@ -15,7 +16,10 @@ import { Corner, POILogo2 } from '@components/atoms/Icons'
 
 const ThankYou: NextPage = () => {
   const { t } = useTranslation()
+  const router = useRouter()
   const amount: any = '1.000'
+
+  const onNavigate = (newRoute: string) => router.push(newRoute)
 
   const iconSize = useBreakpointValue({
     base: '70px',
@@ -73,7 +77,7 @@ const ThankYou: NextPage = () => {
           <Button variant="link" colorScheme="primary" mt={8}>
             {t(keys.thankYou.moreDetails)}
           </Button>
-          <Button variant="solid" mt={8} w="200px" h="50px">
+          <Button variant="solid" mt={8} w="200px" h="50px" onPress={() => onNavigate('donate')}>
             {t(keys.thankYou.continueHelping)}
           </Button>
         </Box>

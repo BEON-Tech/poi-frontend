@@ -2,6 +2,7 @@ import { parseEther, parseUnits } from '@ethersproject/units'
 import { BigNumber } from '@ethersproject/bignumber'
 import { Contract } from '@ethersproject/contracts'
 import { JsonRpcSigner, TransactionReceipt } from '@ethersproject/providers'
+import { isNull, isUndefined } from 'lodash'
 
 // Does not work for ETH transfers
 // const POOL_ADDRESS="0x53B5D53101ac06178F419E7888f883C70e6Af7DA"
@@ -16,10 +17,18 @@ const ERC20Abi = [
 ]
 const GAS_LIMIT = '100000'
 
-export const TOKENS = [
+interface IAddressToken {
+  [key: string]: string
+}
+
+export const TOKENS: Array<{
+  symbol: string
+  address?: IAddressToken
+  decimals: number
+}> = [
   {
     symbol: 'ETH',
-    address: '',
+    decimals: 0,
   },
   {
     symbol: 'DAI',
@@ -47,62 +56,68 @@ export const TOKENS = [
   },
 ]
 
-export const NETWORK_EXPLORER_URLS = {
+interface INetworkExplorers {
+  [key: string]: string
+}
+
+export const NETWORK_EXPLORER_URLS: INetworkExplorers = {
   '1': 'https://etherscan.io',
   '42': 'https://kovan.etherscan.io',
 }
 
-export const buildTransactionExplorerUrl = (hash, chainId) =>
+export const buildTransactionExplorerUrl = (hash: string, chainId: string) =>
   `${NETWORK_EXPLORER_URLS[chainId]}/tx/${hash}`
 
 export const transfer = async (
-  tokenSymbol,
-  amount,
-  account,
-  chainId,
-  library
+  tokenSymbol: string,
+  amount: number,
+  account: string,
+  chainId: string,
+  library: any
 ) => {
   const signer: JsonRpcSigner = library.getSigner()
   const nonce = await library.getTransactionCount(account)
 
-  console.info({ tokenSymbol, amount, account, chainId, nonce })
-
   if (tokenSymbol === 'ETH') {
     return signer.sendTransaction({
       to: POOL_ADDRESS,
-      value: parseEther(amount),
+      value: parseEther(amount.toString()),
       gasLimit: BigNumber.from(GAS_LIMIT).toHexString(),
-      chainId: BigNumber.from(chainId).toHexString(),
+      chainId: parseInt(chainId, 10),
       nonce: BigNumber.from(nonce).toHexString(),
     })
   }
 
   // ERC-20
-  const { address, decimals } = TOKENS.find(
-    ({ symbol }) => symbol === tokenSymbol
-  )
-  const contract = new Contract(address[chainId], ERC20Abi, library)
-  const tokenWithSigner = contract.connect(signer)
+  const result = TOKENS.find(({ symbol }) => symbol === tokenSymbol)
 
-  return tokenWithSigner.transfer(POOL_ADDRESS, parseUnits(amount, decimals), {
-    gasLimit: BigNumber.from(GAS_LIMIT).toHexString(),
-    chainId: BigNumber.from(chainId).toHexString(),
-    nonce: BigNumber.from(nonce).toHexString(),
-  })
+  if (
+    !isNull(result) &&
+    !isUndefined(result) &&
+    'address' in result &&
+    !isUndefined(result.address)
+  ) {
+    const contract = new Contract(result.address[chainId], ERC20Abi, library)
+    const tokenWithSigner = contract.connect(signer)
+    return tokenWithSigner.transfer(
+      POOL_ADDRESS,
+      parseUnits(amount.toString(), result.decimals),
+      {
+        gasLimit: BigNumber.from(GAS_LIMIT).toHexString(),
+        // chainId: BigNumber.from(chainId).toHexString(),
+        nonce: BigNumber.from(nonce).toHexString(),
+      }
+    )
+  }
+
+  return null
 }
 
-export const waitTransaction = async (tx, cb) => {
+export const waitTransaction = async (tx: any, cb: any) => {
   try {
     const receipt: TransactionReceipt = await tx.wait()
     cb(receipt)
   } catch (err) {
-    if (err.hash) {
-      console.error('TRANSACTION_REPLACED err')
-    } else if (err.receipt) {
-      console.error('CALL_EXCEPTION err')
-    } else {
-      console.error('UNKNOWN err')
-    }
-    console.error(err)
+    console.error('TRANSACTION ERROR')
   }
 }
