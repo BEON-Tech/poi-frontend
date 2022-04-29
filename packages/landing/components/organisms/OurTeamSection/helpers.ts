@@ -28,7 +28,7 @@ import FabianBaezImage from '@assets/images/fabian_baez.png'
 import AlfonsoCampenniImage from '@assets/images/alfonso_campenni.png'
 import AgustinCapdevillaImage from '@assets/images/agustin_capdevilla.png'
 import MariaPazPaniegoImage from '@assets/images/maria_paz_paniego.png'
-import JoaquinVillaMoretImage from '@assets/images/joaquin_villa_moret.png'
+import JoaquinVilaMoretImage from '@assets/images/joaquin_vila_moret.png'
 
 import { ICard, IPerson } from '@constants/types'
 
@@ -58,7 +58,7 @@ export default [
   },
   {
     imagePath: NicolasAyalaImage,
-    name: 'Nicolas Ayala',
+    name: 'Nicolás Ayala',
     role: keys.ourTeam.roles.srSolidityDeveloper,
     tags: [DEVELOPER_TAG],
   },
@@ -87,7 +87,7 @@ export default [
   },
   {
     imagePath: NicolasManziniImage,
-    name: 'Nicolas Manzini',
+    name: 'Nicolás Manzini',
     role: keys.ourTeam.roles.marketingSpecialist,
     tags: [DESIGN_AND_MARKETING_TAG],
   },
@@ -103,8 +103,8 @@ export default [
   },
   {
     imagePath: BarbaraFernandezImage,
-    name: 'Barbara Fernandez',
-    role: keys.ourTeam.roles.socialTeam,
+    name: 'Bárbara Fernández',
+    role: keys.ourTeam.roles.institutionalRelations,
     tags: [SOCIAL_TEAM_TAG],
   },
   {
@@ -128,8 +128,8 @@ export default [
 
   {
     imagePath: FabianBaezImage,
-    name: 'Fabian Baez',
-    role: keys.ourTeam.roles.socialTeam,
+    name: 'Fabián Baez',
+    role: keys.ourTeam.roles.territorialDevelopment,
     tags: [SOCIAL_TEAM_TAG],
   },
   {
@@ -141,14 +141,14 @@ export default [
 
   {
     imagePath: AgustinCapdevillaImage,
-    name: 'Agustin Capdevilla',
+    name: 'Agustín Capdevilla',
     role: keys.ourTeam.roles.socialTeam,
     tags: [SOCIAL_TEAM_TAG],
   },
   {
     imagePath: MariaPazPaniegoImage,
-    name: 'Maria Paz Paniego',
-    role: keys.ourTeam.roles.socialTeam,
+    name: 'María Paz Paniego',
+    role: keys.ourTeam.roles.communicationsTeam,
     tags: [SOCIAL_TEAM_TAG],
   },
   {
@@ -160,9 +160,9 @@ export default [
     imagePath: ColorFiller4,
   },
   {
-    imagePath: JoaquinVillaMoretImage,
-    name: 'Joaquin VIlla Moret',
-    role: keys.ourTeam.roles.socialTeam,
+    imagePath: JoaquinVilaMoretImage,
+    name: 'Joaquín Vila Moret',
+    role: keys.ourTeam.roles.communicationsTeam,
     tags: [SOCIAL_TEAM_TAG],
   },
   {
