@@ -10,7 +10,6 @@ import DavidMazzitelliImage from '@assets/images/david_mazzitelli.png'
 import LucianoBraccoImage from '@assets/images/luciano_bracco.png'
 import NicolasAyalaImage from '@assets/images/nicolas_ayala.png'
 import CarolinaGhisolfiImage from '@assets/images/carolina_ghisolfi.png'
-import BelenFernandezImage from '@assets/images/belen_fernandez.png'
 import AlbaFuentesImage from '@assets/images/alba_fuentes.png'
 import NicolasManziniImage from '@assets/images/nicolas_manzini.png'
 import MicaelaGarciaImage from '@assets/images/micaela_garcia.png'
@@ -19,8 +18,17 @@ import CelinaGrauBaenaImage from '@assets/images/celina_grau_baena.png'
 import DiegoGilImage from '@assets/images/diego_gil.png'
 import JuanCruzGurruchagaImage from '@assets/images/juan_cruz_gurruchaga.png'
 import POILogoFiller from '@assets/images/our_team__poi_logo_table_filler.png'
+import POILogoFiller2 from '@assets/images/our_team__poi_logo_table_filler2.png'
 import ColorFiller1 from '@assets/images/our_team__colors_1_table_filler.png'
 import ColorFiller2 from '@assets/images/our_team__colors_2_table_filler.png'
+import ColorFiller3 from '@assets/images/our_team__colors_3_table_filler.png'
+import ColorFiller4 from '@assets/images/our_team__colors_4_table_filler.png'
+import GabrielMauasImage from '@assets/images/grabriel_mauas.png'
+import FabianBaezImage from '@assets/images/fabian_baez.png'
+import AlfonsoCampenniImage from '@assets/images/alfonso_campenni.png'
+import AgustinCapdevillaImage from '@assets/images/agustin_capdevilla.png'
+import MariaPazPaniegoImage from '@assets/images/maria_paz_paniego.png'
+import JoaquinVillaMoretImage from '@assets/images/joaquin_villa_moret.png'
 
 import { ICard, IPerson } from '@constants/types'
 
@@ -61,9 +69,9 @@ export default [
     tags: [DESIGN_AND_MARKETING_TAG],
   },
   {
-    imagePath: BelenFernandezImage,
-    name: 'Belen Fernandez',
-    role: keys.ourTeam.roles.productManager,
+    imagePath: GabrielMauasImage,
+    name: 'Gabriel Mauas',
+    role: keys.ourTeam.roles.frontendDeveloper,
     tags: [DESIGN_AND_MARKETING_TAG],
   },
   POI_LOGO_ITEM,
@@ -116,5 +124,49 @@ export default [
     name: 'Juan Cruz Gurruchaga',
     role: keys.ourTeam.roles.fundraisingStrategy,
     tags: [SOCIAL_TEAM_TAG],
+  },
+
+  {
+    imagePath: FabianBaezImage,
+    name: 'Fabian Baez',
+    role: keys.ourTeam.roles.socialTeam,
+    tags: [SOCIAL_TEAM_TAG],
+  },
+  {
+    imagePath: AlfonsoCampenniImage,
+    name: 'Alfonso Campenni',
+    role: keys.ourTeam.roles.socialTeam,
+    tags: [SOCIAL_TEAM_TAG],
+  },
+
+  {
+    imagePath: AgustinCapdevillaImage,
+    name: 'Agustin Capdevilla',
+    role: keys.ourTeam.roles.socialTeam,
+    tags: [SOCIAL_TEAM_TAG],
+  },
+  {
+    imagePath: MariaPazPaniegoImage,
+    name: 'Maria Paz Paniego',
+    role: keys.ourTeam.roles.socialTeam,
+    tags: [SOCIAL_TEAM_TAG],
+  },
+  {
+    name: 'ColorFiller3',
+    imagePath: ColorFiller3,
+  },
+  {
+    name: 'ColorFiller4',
+    imagePath: ColorFiller4,
+  },
+  {
+    imagePath: JoaquinVillaMoretImage,
+    name: 'Joaquin VIlla Moret',
+    role: keys.ourTeam.roles.socialTeam,
+    tags: [SOCIAL_TEAM_TAG],
+  },
+  {
+    name: 'POILogoFiller2',
+    imagePath: POILogoFiller2,
   },
 ] as (IPerson | ICard)[]

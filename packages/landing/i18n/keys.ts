@@ -92,6 +92,7 @@ const keys = {
       founderAndDirector: 'founderAndDirector',
       leadSolidityDeveloper: 'leadSolidityDeveloper',
       leadFrontendDeveloper: 'leadFrontendDeveloper',
+      frontendDeveloper: 'frontendDeveloper',
       srSolidityDeveloper: 'SrSolidityDeveloper',
       uxuiDesigner: 'uxuiDesigner',
       productManager: 'productManager',
