@@ -42,6 +42,15 @@ module.exports = withPlugins(
         ...config.resolve.extensions,
       ]
       return config
-    }
+    },
+    async redirects() {
+      return [
+        {
+          source: '/',
+          destination: '/donate',
+          permanent: true,
+        },
+      ]
+    },
   }
 );

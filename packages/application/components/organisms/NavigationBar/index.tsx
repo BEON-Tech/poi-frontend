@@ -17,6 +17,7 @@ import {
 } from '@components/atoms/Icons'
 import { useWallet, useBreakpoint } from '@hooks'
 import { keys } from '@i18n'
+import config from '@config'
 
 const desktopButtons = [
   { title: 'Donate', key: '/donate' },
@@ -24,7 +25,7 @@ const desktopButtons = [
 ]
 
 const mobileButtons = [
-  { title: 'Home', Icon: HomeIcon, key: '/' },
+  { title: 'Home', Icon: HomeIcon, key: 'home' },
   { title: 'Donate', Icon: DonateIcon, key: '/donate' },
   { title: 'Public Audit', Icon: PublicAuditIcon, key: '/publicAudit' },
   { title: 'Wallet', Icon: WalletIcon, key: '/wallet' },
@@ -131,7 +132,20 @@ const NavigationBar = ({ hideBottomBar = false }: INavigationBarProps) => {
   const router = useRouter()
   const { isDesktop } = useBreakpoint()
   const activeItem = router.pathname
-  const onNavigate = (newRoute: string) => router.push(newRoute)
+  const onNavigate = (newRoute: string) => {
+    if (newRoute !== 'home') {
+      router.push(newRoute)
+    } else {
+      const chunks = window.location.hostname.split('.')
+      let domain = chunks.join('.')
+      if (chunks.length >= 3) {
+        chunks.shift()
+        domain = chunks.join('.')
+      }
+      const url = `${window.location.protocol}//${config.homeSubdomain}.${domain}`
+      window.open(url, '_self')
+    }
+  }
   return isDesktop ? (
     <DesktopNavigationBar activeItem={activeItem} onNavigate={onNavigate} />
   ) : (
