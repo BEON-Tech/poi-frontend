@@ -1,6 +1,6 @@
 import { extendTheme } from 'native-base'
 
-const fontFamily = 'Roboto'
+const fontFamily = 'Hauora'
 
 const lightTheme = extendTheme({
   components: {
@@ -257,7 +257,13 @@ const lightTheme = extendTheme({
     '9xl': 58,
   },
   fontConfig: {
-    Barlow: {
+    [fontFamily]: {
+      200: {
+        normal: fontFamily,
+      },
+      300: {
+        normal: fontFamily,
+      },
       400: {
         normal: fontFamily,
       },
@@ -271,9 +277,6 @@ const lightTheme = extendTheme({
         normal: fontFamily,
       },
       800: {
-        normal: fontFamily,
-      },
-      900: {
         normal: fontFamily,
       },
     },
