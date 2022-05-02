@@ -1,13 +1,11 @@
 import { ReactNode } from 'react'
 import { VStack, Container } from 'native-base'
 
-
-
 export interface IBaseLayoutProps {
   children?: ReactNode
 }
 
-const BaseLayout = ({
+const SecondaryLayout = ({
   children,
 }: IBaseLayoutProps) => (
   <VStack maxW="100vw" overflowX="hidden">
@@ -16,4 +14,4 @@ const BaseLayout = ({
     </Container>
   </VStack>
 )
-export default BaseLayout
+export default SecondaryLayout
