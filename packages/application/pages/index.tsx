@@ -25,7 +25,7 @@ const Home: NextPage = () => {
           flexDirection={{ sm: 'column', md: 'row' }}
           flex={3}
         >
-          <ActionCard.IconActionCard
+          <ActionCard
             onPress={onRedirectToNeedUBI}
             title="I Need $UBI"
             Icon={DollarSignIcon}
@@ -35,7 +35,7 @@ const Home: NextPage = () => {
             mb={{ base: 10, md: 0 }}
           />
           <Link href="/donate">
-            <ActionCard.IconActionCard
+            <ActionCard
               onPress={onRedirectToDonate}
               title="I Can Help"
               Icon={HandShakeIcon}

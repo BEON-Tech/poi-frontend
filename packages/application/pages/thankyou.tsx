@@ -10,7 +10,7 @@ import {
 } from 'native-base'
 import { useTranslation } from 'react-i18next'
 import { keys } from '@i18n'
-import BaseLayout from '@components/templates/BaseLayoutSecondary'
+import { SecondaryLayout } from '@components/templates'
 import { NavigationBar } from '@components/organisms'
 import { Corner, POILogo2 } from '@components/atoms/Icons'
 
@@ -27,7 +27,7 @@ const ThankYou: NextPage = () => {
   })
 
   return (
-    <BaseLayout>
+    <SecondaryLayout>
       <VStack
         w="100%"
         h={{ base: '93vh', lg: '100%' }}
@@ -77,7 +77,13 @@ const ThankYou: NextPage = () => {
           <Button variant="link" colorScheme="primary" mt={8}>
             {t(keys.thankYou.moreDetails)}
           </Button>
-          <Button variant="solid" mt={8} w="200px" h="50px" onPress={() => onNavigate('donate')}>
+          <Button
+            variant="solid"
+            mt={8}
+            w="200px"
+            h="50px"
+            onPress={() => onNavigate('donate')}
+          >
             {t(keys.thankYou.continueHelping)}
           </Button>
         </Box>
@@ -121,7 +127,7 @@ const ThankYou: NextPage = () => {
           <Corner position="rightdown" />
         </Box>
       </VStack>
-    </BaseLayout>
+    </SecondaryLayout>
   )
 }
 
