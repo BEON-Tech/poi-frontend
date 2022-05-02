@@ -53,18 +53,6 @@ export const TOKENS: Array<{
   },
 ]
 
-interface INetworkExplorers {
-  [key: string]: string
-}
-
-export const NETWORK_EXPLORER_URLS: INetworkExplorers = {
-  '1': 'https://etherscan.io',
-  '42': 'https://kovan.etherscan.io',
-}
-
-export const buildTransactionExplorerUrl = (hash: string, chainId: string) =>
-  `${NETWORK_EXPLORER_URLS[chainId]}/tx/${hash}`
-
 export const transfer = async (
   tokenSymbol: string,
   amount: number,
