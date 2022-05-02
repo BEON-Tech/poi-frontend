@@ -1,9 +1,9 @@
 export interface IConfig {
-  addressPOI: string
+  donationAddressPOI: string
   validChainId: number
 }
 
 export default {
-  addressPOI: process.env.POI_ADDRESS || '',
-  validChainId: process.env.CHAIN_ID || 42
+  donationAddressPOI: process.env.NEXT_PUBLIC_POI_ADDRESS || '',
+  validChainId: parseInt(process.env.NEXT_PUBLIC_CHAIN_ID || '', 10) || 1
 } as IConfig
