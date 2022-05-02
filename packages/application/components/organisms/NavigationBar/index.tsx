@@ -17,19 +17,7 @@ import {
 } from '@components/atoms/Icons'
 import { useWallet, useBreakpoint } from '@hooks'
 import { keys } from '@i18n'
-import config from '@config'
-
-const desktopButtons = [
-  { title: 'Donate', key: '/donate' },
-  { title: 'Public Audit', key: '/publicAudit' },
-]
-
-const mobileButtons = [
-  { title: 'Home', Icon: HomeIcon, key: 'home' },
-  { title: 'Donate', Icon: DonateIcon, key: '/donate' },
-  { title: 'Public Audit', Icon: PublicAuditIcon, key: '/publicAudit' },
-  { title: 'Wallet', Icon: WalletIcon, key: '/wallet' },
-]
+import { redirectToHome } from '@services/urls'
 
 interface INavigationBarProps {
   hideBottomBar?: boolean
@@ -38,7 +26,10 @@ interface INavigationBarProps {
 const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
   const { t } = useTranslation()
   const { isConnected } = useWallet()
-
+  const desktopButtons = [
+    { title: t(keys.navigatonBar.donate), key: '/donate' },
+    { title: t(keys.navigatonBar.publicAudit), key: '/publicAudit' },
+  ]
   return (
     <HStack
       w="100%"
@@ -84,8 +75,18 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
   )
 }
 
-const MobileNavigationBar = ({ activeItem, onNavigate, hideBottomBar }: any) => {
+const MobileNavigationBar = ({
+  activeItem,
+  onNavigate,
+  hideBottomBar,
+}: any) => {
   const { t } = useTranslation()
+  const mobileButtons = [
+    { title: t(keys.navigatonBar.home), Icon: HomeIcon, key: 'home' },
+    { title: t(keys.navigatonBar.donate), Icon: DonateIcon, key: '/donate' },
+    { title: t(keys.navigatonBar.publicAudit), Icon: PublicAuditIcon, key: '/publicAudit' },
+    { title: t(keys.navigatonBar.wallet), Icon: WalletIcon, key: '/wallet' },
+  ]
   return (
     <>
       <HStack
@@ -104,26 +105,28 @@ const MobileNavigationBar = ({ activeItem, onNavigate, hideBottomBar }: any) => 
         </HStack>
         <LanguageSelect />
       </HStack>
-      {!hideBottomBar && <HStack
-        w="100%"
-        bg="white"
-        position="absolute"
-        bottom={0}
-        borderTopColor="#EDB6A3"
-        borderTopWidth="1px"
-        px={4}
-        zIndex={1}
-      >
-        {mobileButtons.map(({ key, ...props }) => (
-          <NavigationBarButtonMobile
-            {...props}
-            width="25%"
-            key={key}
-            isActive={activeItem === key}
-            onPress={() => onNavigate(key)}
-          />
-        ))}
-      </HStack>}
+      {!hideBottomBar && (
+        <HStack
+          w="100%"
+          bg="white"
+          position="absolute"
+          bottom={0}
+          borderTopColor="#EDB6A3"
+          borderTopWidth="1px"
+          px={4}
+          zIndex={1}
+        >
+          {mobileButtons.map(({ key, ...props }) => (
+            <NavigationBarButtonMobile
+              {...props}
+              width="25%"
+              key={key}
+              isActive={activeItem === key}
+              onPress={() => onNavigate(key)}
+            />
+          ))}
+        </HStack>
+      )}
     </>
   )
 }
@@ -136,20 +139,17 @@ const NavigationBar = ({ hideBottomBar = false }: INavigationBarProps) => {
     if (newRoute !== 'home') {
       router.push(newRoute)
     } else {
-      const chunks = window.location.hostname.split('.')
-      let domain = chunks.join('.')
-      if (chunks.length >= 3) {
-        chunks.shift()
-        domain = chunks.join('.')
-      }
-      const url = `${window.location.protocol}//${config.homeSubdomain}.${domain}`
-      window.open(url, '_self')
+      redirectToHome()
     }
   }
   return isDesktop ? (
     <DesktopNavigationBar activeItem={activeItem} onNavigate={onNavigate} />
   ) : (
-    <MobileNavigationBar activeItem={activeItem} onNavigate={onNavigate} hideBottomBar={hideBottomBar} />
+    <MobileNavigationBar
+      activeItem={activeItem}
+      onNavigate={onNavigate}
+      hideBottomBar={hideBottomBar}
+    />
   )
 }
 
