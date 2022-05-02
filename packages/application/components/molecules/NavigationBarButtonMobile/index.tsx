@@ -26,20 +26,20 @@ const NavigationBarButtonMobile = ({
       onPressIn={() => setPressed(true)}
       onPressOut={() => setPressed(false)}
       backgroundColor="white"
-      borderTopColor="#E7BB41"
+      borderTopColor="orangeColor.900"
       borderTopWidth={showActive ? '1px' : 0}
       pb={12}
       pt={10}
     >
       {Icon && (
         <Icon
-          color={showActive ? '#E7BB41' : '#172815'}
+          color={showActive ? 'orangeColor.900' : 'greenColor.600'}
           size="xl"
           alignSelf="center"
           mb={2}
         />
       )}
-      <Text color="#172815" fontSize={12} bold={showActive} alignSelf="center">
+      <Text color="greenColor.600" fontSize={12} bold={showActive} alignSelf="center">
         {title}
       </Text>
     </Button>

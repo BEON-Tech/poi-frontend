@@ -26,7 +26,7 @@ import {
   transfer,
   waitTransaction,
 } from '@services/contracts/tx.contract'
-import config from '@config/index'
+import config from '@config'
 
 const TriggerMenu = ({ tokenIcon, menuOpen, ...triggerProps }: any) => (
   <Button

@@ -32,8 +32,8 @@ const CheckConnection = () => {
       <Button
         onPress={handleConnectWallet}
         padding={6}
-        backgroundColor={isHover ? '#2d6320' : 'white'}
-        borderColor="#2d6320"
+        backgroundColor={isHover ? 'greenColor.900' : 'white'}
+        borderColor="greenColor.900"
         borderWidth={1}
         onHoverIn={hoverStart}
         onHoverOut={hoverEnd}
@@ -42,7 +42,7 @@ const CheckConnection = () => {
       >
         <HStack w="100%" space={3}>
           <MetamaskIcon />
-          <Text color={isHover ? 'white' : '#2d6320'} fontSize="lg" bold>
+          <Text color={isHover ? 'white' : 'greenColor.900'} fontSize="lg" bold>
             {t(keys.donate.metamask)}
           </Text>
         </HStack>

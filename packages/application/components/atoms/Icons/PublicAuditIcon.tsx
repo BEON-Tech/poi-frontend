@@ -2,7 +2,7 @@ import { Icon } from 'native-base'
 import type { IIconProps } from 'native-base'
 import { Path } from 'react-native-svg'
 
-const PublicAuditIcon = ({ color = '#172815', size = "3xl", ...props }: IIconProps) => (
+const PublicAuditIcon = ({ color = 'greenColor.600', size = "3xl", ...props }: IIconProps) => (
   <Icon size={size} viewBox="0 0 24 24" {...props}>
     <Path
       d="M7 6H17"

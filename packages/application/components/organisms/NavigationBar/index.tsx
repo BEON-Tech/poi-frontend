@@ -52,7 +52,7 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
     >
       <HStack space={4}>
         <POILogo />
-        <Text fontSize="xl" color="#172815" bold>
+        <Text fontSize="xl" color="greenColor.600" bold>
           {t(keys.main.poi)}
         </Text>
       </HStack>
@@ -97,7 +97,7 @@ const MobileNavigationBar = ({ activeItem, onNavigate, hideBottomBar }: any) => 
       >
         <HStack space={4}>
           <POILogo size={10} />
-          <Text fontSize="md" color="#172815" bold>
+          <Text fontSize="md" color="greenColor.600" bold>
             {t(keys.main.poi)}
           </Text>
         </HStack>
