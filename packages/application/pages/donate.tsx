@@ -18,7 +18,7 @@ const Donate: NextPage = () => {
     <BaseLayout
       title={t(keys.donateHeader.title)}
       subTitle={t(keys.donateHeader.subtitle)}
-      bg="#F2E4E3"
+      bg="background.100"
       color="black"
     >
       {!isDesktop && isConnected ? (

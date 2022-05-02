@@ -13,6 +13,7 @@ import { keys } from '@i18n'
 import { SecondaryLayout } from '@components/templates'
 import { NavigationBar } from '@components/organisms'
 import { Corner, POILogo2 } from '@components/atoms/Icons'
+import { openTransactionExplorer, redirectToHome } from '@services/urls'
 
 const ThankYou: NextPage = () => {
   const { t } = useTranslation()
@@ -20,6 +21,7 @@ const ThankYou: NextPage = () => {
   const amount: any = '1.000'
 
   const onNavigate = (newRoute: string) => router.push(newRoute)
+  const showMoreDetails = () => openTransactionExplorer('0x0ef1d1a7456577f7fca1a7d676719dbc37aa7af644218b7c1db0ce224fd7405a')
 
   const iconSize = useBreakpointValue({
     base: '70px',
@@ -74,7 +76,7 @@ const ThankYou: NextPage = () => {
               {t(keys.thankYou.weAreHappy)}
             </Text>
           </VStack>
-          <Button variant="link" colorScheme="primary" mt={8}>
+          <Button variant="link" colorScheme="primary" mt={8} onPress={showMoreDetails}>
             {t(keys.thankYou.moreDetails)}
           </Button>
           <Button
@@ -87,7 +89,7 @@ const ThankYou: NextPage = () => {
             {t(keys.thankYou.continueHelping)}
           </Button>
         </Box>
-        <Button variant="link" mt={8}>
+        <Button variant="link" mt={8} onPress={redirectToHome}>
           {t(keys.thankYou.goBackToHome)}
         </Button>
         <Box
