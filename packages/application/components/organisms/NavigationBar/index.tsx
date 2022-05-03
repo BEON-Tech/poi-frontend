@@ -27,8 +27,8 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
   const { t } = useTranslation()
   const { isConnected } = useWallet()
   const desktopButtons = [
-    { title: t(keys.navigatonBar.donate), key: '/donate' },
-    { title: t(keys.navigatonBar.publicAudit), key: '/publicAudit' },
+    { title: t(keys.navigatonBar.donate), key: '/donate', enabled: true },
+    { title: t(keys.navigatonBar.publicAudit), key: '/publicAudit', enabled: false },
   ]
   return (
     <HStack
@@ -49,11 +49,12 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
         </Text>
       </HStack>
       <HStack justifyContent="space-between" w="25%">
-        {desktopButtons.map(({ key, ...props }) => (
+        {desktopButtons.map(({ key, enabled, ...props }) => (
           <NavigationBarButton
             {...props}
             key={key}
             isActive={activeItem === key}
+            isDisabled={!enabled}
             onPress={() => onNavigate(key)}
           />
         ))}
@@ -82,10 +83,10 @@ const MobileNavigationBar = ({
 }: any) => {
   const { t } = useTranslation()
   const mobileButtons = [
-    { title: t(keys.navigatonBar.home), Icon: HomeIcon, key: 'home' },
-    { title: t(keys.navigatonBar.donate), Icon: DonateIcon, key: '/donate' },
-    { title: t(keys.navigatonBar.publicAudit), Icon: PublicAuditIcon, key: '/publicAudit' },
-    { title: t(keys.navigatonBar.wallet), Icon: WalletIcon, key: '/wallet' },
+    { title: t(keys.navigatonBar.home), Icon: HomeIcon, key: 'home', enabled: true },
+    { title: t(keys.navigatonBar.donate), Icon: DonateIcon, key: '/donate', enabled: true },
+    { title: t(keys.navigatonBar.publicAudit), Icon: PublicAuditIcon, key: '/publicAudit', enabled: false },
+    { title: t(keys.navigatonBar.wallet), Icon: WalletIcon, key: '/wallet', enabled: false },
   ]
   return (
     <>
@@ -116,12 +117,13 @@ const MobileNavigationBar = ({
           px={4}
           zIndex={1}
         >
-          {mobileButtons.map(({ key, ...props }) => (
+          {mobileButtons.map(({ key, enabled, ...props }) => (
             <NavigationBarButtonMobile
               {...props}
               width="25%"
               key={key}
               isActive={activeItem === key}
+              isDisabled={!enabled}
               onPress={() => onNavigate(key)}
             />
           ))}

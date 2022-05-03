@@ -6,6 +6,7 @@ interface INavigationBarButtonMobileProps {
   title: string
   Icon?: FC<IIconProps>
   isActive?: boolean
+  isDisabled: boolean
   width?: any
 }
 
@@ -14,6 +15,7 @@ const NavigationBarButtonMobile = ({
   title,
   Icon,
   isActive = false,
+  isDisabled = false,
   width
 }: INavigationBarButtonMobileProps) => {
   const [isPressed, setPressed] = useState(false)
@@ -30,6 +32,7 @@ const NavigationBarButtonMobile = ({
       borderTopWidth={showActive ? '1px' : 0}
       pb={12}
       pt={10}
+      isDisabled={isDisabled}
     >
       {Icon && (
         <Icon
