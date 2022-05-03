@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import {
   HStack,
   VStack,
@@ -141,6 +142,7 @@ const BlockchainErrorMessage = ({
 const DonationForm = () => {
   const { t } = useTranslation()
   const { active, account, library, chainId } = useWallet()
+  const router = useRouter()
   const [isMenuOpen, setMenuOpen] = useState(false)
   const [tokenSymbol, setTokenSymbol] = useState('ETH')
   const [amount, setAmount] = useState(0)
@@ -149,6 +151,12 @@ const DonationForm = () => {
   const updateIsMenuOpen = (isOpen: boolean) => setMenuOpen(isOpen)
   const updateTokenSymbol = (value: String) => setTokenSymbol(value as string)
   const updateAmount = (event: any) => setAmount(event.target.value)
+  
+  const redirectToThankYouPage = (hash: string) => {
+    const amountString = amount.toString()
+    router.push(`/thankyou?hash=${hash}&token=${tokenSymbol}&amount=${amountString}`)
+  }
+  
   const donate = async (event: any) => {
     event.preventDefault()
     try {
@@ -156,12 +164,12 @@ const DonationForm = () => {
         tokenSymbol,
         amount,
         account as string,
-        (chainId ? chainId.toString() : ''),
+        chainId ? chainId.toString() : '',
         library
       )
-
       setTx(transaction)
-      // TODO: Redirect to typ
+      // TODO: Send tx to the PoI API
+      redirectToThankYouPage(transaction.hash)
     } catch (error) {
       setTxError(true)
     }

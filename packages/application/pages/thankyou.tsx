@@ -18,10 +18,13 @@ import { openTransactionExplorer, redirectToHome } from '@services/urls'
 const ThankYou: NextPage = () => {
   const { t } = useTranslation()
   const router = useRouter()
-  const amount: any = '1.000'
-
+  
+  const hash = router.query.hash || ''
+  const amount = router.query.amount || '0'
+  const token = router.query.token || ''
+  
   const onNavigate = (newRoute: string) => router.push(newRoute)
-  const showMoreDetails = () => openTransactionExplorer('0x0ef1d1a7456577f7fca1a7d676719dbc37aa7af644218b7c1db0ce224fd7405a')
+  const showMoreDetails = () => openTransactionExplorer(hash as string)
 
   const iconSize = useBreakpointValue({
     base: '70px',
@@ -39,7 +42,7 @@ const ThankYou: NextPage = () => {
         overflowY="hidden"
       >
         <NavigationBar hideBottomBar />
-        <HStack justifyContent="center" pb={7} mt={6}>
+        <HStack justifyContent="center" pb={7} mt={{base: 12, lg: 6}}>
           <Box>
             <POILogo2 size={iconSize} />
           </Box>
@@ -69,7 +72,7 @@ const ThankYou: NextPage = () => {
             <Text color="text.800" fontSize={{ base: 'lg', lg: 'xl' }}>
               {t(keys.thankYou.youContributed)}{' '}
               <strong>
-                ${amount} {t(keys.thankYou.toOurPool)}
+                {amount} {token} {t(keys.thankYou.toOurPool)}
               </strong>
             </Text>
             <Text color="text.800" fontSize={{ base: 'lg', lg: 'xl' }}>
@@ -93,7 +96,7 @@ const ThankYou: NextPage = () => {
           {t(keys.thankYou.goBackToHome)}
         </Button>
         <Box
-          top="0"
+          top={{base: 8, lg: 0}}
           left="0"
           zIndex="-1"
           position="absolute"
@@ -102,7 +105,7 @@ const ThankYou: NextPage = () => {
           <Corner position="leftup" />
         </Box>
         <Box
-          top="0"
+          top={{base: 8, lg: 0}}
           right="0"
           zIndex="-1"
           position="absolute"
