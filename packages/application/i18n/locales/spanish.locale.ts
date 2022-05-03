@@ -5,7 +5,7 @@ const keys: LanguageKeys = {
     poi: 'Proof Of Integrity',
   },
   navigatonBar: {
-    home: 'Home',
+    home: 'Inicio',
     donate: 'Donar',
     publicAudit: 'Auditoría Pública',
     wallet: 'Billetera',
