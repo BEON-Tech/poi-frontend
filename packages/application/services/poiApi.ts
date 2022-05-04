@@ -1,27 +1,36 @@
-import {
-  TOKENS,
-  NETWORK_NAMES
-} from '@services/contracts/tx.contract'
+import { parseEther, parseUnits } from '@ethersproject/units'
+import { TOKENS } from '@services/contracts/tx.contract'
+import config from '@config'
 
-export const registerDonationTransacion = (tx, tokenSymbol, amount, chainId) => {
+export const registerDonationTransacion = (
+  transaction: any,
+  tokenSymbol: string,
+  amount: number
+) => {
   const token = TOKENS.find(({ symbol }) => symbol === tokenSymbol)
-  const network = NETWORK_NAMES[chainId]
-  const params = {
-    "type": "donation",
-    "senderAddress": tx.from,
-    "network": network || "unknown",
-    "hash" : tx.hash,
-    "tokenName": tokenSymbol,
-    "tokenAddress": token?.address || "0x0",
-    "amount": amount,
+  let amountString = ''
+  if (tokenSymbol === 'ETH') {
+    amountString = parseEther(amount.toString()).toString()
+  } else {
+    amountString = parseUnits(amount.toString(), token?.decimals).toString()
   }
 
-  return fetch('http://localhost:8080/transactions', {
+  const params = {
+    type: 'donation',
+    senderAddress: transaction.from,
+    recipientAddress: config.addressPOI,
+    network: 'Ethereum',
+    hash: transaction.hash,
+    tokenName: tokenSymbol,
+    tokenAddress: (token?.address ? token?.address[config.validChainId] : null),
+    amount: amountString,
+  }
+
+  return fetch('https://api-staging.proofofintegrity.org/transactions', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify(params)
+    body: JSON.stringify(params),
   })
 }
-

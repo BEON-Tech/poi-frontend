@@ -66,7 +66,7 @@ const CryptoIcon = ({ tokenSymbol }: any) => {
       return <UsdcIcon />
     case 'WBTC':
       return <WbtcIcon />
-    default:
+    default: 
       return <EthereumIcon />
   }
 }
@@ -163,7 +163,7 @@ const DonationForm = () => {
       )
 
       setTx(transaction)
-      registerDonationTransacion(transaction, tokenSymbol, amount, chainId)
+      registerDonationTransacion(transaction, tokenSymbol, amount)
       // TODO: Redirect to typ
     } catch (error) {
       setTxError(true)
