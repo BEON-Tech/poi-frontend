@@ -26,6 +26,7 @@ import {
   transfer,
   waitTransaction,
 } from '@services/contracts/tx.contract'
+import { registerDonationTransacion } from '@services/poiApi'
 import config from '@config/index'
 
 const TriggerMenu = ({ tokenIcon, menuOpen, ...triggerProps }: any) => (
@@ -149,6 +150,7 @@ const DonationForm = () => {
   const updateIsMenuOpen = (isOpen: boolean) => setMenuOpen(isOpen)
   const updateTokenSymbol = (value: String) => setTokenSymbol(value as string)
   const updateAmount = (event: any) => setAmount(event.target.value)
+
   const donate = async (event: any) => {
     event.preventDefault()
     try {
@@ -161,6 +163,7 @@ const DonationForm = () => {
       )
 
       setTx(transaction)
+      registerDonationTransacion(transaction, tokenSymbol, amount, chainId)
       // TODO: Redirect to typ
     } catch (error) {
       setTxError(true)

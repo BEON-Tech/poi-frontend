@@ -21,6 +21,11 @@ interface IAddressToken {
   [key: string]: string
 }
 
+export const NETWORK_NAMES = {
+  '1': 'mainnet',
+  '42': 'kovan',
+}
+
 export const TOKENS: Array<{
   symbol: string
   address?: IAddressToken
