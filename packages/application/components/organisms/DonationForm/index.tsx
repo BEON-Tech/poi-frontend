@@ -17,7 +17,7 @@ import {
   DaiIcon,
   UsdcIcon,
   WbtcIcon,
-} from '@components/atoms/Icons/Crypto'
+} from '@components/atoms/Icons'
 import AlertIcon from '@components/atoms/Icons/AlertIcon'
 
 import { useWallet } from '@hooks'

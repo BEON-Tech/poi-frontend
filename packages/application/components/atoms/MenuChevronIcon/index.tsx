@@ -5,7 +5,7 @@ interface IMenuChevronIconProps {
   isMenuOpen?: boolean
 }
 
-const MenuChevronIcon = ({size, isMenuOpen} : IMenuChevronIconProps) => {
+const MenuChevronIcon = ({ size, isMenuOpen }: IMenuChevronIconProps) => {
   if (isMenuOpen) {
     return (
       <ChevronUpIcon

@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Button, HStack, Menu, Text } from 'native-base'
 
-import { useLanguageSelector, useBreakpoint } from '@hooks'
+import { useLanguageSelector } from '@hooks'
 import Flag from '@components/atoms/Icons/Languages'
 import MenuChevronIcon from '@components/atoms/MenuChevronIcon'
 
-const TriggerMenu = ({ currentLang, menuOpen, ...triggerProps }: any) => (
+const TriggerMenu = ({ currentLanguage, menuOpen, ...triggerProps }: any) => (
   <Button
     minW={8}
     w={24}
@@ -26,38 +26,39 @@ const TriggerMenu = ({ currentLang, menuOpen, ...triggerProps }: any) => (
     }}
   >
     <HStack w="auto" space={2}>
-      {Flag(currentLang, 4)}
-      <Text fontSize="md">{currentLang.toUpperCase()}</Text>
+      {Flag(currentLanguage, 4)}
+      <Text fontSize="md">{currentLanguage.toUpperCase()}</Text>
     </HStack>
   </Button>
 )
 
-const LanguageMenu = ({ bg, withBorderRadius = false }: any) => {
+const LanguageSelect = () => {
   const [openMenu, setOpenMenu] = useState(false)
-  const { currentLang, restLangs, onChange } = useLanguageSelector()
+  const { currentLanguage, languages, onChange } = useLanguageSelector()
   const updateIsMenuOpen = (isOpen: boolean) => setOpenMenu(isOpen)
+  const bg = { base: 'white', lg: 'transparent' }
 
   return (
     <Menu
       placement="bottom"
       w={24}
-      bg={bg}
       pl={0}
       pr={4}
       shadow={-1}
       trigger={(triggerProps) =>
         TriggerMenu({
-          currentLang,
+          currentLanguage,
           menuOpen: openMenu,
           ...triggerProps,
         })
       }
+      overflow="hidden"
       onOpen={() => updateIsMenuOpen(true)}
       onClose={() => updateIsMenuOpen(false)}
-      borderBottomRadius={withBorderRadius ? 8 : 0}
-      overflow="hidden"
+      borderBottomRadius={{ base: 8, lg: 0 }}
+      bg={bg}
     >
-      {restLangs.map(lang => (
+      {languages.map((lang) => (
         <Menu.Item
           key={lang}
           onPress={() => onChange(lang)}
@@ -74,15 +75,6 @@ const LanguageMenu = ({ bg, withBorderRadius = false }: any) => {
         </Menu.Item>
       ))}
     </Menu>
-  )
-}
-
-const LanguageSelect = () => {
-  const { isDesktop } = useBreakpoint()
-  return isDesktop ? (
-    <LanguageMenu bg="transparent" />
-  ) : (
-    <LanguageMenu bg="white" withBorderRadius />
   )
 }
 
