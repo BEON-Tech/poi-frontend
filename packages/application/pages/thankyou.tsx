@@ -13,13 +13,18 @@ import { keys } from '@i18n'
 import { SecondaryLayout } from '@components/templates'
 import { NavigationBar } from '@components/organisms'
 import { Corner, POILogo2 } from '@components/atoms/Icons'
+import { openTransactionExplorer, redirectToHome } from '@services/urls'
 
 const ThankYou: NextPage = () => {
   const { t } = useTranslation()
   const router = useRouter()
-  const amount: any = '1.000'
-
+  
+  const hash = router.query.hash || ''
+  const amount = router.query.amount || '0'
+  const token = router.query.token || ''
+  
   const onNavigate = (newRoute: string) => router.push(newRoute)
+  const showMoreDetails = () => openTransactionExplorer(hash as string)
 
   const iconSize = useBreakpointValue({
     base: '70px',
@@ -37,7 +42,7 @@ const ThankYou: NextPage = () => {
         overflowY="hidden"
       >
         <NavigationBar hideBottomBar />
-        <HStack justifyContent="center" pb={7} mt={6}>
+        <HStack justifyContent="center" pb={7} mt={{base: 12, lg: 6}}>
           <Box>
             <POILogo2 size={iconSize} />
           </Box>
@@ -67,14 +72,14 @@ const ThankYou: NextPage = () => {
             <Text color="text.800" fontSize={{ base: 'lg', lg: 'xl' }}>
               {t(keys.thankYou.youContributed)}{' '}
               <strong>
-                ${amount} {t(keys.thankYou.toOurPool)}
+                {amount} {token} {t(keys.thankYou.toOurPool)}
               </strong>
             </Text>
             <Text color="text.800" fontSize={{ base: 'lg', lg: 'xl' }}>
               {t(keys.thankYou.weAreHappy)}
             </Text>
           </VStack>
-          <Button variant="link" colorScheme="primary" mt={8}>
+          <Button variant="link" colorScheme="primary" mt={8} onPress={showMoreDetails}>
             {t(keys.thankYou.moreDetails)}
           </Button>
           <Button
@@ -87,24 +92,26 @@ const ThankYou: NextPage = () => {
             {t(keys.thankYou.continueHelping)}
           </Button>
         </Box>
-        <Button variant="link" mt={8}>
+        <Button variant="link" mt={8} onPress={redirectToHome}>
           {t(keys.thankYou.goBackToHome)}
         </Button>
         <Box
-          top="0"
+          top={{base: 8, lg: 0}}
           left="0"
           zIndex="-1"
           position="absolute"
           w={{ base: '6rem', lg: '9rem' }}
+          h={{ base: '7rem', lg: '10.55rem' }}
         >
           <Corner position="leftup" />
         </Box>
         <Box
-          top="0"
+          top={{base: 8, lg: 0}}
           right="0"
           zIndex="-1"
           position="absolute"
-          w={{ base: '12rem', lg: '20rem' }}
+          w={{ base: '11.4rem', lg: '20rem' }}
+          h={{ base: '6rem', lg: '5.4rem' }}
         >
           <Corner position="rightup" />
         </Box>
@@ -114,6 +121,7 @@ const ThankYou: NextPage = () => {
           zIndex="-1"
           position="absolute"
           w={{ base: '7rem', lg: '18rem' }}
+          h={{ base: '2rem', lg: '5.1rem' }}
         >
           <Corner position="leftdown" />
         </Box>
@@ -123,6 +131,7 @@ const ThankYou: NextPage = () => {
           zIndex="-1"
           position="absolute"
           w={{ base: '11rem', lg: '28rem' }}
+          h={{ base: '2rem', lg: '5rem' }}
         >
           <Corner position="rightdown" />
         </Box>

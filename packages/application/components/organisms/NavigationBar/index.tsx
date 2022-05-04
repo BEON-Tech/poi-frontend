@@ -1,13 +1,13 @@
 import { Divider, HStack, Text } from 'native-base'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
+import { ConnectWalletMenu } from '@components/organisms'
 import {
   ConnectWalletButton,
   LanguageSelect,
   NavigationBarButton,
   NavigationBarButtonMobile,
 } from '@components/molecules'
-
 import {
   POILogo,
   HomeIcon,
@@ -15,22 +15,9 @@ import {
   PublicAuditIcon,
   WalletIcon,
 } from '@components/atoms/Icons'
-
 import { useWallet, useBreakpoint } from '@hooks'
 import { keys } from '@i18n'
-import ConnectedWalletMenu from '../ConnectWalletMenu'
-
-const desktopButtons = [
-  { title: 'Donate', key: '/donate' },
-  { title: 'Public Audit', key: '/publicAudit' },
-]
-
-const mobileButtons = [
-  { title: 'Home', Icon: HomeIcon, key: '/' },
-  { title: 'Donate', Icon: DonateIcon, key: '/donate' },
-  { title: 'Public Audit', Icon: PublicAuditIcon, key: '/publicAudit' },
-  { title: 'Wallet', Icon: WalletIcon, key: '/wallet' },
-]
+import { redirectToHome } from '@services/urls'
 
 interface INavigationBarProps {
   hideBottomBar?: boolean
@@ -39,7 +26,10 @@ interface INavigationBarProps {
 const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
   const { t } = useTranslation()
   const { isConnected } = useWallet()
-
+  const desktopButtons = [
+    { title: t(keys.navigatonBar.donate), key: '/donate', enabled: true },
+    { title: t(keys.navigatonBar.publicAudit), key: '/publicAudit', enabled: false },
+  ]
   return (
     <HStack
       w="100%"
@@ -54,23 +44,28 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
     >
       <HStack space={4}>
         <POILogo />
-        <Text fontSize="xl" color="#172815" bold>
+        <Text fontSize="xl" color="greenColor.600" bold>
           {t(keys.main.poi)}
         </Text>
       </HStack>
       <HStack justifyContent="space-between" w="25%">
-        {desktopButtons.map(({ key, ...props }) => (
+        {desktopButtons.map(({ key, enabled, ...props }) => (
           <NavigationBarButton
             {...props}
             key={key}
             isActive={activeItem === key}
+            isDisabled={!enabled}
             onPress={() => onNavigate(key)}
           />
         ))}
       </HStack>
       <HStack>
         {isConnected ? (
-          <ConnectedWalletMenu width="240px" height="50px" borderRadius={25} />
+          <ConnectWalletMenu
+            width="240px"
+            height="50px"
+            borderRadius={25}
+          />
         ) : (
           <ConnectWalletButton width="200px" height="50px" />
         )}
@@ -87,11 +82,17 @@ const MobileNavigationBar = ({
   hideBottomBar,
 }: any) => {
   const { t } = useTranslation()
+  const mobileButtons = [
+    { title: t(keys.navigatonBar.home), Icon: HomeIcon, key: 'home', enabled: true },
+    { title: t(keys.navigatonBar.donate), Icon: DonateIcon, key: '/donate', enabled: true },
+    { title: t(keys.navigatonBar.publicAudit), Icon: PublicAuditIcon, key: '/publicAudit', enabled: false },
+    { title: t(keys.navigatonBar.wallet), Icon: WalletIcon, key: '/wallet', enabled: false },
+  ]
   return (
     <>
       <HStack
         top={0}
-        bg="white"
+        bg="black"
         w="100%"
         justifyContent="space-between"
         px={4}
@@ -99,7 +100,7 @@ const MobileNavigationBar = ({
       >
         <HStack space={4}>
           <POILogo size={10} />
-          <Text fontSize="md" color="#172815" bold>
+          <Text fontSize="md" color="greenColor.600" bold>
             {t(keys.main.poi)}
           </Text>
         </HStack>
@@ -116,12 +117,13 @@ const MobileNavigationBar = ({
           px={4}
           zIndex={1}
         >
-          {mobileButtons.map(({ key, ...props }) => (
+          {mobileButtons.map(({ key, enabled, ...props }) => (
             <NavigationBarButtonMobile
               {...props}
               width="25%"
               key={key}
               isActive={activeItem === key}
+              isDisabled={!enabled}
               onPress={() => onNavigate(key)}
             />
           ))}
@@ -135,7 +137,13 @@ const NavigationBar = ({ hideBottomBar = false }: INavigationBarProps) => {
   const router = useRouter()
   const { isDesktop } = useBreakpoint()
   const activeItem = router.pathname
-  const onNavigate = (newRoute: string) => router.push(newRoute)
+  const onNavigate = (newRoute: string) => {
+    if (newRoute !== 'home') {
+      router.push(newRoute)
+    } else {
+      redirectToHome()
+    }
+  }
   return isDesktop ? (
     <DesktopNavigationBar activeItem={activeItem} onNavigate={onNavigate} />
   ) : (

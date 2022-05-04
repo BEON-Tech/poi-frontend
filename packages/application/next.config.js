@@ -57,5 +57,14 @@ module.exports = withPlugins(
         },
       ],
     },
+    async redirects() {
+      return [
+        {
+          source: '/',
+          destination: '/donate',
+          permanent: true,
+        },
+      ]
+    },
   }
 )

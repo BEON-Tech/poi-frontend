@@ -4,6 +4,12 @@ const keys: LanguageKeys = {
   main: {
     poi: 'Proof Of Integrity',
   },
+  navigatonBar: {
+    home: 'Inicio',
+    donate: 'Donar',
+    publicAudit: 'Auditoría Pública',
+    wallet: 'Billetera',
+  },
   donateHeader: {
     title: 'Ayudar humanos en necesidad',
     subtitle:
@@ -21,7 +27,7 @@ const keys: LanguageKeys = {
     metamask: 'Metamask',
     connectWallet: 'Connect Wallet',
     disconnect: 'Disconnect',
-    donate: 'Donate'
+    donate: 'Donate',
   },
   thankYou: {
     thankYou: 'Thank You!',
@@ -30,8 +36,8 @@ const keys: LanguageKeys = {
     toOurPool: 'to our pool.',
     weAreHappy: 'We are so happy to be your partner on fighting poverty.',
     continueHelping: 'Continue helping',
-    goBackToHome: 'Go back to Home'
-  }
+    goBackToHome: 'Go back to Home',
+  },
 }
 
 export default keys

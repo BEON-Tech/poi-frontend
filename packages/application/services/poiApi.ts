@@ -18,7 +18,7 @@ export const registerDonationTransacion = (
   const params = {
     type: 'donation',
     senderAddress: transaction.from,
-    recipientAddress: config.addressPOI,
+    recipientAddress: config.donationAddressPOI,
     network: 'Ethereum',
     hash: transaction.hash,
     tokenName: tokenSymbol,
@@ -26,7 +26,7 @@ export const registerDonationTransacion = (
     amount: amountString,
   }
 
-  return fetch('https://api-staging.proofofintegrity.org/transactions', {
+  return fetch(`${config.apiPOI}/transactions`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

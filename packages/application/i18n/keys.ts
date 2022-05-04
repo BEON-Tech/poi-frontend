@@ -2,6 +2,12 @@ const rawKeys = {
   main: {
     poi: 'poi',
   },
+  navigatonBar: {
+    home: 'home',
+    donate: 'donate',
+    publicAudit: 'publicAudit',
+    wallet: 'wallet',
+  },
   donateHeader: {
     title: 'title',
     subtitle: 'subtitle',
@@ -16,7 +22,7 @@ const rawKeys = {
     metamask: 'metamask',
     connectWallet: 'connectWallet',
     disconnect: 'disconnect',
-    donate: 'donate'
+    donate: 'donate',
   },
   thankYou: {
     thankYou: 'thankYou',
@@ -25,8 +31,8 @@ const rawKeys = {
     toOurPool: 'toOurPool',
     weAreHappy: 'weAreHappy',
     continueHelping: 'continueHelping',
-    goBackToHome: 'goBackToHome'
-  }
+    goBackToHome: 'goBackToHome',
+  },
 }
 
 export type LanguageKeys = typeof rawKeys

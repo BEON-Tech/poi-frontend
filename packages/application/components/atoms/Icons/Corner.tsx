@@ -1,11 +1,11 @@
-import Image from 'next/image'
+import { Image } from 'native-base'
 import CornerLeftup from '@assets/images/corner_leftup.svg'
 import CornerRightup from '@assets/images/corner_rightup.svg'
 import CornerLeftdown from '@assets/images/corner_leftdown.svg'
 import CornerRightdown from '@assets/images/corner_rightdown.svg'
 
 interface ICornerIconProps {
-  position: string
+  position: string,
 }
 
 const cornerImages: any = {
@@ -15,6 +15,16 @@ const cornerImages: any = {
   rightdown: CornerRightdown,
 }
 
-const Corner = ({ position }: ICornerIconProps) => <Image alt="Corner" src={cornerImages[position]} />
+const Corner = ({ position }: ICornerIconProps) => (
+  <Image
+    alt="Corner"
+    w="100%"
+    h="100%"
+    source={{
+      uri: cornerImages[position].src,
+    }}
+    resizeMode="contain"
+  />
+)
 
 export default Corner

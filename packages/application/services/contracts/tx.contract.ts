@@ -2,11 +2,8 @@ import { parseEther, parseUnits } from '@ethersproject/units'
 import { BigNumber } from '@ethersproject/bignumber'
 import { Contract } from '@ethersproject/contracts'
 import { JsonRpcSigner, TransactionReceipt } from '@ethersproject/providers'
+import config from '@config'
 import { isNull, isUndefined } from 'lodash'
-
-// Does not work for ETH transfers
-// const POOL_ADDRESS="0x53B5D53101ac06178F419E7888f883C70e6Af7DA"
-const POOL_ADDRESS = '0x3BC39941A15745De6c7470E2c0061Cfe30f6D8Bd'
 
 const ERC20Abi = [
   'function name() view returns (string)',
@@ -61,18 +58,6 @@ export const TOKENS: Array<{
   },
 ]
 
-interface INetworkExplorers {
-  [key: string]: string
-}
-
-export const NETWORK_EXPLORER_URLS: INetworkExplorers = {
-  '1': 'https://etherscan.io',
-  '42': 'https://kovan.etherscan.io',
-}
-
-export const buildTransactionExplorerUrl = (hash: string, chainId: string) =>
-  `${NETWORK_EXPLORER_URLS[chainId]}/tx/${hash}`
-
 export const transfer = async (
   tokenSymbol: string,
   amount: number,
@@ -85,7 +70,7 @@ export const transfer = async (
 
   if (tokenSymbol === 'ETH') {
     return signer.sendTransaction({
-      to: POOL_ADDRESS,
+      to: config.donationAddressPOI,
       value: parseEther(amount.toString()),
       gasLimit: BigNumber.from(GAS_LIMIT).toHexString(),
       chainId: parseInt(chainId, 10),
@@ -105,7 +90,7 @@ export const transfer = async (
     const contract = new Contract(result.address[chainId], ERC20Abi, library)
     const tokenWithSigner = contract.connect(signer)
     return tokenWithSigner.transfer(
-      POOL_ADDRESS,
+      config.donationAddressPOI,
       parseUnits(amount.toString(), result.decimals),
       {
         gasLimit: BigNumber.from(GAS_LIMIT).toHexString(),

@@ -3,7 +3,7 @@ import type { IIconProps } from 'native-base'
 import { Path } from 'react-native-svg'
 
 const CloseIcon = ({
-  color = '#172815',
+  color = 'greenColor.600',
   size = '20px',
   ...props
 }: IIconProps) => (

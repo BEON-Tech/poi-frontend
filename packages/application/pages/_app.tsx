@@ -1,5 +1,6 @@
 import './global.css'
 import type { AppProps } from 'next/app'
+import Head from 'next/head'
 import { useEffect, useState } from 'react'
 
 import {
@@ -27,21 +28,27 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   }, [])
 
   return (
-    <Web3Provider>
-      <NativeBaseProvider>
-        <TermsAndAgreementProvider>
-          {loaded ? (
-            <BreakpointProvider>
-              <Component {...pageProps} />
-            </BreakpointProvider>
-          ) : (
-            <div style={styleObject}>
-              <p>Loading</p>
-            </div>
-          )}
-        </TermsAndAgreementProvider>
-      </NativeBaseProvider>
-    </Web3Provider>
+    <>
+      <Head>
+        <title>Proof of Integrity</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <Web3Provider>
+        <NativeBaseProvider>
+          <TermsAndAgreementProvider>
+            {loaded ? (
+              <BreakpointProvider>
+                <Component {...pageProps} />
+              </BreakpointProvider>
+            ) : (
+              <div style={styleObject}>
+                <p>Loading</p>
+              </div>
+            )}
+          </TermsAndAgreementProvider>
+        </NativeBaseProvider>
+      </Web3Provider>
+    </>
   )
 }
 
