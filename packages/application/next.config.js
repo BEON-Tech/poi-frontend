@@ -56,6 +56,7 @@ module.exports = withPlugins(
           defaultLocale: 'nl-NL',
         },
       ],
+    },
     async redirects() {
       return [
         {

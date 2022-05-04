@@ -1,7 +1,7 @@
 import { Divider, HStack, Text } from 'native-base'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
-import { ConnectedWalletButtonMenu } from '@components/organisms'
+import { ConnectWalletMenu } from '@components/organisms'
 import {
   ConnectWalletButton,
   LanguageSelect,
@@ -61,7 +61,7 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
       </HStack>
       <HStack>
         {isConnected ? (
-          <ConnectedWalletButtonMenu
+          <ConnectWalletMenu
             width="240px"
             height="50px"
             borderRadius={25}
