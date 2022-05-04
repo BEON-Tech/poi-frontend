@@ -4,6 +4,8 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 
 import LocaleResources from './locales'
 
+const languages = ['en', 'es']
+
 i18n
   // detect user language
   // learn more: https://github.com/i18next/i18next-browser-languageDetector
@@ -13,11 +15,27 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
+    load: 'all',
     debug: true,
     fallbackLng: 'es',
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
+    detection: {
+      order: [
+        'path',
+        'querystring',
+        'cookie',
+        'localStorage',
+        'navigator',
+        'htmlTag',
+        'path',
+        'subdomain',
+      ],
+      lookupFromPathIndex: 0,
+      // checkWhitelist: true
+    },
+    supportedLngs: languages,
     resources: LocaleResources,
   })
 

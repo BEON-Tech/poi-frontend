@@ -5,7 +5,7 @@ const keys: LanguageKeys = {
     poi: 'Proof Of Integrity',
   },
   donateHeader: {
-    title: 'Help Humans in Need',
+    title: 'Ayudar humanos en necesidad',
     subtitle:
       'Because urgent needs require urgent answers, we accept crypto donations.',
   },

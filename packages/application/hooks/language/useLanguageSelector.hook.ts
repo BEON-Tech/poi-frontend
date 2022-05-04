@@ -1,30 +1,26 @@
-import { useRouter } from 'next/router'
+import i18n from '@i18n'
 import { useMemo } from 'react'
-import { Languages } from '@i18n'
 
 export interface IUseLanguageSelectorResult {
   onChange: (lang: string) => void
-  currentLang?: string
-  restLangs: Array<string>
+  currentLanguage?: string
+  languages: string[]
 }
 
 const useLanguageSelector = (): IUseLanguageSelectorResult => {
-  const router = useRouter()
-  const query = {lang: 'lang' in router.query ? router.query.lang : 'en'} 
-  
+  const currentLanguage = i18n.resolvedLanguage
   const onChange = (lang: string) => {
-    router.push({ ...router, query: { ...router.query, lang } })
+    i18n.changeLanguage(lang)
   }
+  const languages = useMemo(() => {
+    const availableLanguages = Object.keys(i18n.options.resources || {})
+    const notSelected = availableLanguages.filter(
+      (lang) => lang !== currentLanguage
+    )
+    return notSelected
+  }, [currentLanguage])
 
-  const { current, rest } = useMemo(() => {
-    const selected = query ? query.lang : 'en'
-    const availableLanguages = Object.keys(Languages)
-    const currentSelected = availableLanguages.find(lang => lang === selected)
-    const notSelected = availableLanguages.filter(lang => lang !== selected)    
-    return { current: currentSelected, rest: notSelected }
-  }, [query])
-
-  return { onChange, currentLang: current, restLangs: rest }
+  return { onChange, currentLanguage, languages }
 }
 
 export default useLanguageSelector

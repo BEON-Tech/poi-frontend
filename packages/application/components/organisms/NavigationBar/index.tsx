@@ -1,13 +1,13 @@
 import { Divider, HStack, Text } from 'native-base'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
-import { ConnectedWalletButtonMenu } from '@components/organisms'
 import {
   ConnectWalletButton,
   LanguageSelect,
   NavigationBarButton,
   NavigationBarButtonMobile,
 } from '@components/molecules'
+
 import {
   POILogo,
   HomeIcon,
@@ -15,8 +15,10 @@ import {
   PublicAuditIcon,
   WalletIcon,
 } from '@components/atoms/Icons'
+
 import { useWallet, useBreakpoint } from '@hooks'
 import { keys } from '@i18n'
+import ConnectedWalletMenu from '../ConnectWalletMenu'
 
 const desktopButtons = [
   { title: 'Donate', key: '/donate' },
@@ -68,11 +70,7 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
       </HStack>
       <HStack>
         {isConnected ? (
-          <ConnectedWalletButtonMenu
-            width="240px"
-            height="50px"
-            borderRadius={25}
-          />
+          <ConnectedWalletMenu width="240px" height="50px" borderRadius={25} />
         ) : (
           <ConnectWalletButton width="200px" height="50px" />
         )}
@@ -83,7 +81,11 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
   )
 }
 
-const MobileNavigationBar = ({ activeItem, onNavigate, hideBottomBar }: any) => {
+const MobileNavigationBar = ({
+  activeItem,
+  onNavigate,
+  hideBottomBar,
+}: any) => {
   const { t } = useTranslation()
   return (
     <>
@@ -103,26 +105,28 @@ const MobileNavigationBar = ({ activeItem, onNavigate, hideBottomBar }: any) => 
         </HStack>
         <LanguageSelect />
       </HStack>
-      {!hideBottomBar && <HStack
-        w="100%"
-        bg="white"
-        position="absolute"
-        bottom={0}
-        borderTopColor="#EDB6A3"
-        borderTopWidth="1px"
-        px={4}
-        zIndex={1}
-      >
-        {mobileButtons.map(({ key, ...props }) => (
-          <NavigationBarButtonMobile
-            {...props}
-            width="25%"
-            key={key}
-            isActive={activeItem === key}
-            onPress={() => onNavigate(key)}
-          />
-        ))}
-      </HStack>}
+      {!hideBottomBar && (
+        <HStack
+          w="100%"
+          bg="white"
+          position="absolute"
+          bottom={0}
+          borderTopColor="#EDB6A3"
+          borderTopWidth="1px"
+          px={4}
+          zIndex={1}
+        >
+          {mobileButtons.map(({ key, ...props }) => (
+            <NavigationBarButtonMobile
+              {...props}
+              width="25%"
+              key={key}
+              isActive={activeItem === key}
+              onPress={() => onNavigate(key)}
+            />
+          ))}
+        </HStack>
+      )}
     </>
   )
 }
@@ -135,7 +139,11 @@ const NavigationBar = ({ hideBottomBar = false }: INavigationBarProps) => {
   return isDesktop ? (
     <DesktopNavigationBar activeItem={activeItem} onNavigate={onNavigate} />
   ) : (
-    <MobileNavigationBar activeItem={activeItem} onNavigate={onNavigate} hideBottomBar={hideBottomBar} />
+    <MobileNavigationBar
+      activeItem={activeItem}
+      onNavigate={onNavigate}
+      hideBottomBar={hideBottomBar}
+    />
   )
 }
 
