@@ -24,13 +24,13 @@ i18n
     detection: {
       order: [
         'path',
-        'querystring',
-        'cookie',
-        'localStorage',
-        'navigator',
-        'htmlTag',
-        'path',
-        'subdomain',
+        // 'querystring',
+        // 'cookie',
+        // 'localStorage',
+        // 'navigator',
+        // 'htmlTag',
+        // 'path',
+        // 'subdomain',
       ],
       lookupFromPathIndex: 0,
       // checkWhitelist: true

@@ -1,4 +1,5 @@
 import i18n from '@i18n'
+import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 
 export interface IUseLanguageSelectorResult {
@@ -8,10 +9,14 @@ export interface IUseLanguageSelectorResult {
 }
 
 const useLanguageSelector = (): IUseLanguageSelectorResult => {
+  const router = useRouter()
   const currentLanguage = i18n.resolvedLanguage
-  const onChange = (lang: string) => {
-    i18n.changeLanguage(lang)
+
+  const onChange = async (lang: string) => {
+    await i18n.changeLanguage(lang)
+    router.push(router.asPath, undefined, { locale: lang })
   }
+
   const languages = useMemo(() => {
     const availableLanguages = Object.keys(i18n.options.resources || {})
     const notSelected = availableLanguages.filter(
