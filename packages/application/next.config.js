@@ -29,6 +29,7 @@ module.exports = withPlugins(
     // your plugins go here.
   ],
   {
+    distDir: 'out',
     webpack: (config) => {
       config.resolve.alias = {
         ...(config.resolve.alias || {}),
