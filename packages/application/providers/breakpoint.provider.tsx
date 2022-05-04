@@ -1,9 +1,8 @@
 import { useBreakpointValue } from 'native-base'
 import React, { useEffect } from 'react'
-import { BreakpointContext } from '../components/context'
+import { BreakpointContext } from '@components/context'
 
 const ClientBreakpointProvider: React.FC = ({ children }) => {
-  // const { changeTheme } = useThemeValue()
   const breakpoints = useBreakpointValue({
     base: {
       isMobile: true,

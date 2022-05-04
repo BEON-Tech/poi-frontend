@@ -11,7 +11,7 @@ const keys: LanguageKeys = {
     wallet: 'Billetera',
   },
   donateHeader: {
-    title: 'Help Humans in Need',
+    title: 'Ayudar humanos en necesidad',
     subtitle:
       'Because urgent needs require urgent answers, we accept crypto donations.',
   },

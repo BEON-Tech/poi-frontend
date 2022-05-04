@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable import/no-extraneous-dependencies */
-const withPlugins = require('next-compose-plugins');
+const withPlugins = require('next-compose-plugins')
 const withTM = require('next-transpile-modules')([
   'native-base',
   'react-native-svg',
@@ -20,7 +20,7 @@ const withTM = require('next-transpile-modules')([
   '@react-native-aria/utils',
   '@react-stately/combobox',
   '@react-stately/radio',
-]);
+])
 
 /** @type {import('next').NextConfig} */
 module.exports = withPlugins(
@@ -34,7 +34,7 @@ module.exports = withPlugins(
         ...(config.resolve.alias || {}),
         // Transform all direct `react-native` imports to `react-native-web`
         'react-native$': 'react-native-web',
-      };
+      }
       config.resolve.extensions = [
         '.web.js',
         '.web.ts',
@@ -43,6 +43,19 @@ module.exports = withPlugins(
       ]
       return config
     },
+    i18n: {
+      locales: ['en', 'es'],
+      defaultLocale: 'en',
+      domains: [
+        {
+          domain: 'app.proofofintegrity.org',
+          defaultLocale: 'en',
+        },
+        {
+          domain: 'es.app.proofofintegrity.org',
+          defaultLocale: 'nl-NL',
+        },
+      ],
     async redirects() {
       return [
         {
@@ -53,4 +66,4 @@ module.exports = withPlugins(
       ]
     },
   }
-);
+)

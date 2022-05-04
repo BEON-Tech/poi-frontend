@@ -5,7 +5,7 @@ import { useWallet } from '@hooks'
 import { keys } from '@i18n'
 import MenuChevronIcon from '@components/atoms/MenuChevronIcon'
 
-interface IConnectedWalletButtonMenuProps {
+interface IConnectWalletMenuProps {
   onDisconnect?: () => void
   width: any
   height: any
@@ -45,12 +45,12 @@ const TriggerMenu = ({
   </Button>
 )
 
-const ConnectedWalletButtonMenu = ({
+const ConnectedWalletMenu = ({
   onDisconnect,
   width,
   height,
   borderRadius,
-}: IConnectedWalletButtonMenuProps) => {
+}: IConnectWalletMenuProps) => {
   const { t } = useTranslation()
   const { account, deactivate } = useWallet()
   const [isMenuOpen, setOpenMenu] = useState(false)
@@ -97,4 +97,4 @@ const ConnectedWalletButtonMenu = ({
   )
 }
 
-export default ConnectedWalletButtonMenu
+export default ConnectedWalletMenu
