@@ -101,6 +101,7 @@ const ThankYou: NextPage = () => {
           zIndex="-1"
           position="absolute"
           w={{ base: '6rem', lg: '9rem' }}
+          h={{ base: '6rem', lg: '9rem' }} // TODO: FIX
         >
           <Corner position="leftup" />
         </Box>
@@ -110,6 +111,7 @@ const ThankYou: NextPage = () => {
           zIndex="-1"
           position="absolute"
           w={{ base: '12rem', lg: '20rem' }}
+          h={{ base: '12rem', lg: '20rem' }} // TODO: FIX
         >
           <Corner position="rightup" />
         </Box>
@@ -119,6 +121,7 @@ const ThankYou: NextPage = () => {
           zIndex="-1"
           position="absolute"
           w={{ base: '7rem', lg: '18rem' }}
+          h={{ base: '2rem', lg: '5.1rem' }}
         >
           <Corner position="leftdown" />
         </Box>
@@ -128,6 +131,7 @@ const ThankYou: NextPage = () => {
           zIndex="-1"
           position="absolute"
           w={{ base: '11rem', lg: '28rem' }}
+          h={{ base: '11rem', lg: '28rem' }} // TODO: FIX
         >
           <Corner position="rightdown" />
         </Box>

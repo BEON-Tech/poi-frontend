@@ -20,13 +20,13 @@ import {
   WbtcIcon,
 } from '@components/atoms/Icons/Crypto'
 import AlertIcon from '@components/atoms/Icons/AlertIcon'
-
 import { useWallet } from '@hooks'
 import {
   TOKENS,
   transfer,
   waitTransaction,
 } from '@services/contracts/tx.contract'
+import { registerDonationTransacion } from '@services/poiApi'
 import config from '@config'
 
 const TriggerMenu = ({ tokenIcon, menuOpen, ...triggerProps }: any) => (
@@ -168,7 +168,7 @@ const DonationForm = () => {
         library
       )
       setTx(transaction)
-      // TODO: Send tx to the PoI API
+      registerDonationTransacion(transaction, tokenSymbol, amount)
       redirectToThankYouPage(transaction.hash)
     } catch (error) {
       setTxError(true)
