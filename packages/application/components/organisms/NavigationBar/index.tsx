@@ -92,7 +92,7 @@ const MobileNavigationBar = ({
     <>
       <HStack
         top={0}
-        bg="black"
+        bg="white"
         w="100%"
         justifyContent="space-between"
         px={4}
