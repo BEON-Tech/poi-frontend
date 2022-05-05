@@ -11,7 +11,7 @@ const MenuChevronIcon = ({ size, isMenuOpen }: IMenuChevronIconProps) => {
       <ChevronUpIcon
         width="auto"
         size={size}
-        color="#2D6320"
+        color="greenColor.900"
         justifySelf="flex-end"
       />
     )
@@ -21,7 +21,7 @@ const MenuChevronIcon = ({ size, isMenuOpen }: IMenuChevronIconProps) => {
     <ChevronDownIcon
       width="auto"
       size={size}
-      color="#2D6320"
+      color="greenColor.900"
       justifySelf="flex-end"
     />
   )

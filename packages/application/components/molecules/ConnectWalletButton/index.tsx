@@ -32,7 +32,7 @@ const ConnectWalletButton = ({
         w={width}
         h={height}
         borderRadius={100}
-        bg="#2d6320"
+        bg="greenColor.900"
         onPress={handleConnectWallet}
       >
         <Text color="white" fontSize="lg">

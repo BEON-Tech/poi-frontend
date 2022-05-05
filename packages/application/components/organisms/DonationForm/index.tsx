@@ -37,8 +37,8 @@ const TriggerMenu = ({ tokenIcon, menuOpen, ...triggerProps }: any) => (
     pl={3}
     pr={3}
     borderWidth={1}
-    borderColor="#2D6320"
-    borderBottomColor={menuOpen ? 'white' : '#2D6320'}
+    borderColor="greenColor.900"
+    borderBottomColor={menuOpen ? 'white' : 'greenColor.900'}
     borderRadius={8}
     borderBottomRadius={menuOpen ? 0 : 8}
     backgroundColor="white"
@@ -262,16 +262,16 @@ const DonationForm = () => {
             width="auto"
           >
             <Menu
-              mt="-10px"
               placement="bottom"
               bg="white"
               w={32}
+              mt={-2.5}
               shadow={0}
               borderWidth={1}
               borderTopWidth={0}
               borderTopRadius={0}
               borderBottomRadius={8}
-              borderColor="#2D6320"
+              borderColor="greenColor.900"
               trigger={(triggerProps) =>
                 TriggerMenu({
                   tokenIcon: tokenSymbol,

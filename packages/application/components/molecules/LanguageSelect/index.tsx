@@ -42,6 +42,7 @@ const LanguageSelect = () => {
     <Menu
       placement="bottom"
       w={24}
+      mt={-2.5}
       pl={0}
       pr={4}
       shadow={-1}
@@ -55,6 +56,7 @@ const LanguageSelect = () => {
       overflow="hidden"
       onOpen={() => updateIsMenuOpen(true)}
       onClose={() => updateIsMenuOpen(false)}
+      borderWidth={0}
       borderBottomRadius={{ base: 8, lg: 0 }}
       bg={bg}
     >
