@@ -15,7 +15,7 @@ const TriggerMenu = ({ currentLanguage, menuOpen, ...triggerProps }: any) => (
     overflowY="hidden"
     variant="solid"
     {...triggerProps}
-    endIcon={<MenuChevronIcon size={4} isMenuOpen={menuOpen} />}
+    endIcon={<MenuChevronIcon size={6} isMenuOpen={menuOpen} />}
     _stack={{
       width: '100%',
       justifyContent: 'space-between',
@@ -42,6 +42,7 @@ const LanguageSelect = () => {
     <Menu
       placement="bottom"
       w={24}
+      mt={-2.5}
       pl={0}
       pr={4}
       shadow={-1}
@@ -55,6 +56,7 @@ const LanguageSelect = () => {
       overflow="hidden"
       onOpen={() => updateIsMenuOpen(true)}
       onClose={() => updateIsMenuOpen(false)}
+      borderWidth={0}
       borderBottomRadius={{ base: 8, lg: 0 }}
       bg={bg}
     >
