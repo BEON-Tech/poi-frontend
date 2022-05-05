@@ -27,7 +27,7 @@ const TriggerMenu = ({
     borderBottomRadius={isMenuOpen ? 0 : borderRadius}
     borderWidth={1}
     borderBottomWidth={isMenuOpen ? 0 : 1}
-    borderColor="#2d6320"
+    borderColor="greenColor.900"
     backgroundColor="white"
     overflowX="hidden"
     {...triggerProps}
@@ -37,10 +37,10 @@ const TriggerMenu = ({
     }}
   >
     <HStack px={2} w="100%" space={2}>
-      <Text width="80%" color="#2d6320" fontSize="lg" bold isTruncated>
+      <Text width="80%" color="greenColor.900" fontSize="lg" bold isTruncated>
         {account}
       </Text>
-      <MenuChevronIcon size={4} isMenuOpen={isMenuOpen} />
+      <MenuChevronIcon size={6} isMenuOpen={isMenuOpen} />
     </HStack>
   </Button>
 )
@@ -65,10 +65,11 @@ const ConnectedWalletMenu = ({
     <Menu
       placement="bottom"
       w={width}
+      mt={-2.5}
       bg="white"
       shadow={-1}
       borderBottomRadius={borderRadius}
-      borderColor="#2d6320"
+      borderColor="greenColor.900"
       borderWidth={1}
       borderTopRadius={0}
       borderTopWidth={0}
