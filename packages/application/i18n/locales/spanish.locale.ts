@@ -44,7 +44,7 @@ const keys: LanguageKeys = {
     humansInNeed:
       'Los humanos en necesidad están esperando ser financiados para unirse a Proof of Humanitiy y obtener $ubi.',
     donate: 'Donar',
-    withPOI: 'Con POI, ytus donaciones van a las manos correctas.',
+    withPOI: 'Con POI, tus donaciones van a las manos correctas.',
     whitepaper: 'Consulta Nuestro Whitepaper',
   },
 }

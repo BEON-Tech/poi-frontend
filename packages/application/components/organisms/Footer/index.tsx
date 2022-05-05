@@ -23,11 +23,8 @@ const Footer = () => {
       mt="20"
       px={{ base: '5', lg: '20' }}
       space={{ base: 20, lg: 0 }}
+      pt={{ base: '20', lg: '0' }}
     >
-      <HStack pt="16" display={display} space={5}>
-        <Button>ES</Button>
-        <Button>EN</Button>
-      </HStack>
       <Stack
         direction={{ base: 'column', lg: 'row' }}
         alignItems={{ base: 'start', lg: 'flex-end' }}

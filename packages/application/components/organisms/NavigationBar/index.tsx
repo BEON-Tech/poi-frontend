@@ -28,7 +28,11 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
   const { isConnected } = useWallet()
   const desktopButtons = [
     { title: t(keys.navigatonBar.donate), key: '/donate', enabled: true },
-    { title: t(keys.navigatonBar.publicAudit), key: '/publicAudit', enabled: false },
+    {
+      title: t(keys.navigatonBar.publicAudit),
+      key: '/publicAudit',
+      enabled: false,
+    },
   ]
   return (
     <HStack
@@ -61,11 +65,7 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
       </HStack>
       <HStack>
         {isConnected ? (
-          <ConnectWalletMenu
-            width="240px"
-            height="50px"
-            borderRadius={25}
-          />
+          <ConnectWalletMenu width="240px" height="50px" borderRadius={25} />
         ) : (
           <ConnectWalletButton width="200px" height="50px" />
         )}
@@ -83,10 +83,30 @@ const MobileNavigationBar = ({
 }: any) => {
   const { t } = useTranslation()
   const mobileButtons = [
-    { title: t(keys.navigatonBar.home), Icon: HomeIcon, key: 'home', enabled: true },
-    { title: t(keys.navigatonBar.donate), Icon: DonateIcon, key: '/donate', enabled: true },
-    { title: t(keys.navigatonBar.publicAudit), Icon: PublicAuditIcon, key: '/publicAudit', enabled: false },
-    { title: t(keys.navigatonBar.wallet), Icon: WalletIcon, key: '/wallet', enabled: false },
+    {
+      title: t(keys.navigatonBar.home),
+      Icon: HomeIcon,
+      key: 'home',
+      enabled: true,
+    },
+    {
+      title: t(keys.navigatonBar.donate),
+      Icon: DonateIcon,
+      key: '/donate',
+      enabled: true,
+    },
+    {
+      title: t(keys.navigatonBar.publicAudit),
+      Icon: PublicAuditIcon,
+      key: '/publicAudit',
+      enabled: false,
+    },
+    {
+      title: t(keys.navigatonBar.wallet),
+      Icon: WalletIcon,
+      key: '/wallet',
+      enabled: false,
+    },
   ]
   return (
     <>
@@ -110,7 +130,7 @@ const MobileNavigationBar = ({
         <HStack
           w="100%"
           bg="white"
-          position="absolute"
+          position="fixed"
           bottom={0}
           borderTopColor="#EDB6A3"
           borderTopWidth="1px"

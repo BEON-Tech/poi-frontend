@@ -37,7 +37,6 @@ const Home: NextPage = () => {
     <SecondaryLayout>
       <NavigationBar />
       <ZStack
-        mt="20"
         w="100%"
         overflow="hidden"
         h={{ base: '90vh', lg: 400 }}
@@ -54,7 +53,7 @@ const Home: NextPage = () => {
           w="full"
         >
           <Heading
-            fontWeight="500"
+            fontWeight="600"
             color="text.900"
             fontSize={{ base: '5xl', lg: '7xl' }}
             textAlign="left"
@@ -78,13 +77,13 @@ const Home: NextPage = () => {
           </Button>
         </VStack>
         <Box right="-40" display={{ base: 'none', lg: 'block' }}>
-          <Image src={home_polygon1} height={400} />
+          <Image src={home_corner1} height={400} />
         </Box>
         <Box bottom="-5" right="40" display={{ base: 'none', lg: 'block' }}>
           <Image src={home_corner2} height={100} />
         </Box>
         <Box top="20" left="0" display={{ base: 'none', lg: 'block' }}>
-          <Image src={home_corner1} height={50} />
+          <Image src={home_polygon1} height={50} />
         </Box>
         <Box bottom="22rem" right="0" display={{ base: 'block', lg: 'none' }}>
           <Image src={home_polygon_resp} height={100} />
@@ -113,7 +112,7 @@ const Home: NextPage = () => {
               <Image src={home_polygon1} height={50} />
             </Box>
             <Box w={{ base: 'full', lg: '95%' }}>
-              <Text fontSize="5xl" fontWeight="500" color="text.900" pb="2">
+              <Text fontSize="5xl" fontWeight="600" color="text.900" pb="2">
                 {t(keys.home.withPOI)}
               </Text>
               <Box pt={{ base: '5', lg: '10' }}>
