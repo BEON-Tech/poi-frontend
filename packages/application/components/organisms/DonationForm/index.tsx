@@ -108,10 +108,10 @@ const BlockchainErrorMessage = ({
         <AlertIcon
           alignSelf="start"
           size={{
-            base: 'xl',
-            sm: '3xl',
-            lg: '3xl',
-            xl: '3xl',
+            base: 'md',
+            sm: 'xl',
+            lg: 'xl',
+            xl: 'xl',
           }}
         />
         <VStack flex="fit-content" alignItems="flex-start" space={4}>
