@@ -41,6 +41,14 @@ export const TOKENS: Array<{
     decimals: 18,
   },
   {
+    symbol: 'USDT',
+    address: {
+      '1': '0xdac17f958d2ee523a2206206994597c13d831ec7',
+      '42': '0xf02d16a87f97428a258a48476b52cfc105e371c1',
+    },
+    decimals: 6,
+  },
+  {
     symbol: 'USDC',
     address: {
       '1': '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',

@@ -16,6 +16,7 @@ import MenuChevronIcon from '@components/atoms/MenuChevronIcon'
 import {
   EthereumIcon,
   DaiIcon,
+  UsdtIcon,
   UsdcIcon,
   WbtcIcon,
 } from '@components/atoms/Icons'
@@ -62,6 +63,8 @@ const CryptoIcon = ({ tokenSymbol }: any) => {
   switch (tokenSymbol) {
     case 'DAI':
       return <DaiIcon />
+    case 'USDT':
+      return <UsdtIcon />
     case 'USDC':
       return <UsdcIcon />
     case 'WBTC':
