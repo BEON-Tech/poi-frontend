@@ -33,6 +33,14 @@ const rawKeys = {
     continueHelping: 'continueHelping',
     goBackToHome: 'goBackToHome',
   },
+  home: {
+    heading: 'heading',
+    weLoveTo: 'weLoveTo',
+    humansInNeed: 'humansInNeed',
+    donate: 'donate',
+    withPOI: 'withPOI',
+    whitepaper: 'whitepaper',
+  },
 }
 
 export type LanguageKeys = typeof rawKeys

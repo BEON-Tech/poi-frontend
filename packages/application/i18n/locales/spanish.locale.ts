@@ -38,6 +38,15 @@ const keys: LanguageKeys = {
     continueHelping: 'Continue helping',
     goBackToHome: 'Go back to Home',
   },
+  home: {
+    heading: 'POI los certifica, tú donas.',
+    weLoveTo: 'Queremos ser tus socios en cambiar al mundo.',
+    humansInNeed:
+      'Los humanos en necesidad están esperando ser financiados para unirse a Proof of Humanitiy y obtener $ubi.',
+    donate: 'Donar',
+    withPOI: 'Con POI, ytus donaciones van a las manos correctas.',
+    whitepaper: 'Consulta Nuestro Whitepaper',
+  },
 }
 
 export default keys

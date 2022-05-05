@@ -11,6 +11,9 @@ import {
   Text,
 } from 'native-base'
 
+import { useTranslation } from 'react-i18next'
+import { keys } from '@i18n'
+
 import { SecondaryLayout } from '@components/templates'
 import { NavigationBar, Footer } from '@components/organisms'
 import home_photo1 from '@assets/images/home_photo1.svg'
@@ -28,6 +31,7 @@ const Home: NextPage = () => {
     base: 252,
     lg: 324,
   })
+  const { t } = useTranslation()
 
   return (
     <SecondaryLayout>
@@ -55,15 +59,14 @@ const Home: NextPage = () => {
             fontSize={{ base: '5xl', lg: '7xl' }}
             textAlign="left"
           >
-            We certify who, you donate.
+            {t(keys.home.heading)}
           </Heading>
           <Box w={{ base: '85%', lg: 'full' }} py="3">
             <Text color="text.900" py="3" fontWeight="300" fontSize="xl">
-              We love to be your partner on changing the world.
+              {t(keys.home.weLoveTo)}
             </Text>
             <Text color="text.900" pb="10" fontWeight="300" fontSize="xl">
-              Humans in need are waiting to be crowdfunded to join Proof of
-              Humanity and start getting $ubi.
+              {t(keys.home.humansInNeed)}
             </Text>
           </Box>
           <Button
@@ -71,7 +74,7 @@ const Home: NextPage = () => {
             _text={{ fontSize: '2xl' }}
             py="7"
           >
-            Donate
+            {t(keys.home.donate)}
           </Button>
         </VStack>
         <Box right="-40" display={{ base: 'none', lg: 'block' }}>
@@ -111,11 +114,11 @@ const Home: NextPage = () => {
             </Box>
             <Box w={{ base: 'full', lg: '95%' }}>
               <Text fontSize="5xl" fontWeight="500" color="text.900" pb="2">
-                With POI, your donations go to the right hands.
+                {t(keys.home.withPOI)}
               </Text>
               <Box pt={{ base: '5', lg: '10' }}>
                 <Button variant="outline" width={{ base: 'full', lg: '350' }}>
-                  Consulta Nuestro Whitepaper
+                  {t(keys.home.whitepaper)}
                 </Button>
               </Box>
             </Box>
