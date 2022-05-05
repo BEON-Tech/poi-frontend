@@ -37,7 +37,7 @@ const NavigationBarButtonMobile = ({
       {Icon && (
         <Icon
           color={showActive ? 'orangeColor.900' : 'greenColor.600'}
-          size="xl"
+          size={7}
           alignSelf="center"
           mb={2}
         />
