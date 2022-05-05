@@ -46,7 +46,7 @@ const TriggerMenu = ({ tokenIcon, menuOpen, ...triggerProps }: any) => (
     fontSize="sm"
     variant="solid"
     {...triggerProps}
-    endIcon={<MenuChevronIcon size={3} isMenuOpen={menuOpen} />}
+    endIcon={<MenuChevronIcon size={6} isMenuOpen={menuOpen} />}
     _stack={{
       width: '100%',
       justifyContent: 'space-between',
@@ -262,6 +262,7 @@ const DonationForm = () => {
             width="auto"
           >
             <Menu
+              mt="-10px"
               placement="bottom"
               bg="white"
               w={32}

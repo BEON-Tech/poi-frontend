@@ -15,7 +15,7 @@ const TriggerMenu = ({ currentLanguage, menuOpen, ...triggerProps }: any) => (
     overflowY="hidden"
     variant="solid"
     {...triggerProps}
-    endIcon={<MenuChevronIcon size={4} isMenuOpen={menuOpen} />}
+    endIcon={<MenuChevronIcon size={6} isMenuOpen={menuOpen} />}
     _stack={{
       width: '100%',
       justifyContent: 'space-between',

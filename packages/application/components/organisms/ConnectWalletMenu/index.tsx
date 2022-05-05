@@ -40,7 +40,7 @@ const TriggerMenu = ({
       <Text width="80%" color="#2d6320" fontSize="lg" bold isTruncated>
         {account}
       </Text>
-      <MenuChevronIcon size={4} isMenuOpen={isMenuOpen} />
+      <MenuChevronIcon size={6} isMenuOpen={isMenuOpen} />
     </HStack>
   </Button>
 )
