@@ -1,4 +1,4 @@
-import { Divider, HStack, Text } from 'native-base'
+import { Divider, HStack, Text, Pressable } from 'native-base'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 import { ConnectWalletMenu } from '@components/organisms'
@@ -28,7 +28,11 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
   const { isConnected } = useWallet()
   const desktopButtons = [
     { title: t(keys.navigatonBar.donate), key: '/donate', enabled: true },
-    { title: t(keys.navigatonBar.publicAudit), key: '/publicAudit', enabled: false },
+    {
+      title: t(keys.navigatonBar.publicAudit),
+      key: '/publicAudit',
+      enabled: false,
+    },
   ]
   return (
     <HStack
@@ -42,12 +46,14 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
       mt="20px"
       mb="50px"
     >
-      <HStack space={4}>
-        <POILogo />
-        <Text fontSize="xl" color="greenColor.600" bold>
-          {t(keys.main.poi)}
-        </Text>
-      </HStack>
+      <Pressable onPress={redirectToHome}>
+        <HStack space={4}>
+          <POILogo size="63px" />
+          <Text fontSize="xl" color="greenColor.600" bold>
+            {t(keys.main.poi)}
+          </Text>
+        </HStack>
+      </Pressable>
       <HStack justifyContent="space-between" w="25%">
         {desktopButtons.map(({ key, enabled, ...props }) => (
           <NavigationBarButton
@@ -61,11 +67,7 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
       </HStack>
       <HStack>
         {isConnected ? (
-          <ConnectWalletMenu
-            width="240px"
-            height="50px"
-            borderRadius={25}
-          />
+          <ConnectWalletMenu width="240px" height="50px" borderRadius={25} />
         ) : (
           <ConnectWalletButton width="200px" height="50px" />
         )}
@@ -83,10 +85,30 @@ const MobileNavigationBar = ({
 }: any) => {
   const { t } = useTranslation()
   const mobileButtons = [
-    { title: t(keys.navigatonBar.home), Icon: HomeIcon, key: 'home', enabled: true },
-    { title: t(keys.navigatonBar.donate), Icon: DonateIcon, key: '/donate', enabled: true },
-    { title: t(keys.navigatonBar.publicAudit), Icon: PublicAuditIcon, key: '/publicAudit', enabled: false },
-    { title: t(keys.navigatonBar.wallet), Icon: WalletIcon, key: '/wallet', enabled: false },
+    {
+      title: t(keys.navigatonBar.home),
+      Icon: HomeIcon,
+      key: 'home',
+      enabled: true,
+    },
+    {
+      title: t(keys.navigatonBar.donate),
+      Icon: DonateIcon,
+      key: '/donate',
+      enabled: true,
+    },
+    {
+      title: t(keys.navigatonBar.publicAudit),
+      Icon: PublicAuditIcon,
+      key: '/publicAudit',
+      enabled: false,
+    },
+    {
+      title: t(keys.navigatonBar.wallet),
+      Icon: WalletIcon,
+      key: '/wallet',
+      enabled: false,
+    },
   ]
   return (
     <>
@@ -98,12 +120,14 @@ const MobileNavigationBar = ({
         px={4}
         py={2}
       >
-        <HStack space={4}>
-          <POILogo size={10} />
-          <Text fontSize="md" color="greenColor.600" bold>
-            {t(keys.main.poi)}
-          </Text>
-        </HStack>
+        <Pressable onPress={redirectToHome}>
+          <HStack space={4}>
+            <POILogo size={10} />
+            <Text fontSize="md" color="greenColor.600" bold>
+              {t(keys.main.poi)}
+            </Text>
+          </HStack>
+        </Pressable>
         <LanguageSelect />
       </HStack>
       {!hideBottomBar && (
