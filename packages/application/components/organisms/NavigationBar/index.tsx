@@ -1,4 +1,4 @@
-import { Divider, HStack, Text } from 'native-base'
+import { Divider, HStack, Text, Pressable } from 'native-base'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 import { ConnectWalletMenu } from '@components/organisms'
@@ -46,12 +46,14 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
       mt="20px"
       mb="50px"
     >
-      <HStack space={4}>
-        <POILogo />
-        <Text fontSize="xl" color="greenColor.600" bold>
-          {t(keys.main.poi)}
-        </Text>
-      </HStack>
+      <Pressable onPress={redirectToHome}>
+        <HStack space={4}>
+          <POILogo size="63px" />
+          <Text fontSize="xl" color="greenColor.600" bold>
+            {t(keys.main.poi)}
+          </Text>
+        </HStack>
+      </Pressable>
       <HStack justifyContent="space-between" w="25%">
         {desktopButtons.map(({ key, enabled, ...props }) => (
           <NavigationBarButton
@@ -118,12 +120,14 @@ const MobileNavigationBar = ({
         px={4}
         py={2}
       >
-        <HStack space={4}>
-          <POILogo size={10} />
-          <Text fontSize="md" color="greenColor.600" bold>
-            {t(keys.main.poi)}
-          </Text>
-        </HStack>
+        <Pressable onPress={redirectToHome}>
+          <HStack space={4}>
+            <POILogo size={10} />
+            <Text fontSize="md" color="greenColor.600" bold>
+              {t(keys.main.poi)}
+            </Text>
+          </HStack>
+        </Pressable>
         <LanguageSelect />
       </HStack>
       {!hideBottomBar && (
