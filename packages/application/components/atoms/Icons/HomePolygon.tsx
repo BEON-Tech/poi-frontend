@@ -14,9 +14,9 @@ const polygonImages: any = {
   homePolygonResp: HomePolygonResp,
 }
 
-const Corner = ({ polygon, ...props }: IPolygonIconProps) => (
+const HomePolygon = ({ polygon, ...props }: IPolygonIconProps) => (
   <Image
-    alt="HomeCorner"
+    alt="HomePolygon"
     source={{
       uri: polygonImages[polygon].src,
     }}
@@ -25,4 +25,4 @@ const Corner = ({ polygon, ...props }: IPolygonIconProps) => (
   />
 )
 
-export default Corner
+export default HomePolygon

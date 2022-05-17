@@ -16,7 +16,7 @@ const cornerImages: any = {
   corner2Small: HomeCorner2Small,
 }
 
-const Corner = ({ iconPosition, ...props }: ICornerIconProps) => (
+const HomeCorner = ({ iconPosition, ...props }: ICornerIconProps) => (
   <Image
     alt="HomeCorner"
     source={{
@@ -27,4 +27,4 @@ const Corner = ({ iconPosition, ...props }: ICornerIconProps) => (
   />
 )
 
-export default Corner
+export default HomeCorner

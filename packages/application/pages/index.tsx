@@ -1,35 +1,15 @@
 import type { NextPage } from 'next'
-import Image from 'next/image'
-import {
-  useBreakpointValue,
-  Box,
-  Stack,
-  ZStack,
-  VStack,
-  Heading,
-  Button,
-  Text,
-} from 'native-base'
+import { Box, Stack, ZStack, VStack, Heading, Button, Text } from 'native-base'
 
 import { useTranslation } from 'react-i18next'
 import { keys } from '@i18n'
 
 import { SecondaryLayout } from '@components/templates'
 import { NavigationBar, Footer } from '@components/organisms'
-import { HomeCorner, HomePolygon } from '@components/atoms/Icons'
-import home_photo1 from '@assets/images/home_photo1.svg'
-import home_photo2 from '@assets/images/home_photo2.svg'
-import home_polygon1 from '@assets/images/home_polygon1.svg'
-import home_polygon2 from '@assets/images/home_polygon2.svg'
-import home_polygon_resp from '@assets/images/home_polygon_resp.svg'
+import { HomeCorner, HomePolygon, HomePhotoIcon } from '@components/atoms/Icons'
 
 const Home: NextPage = () => {
-  const v1 = useBreakpointValue({
-    base: 252,
-    lg: 324,
-  })
   const { t } = useTranslation()
-
   return (
     <SecondaryLayout>
       <NavigationBar />
@@ -90,12 +70,22 @@ const Home: NextPage = () => {
           display={{ base: 'none', lg: 'block' }}
           iconPosition="corner2Big"
         />
-        <Box top="20" left="0" display={{ base: 'none', lg: 'block' }}>
-          <Image src={home_polygon1} height={50} />
-        </Box>
-        <Box bottom="22rem" right="0" display={{ base: 'block', lg: 'none' }}>
-          <Image src={home_polygon_resp} height={100} />
-        </Box>
+        <HomePolygon
+          top={16}
+          left={-24}
+          w={54}
+          h={53}
+          display={{ base: 'none', lg: 'block' }}
+          polygon="homePolygon1"
+        />
+        <HomePolygon
+          bottom="22rem"
+          right={0}
+          w={73}
+          h={94}
+          display={{ base: 'block', lg: 'none' }}
+          polygon="homePolygonResp"
+        />
         <HomeCorner
           top={0}
           width="100%"
@@ -124,9 +114,12 @@ const Home: NextPage = () => {
             space={5}
             px={{ base: 5, lg: 10 }}
           >
-            <Box px={{ base: '0', lg: '0' }}>
-              <Image src={home_polygon1} height={50} />
-            </Box>
+            <HomePolygon
+              px={{ base: '0', lg: '0' }}
+              w={54}
+              h={53}
+              polygon="homePolygon1"
+            />
             <Box w={{ base: 'full', lg: '95%' }}>
               <Text fontSize="5xl" fontWeight="600" color="text.900" pb="2">
                 {t(keys.home.withPOI)}
@@ -140,32 +133,35 @@ const Home: NextPage = () => {
           </Stack>
         </Stack>
         <Stack direction="row" position="relative">
-          <Box
+          <HomePolygon
             position="absolute"
             bottom={{ base: '8rem', lg: '5rem' }}
             left={{ base: '20rem', lg: '2rem' }}
-          >
-            <Image src={home_polygon2} height={70} />
-          </Box>
-          <HomePolygon polygon="homePolygon2" />
-          <Box
+            w={73}
+            h={73}
+            polygon="homePolygon2"
+          />
+          <HomePolygon
             top={{ base: '2rem', lg: '-0.5rem' }}
             left={{ base: '4rem', lg: '10rem' }}
-          >
-            <Image src={home_polygon2} height={70} />
-          </Box>
-          <Box
+            w={70}
+            h={70}
+            polygon="homePolygon2"
+          />
+          <HomePhotoIcon
             top={{ base: '3.5rem', lg: '1rem' }}
             left={{ base: '-3rem', lg: '3rem' }}
-          >
-            <Image src={home_photo2} height={149} width={149} />
-          </Box>
-          <Box
+            h={149}
+            w={149}
+            photo="homePhoto1"
+          />
+          <HomePhotoIcon
             bottom={{ base: '-11rem', lg: '2rem' }}
             left={{ base: '-2rem', lg: '6rem' }}
-          >
-            <Image src={home_photo1} height={v1} width={v1} />
-          </Box>
+            h={{ base: 252, lg: 324 }}
+            w={{ base: 252, lg: 324 }}
+            photo="homePhoto2"
+          />
         </Stack>
       </Stack>
       <Footer />
