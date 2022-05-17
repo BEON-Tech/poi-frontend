@@ -16,14 +16,11 @@ import { keys } from '@i18n'
 
 import { SecondaryLayout } from '@components/templates'
 import { NavigationBar, Footer } from '@components/organisms'
+import { HomeCorner, HomePolygon } from '@components/atoms/Icons'
 import home_photo1 from '@assets/images/home_photo1.svg'
 import home_photo2 from '@assets/images/home_photo2.svg'
-import home_corner1 from '@assets/images/home_corner1.svg'
-import home_corner2 from '@assets/images/home_corner2.svg'
 import home_polygon1 from '@assets/images/home_polygon1.svg'
 import home_polygon2 from '@assets/images/home_polygon2.svg'
-import home_corner1_resp from '@assets/images/home_corner1_resp.svg'
-import home_corner2_resp from '@assets/images/home_corner2_resp.svg'
 import home_polygon_resp from '@assets/images/home_polygon_resp.svg'
 
 const Home: NextPage = () => {
@@ -76,24 +73,43 @@ const Home: NextPage = () => {
             {t(keys.home.donate)}
           </Button>
         </VStack>
-        <Box right="-40" display={{ base: 'none', lg: 'block' }}>
-          <Image src={home_corner1} height={400} />
-        </Box>
-        <Box bottom="-5" right="40" display={{ base: 'none', lg: 'block' }}>
-          <Image src={home_corner2} height={100} />
-        </Box>
+        <HomeCorner
+          right={0}
+          w={130}
+          h="100%"
+          zIndex={-1}
+          display={{ base: 'none', lg: 'block' }}
+          iconPosition="corner1Big"
+        />
+        <HomeCorner
+          bottom={0}
+          right={140}
+          w={483}
+          h={85}
+          zIndex={-1}
+          display={{ base: 'none', lg: 'block' }}
+          iconPosition="corner2Big"
+        />
         <Box top="20" left="0" display={{ base: 'none', lg: 'block' }}>
           <Image src={home_polygon1} height={50} />
         </Box>
         <Box bottom="22rem" right="0" display={{ base: 'block', lg: 'none' }}>
           <Image src={home_polygon_resp} height={100} />
         </Box>
-        <Box top="0" left="0" display={{ base: 'block', lg: 'none' }}>
-          <Image src={home_corner1_resp} height={250} width={1000} />
-        </Box>
-        <Box top="0" left="0" display={{ base: 'block', lg: 'none' }}>
-          <Image src={home_corner2_resp} height={150} width={1000} />
-        </Box>
+        <HomeCorner
+          top={0}
+          width="100%"
+          height={24}
+          display={{ base: 'block', lg: 'none' }}
+          iconPosition="corner1Small"
+        />
+        <HomeCorner
+          top={0}
+          w="100%"
+          h={20}
+          display={{ base: 'block', lg: 'none' }}
+          iconPosition="corner2Small"
+        />
       </ZStack>
       <Stack
         direction={{ base: 'column', lg: 'row' }}
@@ -131,6 +147,7 @@ const Home: NextPage = () => {
           >
             <Image src={home_polygon2} height={70} />
           </Box>
+          <HomePolygon polygon="homePolygon2" />
           <Box
             top={{ base: '2rem', lg: '-0.5rem' }}
             left={{ base: '4rem', lg: '10rem' }}
