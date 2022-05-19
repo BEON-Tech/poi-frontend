@@ -7,6 +7,7 @@ import { keys } from '@i18n'
 import { SecondaryLayout } from '@components/templates'
 import { NavigationBar, Footer } from '@components/organisms'
 import { HomeCorner, HomePolygon, HomePhotoIcon } from '@components/atoms/Icons'
+import { MAX_WIDTH } from '@constants'
 
 const Home: NextPage = () => {
   const { t } = useTranslation()
@@ -22,12 +23,13 @@ const Home: NextPage = () => {
         mb={{ base: '20', lg: '20' }}
       >
         <VStack
+          maxW={MAX_WIDTH}
+          h="100%"
           pt={{ base: '5', lg: '10' }}
           pb="10"
           px={{ base: '5', lg: '16' }}
-          h="full"
+          alignSelf="center"
           alignItems="start"
-          w="full"
         >
           <Heading
             fontWeight="600"
@@ -102,10 +104,11 @@ const Home: NextPage = () => {
         />
       </ZStack>
       <Stack
-        direction={{ base: 'column', lg: 'row' }}
-        maxW="full"
-        space={0}
+        maxW={MAX_WIDTH}
         h={{ base: '90vh', lg: 'full' }}
+        alignSelf="center"
+        direction={{ base: 'column', lg: 'row' }}
+        space={0}
       >
         <Stack w={{ base: '100%', lg: '50%' }} justifyContent="start">
           <Stack

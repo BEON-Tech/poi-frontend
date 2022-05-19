@@ -74,4 +74,6 @@ export const PoHMethods = {
   isRegistered: { name: 'isRegistered' },
 }
 
+export const MAX_WIDTH = '1512px'
+
 export * from './routes.constants'
