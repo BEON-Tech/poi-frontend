@@ -37,9 +37,9 @@ const Footer = () => {
   const { t } = useTranslation()
 
   return (
-    <View bg="general.100" w="100%">
+    <View bg="background.100" w="100%">
       <Container>
-        <HStack bg="general.100" px="80px" pt="40px" pb="51px" w="100%">
+        <HStack bg="background.100" px="80px" pt="40px" pb="51px" w="100%">
           <VStack flex="1">
             <View width="84px" height="84px">
               <POILogo />
