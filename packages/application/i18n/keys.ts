@@ -41,6 +41,11 @@ const rawKeys = {
     withPOI: 'withPOI',
     whitepaper: 'whitepaper',
   },
+  footer: {
+    title: 'title',
+    subtitle: 'subtitle',
+    disclaimer: 'disclaimer',
+  },
 }
 
 export type LanguageKeys = typeof rawKeys

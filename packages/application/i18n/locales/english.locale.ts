@@ -47,6 +47,11 @@ const keys: LanguageKeys = {
     withPOI: 'With POI, your donations go to the right hands.',
     whitepaper: 'Check Our Whitepaper',
   },
+  footer: {
+    title: 'Proof Of Integrity',
+    subtitle: 'Proof Of Integrity is a nonprofit project.',
+    disclaimer: 'Designed by Latin American talent at BEON Tech Studio',
+  },
 }
 
 export default keys

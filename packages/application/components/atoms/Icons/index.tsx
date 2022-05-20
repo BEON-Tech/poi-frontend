@@ -1,6 +1,5 @@
 export { default as DollarSignIcon } from './DollarSignIcon'
 export { default as HandShakeIcon } from './HandShakeIcon'
-export { default as TwitterIcon } from './twitterIcon'
 export { default as AlertIcon } from './AlertIcon'
 export { default as CloseIcon } from './CloseIcon'
 export { default as Corner } from './Corner'
@@ -18,3 +17,8 @@ export { default as DaiIcon } from './DaiIcon'
 export { default as UsdtIcon } from './UsdtIcon'
 export { default as UsdcIcon } from './UsdcIcon'
 export { default as WbtcIcon } from './WbtcIcon'
+export { default as TwitterIcon } from './TwitterIcon'
+export { default as LinkedInIcon } from './LinkedInIcon'
+export { default as MailIcon } from './MailIcon'
+
+
