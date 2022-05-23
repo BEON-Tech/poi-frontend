@@ -39,18 +39,25 @@ const Footer = () => {
   return (
     <View bg="background.100" w="100%">
       <Container>
-        <HStack bg="background.100" px="80px" pt="40px" pb="51px" w="100%">
-          <VStack flex="1">
+        <HStack
+          bg="background.100"
+          px="80px"
+          pt="40px"
+          pb="51px"
+          mb={{ base: 32, lg: 0 }}
+          w="100%"
+        >
+          <VStack flex="1" display="flex" alignItems="flex-start">
             <View width="84px" height="84px">
               <POILogo />
             </View>
-            <Text mt="18px" fontWeight="bold">
+            <Text mt="18px" fontSize="lg" fontWeight="bold">
               {t(keys.footer.title)}
             </Text>
             <Text mt="11px" fontSize="xs" color="general.400" opacity="50%">
               {t(keys.footer.subtitle)}
             </Text>
-            <HStack mt="52px">
+            <HStack mt="50px">
               {socialButtons.map(
                 ({ name, Icon, onPress: onIconPress, ...props }) => (
                   <IconButton
@@ -66,13 +73,17 @@ const Footer = () => {
             </HStack>
           </VStack>
           {isDesktop && (
-            <VStack flex="3" h="100%">
-              <View justifySelf="flex-end" alignSelf="flex-end" mt="140px">
-                <Text fontSize="xs" color="general.400" opacity="50%">
-                  {t(keys.footer.disclaimer)}
-                </Text>
-              </View>
-            </VStack>
+            <HStack flex="1" h="100%" alignSelf="flex-end">
+              <Text
+                fontSize="xs"
+                color="general.400"
+                opacity="50%"
+                w="100%"
+                textAlign="right"
+              >
+                {t(keys.footer.disclaimer)}
+              </Text>
+            </HStack>
           )}
         </HStack>
       </Container>
