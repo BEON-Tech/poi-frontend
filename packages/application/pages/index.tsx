@@ -1,9 +1,8 @@
 import type { NextPage } from 'next'
 import { Box, Stack, ZStack, VStack, Heading, Button, Text } from 'native-base'
-
 import { useTranslation } from 'react-i18next'
+import { useRouter } from 'next/router'
 import { keys } from '@i18n'
-
 import { SecondaryLayout } from '@components/templates'
 import { NavigationBar, Footer } from '@components/organisms'
 import { HomeCorner, HomePolygon, HomePhotoIcon } from '@components/atoms/Icons'
@@ -11,6 +10,10 @@ import { MAX_WIDTH } from '@constants'
 
 const Home: NextPage = () => {
   const { t } = useTranslation()
+  const router = useRouter()
+  const goToDonate = () => {
+    router.push('/donate')
+  }
   return (
     <SecondaryLayout>
       <NavigationBar />
@@ -52,6 +55,7 @@ const Home: NextPage = () => {
             w={{ base: 'full', lg: '140' }}
             _text={{ fontSize: '2xl' }}
             py="7"
+            onPress={goToDonate}
           >
             {t(keys.home.donate)}
           </Button>
