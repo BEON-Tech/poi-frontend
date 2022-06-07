@@ -1,10 +1,10 @@
 import type { NextPage } from 'next'
 import { Box, Stack, ZStack, VStack, Heading, Button, Text } from 'native-base'
-import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
+import { useTranslation } from 'react-i18next'
 import { keys } from '@i18n'
 import { SecondaryLayout } from '@components/templates'
-import { NavigationBar, Footer } from '@components/organisms'
+import { NavigationBar, Footer, PublicAuditSection } from '@components/organisms'
 import { HomeCorner, HomePolygon, HomePhotoIcon } from '@components/atoms/Icons'
 import { MAX_WIDTH } from '@constants'
 
@@ -108,6 +108,7 @@ const Home: NextPage = () => {
           iconPosition="corner2Small"
         />
       </ZStack>
+      <PublicAuditSection />
       <Stack
         maxW={MAX_WIDTH}
         w="100%"

@@ -52,6 +52,35 @@ const keys: LanguageKeys = {
     subtitle: 'Proof Of Integrity es un proyecto sin fines de lucro',
     disclaimer: 'Diseñado por talento latinoamericano en BEON Tech Studio',
   },
+  publicAudit: {
+    title: 'Auditoría pública',
+    noDataTitle: 'En breve!',
+    noDataText: ' Nuestro programa piloto tiene fecha de comienzo el ',
+    noDataDate: '3 de mayo.',
+    moreDetails: 'Más Detalles',
+    comingSoonTitle: 'En breve',
+    certificationsTable: {
+      title: 'Últimas Certificaciones',
+      applicantColumn: 'Solicitud',
+      dateColumn: 'Fecha',
+      detailsColumn: 'Detalles',
+      seeMore: '+Ver todas las certificaciones',
+    },
+    donationsTable: {
+      title: 'Últimas Transacciones',
+      amountColumn: 'Cantidad',
+      typeColumn: 'Tipo',
+      etherscanColumn: 'Detalles',
+      seeMore: '+Ver todas las transacciones',
+    },
+  },
+  transactions: {
+    administrativeExpenses: 'Gastos administrativos',
+    donation: 'Donación',
+    pohFunding: 'Fondeo para PoH',
+    certifierPayment: 'Pago a certificador',
+    genericTransaction: 'Transacción',
+  },
 }
 
 export default keys

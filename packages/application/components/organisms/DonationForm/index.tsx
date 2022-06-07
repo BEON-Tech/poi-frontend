@@ -27,7 +27,7 @@ import {
   transfer,
   waitTransaction,
 } from '@services/contracts/tx.contract'
-import { registerDonationTransacion } from '@services/poiApi'
+import { registerDonationTransacion } from '@services/API'
 import config from '@config'
 
 const TriggerMenu = ({ tokenIcon, menuOpen, ...triggerProps }: any) => (
