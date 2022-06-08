@@ -11,22 +11,32 @@ const PentagonBulletedTitle = ({
   polygonName,
   title,
   ...props
-}: IPentagonBulletedTitle) => (
-  <Flex
-    flexDirection="row"
-    alignItems="center"
-    justifyContent="center"
-    {...props}
-  >
-    <HomePolygon mr={{ base: 8, lg: 12 }} w={54} h={53} polygon={polygonName} />
-    <Heading
-      fontWeight="600"
-      color="text.900"
-      fontSize={{ base: '4xl', lg: '6xl' }}
+}: IPentagonBulletedTitle) => {
+  const polygonWidth = 54
+
+  return (
+    <Flex
+      flexDirection="row"
+      alignItems="center"
+      justifyContent="center"
+      {...props}
+      mr={{ base: polygonWidth, lg: polygonWidth * 2 }}
     >
-      {title}
-    </Heading>
-  </Flex>
-)
+      <HomePolygon
+        mr={{ base: 6, lg: polygonWidth }}
+        w={polygonWidth}
+        h={polygonWidth - 1}
+        polygon={polygonName}
+      />
+      <Heading
+        fontWeight="600"
+        color="text.900"
+        fontSize={{ base: '4xl', lg: '6xl' }}
+      >
+        {title}
+      </Heading>
+    </Flex>
+  )
+}
 
 export default PentagonBulletedTitle
