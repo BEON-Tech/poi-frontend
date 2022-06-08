@@ -322,6 +322,16 @@ const lightTheme = extendTheme({
     orangeColor: {
       900: '#E7BB41',
     },
+    general: {
+      900: '#000000',
+      800: '#2D2D2D',
+      500: '#D0D0D0',
+      400: '#1F1939',
+      300: '#C4C4C4',
+      200: '#E1E1E1',
+      100: '#F2E4E3',
+      50: '#FFFFFF',
+    },
   },
 })
 

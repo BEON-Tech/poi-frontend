@@ -33,6 +33,48 @@ const rawKeys = {
     continueHelping: 'continueHelping',
     goBackToHome: 'goBackToHome',
   },
+  home: {
+    heading: 'heading',
+    weLoveTo: 'weLoveTo',
+    humansInNeed: 'humansInNeed',
+    donate: 'donate',
+    withPOI: 'withPOI',
+    whitepaper: 'whitepaper',
+  },
+  footer: {
+    title: 'title',
+    subtitle: 'subtitle',
+    disclaimer: 'disclaimer',
+  },
+  publicAudit: {
+    title: 'title',
+    moreDetails: 'moreDetails',
+    noDataTitle: 'noDataTitle',
+    noDataText: 'noDataText',
+    noDataDate: 'noDataDate',
+    comingSoonTitle: 'comingSoonTitle',
+    certificationsTable: {
+      title: 'title',
+      applicantColumn: 'applicantColumn',
+      dateColumn: 'dateColumn',
+      detailsColumn: 'detailsColumn',
+      seeMore: 'seeMore',
+    },
+    donationsTable: {
+      title: 'title',
+      amountColumn: 'amountColumn',
+      typeColumn: 'typeColumn',
+      etherscanColumn: 'etherscanColumn',
+      seeMore: 'seeMore',
+    },
+  },
+  transactions: {
+    administrativeExpenses: 'administrativeExpenses',
+    donation: 'donation',
+    pohFunding: 'pohFunding',
+    certifierPayment: 'certifierPayment',
+    genericTransaction: 'genericTransaction',
+  },
 }
 
 export type LanguageKeys = typeof rawKeys

@@ -74,4 +74,12 @@ export const PoHMethods = {
   isRegistered: { name: 'isRegistered' },
 }
 
+export const MAX_WIDTH = '1512px'
+
+export const EXPENSE_TYPE = 'administrativeExpenses' as const
+export const DONATION_TYPE = 'donation' as const
+export const POH_FUNDING_TYPE = 'pohFunding' as const
+export const CERTIFIER_PAYMENT_TYPE = 'certifierPayment' as const
+export const GENERIC_TYPE = 'transaction' as const 
+
 export * from './routes.constants'
