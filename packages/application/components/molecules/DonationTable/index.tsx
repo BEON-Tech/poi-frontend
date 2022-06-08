@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
+import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 import { keys } from '@i18n'
 import {
@@ -17,17 +18,16 @@ export interface IDonationTableProps {
 
 interface IDonationTableBareProps {
   data: DonationData['data']
-  hasMore: boolean
   loading: boolean
 }
 
 const DonationTableBare = ({
   data,
-  hasMore,
   loading,
 }: IDonationTableBareProps) => {
   const { isDesktop } = useBreakpoint()
   const { t } = useTranslation()
+  const router = useRouter()
 
   const extendedData = useMemo(
     () =>
@@ -39,11 +39,15 @@ const DonationTableBare = ({
     [data, isDesktop]
   )
 
+  const seeMoreAction = () => {
+    router.push('/publicaudit')
+  }
+
   return (
     <GenericTable
       footerTitle={t(keys.publicAudit.donationsTable.seeMore)}
+      seeMoreAction={seeMoreAction}
       data={extendedData}
-      hasMore={hasMore}
       loading={loading}
       renderItem={DonationTableCell}
       ListHeaderComponent={DonationTableHeader}
@@ -54,7 +58,6 @@ const DonationTableBare = ({
 const DonationTable = ({ loadData }: IDonationTableProps) => {
   const { t } = useTranslation()
   const [data, setData] = useState<any>([])
-  const [hasMore, setHasMore] = useState(false)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -66,12 +69,11 @@ const DonationTable = ({ loadData }: IDonationTableProps) => {
           detailsLabel: t(keys.publicAudit.moreDetails),
         }))
       )
-      setHasMore(newData.hasMore)
       setLoading(false)
     })()
   }, [])
 
-  return <DonationTableBare data={data} hasMore={hasMore} loading={loading} />
+  return <DonationTableBare data={data} loading={loading} />
 }
 
 export default DonationTable

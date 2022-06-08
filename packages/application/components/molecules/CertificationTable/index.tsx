@@ -1,4 +1,5 @@
 import { useMemo, useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 import { keys } from '@i18n'
 import { Text } from 'native-base'
@@ -18,17 +19,20 @@ export interface ICertificationTableProps {
 
 interface ICertificationTableBareProps {
   data: CertificationData['data']
-  hasMore: boolean
-  loading: boolean
+  loading: boolean,
 }
 
 const CertificationTableBare = ({
   data,
-  hasMore,
   loading,
 }: ICertificationTableBareProps) => {
   const { isDesktop } = useBreakpoint()
   const { t } = useTranslation()
+  const router = useRouter()
+
+  const seeMoreAction = () => {
+    router.push('/publicaudit')
+  }
 
   const extendedData = useMemo(
     () => data.map((item) => ({ ...item, collapsed: !isDesktop })),
@@ -39,8 +43,8 @@ const CertificationTableBare = ({
     <GenericTable
       footerTitle={t(keys.publicAudit.certificationsTable.seeMore)}
       data={extendedData}
-      hasMore={hasMore}
       loading={loading}
+      seeMoreAction={seeMoreAction}
       extraData={{ isCollapsed: isDesktop }}
       renderItem={CertificationTableCell}
       ListHeaderComponent={CertificationTableHeader}
@@ -51,7 +55,6 @@ const CertificationTableBare = ({
 const CertificationTable = ({ loadData }: ICertificationTableProps) => {
   const { t } = useTranslation()
   const [data, setData] = useState<any>([])
-  const [hasMore, setHasMore] = useState(false)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -63,7 +66,6 @@ const CertificationTable = ({ loadData }: ICertificationTableProps) => {
           detailsLabel: t(keys.publicAudit.moreDetails),
         }))
       )
-      setHasMore(newData.hasMore)
       setLoading(false)
     })()
   }, [])
@@ -79,7 +81,7 @@ const CertificationTable = ({ loadData }: ICertificationTableProps) => {
   ) */
 
   return false ? (
-    <CertificationTableBare data={data} hasMore={hasMore} loading={loading} />
+    <CertificationTableBare data={data} loading={loading} />
   ) : (
     <Text mt={{ lg: '50px' }} fontSize={18} alignSelf="flex-start">
       <Text color="greenColor.900">{t(keys.publicAudit.noDataTitle)}</Text>
