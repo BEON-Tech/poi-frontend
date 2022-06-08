@@ -47,7 +47,7 @@ const ComingSoon = ({ Component, rightPlacement }: IComingSoonProps) => {
             alignItems="center"
             justifyContent="center"
           >
-            <Text color="primary.500" fontSize="xs">
+            <Text color="green.900" fontSize="xs">
               {t(keys.publicAudit.comingSoonTitle)}
             </Text>
           </HStack>

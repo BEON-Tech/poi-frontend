@@ -6,23 +6,20 @@ import { CertificationTable, DonationTable } from '@components/molecules'
 import { API } from '@services'
 import { BulletedTitle } from '@components/atoms'
 import { Container } from '@components/templates'
-import { useBreakpoint } from '@hooks'
 
 const PublicAuditSection = () => {
-  const { isDesktop } = useBreakpoint()
   const { t } = useTranslation()
 
   useEffect(() => {}, [])
 
   return (
-    <Container>
-      <VStack
-        px={{ base: '20px', lg: '80px' }}
-        pt="150px"
-      >
+    <Container
+      mt={{ base: '0', lg: '50px' }}
+      mb={{ base: '80px', lg: '200px' }}
+    >
+      <VStack px={{ base: '20px', lg: '80px' }}>
         <BulletedTitle
-          pl="30px"
-          separation={isDesktop ? 60 : 30}
+          polygonName="homePolygon1"
           title={t(keys.publicAudit.title)}
         />
         <Flex mt="43px" flexDirection={{ base: 'column', lg: 'row' }} w="100%">
@@ -30,8 +27,9 @@ const PublicAuditSection = () => {
             flex={{ base: 'unset', lg: '1' }}
             pr={{ base: '0', lg: '20px' }}
             maxW={{ base: '100%', lg: '50%' }}
+            justifyContent="flex-start"
           >
-            <Text mb="28px">
+            <Text mb="28px" alignSelf="flex-start" fontSize={18}>
               {t(keys.publicAudit.certificationsTable.title)}
             </Text>
             <CertificationTable loadData={API.getLatestCertifications as any} />
@@ -41,8 +39,11 @@ const PublicAuditSection = () => {
             pl={{ base: 0, lg: '36px' }}
             pt={{ base: '36px', lg: 0 }}
             maxW={{ base: '100%', lg: '50%' }}
+            justifyContent="flex-start"
           >
-            <Text mb="28px">{t(keys.publicAudit.donationsTable.title)}</Text>
+            <Text mb="28px" alignSelf="flex-start" fontSize={18}>
+              {t(keys.publicAudit.donationsTable.title)}
+            </Text>
             <DonationTable loadData={API.getLatestDonations as any} />
           </VStack>
         </Flex>

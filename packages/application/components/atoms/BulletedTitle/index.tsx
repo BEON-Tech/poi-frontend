@@ -1,36 +1,32 @@
 import { Flex, Heading, IFlexProps } from 'native-base'
-
-const SEPARATION_VALUE = 60
-// const imageSize = 55.23
+import { HomePolygon } from '@components/atoms'
 
 export interface IPentagonBulletedTitle extends IFlexProps {
+  polygonName: string
   title: string
   separation?: number
 }
 
 const PentagonBulletedTitle = ({
+  polygonName,
   title,
-  separation = SEPARATION_VALUE,
   ...props
-}: IPentagonBulletedTitle) => {
-  const ml = `${separation}px`
-
-  return (
-    <Flex
-      flexDirection="row"
-      alignItems={{ base: 'flex-start', lg: 'center' }}
-      justifyContent="center"
-      {...props}
+}: IPentagonBulletedTitle) => (
+  <Flex
+    flexDirection="row"
+    alignItems="center"
+    justifyContent="center"
+    {...props}
+  >
+    <HomePolygon mr={{ base: 8, lg: 12 }} w={54} h={53} polygon={polygonName} />
+    <Heading
+      fontWeight="600"
+      color="text.900"
+      fontSize={{ base: '4xl', lg: '6xl' }}
     >
-      <Heading
-        ml={ml}
-        textAlign={{ base: 'start', lg: 'center' }}
-        size={{ base: '6xl', lg: '4xl' }}
-      >
-        {title}
-      </Heading>
-    </Flex>
-  )
-}
+      {title}
+    </Heading>
+  </Flex>
+)
 
 export default PentagonBulletedTitle

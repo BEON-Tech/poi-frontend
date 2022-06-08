@@ -32,6 +32,7 @@ const Footer = ({ title, enabled }: IFooterProps) => (
   >
     <ComingSoon
       rightPlacement
+      // eslint-disable-next-line react/no-unstable-nested-components
       Component={(props) => (
         <Button
           variant="link"
@@ -70,6 +71,7 @@ const GenericTable = ({
         width: '100%',
         maxHeight: '533px',
       }}
+      w='100%'
       extraData={extraData}
       ListHeaderComponent={ListHeaderComponent}
       keyExtractor={(item) => item.id}

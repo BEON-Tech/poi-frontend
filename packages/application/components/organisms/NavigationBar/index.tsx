@@ -88,7 +88,7 @@ const MobileNavigationBar = ({
     {
       title: t(keys.navigatonBar.home),
       Icon: HomeIcon,
-      key: 'home',
+      key: '/',
       enabled: true,
     },
     {
@@ -162,11 +162,7 @@ const NavigationBar = ({ hideBottomBar = false }: INavigationBarProps) => {
   const { isDesktop } = useBreakpoint()
   const activeItem = router.pathname
   const onNavigate = (newRoute: string) => {
-    if (newRoute !== 'home') {
-      router.push(newRoute)
-    } else {
-      redirectToHome()
-    }
+    router.push(newRoute)
   }
   return isDesktop ? (
     <DesktopNavigationBar activeItem={activeItem} onNavigate={onNavigate} />
