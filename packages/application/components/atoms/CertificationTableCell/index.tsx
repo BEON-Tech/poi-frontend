@@ -59,10 +59,10 @@ const CertificationCell = ({ item }: ICertificationCellProps) => {
         </View>
       </HStack>
       <VStack flex="1" justifyContent="flex-start">
-        <Text fontWeight="semibold" fontSize="md">
+        <Text fontSize={14}>
           {dateFormatted}
         </Text>
-        <Text fontWeight="semibold" fontSize="sm">
+        <Text fontSize={14}>
           {timeFormatted}
         </Text>
         {collapsed && (

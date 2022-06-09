@@ -153,21 +153,22 @@ const lightTheme = extendTheme({
         link: {
           bgColor: 'transparent',
           _text: {
-            color: 'greenColor.900',
+            color: 'primary.600',
             fontSize: 'md',
             margin: 0,
             padding: 0,
-            textDecorationLine: 'underline',
-            fontWeight: '600',
+            textDecorationLine: 'none',
+            fontWeight: '500',
           },
           _hover: {
             _text: {
-              color: 'greenColor.800',
+              color: 'general.900',
+              textDecorationLine: 'underline',
             },
           },
           _pressed: {
             _text: {
-              color: 'greenColor.700',
+              color: 'general.900',
             },
           },
         },
