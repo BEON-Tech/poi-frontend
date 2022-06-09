@@ -37,10 +37,10 @@ const DonationTableCell = ({ item }: IDonationTableCellProps) => {
       h="123px"
     >
       <View flex="1" borderRadius="20px" justifyContent="flex-start">
-        <Text fontSize="xl">{item.amount}</Text>
+        <Text fontSize={{ base: 'xl', lg: 30 }}>{item.amount}</Text>
       </View>
-      <VStack flex="1" justifyContent="flex-start">
-        <Text fontSize="sm" fontWeight="bold">
+      <VStack flex="1" alignItems="flex-start">
+        <Text fontSize={14} fontWeight="bold">
           {item.type}
         </Text>
         {collapsed && <MoreDetails item={item} />}

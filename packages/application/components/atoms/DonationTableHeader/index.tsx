@@ -18,14 +18,14 @@ const DonationTableHeader = () => {
       borderBottomColor="general.100"
     >
       <HStack flex="1" alignItems="center" justifyContent="flex-start">
-        <Text>{t(keys.publicAudit.donationsTable.amountColumn)}</Text>
+        <Text fontSize={18} fontWeight={400}>{t(keys.publicAudit.donationsTable.amountColumn)}</Text>
       </HStack>
       <HStack flex="1" alignItems="center" justifyContent="flex-start">
-        <Text>{t(keys.publicAudit.donationsTable.typeColumn)}</Text>
+        <Text fontSize={18} fontWeight={400}>{t(keys.publicAudit.donationsTable.typeColumn)}</Text>
       </HStack>
       {isDesktop && (
         <HStack flex="1" alignItems="center" justifyContent="flex-start">
-          <Text>{t(keys.publicAudit.donationsTable.etherscanColumn)}</Text>
+          <Text fontSize={18} fontWeight={400}>{t(keys.publicAudit.donationsTable.etherscanColumn)}</Text>
         </HStack>
       )}
     </HStack>
