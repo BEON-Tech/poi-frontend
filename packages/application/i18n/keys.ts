@@ -70,6 +70,7 @@ const rawKeys = {
       dateColumn: 'dateColumn',
       addressColumn: 'addressColumn',
       seeMore: 'seeMore',
+      openBlockchainExplorer: 'openBlockchainExplorer'
     },
   },
   transactions: {

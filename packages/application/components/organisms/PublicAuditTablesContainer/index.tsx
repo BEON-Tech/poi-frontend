@@ -5,10 +5,11 @@ import { keys } from '@i18n'
 import { FullTransactionsTable } from '@components/molecules'
 import { PublicAuditOptionButton } from '@components/atoms'
 import { MAX_WIDTH } from '@constants'
+import FullCertificationsTable from '@components/molecules/FullCertificationsTable'
 
 const PublicAuditTablesContainer = () => {
   const { t } = useTranslation()
-  const [optionSelected, setOptionSelected] = useState(0)
+  const [optionSelected, setOptionSelected] = useState(1)
   const [countResults, setCountResults] = useState('345 transactions')
 
   const options = [
@@ -24,6 +25,10 @@ const PublicAuditTablesContainer = () => {
 
   const onOptionSelected = (id: number) => {
     setOptionSelected(id)
+
+    // Remove this line
+    setCountResults(id === 0 ? '238 certifications' : '345 transactions')
+
     // TODO
   }
 
@@ -53,7 +58,11 @@ const PublicAuditTablesContainer = () => {
       <Text alignSelf="flex-start" my={6} ml={{ base: 4, lg: 0 }}>
         {countResults}
       </Text>
-      <FullTransactionsTable />
+      {optionSelected === 0 ? (
+        <FullCertificationsTable />
+      ) : (
+        <FullTransactionsTable />
+      )}
     </VStack>
   )
 }

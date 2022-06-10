@@ -76,6 +76,7 @@ const keys: LanguageKeys = {
       dateColumn: 'Fecha',
       addressColumn: 'Dirección',
       seeMore: '+Ver todas las transacciones',
+      openBlockchainExplorer: 'Abrir en Blockchain Explorer',
     },
   },
   transactions: {

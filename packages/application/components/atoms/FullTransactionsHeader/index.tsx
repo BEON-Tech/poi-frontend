@@ -6,11 +6,11 @@ const FullTransactionsHeader = () => {
   const { t } = useTranslation()
 
   const columns = [
-    t(keys.publicAudit.donationsTable.amountColumn),
-    t(keys.publicAudit.donationsTable.typeColumn),
-    t(keys.publicAudit.donationsTable.addressColumn),
-    t(keys.publicAudit.donationsTable.dateColumn),
-    t(keys.publicAudit.donationsTable.etherscanColumn),
+    { flex: 1, title: t(keys.publicAudit.donationsTable.amountColumn) },
+    { flex: 1, title: t(keys.publicAudit.donationsTable.typeColumn) },
+    { flex: 1, title: t(keys.publicAudit.donationsTable.addressColumn) },
+    { flex: 1, title: t(keys.publicAudit.donationsTable.dateColumn) },
+    { flex: 1, title: t(keys.publicAudit.donationsTable.etherscanColumn) },
   ]
 
   return <FullGenericHeader columns={columns} />
