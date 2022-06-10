@@ -209,6 +209,40 @@ const lightTheme = extendTheme({
             fontWeight: '500',
           },
         },
+        publicAuditOption: {
+          bgColor: 'transparent',
+          borderBottomWidth: '3px',
+          borderBottomColor: 'transparent',
+          _text: {
+            color: 'general.900',
+            fontSize: 'lg',
+            textDecorationLine: 'none',
+            fontWeight: 'light',
+          },
+          _hover: {
+            _text: {
+              fontWeight: 'semibold',
+            },
+            borderBottomColor: 'orangeColor.900',
+          },
+          _pressed: {
+            _text: {
+              fontWeight: 'semibold',
+            },
+            borderBottomColor: 'orangeColor.900',
+          },
+        },
+        publicAuditOptionActive: {
+          bgColor: 'transparent',
+          borderBottomWidth: '3px',
+          borderBottomColor: 'orangeColor.900',
+          _text: {
+            color: 'general.900',
+            fontSize: 'lg',
+            textDecorationLine: 'none',
+            fontWeight: 'semibold',
+          },
+        },
       },
     },
     Avatar: {

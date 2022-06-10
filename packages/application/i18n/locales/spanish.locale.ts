@@ -61,6 +61,7 @@ const keys: LanguageKeys = {
     comingSoonTitle: 'En breve',
     certificationsTable: {
       title: 'Últimas Certificaciones',
+      shortTitle: 'Certificaciones',
       applicantColumn: 'Solicitud',
       dateColumn: 'Fecha',
       detailsColumn: 'Detalles',
@@ -68,9 +69,12 @@ const keys: LanguageKeys = {
     },
     donationsTable: {
       title: 'Últimas Transacciones',
+      shortTitle: 'Transacciones',
       amountColumn: 'Cantidad',
       typeColumn: 'Tipo',
       etherscanColumn: 'Detalles',
+      dateColumn: 'Fecha',
+      addressColumn: 'Dirección',
       seeMore: '+Ver todas las transacciones',
     },
   },

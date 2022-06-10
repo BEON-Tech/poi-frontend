@@ -55,6 +55,7 @@ const rawKeys = {
     comingSoonTitle: 'comingSoonTitle',
     certificationsTable: {
       title: 'title',
+      shortTitle: 'shortTitle',
       applicantColumn: 'applicantColumn',
       dateColumn: 'dateColumn',
       detailsColumn: 'detailsColumn',
@@ -62,9 +63,12 @@ const rawKeys = {
     },
     donationsTable: {
       title: 'title',
+      shortTitle: 'shortTitle',
       amountColumn: 'amountColumn',
       typeColumn: 'typeColumn',
       etherscanColumn: 'etherscanColumn',
+      dateColumn: 'dateColumn',
+      addressColumn: 'addressColumn',
       seeMore: 'seeMore',
     },
   },
