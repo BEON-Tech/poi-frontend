@@ -180,7 +180,7 @@ const FullTransactionsTable = () => {
   ]
 
   return (
-    <VStack w="full" mt={4}>
+    <VStack w="full" mt={{ base: 0, lg: 4 }}>
       <FullTransactionsHeader />
       <FullTransactionsTableBody data={data} />
     </VStack>

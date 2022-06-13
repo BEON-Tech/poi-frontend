@@ -1,4 +1,4 @@
-import { Box, Button, HStack, Text } from 'native-base'
+import { Box, Button, HStack, Stack, Text } from 'native-base'
 import { useTranslation } from 'react-i18next'
 import { keys } from '@i18n'
 import { Transaction } from '@constants/types'
@@ -25,28 +25,42 @@ const FullTransactionsCell = ({ transaction }: IFullTransactionsCell) => {
   }
 
   return (
-    <HStack
+    <Stack
       w="full"
-      py={8}
+      px={{ base: 4, lg: 0 }}
+      py={{ base: 6, lg: 8 }}
       borderBottomColor="general.200"
       borderBottomWidth={0.5}
       justifyContent="flex"
+      direction={{ base: 'column', lg: 'row' }}
+      space={{ base: 2, lg: 0 }}
     >
-      <Text flex={1} color="general.900" fontWeight="bold">
-        {formatAmount()}
-      </Text>
+      <HStack flex={1}>
+        <Text
+          flex={1}
+          color="general.900"
+          fontSize={{ base: 'lg', lg: 'md' }}
+          fontWeight="bold"
+        >
+          {formatAmount()}
+        </Text>
+        <Text display={{ base: 'flex', lg: 'none' }}>{formatDate()}</Text>
+      </HStack>
       <Text flex={1} color="general.900">
         {t(keys.transactions[transaction.type])}
       </Text>
       <Box flex={1} color="general.900">
-        <Text w="80%" isTruncated>
+        <Text w={{ base: '60%', lg: '80%' }} isTruncated>
           {transaction.recipientAddress || '-'}
         </Text>
       </Box>
-      <Text flex={1}>{formatDate()}</Text>
+      <Text flex={1} display={{ base: 'none', lg: 'flex' }}>
+        {formatDate()}
+      </Text>
       <Button
         flex={1}
         variant="link"
+        mt={{ base: 2, lg: 0 }}
         p={0}
         justifyContent="flex-start"
         _text={{ fontSize: 16 }}
@@ -54,7 +68,7 @@ const FullTransactionsCell = ({ transaction }: IFullTransactionsCell) => {
       >
         {t(keys.publicAudit.donationsTable.openBlockchainExplorer)}
       </Button>
-    </HStack>
+    </Stack>
   )
 }
 

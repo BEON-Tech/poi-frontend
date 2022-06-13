@@ -1,20 +1,24 @@
+import { useBreakpoint } from '@hooks'
 import { HStack, Text } from 'native-base'
 
 interface IFullGenericHeader {
-  columns: Array<{flex: number, title: string}>
+  columns: Array<{ flex: number; title: string }>
 }
 
-const FullGenericHeader = ({ columns }: IFullGenericHeader) => (
-  <HStack
-    w="full"
-    pb={3}
-    borderBottomColor="general.200"
-    borderBottomWidth={0.5}
-  >
-    {columns.map((column) => (
-      <Text flex={column.flex}>{column.title}</Text>
-    ))}
-  </HStack>
-)
+const FullGenericHeader = ({ columns }: IFullGenericHeader) => {
+  const { isDesktop } = useBreakpoint()
+
+  return (
+    <HStack
+      w="full"
+      pb={{ base: 0, lg: 3 }}
+      borderBottomColor="general.200"
+      borderBottomWidth={0.5}
+    >
+      {isDesktop &&
+        columns.map((column) => <Text flex={column.flex}>{column.title}</Text>)}
+    </HStack>
+  )
+}
 
 export default FullGenericHeader
