@@ -30,8 +30,8 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
     { title: t(keys.navigatonBar.donate), key: '/donate', enabled: true },
     {
       title: t(keys.navigatonBar.publicAudit),
-      key: '/publicAudit',
-      enabled: false,
+      key: '/publicaudit',
+      enabled: true,
     },
   ]
   return (
@@ -100,8 +100,8 @@ const MobileNavigationBar = ({
     {
       title: t(keys.navigatonBar.publicAudit),
       Icon: PublicAuditIcon,
-      key: '/publicAudit',
-      enabled: false,
+      key: '/publicaudit',
+      enabled: true,
     },
     {
       title: t(keys.navigatonBar.wallet),
