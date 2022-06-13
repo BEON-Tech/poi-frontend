@@ -53,6 +53,8 @@ const rawKeys = {
     noDataText: 'noDataText',
     noDataDate: 'noDataDate',
     comingSoonTitle: 'comingSoonTitle',
+    first: 'first',
+    last: 'last',
     certificationsTable: {
       title: 'title',
       shortTitle: 'shortTitle',

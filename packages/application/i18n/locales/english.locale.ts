@@ -59,6 +59,8 @@ const keys: LanguageKeys = {
     noDataText: ' Our pilot program is aimed to start on ',
     noDataDate: 'May 3rd.',
     comingSoonTitle: 'Coming soon',
+    first: 'First',
+    last: 'Last',
     certificationsTable: {
       title: 'Latest Certifications',
       shortTitle: 'Certifications',

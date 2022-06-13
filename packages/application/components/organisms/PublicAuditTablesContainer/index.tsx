@@ -51,6 +51,7 @@ const PublicAuditTablesContainer = () => {
               title={option.title}
               isActive={optionSelected === option.id}
               onPress={onOptionSelected}
+              key={option.id}
             />
           ))}
         </HStack>

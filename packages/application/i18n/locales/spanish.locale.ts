@@ -59,6 +59,8 @@ const keys: LanguageKeys = {
     noDataDate: '3 de mayo.',
     moreDetails: 'Más Detalles',
     comingSoonTitle: 'En breve',
+    first: 'Primera',
+    last: 'Última',
     certificationsTable: {
       title: 'Últimas Certificaciones',
       shortTitle: 'Certificaciones',

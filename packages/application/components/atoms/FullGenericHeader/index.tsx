@@ -16,7 +16,7 @@ const FullGenericHeader = ({ columns }: IFullGenericHeader) => {
       borderBottomWidth={0.5}
     >
       {isDesktop &&
-        columns.map((column) => <Text flex={column.flex}>{column.title}</Text>)}
+        columns.map((column) => <Text flex={column.flex} key={column.title}>{column.title}</Text>)}
     </HStack>
   )
 }
