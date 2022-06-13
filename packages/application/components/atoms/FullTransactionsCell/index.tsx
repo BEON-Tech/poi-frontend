@@ -32,10 +32,11 @@ const FullTransactionsCell = ({ transaction }: IFullTransactionsCell) => {
       borderBottomColor="general.200"
       borderBottomWidth={0.5}
       justifyContent="flex"
+      alignItems={{ base: 'initial', lg: 'center' }}
       direction={{ base: 'column', lg: 'row' }}
       space={{ base: 2, lg: 0 }}
     >
-      <HStack flex={1}>
+      <HStack flex={1} alignItems={{ base: 'flex-end', lg: 'center' }}>
         <Text
           flex={1}
           color="general.900"
@@ -44,7 +45,12 @@ const FullTransactionsCell = ({ transaction }: IFullTransactionsCell) => {
         >
           {formatAmount()}
         </Text>
-        <Text display={{ base: 'flex', lg: 'none' }}>{formatDate()}</Text>
+        <Text
+          display={{ base: 'flex', lg: 'none' }}
+          fontSize={{ base: 'sm', lg: 'md' }}
+        >
+          {formatDate()}
+        </Text>
       </HStack>
       <Text flex={1} color="general.900">
         {t(keys.transactions[transaction.type])}
