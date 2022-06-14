@@ -6,3 +6,4 @@ export { default as NavigationBarButtonMobile } from './NavigationBarButtonMobil
 export { default as CertificationTable } from './CertificationTable'
 export { default as DonationTable } from './DonationTable'
 export { default as FullTransactionsTable } from './FullTransactionsTable'
+export { default as FullTablePaginator } from './FullTablePaginator'
