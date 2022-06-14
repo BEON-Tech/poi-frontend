@@ -1,4 +1,4 @@
-import { Certification, Donation } from '@constants/types'
+import { Certification, Donation, Transaction } from '@constants/types'
 
 export interface CertificationData {
   data: Certification[]
@@ -8,4 +8,11 @@ export interface CertificationData {
 export interface DonationData {
   data: Donation[]
   hasMore: boolean
+}
+
+export interface TransactionsFullData {
+  data: Transaction[]
+  total: number,
+  currentPage: number,
+  totalPages: number
 }

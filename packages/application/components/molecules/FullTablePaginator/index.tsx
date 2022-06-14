@@ -1,23 +1,26 @@
-import { useState } from 'react'
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  HStack,
-  Text,
-} from 'native-base'
+import { ChevronLeftIcon, ChevronRightIcon, HStack, Text } from 'native-base'
 import { useTranslation } from 'react-i18next'
 import { keys } from '@i18n'
-import { FullTablePageButton, FullTablePaginatorButton } from '@components/atoms'
+import {
+  FullTablePageButton,
+  FullTablePaginatorButton,
+} from '@components/atoms'
 
 interface IFullTablePageNumberContainer {
-  currentPage: number
   totalPages: number
+  currentPage: number
   onPageSelected: (page: number) => void
 }
 
+interface IFullTablePaginator {
+  totalPages: number
+  currentPage: number
+  setPageNumber: (pageNumber: number) => void
+}
+
 const FullTablePageNumberContainer = ({
-  currentPage,
   totalPages,
+  currentPage,
   onPageSelected,
 }: IFullTablePageNumberContainer) => {
   const pagesToDraw = totalPages > 3 ? 3 : totalPages
@@ -62,11 +65,8 @@ const FullTablePageNumberContainer = ({
   )
 }
 
-const FullTablePaginator = () => {
+const FullTablePaginator = ({ totalPages, currentPage, setPageNumber }: IFullTablePaginator) => {
   const { t } = useTranslation()
-  const [currentPage, setCurrentPage] = useState(1)
-  // TODO: remove fixed totalPages
-  const totalPages = 7
 
   const isFirstPage = () => currentPage === 1
   const thereIsPreviousPage = () => currentPage > 1
@@ -81,31 +81,35 @@ const FullTablePaginator = () => {
       mt={{ base: 8, lg: 16 }}
       mb={40}
     >
-      <FullTablePaginatorButton
-        text={t(keys.publicAudit.first)}
-        disabled={isFirstPage()}
-        onPress={() => setCurrentPage(1)}
-      />
-      <FullTablePaginatorButton
-        icon={<ChevronLeftIcon />}
-        disabled={!thereIsPreviousPage()}
-        onPress={() => setCurrentPage(currentPage - 1)}
-      />
-      <FullTablePageNumberContainer
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageSelected={setCurrentPage}
-      />
-      <FullTablePaginatorButton
-        icon={<ChevronRightIcon />}
-        disabled={!thereIsNextPage()}
-        onPress={() => setCurrentPage(currentPage + 1)}
-      />
-      <FullTablePaginatorButton
-        text={t(keys.publicAudit.last)}
-        disabled={isLastPage()}
-        onPress={() => setCurrentPage(totalPages)}
-      />
+      {totalPages > 0 && (
+        <>
+          <FullTablePaginatorButton
+            text={t(keys.publicAudit.first)}
+            disabled={isFirstPage()}
+            onPress={() => setPageNumber(1)}
+          />
+          <FullTablePaginatorButton
+            icon={<ChevronLeftIcon />}
+            disabled={!thereIsPreviousPage()}
+            onPress={() => setPageNumber(currentPage - 1)}
+          />
+          <FullTablePageNumberContainer
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageSelected={setPageNumber}
+          />
+          <FullTablePaginatorButton
+            icon={<ChevronRightIcon />}
+            disabled={!thereIsNextPage()}
+            onPress={() => setPageNumber(currentPage + 1)}
+          />
+          <FullTablePaginatorButton
+            text={t(keys.publicAudit.last)}
+            disabled={isLastPage()}
+            onPress={() => setPageNumber(totalPages)}
+          />
+        </>
+      )}
     </HStack>
   )
 }

@@ -10,7 +10,9 @@ import FullCertificationsTable from '@components/molecules/FullCertificationsTab
 const PublicAuditTablesContainer = () => {
   const { t } = useTranslation()
   const [optionSelected, setOptionSelected] = useState(1)
-  const [countResults, setCountResults] = useState('345 transactions')
+  const [countCertifications, setCountCertifications] = useState(0)
+  const [countTransactions, setCountTransactions] = useState(0)
+  const [countResults, setCountResults] = useState(' - ')
 
   const options = [
     {
@@ -23,13 +25,30 @@ const PublicAuditTablesContainer = () => {
     },
   ]
 
+  const setTotalResultsCertifications = (totalNumber: number) => {
+    // TODO
+  }
+
+  const setTotalResultsTransactions = (totalNumber: number) => {
+    setCountTransactions(totalNumber)
+    setCountResults(
+      `${totalNumber} ${t(
+        keys.publicAudit.donationsTable.shortTitle
+      ).toLowerCase()}`
+    )
+  }
+
   const onOptionSelected = (id: number) => {
     setOptionSelected(id)
-
-    // Remove this line
-    setCountResults(id === 0 ? '238 certifications' : '345 transactions')
-
-    // TODO
+    setCountResults(
+      id === 0
+        ? `${countCertifications} ${t(
+            keys.publicAudit.certificationsTable.shortTitle
+          ).toLowerCase()}`
+        : `${countTransactions} ${t(
+            keys.publicAudit.donationsTable.shortTitle
+          ).toLowerCase()}`
+    )
   }
 
   return (
@@ -62,7 +81,7 @@ const PublicAuditTablesContainer = () => {
       {optionSelected === 0 ? (
         <FullCertificationsTable />
       ) : (
-        <FullTransactionsTable />
+        <FullTransactionsTable setTotalResults={setTotalResultsTransactions} />
       )}
     </VStack>
   )
