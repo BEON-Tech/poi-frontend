@@ -64,10 +64,16 @@ const keys: LanguageKeys = {
     certificationsTable: {
       title: 'Latest Certifications',
       shortTitle: 'Certifications',
-      applicantColumn: 'Application',
+      applicantColumn: 'Applicant',
       dateColumn: 'Date',
       detailsColumn: 'Details',
       seeMore: '+See all certifications',
+      programColumn: 'Program',
+      placeColumn: 'Place',
+      statusColumn: 'Status',
+      pending: 'Pending',
+      approved: 'Approved',
+      rejected: 'Rejected',
     },
     donationsTable: {
       title: 'Latest Transactions',

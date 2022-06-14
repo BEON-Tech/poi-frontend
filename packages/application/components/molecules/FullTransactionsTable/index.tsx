@@ -5,7 +5,7 @@ import { getTransactions } from '@services/API'
 import { Transaction } from '@constants/types'
 import { FullTablePaginator } from '..'
 
-const PAGE_SIZE = 2
+const PAGE_SIZE = 5
 
 interface IFullTransactionsTable {
   setTotalResults: (total: number) => void
@@ -24,7 +24,7 @@ const FullTransactionsTableBody = ({ data }: IFullTransactionsTableBody) => (
   />
 )
 
-const FullTransactionsTable = ({ setTotalResults } : IFullTransactionsTable) => {
+const FullTransactionsTable = ({ setTotalResults }: IFullTransactionsTable) => {
   const [data, setData] = useState<any>([])
   const [totalPages, setTotalPages] = useState(1)
   const [currentPage, setCurrentPage] = useState(1)
@@ -54,7 +54,7 @@ const FullTransactionsTable = ({ setTotalResults } : IFullTransactionsTable) => 
     <VStack w="full" mt={{ base: 0, lg: 4 }}>
       <FullTransactionsHeader />
       {loading ? (
-        <HStack w="full" h={{ base: '376px', lg: '210px' }}>
+        <HStack w="full" h={{ base: '940px', lg: '525px' }}>
           <Spinner color="primary.600" />
         </HStack>
       ) : (

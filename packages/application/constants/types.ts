@@ -19,6 +19,60 @@ export interface Donation {
   transactionUrl: string
 }
 
+interface Program {
+  id: string
+  title: string
+  place: string
+  version: string
+  createdAt: string
+  updatedAt: string
+}
+
+interface Certifier {
+  id: string
+  firstName: string
+  lastName: string
+  profession: string
+  didSocialWork: boolean
+  didGroundWork: boolean
+  walletAddress: string
+  status: string
+  createdAt: string
+  updatedAt: string
+}
+
+interface Applicant {
+  id: string
+  firstName: string
+  age: number
+  zipCode: string
+  peopleLivingTogether: number
+  hasDependentRelative: boolean
+  hasDisabledFamilyMember: boolean
+  hasJob: boolean
+  knownFinancialInstruments: string
+  walletAddress: string
+  createdAt: string
+  updatedAt: string
+}
+
+export interface FullCertification {
+  id: string
+  hasAttendedTheAppointment: boolean
+  photoMatches: boolean
+  idCardMatches: boolean
+  includedInAgeRange: boolean
+  neighborhood: boolean
+  additionalInfo: string
+  status: 'pending' | 'approved' | 'rejected',
+  createdAt: string
+  updatedAt: string
+  certifier?: Certifier
+  applicant?: Applicant
+  program?: Program
+  imageUrl: string
+}
+
 export interface Transaction {
   id: number
   type: TransactionType

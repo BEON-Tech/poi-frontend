@@ -9,7 +9,7 @@ import FullCertificationsTable from '@components/molecules/FullCertificationsTab
 
 const PublicAuditTablesContainer = () => {
   const { t } = useTranslation()
-  const [optionSelected, setOptionSelected] = useState(1)
+  const [optionSelected, setOptionSelected] = useState(0)
   const [countCertifications, setCountCertifications] = useState(0)
   const [countTransactions, setCountTransactions] = useState(0)
   const [countResults, setCountResults] = useState(' - ')
@@ -26,7 +26,12 @@ const PublicAuditTablesContainer = () => {
   ]
 
   const setTotalResultsCertifications = (totalNumber: number) => {
-    // TODO
+    setCountCertifications(totalNumber)
+    setCountResults(
+      `${totalNumber} ${t(
+        keys.publicAudit.certificationsTable.shortTitle
+      ).toLowerCase()}`
+    )
   }
 
   const setTotalResultsTransactions = (totalNumber: number) => {
@@ -79,7 +84,9 @@ const PublicAuditTablesContainer = () => {
         {countResults}
       </Text>
       {optionSelected === 0 ? (
-        <FullCertificationsTable />
+        <FullCertificationsTable
+          setTotalResults={setTotalResultsCertifications}
+        />
       ) : (
         <FullTransactionsTable setTotalResults={setTotalResultsTransactions} />
       )}

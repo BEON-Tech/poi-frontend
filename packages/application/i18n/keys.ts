@@ -62,6 +62,12 @@ const rawKeys = {
       dateColumn: 'dateColumn',
       detailsColumn: 'detailsColumn',
       seeMore: 'seeMore',
+      programColumn: 'programColumn',
+      placeColumn: 'placeColumn',
+      statusColumn: 'statusColumn',
+      pending: 'pending',
+      approved: 'approved',
+      rejected: 'rejected',
     },
     donationsTable: {
       title: 'title',
@@ -72,7 +78,7 @@ const rawKeys = {
       dateColumn: 'dateColumn',
       addressColumn: 'addressColumn',
       seeMore: 'seeMore',
-      openBlockchainExplorer: 'openBlockchainExplorer'
+      openBlockchainExplorer: 'openBlockchainExplorer',
     },
   },
   transactions: {

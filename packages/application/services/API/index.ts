@@ -3,7 +3,7 @@ import { parseEther, parseUnits } from '@ethersproject/units'
 import { TOKENS } from '@services/contracts/tx.contract'
 import config from '@config'
 import { TransactionType } from '@constants/types'
-import { CertificationData, DonationData, TransactionsFullData } from './types'
+import { CertificationData, CertificationsFullData, DonationData, TransactionsFullData } from './types'
 
 export const registerDonationTransacion = (
   transaction: any,
@@ -101,6 +101,21 @@ export const getTransactions = async (
   const queryStringParams = createQueryStringParams(params)
   const { data, total, pages } = await fetch(
     `${config.apiPOI}/transactions?${queryStringParams}`
+  )
+    .then((res) => res.json())
+    .catch(() => ({ data: [], total: 0, currentPage: 0, totalPages: 0 }))
+
+  return { data, total, currentPage: pageNumber, totalPages: pages }
+}
+
+export const getCertifications = async (
+  pageSize = 5,
+  pageNumber = 1
+): Promise<CertificationsFullData> => {
+  const params: Record<string, any> = { limit: pageSize, page: pageNumber }
+  const queryStringParams = createQueryStringParams(params)
+  const { data, total, pages } = await fetch(
+    `${config.apiPOI}/applications?${queryStringParams}`
   )
     .then((res) => res.json())
     .catch(() => ({ data: [], total: 0, currentPage: 0, totalPages: 0 }))
