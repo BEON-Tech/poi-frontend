@@ -5,21 +5,7 @@ import {
   CERTIFIER_PAYMENT_TYPE,
 } from '.'
 
-export interface Certification {
-  id: string
-  image: string
-  detailsLink: string
-  date: string
-}
-
-export interface Donation {
-  id: string
-  type: string
-  amount: string
-  transactionUrl: string
-}
-
-interface Program {
+export interface Program {
   id: string
   title: string
   place: string
@@ -28,7 +14,7 @@ interface Program {
   updatedAt: string
 }
 
-interface Certifier {
+export interface Certifier {
   id: string
   firstName: string
   lastName: string
@@ -38,10 +24,9 @@ interface Certifier {
   walletAddress: string
   status: string
   createdAt: string
-  updatedAt: string
 }
 
-interface Applicant {
+export interface Applicant {
   id: string
   firstName: string
   age: number
@@ -54,6 +39,22 @@ interface Applicant {
   walletAddress: string
   createdAt: string
   updatedAt: string
+}
+
+export interface Certification {
+  id: string
+  status: 'pending' | 'approved' | 'rejected',
+  certifier?: Certifier
+  applicant?: Applicant
+  program?: Program
+  createdAt: string
+}
+
+export interface Donation {
+  id: string
+  type: string
+  amount: string
+  transactionUrl: string
 }
 
 export interface FullCertification {
