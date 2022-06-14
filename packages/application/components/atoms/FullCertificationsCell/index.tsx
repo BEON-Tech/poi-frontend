@@ -2,6 +2,7 @@ import { Button, HStack, Stack, Text } from 'native-base'
 import { useTranslation } from 'react-i18next'
 import { keys } from '@i18n'
 import { FullCertification } from '@constants/types'
+import config from '@config'
 
 interface IFullCertificationsCell {
   certification: FullCertification
@@ -16,7 +17,8 @@ const FullCertificationsCell = ({ certification }: IFullCertificationsCell) => {
   const isApproved = () => certification.status === 'approved'
 
   const openBlockchainExplorer = () => {
-    // window.open(transaction.transactionUrl, '_blank')
+    const url = `${config.etherscanURL}/address/${certification.applicant?.walletAddress}`
+    window.open(url, '_blank')
   }
 
   return (
