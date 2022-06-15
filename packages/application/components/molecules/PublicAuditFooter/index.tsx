@@ -14,7 +14,7 @@ const PublicAuditFooter = () => {
   }
 
   return (
-    <VStack w="full" mb={20}>
+    <VStack w="full" mb={{ base: 20, lg: 0 }}>
       <Box
         top="0"
         left="0"
@@ -30,8 +30,8 @@ const PublicAuditFooter = () => {
         left="0"
         zIndex="-1"
         position="absolute"
-        w={{ base: '206px', lg: '206px' }}
-        h={{ base: '112px', lg: '112px' }}
+        w={{ base: '138px', lg: '206px' }}
+        h={{ base: '94px', lg: '112px' }}
       >
         <CornerPublicAudit position="bottom2" />
       </Box>
@@ -61,11 +61,11 @@ const PublicAuditFooter = () => {
       </Stack>
       <Box
         bottom="0"
-        right="200px"
+        right={{ base: '80px', lg: '200px' }}
         zIndex="-1"
         position="absolute"
-        w="330px"
-        h="74px"
+        w={{ base: '216px', lg: '330px' }}
+        h={{ base: '70px', lg: '74px' }}
       >
         <CornerPublicAudit position="bottom3" />
       </Box>
@@ -74,8 +74,8 @@ const PublicAuditFooter = () => {
         right="0"
         zIndex="-1"
         position="absolute"
-        w="100px"
-        h="250px"
+        w={{ base: '56px', lg: '100px' }}
+        h={{ base: '140px', lg: '250px' }}
       >
         <CornerPublicAudit position="bottom4" />
       </Box>
