@@ -1,6 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useTranslation } from 'next-export-i18n'
-
 import keys from '@i18n/keys'
 import {
   DonationTableCell,
@@ -9,6 +8,7 @@ import {
 } from '@components/atoms'
 import type { DonationData } from '@services/API/types'
 import { useBreakpoint } from '@hooks'
+import Config from '@config'
 
 const AMOUNT_ITEMS = 3
 
@@ -18,17 +18,16 @@ export interface IDonationTableProps {
 
 interface IDonationTableBareProps {
   data: DonationData['data']
-  hasMore: boolean
-  loading: boolean
 }
 
-const DonationTableBare = ({
-  data,
-  hasMore,
-  loading,
-}: IDonationTableBareProps) => {
+const DonationTableBare = ({ data }: IDonationTableBareProps) => {
   const { isDesktop } = useBreakpoint()
   const { t } = useTranslation()
+
+  const seeAll = () => {
+    const url = `${Config.appURL}/publicaudit?section=transactions`
+    window.open(url, '_blank')
+  }
 
   const extendedData = useMemo(
     () =>
@@ -44,10 +43,9 @@ const DonationTableBare = ({
     <GenericTable
       footerTitle={t(keys.publicAudit.donationsTable.seeMore)}
       data={extendedData}
-      hasMore={hasMore}
-      loading={loading}
       renderItem={DonationTableCell}
       ListHeaderComponent={DonationTableHeader}
+      seeAllAction={seeAll}
     />
   )
 }
@@ -55,8 +53,6 @@ const DonationTableBare = ({
 const DonationTable = ({ loadData }: IDonationTableProps) => {
   const { t } = useTranslation()
   const [data, setData] = useState<any>([])
-  const [hasMore, setHasMore] = useState(false)
-  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     ;(async () => {
@@ -67,12 +63,10 @@ const DonationTable = ({ loadData }: IDonationTableProps) => {
           detailsLabel: t(keys.publicAudit.moreDetails),
         }))
       )
-      setHasMore(newData.hasMore)
-      setLoading(false)
     })()
   }, [])
 
-  return <DonationTableBare data={data} hasMore={hasMore} loading={loading} />
+  return <DonationTableBare data={data} />
 }
 
 export default DonationTable

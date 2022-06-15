@@ -1,7 +1,6 @@
 import { useMemo, useState, useEffect } from 'react'
 import { useTranslation } from 'next-export-i18n'
 import { Text } from 'native-base'
-
 import { useBreakpoint } from '@hooks'
 import keys from '@i18n/keys'
 import {
@@ -10,6 +9,7 @@ import {
   GenericTable,
 } from '@components/atoms'
 import { CertificationData } from '@services/API/types'
+import Config from '@config'
 
 const AMOUNT_ITEMS = 3
 
@@ -19,17 +19,18 @@ export interface ICertificationTableProps {
 
 interface ICertificationTableBareProps {
   data: CertificationData['data']
-  hasMore: boolean
-  loading: boolean
 }
 
 const CertificationTableBare = ({
   data,
-  hasMore,
-  loading,
 }: ICertificationTableBareProps) => {
   const { isDesktop } = useBreakpoint()
   const { t } = useTranslation()
+
+  const seeAll = () => {
+    const url = `${Config.appURL}/publicaudit`
+    window.open(url, '_blank')
+  }
 
   const extendedData = useMemo(
     () => data.map((item) => ({ ...item, collapsed: !isDesktop })),
@@ -40,11 +41,10 @@ const CertificationTableBare = ({
     <GenericTable
       footerTitle={t(keys.publicAudit.certificationsTable.seeMore)}
       data={extendedData}
-      hasMore={hasMore}
-      loading={loading}
       extraData={{ isCollapsed: isDesktop }}
       renderItem={CertificationTableCell}
       ListHeaderComponent={CertificationTableHeader}
+      seeAllAction={seeAll}
     />
   )
 }
@@ -52,8 +52,6 @@ const CertificationTableBare = ({
 const CertificationTable = ({ loadData }: ICertificationTableProps) => {
   const { t } = useTranslation()
   const [data, setData] = useState<any>([])
-  const [hasMore, setHasMore] = useState(false)
-  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     ;(async () => {
@@ -64,23 +62,11 @@ const CertificationTable = ({ loadData }: ICertificationTableProps) => {
           detailsLabel: t(keys.publicAudit.moreDetails),
         }))
       )
-      setHasMore(newData.hasMore)
-      setLoading(false)
     })()
   }, [])
 
-  /* return data.length > 0 ? (
-    <CertificationTableBare data={data} hasMore={hasMore} loading={loading} />
-  ) : (
-    <Text mt={{ lg: '50px' }}>
-      <Text color="primary.500">{t(keys.publicAudit.noDataTitle)}</Text>
-      <Text>{t(keys.publicAudit.noDataText)}</Text>
-      <Text fontWeight="bold">{t(keys.publicAudit.noDataDate)}</Text>
-    </Text>
-  ) */
-
-  return false ? (
-    <CertificationTableBare data={data} hasMore={hasMore} loading={loading} />
+  return data.length > 0 ? (
+    <CertificationTableBare data={data} />
   ) : (
     <Text mt={{ lg: '50px' }}>
       <Text color="primary.500">{t(keys.publicAudit.noDataTitle)}</Text>

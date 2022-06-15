@@ -1,6 +1,5 @@
 import { FlatList, Button, useToken, View, HStack } from 'native-base'
 import type { IFlatListProps } from 'native-base/lib/typescript/components/basic/FlatList/types'
-import { ComingSoon } from '@components/atoms'
 
 export interface IGenericTableProps
   extends Pick<
@@ -12,16 +11,15 @@ export interface IGenericTableProps
     | 'extraData'
   > {
   footerTitle: string
-  hasMore: boolean
-  loading: boolean
+  seeAllAction: () => void
 }
 
 interface IFooterProps {
   title: string
-  enabled: boolean
+  seeAllAction: () => void
 }
 
-const Footer = ({ title, enabled }: IFooterProps) => (
+const Footer = ({ title, seeAllAction }: IFooterProps) => (
   <HStack
     pl="20px"
     justifyContent="flex-start"
@@ -30,19 +28,13 @@ const Footer = ({ title, enabled }: IFooterProps) => (
     borderTopWidth="1px"
     borderTopColor="general.100"
   >
-    <ComingSoon
-      rightPlacement
-      Component={(props) => (
-        <Button
-          variant="link"
-          _text={{ fontSize: 'lg' }}
-          isDisabled={!enabled}
-          {...props}
-        >
-          {title}
-        </Button>
-      )}
-    />
+    <Button
+      variant="link"
+      _text={{ fontSize: 'lg' }}
+      onPress={seeAllAction}
+    >
+      {title}
+    </Button>
   </HStack>
 )
 
@@ -53,13 +45,11 @@ const GenericTable = ({
   initialNumToRender = 3,
   data,
   renderItem,
-  hasMore,
-  loading,
+  seeAllAction,
   ListHeaderComponent,
   extraData,
 }: IGenericTableProps) => {
   const borderColor = useToken('colors', 'general.300')
-  const footerEnabled = !loading && hasMore
 
   return (
     <FlatList
@@ -79,7 +69,7 @@ const GenericTable = ({
       initialNumToRender={initialNumToRender}
       ItemSeparatorComponent={Divider}
       ListFooterComponent={
-        <Footer title={footerTitle} enabled={footerEnabled} />
+        <Footer title={footerTitle} seeAllAction={seeAllAction} />
       }
     />
   )
