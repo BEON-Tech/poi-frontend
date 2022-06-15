@@ -7,7 +7,7 @@ const PublicAuditHeader = () => {
   const { t } = useTranslation()
   
   return (
-    <HStack w="full">
+    <HStack w="full" justifyContent={{ base: 'flex-start', lg: 'center' }}>
       <Box
         left="0"
         zIndex="-1"
@@ -22,7 +22,6 @@ const PublicAuditHeader = () => {
         polygonName="homePolygon1"
         title={t(keys.publicAudit.title)}
         showSmall
-        alignSelf={{ base: 'flex-start', lg: 'center' }}
         ml={{ base: 6, lg: 0 }}
       />
       <Box
