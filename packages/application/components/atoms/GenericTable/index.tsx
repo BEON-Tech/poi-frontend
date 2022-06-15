@@ -1,6 +1,5 @@
 import { FlatList, Button, useToken, View, HStack } from 'native-base'
 import type { IFlatListProps } from 'native-base/lib/typescript/components/basic/FlatList/types'
-import { ComingSoon } from '@components/atoms'
 
 export interface IGenericTableProps
   extends Pick<
@@ -12,16 +11,17 @@ export interface IGenericTableProps
     | 'extraData'
   > {
   footerTitle: string
-  hasMore: boolean
   loading: boolean
+  seeMoreAction: () => void
 }
 
 interface IFooterProps {
   title: string
-  enabled: boolean
+  enabled: boolean,
+  seeMoreAction: () => void
 }
 
-const Footer = ({ title, enabled }: IFooterProps) => (
+const Footer = ({ title, enabled, seeMoreAction }: IFooterProps) => (
   <HStack
     pl="20px"
     justifyContent="flex-start"
@@ -30,20 +30,9 @@ const Footer = ({ title, enabled }: IFooterProps) => (
     borderTopWidth="1px"
     borderTopColor="general.100"
   >
-    <ComingSoon
-      rightPlacement
-      // eslint-disable-next-line react/no-unstable-nested-components
-      Component={(props) => (
-        <Button
-          variant="link"
-          _text={{ fontSize: 'lg' }}
-          isDisabled={!enabled}
-          {...props}
-        >
-          {title}
-        </Button>
-      )}
-    />
+    <Button variant="link" _text={{ fontSize: 'lg' }} isDisabled={!enabled} onPress={seeMoreAction}>
+      {title}
+    </Button>
   </HStack>
 )
 
@@ -54,13 +43,13 @@ const GenericTable = ({
   initialNumToRender = 3,
   data,
   renderItem,
-  hasMore,
   loading,
+  seeMoreAction,
   ListHeaderComponent,
   extraData,
 }: IGenericTableProps) => {
   const borderColor = useToken('colors', 'general.300')
-  const footerEnabled = !loading && hasMore
+  const footerEnabled = !loading
 
   return (
     <FlatList
@@ -71,7 +60,7 @@ const GenericTable = ({
         width: '100%',
         maxHeight: '533px',
       }}
-      w='100%'
+      w="100%"
       extraData={extraData}
       ListHeaderComponent={ListHeaderComponent}
       keyExtractor={(item) => item.id}
@@ -81,7 +70,7 @@ const GenericTable = ({
       initialNumToRender={initialNumToRender}
       ItemSeparatorComponent={Divider}
       ListFooterComponent={
-        <Footer title={footerTitle} enabled={footerEnabled} />
+        <Footer title={footerTitle} enabled={footerEnabled} seeMoreAction={seeMoreAction} />
       }
     />
   )

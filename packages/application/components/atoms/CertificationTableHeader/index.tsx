@@ -17,14 +17,14 @@ const CertificationTableHeader = () => {
       borderBottomColor="general.100"
     >
       <HStack flex="1" alignItems="center" justifyContent="flex-start">
-        <Text fontSize={16} fontWeight={400}>{t(keys.publicAudit.certificationsTable.applicantColumn)}</Text>
+        <Text fontSize={18} fontWeight={400}>{t(keys.publicAudit.certificationsTable.programColumn)}</Text>
       </HStack>
       <HStack flex="1" alignItems="center" justifyContent="flex-start">
-        <Text fontSize={16} fontWeight={400}>{t(keys.publicAudit.certificationsTable.dateColumn)}</Text>
+        <Text fontSize={18} fontWeight={400}>{t(keys.publicAudit.certificationsTable.dateColumn)}</Text>
       </HStack>
       {isDesktop && (
         <HStack flex="1" alignItems="center" justifyContent="flex-start">
-          <Text fontSize={16} fontWeight={400}>{t(keys.publicAudit.certificationsTable.detailsColumn)}</Text>
+          <Text fontSize={18} fontWeight={400}>{t(keys.publicAudit.certificationsTable.applicantColumn)}</Text>
         </HStack>
       )}
     </HStack>

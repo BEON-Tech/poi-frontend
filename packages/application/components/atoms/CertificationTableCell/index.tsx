@@ -1,5 +1,6 @@
 import { HStack, View, VStack, Text, Button } from 'native-base'
-import { Certification } from '@constants/types'
+import { Applicant, Certification } from '@constants/types'
+import config from '@config'
 
 interface ICertificationCellItems extends Certification {
   detailsLabel: string
@@ -8,7 +9,10 @@ export interface ICertificationCellProps {
   item: ICertificationCellItems & { collapsed: boolean }
 }
 
-const redirectToURL = (url: string) => window.open(url, '_blank')
+const openBlockchainExplorer = (applicant?: Applicant) => {
+  const url = `${config.etherscanURL}/address/${applicant?.walletAddress}`
+  window.open(url, '_blank')
+}
 
 const MoreDetails = ({ item }: ICertificationCellProps) => (
   <Button
@@ -18,20 +22,14 @@ const MoreDetails = ({ item }: ICertificationCellProps) => (
     alignSelf="flex-start"
     variant="link"
     _text={{ fontSize: 'md' }}
-    onPress={() => redirectToURL(item.detailsLink)}
+    onPress={() => openBlockchainExplorer(item.applicant)}
   >
     {item.detailsLabel}
   </Button>
 )
 
 const CertificationCell = ({ item }: ICertificationCellProps) => {
-  const dateFormatted = new Date(item.date).toLocaleDateString()
-  const timeFormatted = new Date(item.date).toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false,
-  })
-
+  const dateFormatted = new Date(item.createdAt).toLocaleDateString()
   const { collapsed } = item
 
   return (
@@ -42,29 +40,9 @@ const CertificationCell = ({ item }: ICertificationCellProps) => {
       px="36px"
       h="123px"
     >
-      <HStack flex="1" alignItems="center" justifyContent="flex-start">
-        <View
-          w="100%"
-          maxW="100px"
-          maxH="80px"
-          borderRadius="20px"
-          overflow="hidden"
-        >
-          <img
-            src={item.image}
-            width="100%"
-            height="100%"
-            alt={`Certification cell item ${item.id}`}
-          />
-        </View>
-      </HStack>
-      <VStack flex="1" justifyContent="flex-start">
-        <Text fontSize={14}>
-          {dateFormatted}
-        </Text>
-        <Text fontSize={14}>
-          {timeFormatted}
-        </Text>
+      <Text flex="1">{item.program?.title}</Text>
+      <VStack flex="1" alignItems="flex-start">
+        <Text fontSize={14}>{dateFormatted}</Text>
         {collapsed && (
           <View>
             <MoreDetails item={item} />
