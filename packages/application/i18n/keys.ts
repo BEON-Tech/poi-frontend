@@ -55,6 +55,7 @@ const rawKeys = {
     comingSoonTitle: 'comingSoonTitle',
     first: 'first',
     last: 'last',
+    humansInNeed: 'humansInNeed',
     certificationsTable: {
       title: 'title',
       shortTitle: 'shortTitle',

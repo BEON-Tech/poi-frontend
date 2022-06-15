@@ -79,7 +79,7 @@ const FullTablePaginator = ({ totalPages, currentPage, setPageNumber }: IFullTab
       px={4}
       space={2}
       mt={{ base: 8, lg: 16 }}
-      mb={40}
+      mb={20}
     >
       {totalPages > 0 && (
         <>

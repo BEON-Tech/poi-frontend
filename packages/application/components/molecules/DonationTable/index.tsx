@@ -40,7 +40,7 @@ const DonationTableBare = ({
   )
 
   const seeMoreAction = () => {
-    router.push('/publicaudit')
+    router.push('/publicaudit?section=transactions')
   }
 
   return (

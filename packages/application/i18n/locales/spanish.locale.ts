@@ -61,6 +61,7 @@ const keys: LanguageKeys = {
     comingSoonTitle: 'En breve',
     first: 'Primera',
     last: 'Última',
+    humansInNeed: 'Los humanos en necesidad están esperando tu ayuda.',
     certificationsTable: {
       title: 'Últimas Certificaciones',
       shortTitle: 'Certificaciones',

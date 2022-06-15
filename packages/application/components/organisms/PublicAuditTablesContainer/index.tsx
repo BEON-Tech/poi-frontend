@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 import { HStack, Text, VStack } from 'native-base'
 import { useTranslation } from 'react-i18next'
 import { keys } from '@i18n'
@@ -9,7 +10,14 @@ import FullCertificationsTable from '@components/molecules/FullCertificationsTab
 
 const PublicAuditTablesContainer = () => {
   const { t } = useTranslation()
-  const [optionSelected, setOptionSelected] = useState(0)
+  const router = useRouter()
+  
+  let defaultOption = 0
+  if ('section' in router.query && router.query.section === 'transactions') {
+    defaultOption = 1
+  }
+
+  const [optionSelected, setOptionSelected] = useState(defaultOption)
   const [countCertifications, setCountCertifications] = useState(0)
   const [countTransactions, setCountTransactions] = useState(0)
   const [countResults, setCountResults] = useState(' - ')
@@ -57,7 +65,7 @@ const PublicAuditTablesContainer = () => {
   }
 
   return (
-    <VStack w="full" maxW={`${MAX_WIDTH}px`} mt={{ base: 8, lg: 16 }}>
+    <VStack w="full" maxW={`${MAX_WIDTH}px`} mt={{ base: 8, lg: 16 }} px={{ base: 0, lg: 8 }}>
       <HStack
         w="full"
         justifyContent="flex-start"
