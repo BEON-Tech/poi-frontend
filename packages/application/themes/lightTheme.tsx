@@ -153,21 +153,22 @@ const lightTheme = extendTheme({
         link: {
           bgColor: 'transparent',
           _text: {
-            color: 'greenColor.900',
+            color: 'primary.600',
             fontSize: 'md',
             margin: 0,
             padding: 0,
-            textDecorationLine: 'underline',
-            fontWeight: '600',
+            textDecorationLine: 'none',
+            fontWeight: '500',
           },
           _hover: {
             _text: {
-              color: 'greenColor.800',
+              color: 'general.900',
+              textDecorationLine: 'underline',
             },
           },
           _pressed: {
             _text: {
-              color: 'greenColor.700',
+              color: 'general.900',
             },
           },
         },
@@ -206,6 +207,40 @@ const lightTheme = extendTheme({
             padding: 0,
             textDecorationLine: 'none',
             fontWeight: '500',
+          },
+        },
+        publicAuditOption: {
+          bgColor: 'transparent',
+          borderBottomWidth: '3px',
+          borderBottomColor: 'transparent',
+          _text: {
+            color: 'general.900',
+            fontSize: 'lg',
+            textDecorationLine: 'none',
+            fontWeight: 'light',
+          },
+          _hover: {
+            _text: {
+              fontWeight: 'semibold',
+            },
+            borderBottomColor: 'orangeColor.900',
+          },
+          _pressed: {
+            _text: {
+              fontWeight: 'semibold',
+            },
+            borderBottomColor: 'orangeColor.900',
+          },
+        },
+        publicAuditOptionActive: {
+          bgColor: 'transparent',
+          borderBottomWidth: '3px',
+          borderBottomColor: 'orangeColor.900',
+          _text: {
+            color: 'general.900',
+            fontSize: 'lg',
+            textDecorationLine: 'none',
+            fontWeight: 'semibold',
           },
         },
       },
@@ -321,6 +356,16 @@ const lightTheme = extendTheme({
     },
     orangeColor: {
       900: '#E7BB41',
+    },
+    general: {
+      900: '#000000',
+      800: '#2D2D2D',
+      500: '#D0D0D0',
+      400: '#1F1939',
+      300: '#C4C4C4',
+      200: '#E1E1E1',
+      100: '#F2E4E3',
+      50: '#FFFFFF',
     },
   },
 })

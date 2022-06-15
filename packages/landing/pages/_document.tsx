@@ -20,14 +20,14 @@ class MyDocument extends Document {
             <>
               <link
                 key={`${name}-woff2`}
-                rel="preload"
+                // rel="preload"
                 href={`/fonts/Hauora/Hauora-${name}.woff2`}
                 as="font"
                 crossOrigin=""
               />
               <link
                 key={`${name}-woff`}
-                rel="preload"
+                // rel="preload"
                 href={`/fonts/Hauora/Hauora-${name}.woff`}
                 as="font"
                 crossOrigin=""

@@ -30,8 +30,8 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
     { title: t(keys.navigatonBar.donate), key: '/donate', enabled: true },
     {
       title: t(keys.navigatonBar.publicAudit),
-      key: '/publicAudit',
-      enabled: false,
+      key: '/publicaudit',
+      enabled: true,
     },
   ]
   return (
@@ -88,7 +88,7 @@ const MobileNavigationBar = ({
     {
       title: t(keys.navigatonBar.home),
       Icon: HomeIcon,
-      key: 'home',
+      key: '/',
       enabled: true,
     },
     {
@@ -100,8 +100,8 @@ const MobileNavigationBar = ({
     {
       title: t(keys.navigatonBar.publicAudit),
       Icon: PublicAuditIcon,
-      key: '/publicAudit',
-      enabled: false,
+      key: '/publicaudit',
+      enabled: true,
     },
     {
       title: t(keys.navigatonBar.wallet),
@@ -134,7 +134,7 @@ const MobileNavigationBar = ({
         <HStack
           w="100%"
           bg="white"
-          position="absolute"
+          position="fixed"
           bottom={0}
           borderTopColor="#EDB6A3"
           borderTopWidth="1px"
@@ -162,11 +162,7 @@ const NavigationBar = ({ hideBottomBar = false }: INavigationBarProps) => {
   const { isDesktop } = useBreakpoint()
   const activeItem = router.pathname
   const onNavigate = (newRoute: string) => {
-    if (newRoute !== 'home') {
-      router.push(newRoute)
-    } else {
-      redirectToHome()
-    }
+    router.push(newRoute)
   }
   return isDesktop ? (
     <DesktopNavigationBar activeItem={activeItem} onNavigate={onNavigate} />

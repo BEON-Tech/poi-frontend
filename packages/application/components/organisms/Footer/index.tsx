@@ -1,55 +1,93 @@
-import {
-  HStack,
-  VStack,
-  Text,
-  Stack,
-  Button,
-  useBreakpointValue,
-} from 'native-base'
-import { POILogo2 } from '@components/atoms/Icons'
+import { VStack, HStack, Text, View, IconButton } from 'native-base'
+import { useTranslation } from 'react-i18next'
+import { keys } from '@i18n'
+
+import { Container } from '@components/templates'
+import { LinkedInIcon, MailIcon, POILogo, TwitterIcon } from '@components/atoms'
+import { useBreakpoint } from '@hooks'
+
+const socialButtons = [
+  {
+    name: 'twitter',
+    Icon: () => <TwitterIcon width="23.83px" height="19.44px" />,
+    onPress: () => window.open('https://twitter.com/proof_integrity', '_blank'),
+  },
+  {
+    name: 'linkedin',
+    Icon: () => <LinkedInIcon width="25px" height="26px" />,
+    onPress: () =>
+      window.open(
+        'https://www.linkedin.com/company/proof-of-integrity/',
+        '_blank'
+      ),
+    ml: '46px',
+  },
+  {
+    name: 'mail',
+    Icon: () => <MailIcon width="26px" height="26px" />,
+    onPress: () => {
+      window.location.href = `mailto:info@proofofintegrity.org`
+    },
+    ml: '46px',
+  },
+]
 
 const Footer = () => {
-  const display = useBreakpointValue({
-    base: 'flex',
-    lg: 'none',
-  })
+  const { isDesktop } = useBreakpoint()
+  const { t } = useTranslation()
 
   return (
-    <Stack
-      direction={{ base: 'column', lg: 'row' }}
-      bg="background.100"
-      w="100%"
-      h={{ base: '60vh', lg: 300 }}
-      mt="20"
-      px={{ base: '5', lg: '20' }}
-      space={{ base: 20, lg: 0 }}
-    >
-      <HStack pt="16" display={display} space={5}>
-        <Button>ES</Button>
-        <Button>EN</Button>
-      </HStack>
-      <Stack
-        direction={{ base: 'column', lg: 'row' }}
-        alignItems={{ base: 'start', lg: 'flex-end' }}
-        justifyContent="space-between"
-        pb="16"
-        w="full"
-      >
-        <VStack alignItems="start" space={2}>
-          <POILogo2 size={85} />
-          <Text mt="3" color="greenColor.600" fontSize="2xl" fontWeight={700}>
-            Proof Of Integrity
-          </Text>
-          <Text color="text.700" fontWeight={300}>
-            Proof Of Integrity is a non profit project.
-          </Text>
-        </VStack>
-
-        <Text color="text.600" fontWeight={300} mt={{ base: '8', lg: '20' }}>
-          Designed by Latin American talent at BEON Tech Studio
-        </Text>
-      </Stack>
-    </Stack>
+    <View bg="background.100" w="100%">
+      <Container>
+        <HStack
+          bg="background.100"
+          px="80px"
+          pt="40px"
+          pb="51px"
+          mb={{ base: 32, lg: 0 }}
+          w="100%"
+        >
+          <VStack flex="1" display="flex" alignItems="flex-start">
+            <View width="84px" height="84px">
+              <POILogo />
+            </View>
+            <Text mt="18px" fontSize="lg" fontWeight="bold">
+              {t(keys.footer.title)}
+            </Text>
+            <Text mt="11px" fontSize="xs" color="general.400" opacity="50%">
+              {t(keys.footer.subtitle)}
+            </Text>
+            <HStack mt="50px">
+              {socialButtons.map(
+                ({ name, Icon, onPress: onIconPress, ...props }) => (
+                  <IconButton
+                    {...props}
+                    key={name}
+                    p="0"
+                    m="0"
+                    onPress={onIconPress}
+                    icon={<Icon />}
+                  />
+                )
+              )}
+            </HStack>
+          </VStack>
+          {isDesktop && (
+            <HStack flex="1" h="100%" alignSelf="flex-end">
+              <Text
+                fontSize="xs"
+                color="general.400"
+                opacity="50%"
+                w="100%"
+                textAlign="right"
+              >
+                {t(keys.footer.disclaimer)}
+              </Text>
+            </HStack>
+          )}
+        </HStack>
+      </Container>
+    </View>
   )
 }
 
