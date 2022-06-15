@@ -5,10 +5,11 @@ import { VStack, HStack, View, Button, Text, Heading } from 'native-base'
 
 import keys from '@i18n/keys'
 import { ASSISTANCE_PROGRAM_SECTION } from '@constants'
-import { BulletedTitle, Images, ComingSoon } from '@components/atoms'
+import { BulletedTitle, Images } from '@components/atoms'
 import { Container } from '@components/templates'
 import { useBreakpoint } from '@hooks'
 import { IHStackProps } from 'native-base/lib/typescript/components/primitives/Stack/HStack'
+import Config from '@config'
 
 interface IAimBoxItem extends IHStackProps {
   Image: React.FC
@@ -38,24 +39,26 @@ const aimBoxItems: IAimBoxItem[] = [
   },
 ]
 
-const DonateButton = ({ title, ...props }: any) => (
-  <ComingSoon
-    Component={(comingSoonProps) => (
-      <Button
-        flex="3"
-        minW="200px"
-        maxW="250px"
-        w="100%"
-        h="60px"
-        alignSelf="center"
-        {...props}
-        {...comingSoonProps}
-      >
-        {title}
-      </Button>
-    )}
-  />
-)
+const DonateButton = ({ title, ...props }: any) => {
+  const openApp = () => {
+    window.open(Config.appURL, '_blank')
+  }
+
+  return (
+    <Button
+      flex="3"
+      minW="200px"
+      maxW="250px"
+      w="100%"
+      h="60px"
+      alignSelf="center"
+      {...props}
+      onPress={openApp}
+    >
+      {title}
+    </Button>
+  )
+}
 
 const AssistanceProgramSectionDesktop = () => {
   const { t } = useTranslation()
