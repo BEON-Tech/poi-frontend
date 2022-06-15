@@ -18,21 +18,17 @@ const createQueryStringParams = (params: Record<string, any>) =>
 
 export const getLatestCertifications = async ({
   limit = 3,
-  offset = 0,
+  offset = 1,
 }): Promise<CertificationData> => {
   const params: Record<string, any> = { limit, offset }
   const queryStringParams = createQueryStringParams(params)
-  const { data, ...response } = await fetch(
-    `${Config.apiURL}/certifiers?${queryStringParams}`
+  const { data } = await fetch(
+    `${Config.apiURL}/applications?${queryStringParams}`
   )
     .then((res) => res.json())
     .catch(() => ({ data: [], hasMore: false }))
-  const transformedData = data.map(({ cvUrl, avatarUrl, createdAt }: any) => ({
-    detailsLink: cvUrl,
-    image: avatarUrl,
-    date: createdAt,
-  }))
-  return { ...response, data: transformedData }
+
+  return { data, hasMore: false }
 }
 
 const transformDonationType = (type: TransactionType): string => {
@@ -44,9 +40,9 @@ const amountDivision = 1000 * 1000 * 1000 * 1000 * 1000 * 1000
 
 export const getLatestDonations = async ({
   limit = 3,
-  offset = 0,
+  offset = 1,
 }): Promise<DonationData> => {
-  const params: Record<string, any> = { limit, offset }
+  const params: Record<string, any> = { limit, page: offset }
   const queryStringParams = createQueryStringParams(params)
   const { data, ...response } = await fetch(
     `${Config.apiURL}/transactions?${queryStringParams}`

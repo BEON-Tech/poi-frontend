@@ -1,28 +1,31 @@
 import { Button, Heading, HStack, Text, VStack, View } from 'native-base'
 import { useTranslation } from 'next-export-i18n'
-
 import keys from '@i18n/keys'
 import { INTRO_SECTION } from '@constants'
 import { IntroSectionImages } from '@components/molecules'
-import { Images, ComingSoon } from '@components/atoms'
+import { Images } from '@components/atoms'
 import { useBreakpoint } from '@hooks'
 import { Container } from '@components/templates'
+import Config from '@config'
 
-const DonateButton = ({ title, ...props }: any) => (
-  <ComingSoon
-    Component={(comingSoonProps) => (
-      <Button
-        variant="solid"
-        h="60px"
-        alignSelf="center"
-        {...props}
-        {...comingSoonProps}
-      >
-        {title}
-      </Button>
-    )}
-  />
-)
+const DonateButton = ({ title, ...props }: any) => {
+  const openAppDonate = () => {
+    const url = `${Config.appURL}/donate`
+    window.open(url, '_blank')
+  }
+
+  return (
+    <Button
+      variant="solid"
+      h="60px"
+      alignSelf="center"
+      {...props}
+      onPress={openAppDonate}
+    >
+      {title}
+    </Button>
+  )
+}
 
 const IntroSectionDesktop = () => {
   const { t } = useTranslation()
@@ -62,13 +65,19 @@ const IntroSectionMobile = () => {
 
   return (
     <VStack zIndex="-1" nativeID={INTRO_SECTION}>
-      <View width="100%" height="100%" maxH="620px" mt="-120px" overflow="hidden">
+      <View
+        width="100%"
+        height="100%"
+        maxH="620px"
+        mt="-120px"
+        overflow="hidden"
+      >
         <View
           width="auto"
           h="1200px"
           position="relative"
-          top={{base:"-150px", sm:'-500px'}}
-          left={{base:"-100px", sm:'-10px'}}
+          top={{ base: '-150px', sm: '-500px' }}
+          left={{ base: '-100px', sm: '-10px' }}
         >
           <Images.PeopleCenterIntroSection {...imageProps} />
         </View>
