@@ -18,6 +18,7 @@ interface IFullCertificationsTableBody {
 const FullCertificationsTableBody = ({ data }: IFullCertificationsTableBody) => (
   <FlatList
     w="full"
+    minH={{ base: 0, lg: '315px' }}
     data={data}
     renderItem={({ item }) => <FullCertificationsCell certification={item} />}
     keyExtractor={(item) => item.id.toString()}
