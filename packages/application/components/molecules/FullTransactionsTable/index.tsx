@@ -18,6 +18,7 @@ interface IFullTransactionsTableBody {
 const FullTransactionsTableBody = ({ data }: IFullTransactionsTableBody) => (
   <FlatList
     w="full"
+    minH={{ base: 0, lg: '315px' }}
     data={data}
     renderItem={({ item }) => <FullTransactionsCell transaction={item} />}
     keyExtractor={(item) => item.id.toString()}
