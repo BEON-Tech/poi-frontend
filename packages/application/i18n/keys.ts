@@ -23,6 +23,8 @@ const rawKeys = {
     connectWallet: 'connectWallet',
     disconnect: 'disconnect',
     donate: 'donate',
+    pleaseInstallMetamaskShort: 'pleaseInstallMetamaskShort',
+    pleaseInstallMetamask: 'pleaseInstallMetamask',
   },
   thankYou: {
     thankYou: 'thankYou',

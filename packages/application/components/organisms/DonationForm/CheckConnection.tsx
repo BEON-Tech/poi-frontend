@@ -8,14 +8,21 @@ import MetamaskIcon from '@components/atoms/Icons/Metamask'
 
 const CheckConnection = () => {
   const { t } = useTranslation()
+  const [isEthereumProviderError, setEthereumProviderError] = useState(false)
   const [isHover, updateHover] = useState(false)
   const hoverStart = () => updateHover(true)
   const hoverEnd = () => updateHover(false)
 
-  const { activate } = useWallet()
+  const { activate, errorIsNoEthereumProviderError } = useWallet()
+
+  const onActivateError = (error: Error) => {
+    if (errorIsNoEthereumProviderError(error)) {
+      setEthereumProviderError(true)
+    }
+  }
 
   const handleConnectWallet = () => {
-    activate()
+    activate(onActivateError)
   }
 
   return (
@@ -63,7 +70,7 @@ const CheckConnection = () => {
           xl: 'xl',
         }}
       >
-        {t(keys.donate.invalidNetworkDescription)}
+        {isEthereumProviderError ? t(keys.donate.pleaseInstallMetamask) : t(keys.donate.invalidNetworkDescription)}
       </Text>
     </View>
   )

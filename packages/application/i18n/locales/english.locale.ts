@@ -28,6 +28,8 @@ const keys: LanguageKeys = {
     connectWallet: 'Connect Wallet',
     disconnect: 'Disconnect',
     donate: 'Donate',
+    pleaseInstallMetamaskShort: 'Please, install MetaMask extension',
+    pleaseInstallMetamask: 'Please, install MetaMask extension to connect your wallet.'
   },
   thankYou: {
     thankYou: 'Thank You!',
