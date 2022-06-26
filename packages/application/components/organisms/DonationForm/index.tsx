@@ -159,8 +159,6 @@ const DonationForm = () => {
     const amountString = amount.toString()
     router.push(`/thankyou?hash=${hash}&token=${tokenSymbol}&amount=${amountString}`)
   }
-
-  console.log("DONATE")
   
   const donate = async (event: any) => {
     event.preventDefault()
