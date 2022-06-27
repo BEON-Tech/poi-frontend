@@ -1,6 +1,7 @@
 import type { LanguageKeys } from '../keys'
 
 const keys: LanguageKeys = {
+  language: 'es',
   main: {
     poi: 'Proof Of Integrity',
   },
@@ -25,9 +26,12 @@ const keys: LanguageKeys = {
     invalidNetworkDescription:
       'Please make sure you are connected to the Ethereum Network.',
     metamask: 'Metamask',
-    connectWallet: 'Connect Wallet',
-    disconnect: 'Disconnect',
-    donate: 'Donate',
+    connectWallet: 'Conectar Wallet',
+    disconnect: 'Desconectar',
+    donate: 'Donar',
+    pleaseInstallMetamaskShort: 'Por favor, instale la extensión de MetaMask',
+    pleaseInstallMetamask:
+      'Por favor, instale la extensión de MetaMask para conectar su wallet.',
   },
   thankYou: {
     thankYou: 'Thank You!',

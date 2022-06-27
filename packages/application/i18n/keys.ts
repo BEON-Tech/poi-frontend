@@ -1,4 +1,5 @@
 const rawKeys = {
+  language: 'language',
   main: {
     poi: 'poi',
   },
@@ -23,6 +24,8 @@ const rawKeys = {
     connectWallet: 'connectWallet',
     disconnect: 'disconnect',
     donate: 'donate',
+    pleaseInstallMetamaskShort: 'pleaseInstallMetamaskShort',
+    pleaseInstallMetamask: 'pleaseInstallMetamask',
   },
   thankYou: {
     thankYou: 'thankYou',
