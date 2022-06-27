@@ -1,4 +1,4 @@
-import { Box, Button, HStack, Stack, Text } from 'native-base'
+import { Box, Button, HStack, Stack, Text, VStack } from 'native-base'
 import { useTranslation } from 'react-i18next'
 import { keys } from '@i18n'
 import { Transaction } from '@constants/types'
@@ -16,6 +16,15 @@ const FullTransactionsCell = ({ transaction }: IFullTransactionsCell) => {
       return `${amountInt / 1000 ** 6} ${transaction.tokenName}`
     }
     return `0 ${transaction.tokenName}`
+  }
+
+  const showTransactionDetails = () =>
+    transaction.type === 'administrativeExpenses'
+
+  const getTransactionDetails = () => {
+    const json = JSON.parse(transaction.description)
+    const language = t(keys.language)
+    return json[language].description
   }
 
   const formatDate = () => new Date(transaction.createdAt).toLocaleDateString()
@@ -52,9 +61,16 @@ const FullTransactionsCell = ({ transaction }: IFullTransactionsCell) => {
           {formatDate()}
         </Text>
       </HStack>
-      <Text flex={1} color="general.900">
-        {t(keys.transactions[transaction.type])}
-      </Text>
+      <VStack flex={1} alignItems="flex-start">
+        <Text color="general.900">
+          {t(keys.transactions[transaction.type])}
+        </Text>
+        {showTransactionDetails() && (
+          <Text fontSize=".8rem" color="general.900" marginRight="20px">
+            {getTransactionDetails()}
+          </Text>
+        )}
+      </VStack>
       <Box flex={1} color="general.900">
         <Text w={{ base: '60%', lg: '80%' }} isTruncated>
           {transaction.recipientAddress || '-'}

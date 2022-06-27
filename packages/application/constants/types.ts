@@ -85,6 +85,7 @@ export interface Transaction {
   tokenName: string
   amount: string
   status: string
+  description: string
   createdAt: string
   updatedAt: string
   transactionUrl: string

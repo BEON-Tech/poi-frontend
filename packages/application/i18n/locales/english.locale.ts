@@ -1,6 +1,7 @@
 import type { LanguageKeys } from '../keys'
 
 const keys: LanguageKeys = {
+  language: 'en',
   main: {
     poi: 'Proof Of Integrity',
   },
@@ -29,7 +30,8 @@ const keys: LanguageKeys = {
     disconnect: 'Disconnect',
     donate: 'Donate',
     pleaseInstallMetamaskShort: 'Please, install MetaMask extension',
-    pleaseInstallMetamask: 'Please, install MetaMask extension to connect your wallet.'
+    pleaseInstallMetamask:
+      'Please, install MetaMask extension to connect your wallet.',
   },
   thankYou: {
     thankYou: 'Thank You!',

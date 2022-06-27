@@ -1,4 +1,5 @@
 const rawKeys = {
+  language: 'language',
   main: {
     poi: 'poi',
   },
