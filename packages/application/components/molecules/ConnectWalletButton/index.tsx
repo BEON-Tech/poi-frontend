@@ -1,9 +1,10 @@
-import { Button, HStack, Text } from 'native-base'
+import { Button, Text, VStack } from 'native-base'
 import { useTranslation } from 'react-i18next'
 // eslint-disable-next-line import/no-unresolved
 import { IHStackProps } from 'native-base/lib/typescript/components/primitives/Stack/HStack'
 import { useWallet } from '@hooks/wallet'
 import { keys } from '@i18n'
+import { useState } from 'react'
 
 interface IConnectWalletButtonProps {
   containerProps?: IHStackProps
@@ -18,16 +19,23 @@ const ConnectWalletButton = ({
   width,
   height,
 }: IConnectWalletButtonProps) => {
+  const [isEthereumProviderError, setEthereumProviderError] = useState(false)
   const { t } = useTranslation()
-  const { activate } = useWallet()
+  const { activate, errorIsNoEthereumProviderError } = useWallet()
+
+  const onActivateError = (error: Error) => {
+    if (errorIsNoEthereumProviderError(error)) {
+      setEthereumProviderError(true)
+    }
+  }
 
   const handleConnectWallet = () => {
     if (onConnectPress) onConnectPress()
-    activate()
+    activate(onActivateError)
   }
 
   return (
-    <HStack {...containerProps}>
+    <VStack {...containerProps}>
       <Button
         w={width}
         h={height}
@@ -39,7 +47,12 @@ const ConnectWalletButton = ({
           {t(keys.donate.connectWallet)}
         </Text>
       </Button>
-    </HStack>
+      {isEthereumProviderError && (
+        <Text position="fixed" mt={height} pt={8} fontSize="sm">
+          {t(keys.donate.pleaseInstallMetamaskShort)}
+        </Text>
+      )}
+    </VStack>
   )
 }
 
