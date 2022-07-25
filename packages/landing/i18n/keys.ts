@@ -20,8 +20,17 @@ const keys = {
   introSection: {
     title: 'title',
     subTitle: {
-      firstSection: 'firstSection',
-      secondSection: 'secondSection',
+      firstSection: {
+        first: 'first',
+        second: 'second',
+        third: 'third',
+      },
+      secondSection: {
+        first: 'first',
+        second: 'second',
+        secondTooltip: 'secondTooltip',
+        third: 'third',
+      },
     },
     donateCTA: 'donateCTA',
   },
@@ -103,7 +112,7 @@ const keys = {
       fundraisingStrategy: 'fundraisingStrategy',
       institutionalRelations: 'institutionalRelations',
       communicationsTeam: 'communicationsTeam',
-      territorialDevelopment: 'territorialDevelopment'
+      territorialDevelopment: 'territorialDevelopment',
     },
     meetTheAdvisors: 'meetTheAdvisors',
   },

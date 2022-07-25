@@ -1,4 +1,4 @@
-import { Button, IButtonProps } from 'native-base'
+import { Button, HStack, IButtonProps } from 'native-base'
 import { useTranslation } from 'next-export-i18n'
 import keys from '@i18n/keys'
 import {
@@ -8,7 +8,6 @@ import {
   PUBLIC_AUDIT_SECTION,
 } from '@constants'
 import Link from 'next/link'
-import Config from '@config'
 
 export interface INavigationToolsProps {
   onOperationPress?: () => void
@@ -17,10 +16,6 @@ export interface INavigationToolsProps {
 
 const NavigationTools = ({ onOperationPress }: INavigationToolsProps) => {
   const { t } = useTranslation()
-
-  const openApp = () => {
-    window.open(Config.appURL, '_blank')
-  }
 
   const navigationButtons = [
     { text: t(keys.toolbar.about), sectionName: ABOUT_POI_SECTION },
@@ -33,7 +28,7 @@ const NavigationTools = ({ onOperationPress }: INavigationToolsProps) => {
   ]
 
   return (
-    <>
+    <HStack w="full" justifyContent="space-evenly">
       {navigationButtons.map(({ text, sectionName }) => (
         <Link
           key={sectionName}
@@ -47,13 +42,7 @@ const NavigationTools = ({ onOperationPress }: INavigationToolsProps) => {
           </Button>
         </Link>
       ))}
-      <Button
-        w="200px"
-        onPress={openApp}
-      >
-        {t(keys.toolbar.goToApp)}
-      </Button>
-    </>
+    </HStack>
   )
 }
 

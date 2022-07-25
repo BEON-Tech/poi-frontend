@@ -4,7 +4,7 @@
   },
   "toolbar": {
     "about": "Sobre nosotros",
-    "assitanceProgram": "Programa de asistencia",
+    "assitanceProgram": "#aPRENDOcripto",
     "ourTeam": "Nuestro equipo",
     "publicAudit": "Auditoría pública",
     "goToApp": "Ir a la App",
@@ -13,8 +13,17 @@
   "introSection": {
     "title": "Usamos cripto para generar impacto social",
     "subTitle": {
-      "firstSection": "Proof of Integrity es una iniciativa que ayuda a comunidades con dificultades a reducir la pobreza a través de la capacitación financiera y el uso de criptomonedas.",
-      "secondSection": "Estamos integrados con la iniciativa Proof of Humanity, y nuestra visión es incorporar a todos los humanos que necesitan la plataforma."
+      "firstSection": {
+        "first": "En ",
+        "second": "Proof of Integrity",
+        "third": " impulsamos iniciativas que potencian la inclusión tecnológica y generan oportunidades reales de desarrollo de una manera transparente y descentralizada."
+      },
+      "secondSection": {
+        "first": "Nuestro propósito es acercar los beneficios de la ",
+        "second": "tecnología blockchain",
+        "secondTooltip": "Blockchain es una tecnología que consiste en una cadena de bloques\r\ncon una base de datos pública donde se registran de forma segura\r\nlas transacciones que se realizan en la red.",
+        "third": " a los sectores socio-económicamente vulnerables para generar una sociedad equitativa, inclusiva y sostenible."
+      }
     },
     "donateCTA": "Quiero donar"
   },

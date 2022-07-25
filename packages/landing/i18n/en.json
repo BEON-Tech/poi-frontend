@@ -4,7 +4,7 @@
   },
   "toolbar": {
     "about": "About",
-    "assitanceProgram": "Assistance Program",
+    "assitanceProgram": "#aPRENDOcripto",
     "ourTeam": "Our Team",
     "publicAudit": "Public Audit",
     "goToApp": "Go to the App",
@@ -13,8 +13,17 @@
   "introSection": {
     "title": "Using crypto to target social protection",
     "subTitle": {
-      "firstSection": "Proof of Integrity is an initiative that helps struggling communities to reduce poverty through financial training and crypto embracement.",
-      "secondSection": "We are integrated with the Proof of Humanity initiative, and our vision is to onboard every human in need to the platform."
+      "firstSection": {
+        "first": "Proof of Integrity is an initiative that helps struggling communities to reduce poverty through financial training and crypto embracement.",
+        "second": " ",
+        "third": " "
+      },
+      "secondSection": {
+        "first": "We are integrated with the Proof of Humanity initiative, and our vision is to onboard every human in need to the platform.",
+        "second": " ",
+        "secondTooltip": " ",
+        "third": " "
+      }
     },
     "donateCTA": "Donate"
   },

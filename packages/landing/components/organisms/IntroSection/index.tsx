@@ -1,4 +1,12 @@
-import { Button, Heading, HStack, Text, VStack, View } from 'native-base'
+import {
+  Button,
+  Heading,
+  HStack,
+  Text,
+  VStack,
+  View,
+  Tooltip,
+} from 'native-base'
 import { useTranslation } from 'next-export-i18n'
 import keys from '@i18n/keys'
 import { INTRO_SECTION } from '@constants'
@@ -37,9 +45,23 @@ const IntroSectionDesktop = () => {
           <Heading size="7xl" fontWeight="light" lineHeight="110px">
             {t(keys.introSection.title)}
           </Heading>
-          <Text mt="16">{t(keys.introSection.subTitle.firstSection)}</Text>
+          <Text mt="16">
+            <Text>{t(keys.introSection.subTitle.firstSection.first)}</Text>
+            <Text bold>
+              {t(keys.introSection.subTitle.firstSection.second)}
+            </Text>
+            <Text>{t(keys.introSection.subTitle.firstSection.third)}</Text>
+          </Text>
           <Text mt="5" mb="16">
-            {t(keys.introSection.subTitle.secondSection)}
+            <Text>{t(keys.introSection.subTitle.secondSection.first)}</Text>
+            <Tooltip
+              label={t(keys.introSection.subTitle.secondSection.secondTooltip)}
+            >
+              <Text bold>
+                {t(keys.introSection.subTitle.secondSection.second)}
+              </Text>
+            </Tooltip>
+            <Text>{t(keys.introSection.subTitle.secondSection.third)}</Text>
           </Text>
           <DonateButton title={t(keys.introSection.donateCTA)} />
         </VStack>
@@ -91,10 +113,20 @@ const IntroSectionMobile = () => {
           <Images.PeopleBottomIntroSection height="210px" width="210px" />
         </View>
         <Text letterSpacing="-0.27%">
-          {t(keys.introSection.subTitle.firstSection)}
+          <Text>{t(keys.introSection.subTitle.firstSection.first)}</Text>
+          <Text bold>{t(keys.introSection.subTitle.firstSection.second)}</Text>
+          <Text>{t(keys.introSection.subTitle.firstSection.third)}</Text>
         </Text>
         <Text mt="5" letterSpacing="-0.27%">
-          {t(keys.introSection.subTitle.secondSection)}
+          <Text>{t(keys.introSection.subTitle.secondSection.first)}</Text>
+          <Tooltip
+            label={t(keys.introSection.subTitle.secondSection.secondTooltip)}
+          >
+            <Text bold>
+              {t(keys.introSection.subTitle.secondSection.second)}
+            </Text>
+          </Tooltip>
+          <Text>{t(keys.introSection.subTitle.secondSection.third)}</Text>
         </Text>
         <View mt="59px" mb="71px" alignSelf="center">
           <Images.Logo width="68px" height="68px" />
