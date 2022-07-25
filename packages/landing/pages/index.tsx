@@ -10,7 +10,6 @@ import {
   OurTeamSection,
   AdvisorsSection,
   PublicAuditSection,
-  WhyUsSection,
   PartnersSection,
   ContactUsSection,
   MobileMenu,
@@ -44,7 +43,6 @@ const Home: NextPage = () => {
       <OurTeamSection />
       <AdvisorsSection />
       <PartnersSection />
-      <WhyUsSection />
       <ContactUsSection />
       <Footer />
     </VStack>
