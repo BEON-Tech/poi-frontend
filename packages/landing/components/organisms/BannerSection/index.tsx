@@ -11,7 +11,11 @@ const BannerSectionDesktop = () => {
 
   return (
     <ZStack alignItems="center" height="600px" nativeID={BANNER_SECTION}>
-      <Images.Banner width="100%" height="100%" />
+      <View width="100%" overflow="hidden">
+        <View>
+          <Images.Banner objectFit="cover" width="100%" height="auto" />
+        </View>
+      </View>
       <VStack w="100%">
         <View maxW="100%">
           <Heading
@@ -23,6 +27,7 @@ const BannerSectionDesktop = () => {
             fontWeight="extrabold"
             size={{ base: '2xl', md: '3xl' }}
             textAlign="center"
+            opacity={0}
           >
             {t(keys.banner.title)}
           </Heading>
@@ -53,8 +58,8 @@ const BannerSectionMobile = () => {
   return (
     <ZStack alignItems="center" height="700px" nativeID={BANNER_SECTION}>
       <View width="100%" overflow="hidden">
-        <View left="-1500px" top="-130px">
-          <Images.Banner objectFit="cover" height="831px" width="3600px" />
+        <View left="-700px" top="-0px">
+          <Images.Banner objectFit="cover" width="2088px" height="1392px" />
         </View>
       </View>
       <VStack w="100%" alignItems="center">
@@ -65,6 +70,7 @@ const BannerSectionMobile = () => {
           fontWeight="extrabold"
           size={{ base: '2xl', md: '3xl' }}
           textAlign="center"
+          opacity={0}
         >
           {t(keys.banner.title)}
         </Heading>
