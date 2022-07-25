@@ -8,14 +8,55 @@ import {
   PUBLIC_AUDIT_SECTION,
 } from '@constants'
 import Link from 'next/link'
+import { useBreakpoint } from '@hooks'
 
 export interface INavigationToolsProps {
   onOperationPress?: () => void
   buttonProps?: IButtonProps
 }
 
+interface INavigationToolsButton {
+  text: string
+  sectionName: string
+}
+
+interface INavigationToolsLocalProps extends INavigationToolsProps {
+  buttons: INavigationToolsButton[]
+}
+
+const NavigationToolsDesktop = ({
+  onOperationPress,
+  buttons,
+}: INavigationToolsLocalProps) => (
+  <HStack w="full" justifyContent="space-evenly">
+    {buttons.map(({ text, sectionName }) => (
+      <Link key={sectionName} href={`#${sectionName}`} replace passHref scroll>
+        <Button w="auto" variant="link" onPress={onOperationPress}>
+          {text}
+        </Button>
+      </Link>
+    ))}
+  </HStack>
+)
+
+const NavigationToolsMobile = ({
+  onOperationPress,
+  buttons,
+}: INavigationToolsLocalProps) => (
+  <>
+    {buttons.map(({ text, sectionName }) => (
+      <Link key={sectionName} href={`#${sectionName}`} replace passHref scroll>
+        <Button w="auto" variant="link" onPress={onOperationPress}>
+          {text}
+        </Button>
+      </Link>
+    ))}
+  </>
+)
+
 const NavigationTools = ({ onOperationPress }: INavigationToolsProps) => {
   const { t } = useTranslation()
+  const { isDesktop } = useBreakpoint()
 
   const navigationButtons = [
     { text: t(keys.toolbar.about), sectionName: ABOUT_POI_SECTION },
@@ -27,22 +68,16 @@ const NavigationTools = ({ onOperationPress }: INavigationToolsProps) => {
     { text: t(keys.toolbar.publicAudit), sectionName: PUBLIC_AUDIT_SECTION },
   ]
 
-  return (
-    <HStack w="full" justifyContent="space-evenly">
-      {navigationButtons.map(({ text, sectionName }) => (
-        <Link
-          key={sectionName}
-          href={`#${sectionName}`}
-          replace
-          passHref
-          scroll
-        >
-          <Button w="auto" variant="link" onPress={onOperationPress}>
-            {text}
-          </Button>
-        </Link>
-      ))}
-    </HStack>
+  return isDesktop ? (
+    <NavigationToolsDesktop
+      onOperationPress={onOperationPress}
+      buttons={navigationButtons}
+    />
+  ) : (
+    <NavigationToolsMobile
+      onOperationPress={onOperationPress}
+      buttons={navigationButtons}
+    />
   )
 }
 
