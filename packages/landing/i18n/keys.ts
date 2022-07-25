@@ -92,6 +92,7 @@ const keys = {
     show: 'show',
     hide: 'hide',
     title: 'title',
+    description: 'description',
     tags: {
       all: 'all',
       developers: 'developers',

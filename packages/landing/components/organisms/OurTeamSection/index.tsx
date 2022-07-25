@@ -8,6 +8,7 @@ import {
   Button,
   ChevronUpIcon,
   ChevronDownIcon,
+  Text,
 } from 'native-base'
 
 import keys from '@i18n/keys'
@@ -28,8 +29,11 @@ const OurTeamSectionDesktop = () => {
     <Container>
       <VStack pt="217px" alignItems="center" nativeID={OUR_TEAM_SECTION}>
         <BulletedTitle imageName="Pentagon" title={t(keys.ourTeam.title)} />
+        <Text mt="40px" ml="90px" mr="60px">
+          {t(keys.ourTeam.description)}
+        </Text>
         <FlatList
-          mt="73px"
+          mt="40px"
           data={ListItems}
           numColumns={4}
           renderItem={(item) => <PersonCard item={item.item} />}
@@ -68,8 +72,11 @@ const OurTeamSectionMobile = () => {
         alignItems="flex-start"
         alignSelf="flex-start"
         w={{ base: '150px', lg: '100%' }}
-        pb="64px"
+        pb="34px"
       />
+      <Text mb="40px" mx="10px">
+        {t(keys.ourTeam.description)}
+      </Text>
       <Button
         w="100%"
         onPress={onShowHide}
