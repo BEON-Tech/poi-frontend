@@ -54,13 +54,22 @@ const IntroSectionDesktop = () => {
           </Text>
           <Text mt="5" mb="16">
             <Text>{t(keys.introSection.subTitle.secondSection.first)}</Text>
-            <Tooltip
-              label={t(keys.introSection.subTitle.secondSection.secondTooltip)}
-            >
+            {t(keys.introSection.subTitle.secondSection.secondTooltip).trim()
+              .length > 0 ? (
+              <Tooltip
+                label={t(
+                  keys.introSection.subTitle.secondSection.secondTooltip
+                )}
+              >
+                <Text bold>
+                  {t(keys.introSection.subTitle.secondSection.second)}
+                </Text>
+              </Tooltip>
+            ) : (
               <Text bold>
                 {t(keys.introSection.subTitle.secondSection.second)}
               </Text>
-            </Tooltip>
+            )}
             <Text>{t(keys.introSection.subTitle.secondSection.third)}</Text>
           </Text>
           <DonateButton title={t(keys.introSection.donateCTA)} />
@@ -119,13 +128,20 @@ const IntroSectionMobile = () => {
         </Text>
         <Text mt="5" letterSpacing="-0.27%">
           <Text>{t(keys.introSection.subTitle.secondSection.first)}</Text>
-          <Tooltip
-            label={t(keys.introSection.subTitle.secondSection.secondTooltip)}
-          >
+          {t(keys.introSection.subTitle.secondSection.secondTooltip).trim()
+            .length > 0 ? (
+            <Tooltip
+              label={t(keys.introSection.subTitle.secondSection.secondTooltip)}
+            >
+              <Text bold>
+                {t(keys.introSection.subTitle.secondSection.second)}
+              </Text>
+            </Tooltip>
+          ) : (
             <Text bold>
               {t(keys.introSection.subTitle.secondSection.second)}
             </Text>
-          </Tooltip>
+          )}
           <Text>{t(keys.introSection.subTitle.secondSection.third)}</Text>
         </Text>
         <View mt="59px" mb="71px" alignSelf="center">

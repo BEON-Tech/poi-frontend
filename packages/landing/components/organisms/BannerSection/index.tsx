@@ -31,13 +31,13 @@ const BannerSectionDesktop = () => {
         <Flex
           h="100%"
           alignSelf={{ lg: 'center', xl: 'flex-end' }}
-          mt={{ lg: '30px', xl: '-100px' }}
+          mt={{ lg: '30px', xl: '-210px' }}
           mr={{ xl: '40px' }}
           flexDir={{ lg: 'row', xl: 'column' }}
         >
           <ContentBubble
             text={t(keys.banner.bubble1)}
-            mb={{ xl: '44px' }}
+            mb={{ xl: '20px' }}
             mr={{ lg: '20px', xl: 0 }}
           />
           <ContentBubble text={t(keys.banner.bubble2)} />
@@ -51,7 +51,7 @@ const BannerSectionMobile = () => {
   const { t } = useTranslation()
 
   return (
-    <ZStack alignItems="center" height="631px" nativeID={BANNER_SECTION}>
+    <ZStack alignItems="center" height="700px" nativeID={BANNER_SECTION}>
       <View width="100%" overflow="hidden">
         <View left="-1500px" top="-130px">
           <Images.Banner objectFit="cover" height="831px" width="3600px" />
@@ -68,7 +68,7 @@ const BannerSectionMobile = () => {
         >
           {t(keys.banner.title)}
         </Heading>
-        <ContentBubble text={t(keys.banner.bubble1)} mb="44px" mt="70px" />
+        <ContentBubble text={t(keys.banner.bubble1)} mb="20px" mt="20px" />
         <ContentBubble text={t(keys.banner.bubble2)} />
       </VStack>
     </ZStack>
