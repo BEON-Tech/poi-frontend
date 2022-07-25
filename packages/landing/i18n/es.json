@@ -66,6 +66,9 @@
     "noDataText": " Nuestro programa piloto tiene fecha de comienzo el ",
     "noDataDate": "3 de mayo.",
     "moreDetails": "Más Detalles",
+    "descriptionOne": "Proof of Integrity es una organización transparente donde todos los ingresos y egresos pueden ser monitoreados por cualquier persona. Hacemos públicas todas las transacciones realizadas desde y hasta nuestra billetera.",
+    "descriptionTwo": "A su vez publicamos las certificaciones de todas las personas que generaron su perfil en Proof of Humanity.",
+    "descriptionThree": "Los puedes ver aquí:",
     "certificationsTable": {
       "title": "Últimas Certificaciones",
       "applicantColumn": "Solicitud",

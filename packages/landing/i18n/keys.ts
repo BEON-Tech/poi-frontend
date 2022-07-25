@@ -73,6 +73,9 @@ const keys = {
     noDataTitle: 'noDataTitle',
     noDataText: 'noDataText',
     noDataDate: 'noDataDate',
+    descriptionOne: 'descriptionOne',
+    descriptionTwo: 'descriptionTwo',
+    descriptionThree: 'descriptionThree',
     certificationsTable: {
       title: 'title',
       applicantColumn: 'applicantColumn',
