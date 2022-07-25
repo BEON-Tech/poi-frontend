@@ -37,9 +37,10 @@
     "show": "Mostrar más",
     "upperTittle": "Acerca de",
     "tittle": "Proof Of Integrity",
-    "descriptionFirstParagraph": "Creemos en el impacto social de la blockchain. Nuestra misión es tender puentes entre donantes y beneficiarios, brindando a estos últimos instrumentos financieros para ayudarlos a prosperar.",
-    "descriptionSecondParagraph": "Abordar la transparencia de las donaciones, el principal problema de los contribuyentes, es la clave para desbloquear estos nuevos lazos de manera descentralizada. Al contribuir a través del blockchain, no existen intermediarios entre el donativo y su beneficiario.",
-    "descriptionThirdParagraph": "Nuestro equipo está compuesto por programadores, expertos en medición de impacto, comunicadores, trabajadores sociales y entusiastas de las criptomonedas que comparten la misma visión: reducir la pobreza llevando el blockchain a la mayor cantidad de personas posible."
+    "descriptionFirstParagraph": "Creemos en el impacto social de la blockchain. Queremos trasladar los beneficios de la tecnología blockchain a comunidades socio-económicamente vulnerables para generar una sociedad más equitativa, inclusiva y sostenible.",
+    "descriptionSecondParagraph": "Promovemos la inclusión tecnológica. Vamos a impulsar y potenciar iniciativas que reduzcan la brecha tecnológica y generen oportunidades reales de inclusión y desarrollo.",
+    "descriptionThirdParagraph": "Proof of Humanity (PoH): Estamos integrados con Proof of Humanity (PoH), una plataforma de verificación de identidades digitales en blockchain, por la cual se distribuye un Ingreso Básico Universal a través de un token UBI por hora (por sus siglas en inglés).",
+    "descriptionFourthParagraph": "Hoy contamos con nuestro primer programa de formación: #aPRENDOcripto. Estamos trabajando para replicarlo en otros barrios y diseñar nuevos proyectos que respondan al objetivo de PoI."
   },
   "assistanceProgram": {
     "title": "Nuestro programa piloto",

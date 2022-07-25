@@ -47,6 +47,7 @@ const keys = {
     descriptionFirstParagraph: 'descriptionFirstParagraph',
     descriptionSecondParagraph: 'descriptionSecondParagraph',
     descriptionThirdParagraph: 'descriptionThirdParagraph',
+    descriptionFourthParagraph: 'descriptionFourthParagraph',
   },
   assistanceProgram: {
     title: 'title',

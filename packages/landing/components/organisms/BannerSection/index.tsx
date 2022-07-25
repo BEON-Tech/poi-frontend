@@ -10,7 +10,12 @@ const BannerSectionDesktop = () => {
   const { t } = useTranslation()
 
   return (
-    <ZStack alignItems="center" height="600px" nativeID={BANNER_SECTION}>
+    <ZStack
+      alignItems="center"
+      height="600px"
+      nativeID={BANNER_SECTION}
+      overflow="hidden"
+    >
       <View width="100%" overflow="hidden">
         <View>
           <Images.Banner objectFit="cover" width="100%" height="auto" />
@@ -56,7 +61,12 @@ const BannerSectionMobile = () => {
   const { t } = useTranslation()
 
   return (
-    <ZStack alignItems="center" height="700px" nativeID={BANNER_SECTION}>
+    <ZStack
+      alignItems="center"
+      height="700px"
+      nativeID={BANNER_SECTION}
+      overflow="hidden"
+    >
       <View width="100%" overflow="hidden">
         <View left="-700px" top="-0px">
           <Images.Banner objectFit="cover" width="2088px" height="1392px" />

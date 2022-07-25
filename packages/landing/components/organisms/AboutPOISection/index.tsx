@@ -49,6 +49,9 @@ const AboutPOISectionDesktop = () => {
                   {t(keys.aboutPOI.descriptionSecondParagraph)}
                 </Text>
                 <Text mt="5">{t(keys.aboutPOI.descriptionThirdParagraph)}</Text>
+                <Text mt="5">
+                  {t(keys.aboutPOI.descriptionFourthParagraph)}
+                </Text>
               </View>
             </HStack>
             <View
@@ -103,6 +106,7 @@ const AboutPOISectionMobile = () => {
           <>
             <Text mt="5">{t(keys.aboutPOI.descriptionSecondParagraph)}</Text>
             <Text mt="5">{t(keys.aboutPOI.descriptionThirdParagraph)}</Text>
+            <Text mt="5">{t(keys.aboutPOI.descriptionFourthParagraph)}</Text>
           </>
         )}
         <Button
