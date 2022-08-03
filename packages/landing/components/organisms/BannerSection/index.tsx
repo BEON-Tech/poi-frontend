@@ -13,7 +13,7 @@ const BannerSectionDesktop = () => {
   return (
     <ZStack
       alignItems="center"
-      height="600px"
+      height="800px"
       nativeID={BANNER_SECTION}
       overflow="hidden"
     >
@@ -22,8 +22,8 @@ const BannerSectionDesktop = () => {
           <Images.Banner objectFit="cover" width="100%" height="auto" />
         </View>
       </View>
-      <HStack w="100%">
-        <HStack flex={1} alignSelf="center" justifyContent="center" mt="20px">
+      <HStack w="100%" h="100%">
+        <HStack flex={1} alignSelf="center" justifyContent="center" mt="-70px">
           <View maxW="100%" maxWidth="853px">
             <iframe
               width="853"
@@ -40,8 +40,9 @@ const BannerSectionDesktop = () => {
         <Flex
           h="100%"
           alignSelf={{ lg: 'center', xl: 'flex-end' }}
-          mt={{ lg: '30px', xl: '30px' }}
+          justifyContent="center"
           mr={{ xl: '40px' }}
+          pb={{ lg: 0, xl: '100px' }}
           flexDir={{ lg: 'row', xl: 'column' }}
         >
           <ContentBubble
@@ -62,7 +63,7 @@ const BannerSectionMobile = () => {
   return (
     <ZStack
       alignItems="center"
-      height="780px"
+      height="720px"
       nativeID={BANNER_SECTION}
       overflow="hidden"
     >
@@ -71,7 +72,13 @@ const BannerSectionMobile = () => {
           <Images.Banner objectFit="cover" width="2088px" height="1392px" />
         </View>
       </View>
-      <VStack w="100%" alignItems="center">
+      <VStack
+        w="100%"
+        h="100%"
+        alignItems="center"
+        justifyContent="center"
+        pb="70px"
+      >
         <View maxW="100%" maxWidth="320px" mt="40px">
           <iframe
             width="320"

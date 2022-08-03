@@ -5,10 +5,10 @@ import {
   ABOUT_POI_SECTION,
   ASSISTANCE_PROGRAM_SECTION,
   OUR_TEAM_SECTION,
-  PUBLIC_AUDIT_SECTION,
 } from '@constants'
 import Link from 'next/link'
 import { useBreakpoint } from '@hooks'
+import Config from '@config'
 
 export interface INavigationToolsProps {
   onOperationPress?: () => void
@@ -18,6 +18,7 @@ export interface INavigationToolsProps {
 interface INavigationToolsButton {
   text: string
   sectionName: string
+  isUrl: boolean
 }
 
 interface INavigationToolsLocalProps extends INavigationToolsProps {
@@ -29,13 +30,36 @@ const NavigationToolsDesktop = ({
   buttons,
 }: INavigationToolsLocalProps) => (
   <HStack w="full" justifyContent="space-evenly">
-    {buttons.map(({ text, sectionName }) => (
-      <Link key={sectionName} href={`#${sectionName}`} replace passHref scroll>
-        <Button w="auto" variant="link" onPress={onOperationPress}>
-          {text}
-        </Button>
-      </Link>
-    ))}
+    {buttons.map(({ text, sectionName, isUrl }) => {
+      if (isUrl) {
+        return (
+          <a
+            key={sectionName}
+            href={sectionName}
+            target="_blank"
+            rel="noreferrer"
+            style={{ textDecoration: 'none' }}
+          >
+            <Button w="auto" variant="link" onPress={onOperationPress}>
+              {text}
+            </Button>
+          </a>
+        )
+      }
+      return (
+        <Link
+          key={sectionName}
+          href={`#${sectionName}`}
+          replace
+          passHref
+          scroll
+        >
+          <Button w="auto" variant="link" onPress={onOperationPress}>
+            {text}
+          </Button>
+        </Link>
+      )
+    })}
   </HStack>
 )
 
@@ -44,13 +68,39 @@ const NavigationToolsMobile = ({
   buttons,
 }: INavigationToolsLocalProps) => (
   <>
-    {buttons.map(({ text, sectionName }) => (
-      <Link key={sectionName} href={`#${sectionName}`} replace passHref scroll>
-        <Button w="auto" variant="link" onPress={onOperationPress}>
-          {text}
-        </Button>
-      </Link>
-    ))}
+    {buttons.map(({ text, sectionName, isUrl }) => {
+      if (isUrl) {
+        return (
+          <Link key={sectionName} href={sectionName} replace passHref scroll>
+            <a
+              key={sectionName}
+              href={sectionName}
+              target="_blank"
+              rel="noreferrer"
+              style={{ textDecoration: 'none' }}
+            >
+              <Button w="auto" variant="link" onPress={onOperationPress}>
+                {text}
+              </Button>
+            </a>
+          </Link>
+        )
+      }
+
+      return (
+        <Link
+          key={sectionName}
+          href={`#${sectionName}`}
+          replace
+          passHref
+          scroll
+        >
+          <Button w="auto" variant="link" onPress={onOperationPress}>
+            {text}
+          </Button>
+        </Link>
+      )
+    })}
   </>
 )
 
@@ -59,13 +109,26 @@ const NavigationTools = ({ onOperationPress }: INavigationToolsProps) => {
   const { isDesktop } = useBreakpoint()
 
   const navigationButtons = [
-    { text: t(keys.toolbar.about), sectionName: ABOUT_POI_SECTION },
+    {
+      text: t(keys.toolbar.about),
+      sectionName: ABOUT_POI_SECTION,
+      isUrl: false,
+    },
     {
       text: t(keys.toolbar.assitanceProgram),
       sectionName: ASSISTANCE_PROGRAM_SECTION,
+      isUrl: false,
     },
-    { text: t(keys.toolbar.ourTeam), sectionName: OUR_TEAM_SECTION },
-    { text: t(keys.toolbar.publicAudit), sectionName: PUBLIC_AUDIT_SECTION },
+    {
+      text: t(keys.toolbar.ourTeam),
+      sectionName: OUR_TEAM_SECTION,
+      isUrl: false,
+    },
+    {
+      text: t(keys.toolbar.publicAudit),
+      sectionName: `${Config.appURL}/publicaudit`,
+      isUrl: true,
+    },
   ]
 
   return isDesktop ? (

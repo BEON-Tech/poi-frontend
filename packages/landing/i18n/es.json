@@ -21,7 +21,7 @@
       "secondSection": {
         "first": "Nuestro propósito es acercar los beneficios de la ",
         "second": "tecnología blockchain",
-        "secondTooltip": "Blockchain es una tecnología que consiste en una cadena de bloques\r\ncon una base de datos pública donde se registran de forma segura\r\nlas transacciones que se realizan en la red.",
+        "secondTooltip": "Blockchain es un sistema distribuido y descentralizado usado para\r\nalmacenar bloques de transacciones y verificarlos con una red de nodos.\r\nEstos bloques no pueden ser alterados una vez verificados.",
         "third": " a los sectores socio-económicamente vulnerables para generar una sociedad equitativa, inclusiva y sostenible."
       }
     },
@@ -30,16 +30,16 @@
   "banner": {
     "title": "Necesidades urgentes requieren respuestas urgentes",
     "bubble1": "En un mundo cada vez más atravesado por la tecnología, los paradigmas tradicionales de desigualdad y pobreza necesitan repensarse.",
-    "bubble2": "La digitalización y las nuevas tecnologías amplían brechas en los sectores socio-económicamente vulnerables, proponemos utilizarla para generar nuevas oportunidades para reducir las desigualdades."
+    "bubble2": "Con #aPRENDOcripto queremos reducir la brecha tecnológica por medio de la educación."
   },
   "aboutPOI": {
     "hide": "Ocultar",
     "show": "Mostrar más",
     "upperTittle": "Acerca de",
     "tittle": "Proof Of Integrity",
-    "descriptionFirstParagraph": "Creemos en el impacto social de la blockchain. Queremos trasladar los beneficios de la tecnología blockchain a comunidades socio-económicamente vulnerables para generar una sociedad más equitativa, inclusiva y sostenible.",
-    "descriptionSecondParagraph": "Promovemos la inclusión tecnológica. Vamos a impulsar y potenciar iniciativas que reduzcan la brecha tecnológica y generen oportunidades reales de inclusión y desarrollo.",
-    "descriptionThirdParagraph": "Proof of Humanity (PoH): Estamos integrados con Proof of Humanity (PoH), una plataforma de verificación de identidades digitales en blockchain, por la cual se distribuye un Ingreso Básico Universal a través de un token UBI por hora (por sus siglas en inglés).",
+    "descriptionFirstParagraph": "Queremos trasladar los beneficios de la tecnología blockchain a comunidades socio-económicamente vulnerables para generar una sociedad más equitativa, inclusiva y sostenible.",
+    "descriptionSecondParagraph": "Vamos a impulsar y potenciar iniciativas que reduzcan la brecha tecnológica y generen oportunidades reales de inclusión y desarrollo.",
+    "descriptionThirdParagraph": "Estamos integrados con Proof of Humanity (PoH), una plataforma de verificación de identidades digitales en la blockchain, por la cual se distribuye el token UBI.",
     "descriptionFourthParagraph": "Hoy contamos con nuestro primer programa de formación: #aPRENDOcripto. Estamos trabajando para replicarlo en otros barrios y diseñar nuevos proyectos que respondan al objetivo de PoI."
   },
   "assistanceProgram": {
