@@ -12,9 +12,9 @@ const keys: LanguageKeys = {
     wallet: 'Billetera',
   },
   donateHeader: {
-    title: 'Ayudar humanos en necesidad',
+    title: 'Necesitamos tu ayuda',
     subtitle:
-      'Porque las necesidades urgentes requieren respuestas urgentes, aceptamos donaciones en cripto.',
+      'Con tu donación podemos acercar la tecnología blockchain a más personas.',
   },
   donate: {
     label: 'Ingrese monto',
@@ -38,7 +38,8 @@ const keys: LanguageKeys = {
     moreDetails: 'Más Detalles',
     youContributed: 'Has contribuido',
     toOurPool: 'a nuestra pool.',
-    weAreHappy: 'Estamos muy felices de ser tus socios en la lucha contra la pobreza.',
+    weAreHappy:
+      'Estamos muy felices de ser tus socios en la lucha contra la pobreza.',
     continueHelping: 'Continuar ayudando',
     goBackToHome: 'Volver a la Home',
   },
@@ -65,7 +66,8 @@ const keys: LanguageKeys = {
     comingSoonTitle: 'En breve',
     first: 'Primera',
     last: 'Última',
-    humansInNeed: 'Los humanos en necesidad están esperando tu ayuda.',
+    humansInNeed:
+      'Con tu ayuda podemos acercar la tecnología blockchain a más personas.',
     certificationsTable: {
       title: 'Últimas Certificaciones',
       shortTitle: 'Certificaciones',
