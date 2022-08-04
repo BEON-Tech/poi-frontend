@@ -1,11 +1,11 @@
 import React from 'react'
 
 import { useTranslation } from 'next-export-i18n'
-import { VStack, HStack, View, Button, Text, Heading } from 'native-base'
+import { VStack, HStack, View, Button, Text, Tooltip } from 'native-base'
 
 import keys from '@i18n/keys'
 import { ASSISTANCE_PROGRAM_SECTION } from '@constants'
-import { BulletedTitle, Images } from '@components/atoms'
+import { Images } from '@components/atoms'
 import { Container } from '@components/templates'
 import { useBreakpoint } from '@hooks'
 import { IHStackProps } from 'native-base/lib/typescript/components/primitives/Stack/HStack'
@@ -28,14 +28,6 @@ const aimBoxItems: IAimBoxItem[] = [
       <Images.AssistanceProgramAimSecondIcon width="24px" height="24px" />
     ),
     text: keys.assistanceProgram.aimBox.secondItem,
-  },
-  {
-    Image: () => (
-      <Images.AssistanceProgramAimThirdIcon width="24px" height="24px" />
-    ),
-    text: keys.assistanceProgram.aimBox.thirdItem,
-    pr: '150',
-    alignItems: 'flex-start',
   },
 ]
 
@@ -66,12 +58,23 @@ const AssistanceProgramSectionDesktop = () => {
   return (
     <Container>
       <VStack px="80px" pt="147px" nativeID={ASSISTANCE_PROGRAM_SECTION}>
-        <Heading textAlign="center" size="4xl" fontWeight="semibold">
-          {t(keys.assistanceProgram.title)}
-        </Heading>
+        <VStack alignSelf="center">
+          <Images.AprendoCriptoLogo width="758px" height="100px" />
+          <HStack
+            justifyContent="flex-end"
+            alignItems="center"
+            top="-15px"
+            space={4}
+          >
+            <Text bold mb="3px">
+              {t(keys.assistanceProgram.title)}
+            </Text>
+            <Images.LogoPOIColors width="206px" height="50px" />
+          </HStack>
+        </VStack>
         <HStack mt="60px" justifyContent="space-between">
           <VStack flex="1" mr="20px">
-            <HStack
+            <VStack
               maxH="auto"
               maxW="643px"
               borderWidth="1px"
@@ -79,17 +82,55 @@ const AssistanceProgramSectionDesktop = () => {
               borderRadius="52px"
               p="41px"
             >
-              <View mr="31px">
-                <Images.UBILogo width="57.68px" height="59.03px" />
-              </View>
-              <Text fontSize="lg" lineHeight="40px">
-                <Text>{t(keys.assistanceProgram.firstBox.firstSentence)}</Text>
-                <Text fontWeight="bold">
-                  {t(keys.assistanceProgram.firstBox.secondSentenceBold)}
-                </Text>
-                <Text>{t(keys.assistanceProgram.firstBox.thirdSentence)}</Text>
+              <Text fontSize="xl">
+                {t(keys.assistanceProgram.firstBox.subtitle)}
               </Text>
-            </HStack>
+              <Text fontSize="lg" lineHeight="40px" mt="30px">
+                <Text>
+                  {t(keys.assistanceProgram.firstBox.firstParagraph.first)}
+                </Text>
+                <Text bold>
+                  {t(keys.assistanceProgram.firstBox.firstParagraph.second)}
+                </Text>
+                <Text>
+                  {t(keys.assistanceProgram.firstBox.firstParagraph.third)}
+                </Text>
+                <Text bold>
+                  {t(keys.assistanceProgram.firstBox.firstParagraph.fourth)}
+                </Text>
+              </Text>
+              <Text fontSize="lg" lineHeight="40px" mt="30px">
+                <Text>
+                  {t(keys.assistanceProgram.firstBox.secondParagraph.first)}
+                </Text>
+                <Text bold>
+                  {t(keys.assistanceProgram.firstBox.secondParagraph.second)}
+                </Text>
+                <Text>
+                  {t(keys.assistanceProgram.firstBox.secondParagraph.third)}
+                </Text>
+              </Text>
+              <Text fontSize="lg" lineHeight="40px" mt="30px">
+                <Text>
+                  {t(keys.assistanceProgram.firstBox.thirdParagraph.first)}
+                </Text>
+                <Text bold>
+                  {t(keys.assistanceProgram.firstBox.thirdParagraph.second)}
+                </Text>
+                <Tooltip
+                  label={t(
+                    keys.assistanceProgram.firstBox.thirdParagraph.tooltip
+                  )}
+                >
+                  <Text bold>
+                    {t(keys.assistanceProgram.firstBox.thirdParagraph.third)}
+                  </Text>
+                </Tooltip>
+                <Text>
+                  {t(keys.assistanceProgram.firstBox.thirdParagraph.fourth)}
+                </Text>
+              </Text>
+            </VStack>
             <HStack
               mt="28px"
               h="180px"
@@ -123,21 +164,22 @@ const AssistanceProgramSectionDesktop = () => {
               maxH="500px"
               bg="general.50"
             >
-              <Text fontSize="xl" lineHeight="40px">
+              <Text fontSize="xl" lineHeight="40px" mb="15px">
                 {t(keys.assistanceProgram.aimBox.title)}
               </Text>
               {aimBoxItems.map(({ Image, text, ...props }) => (
                 <HStack
                   justifyContent="flex-start"
                   alignItems="center"
-                  mt="23px"
+                  mt="15px"
                   key={`assistance-program-${text}`}
+                  w="60%"
                   {...props}
                 >
                   <View>
                     <Image />
                   </View>
-                  <Text ml="26px" fontSize="md">
+                  <Text ml="15px" fontSize="md">
                     {t(text)}
                   </Text>
                 </HStack>
@@ -150,10 +192,46 @@ const AssistanceProgramSectionDesktop = () => {
               w={{ lg: '225px', xl: '270px' }}
               h={{ lg: '225px', xl: '270px' }}
               position="absolute"
-              right="-70px"
-              bottom={{ lg: '50px', xl: '0px' }}
+              right="-50px"
+              top={{ lg: '100px', xl: '100px' }}
+              zIndex={1}
             >
               <Images.AssistanceProgramMap width="100%" height="100%" />
+            </VStack>
+            <VStack
+              borderColor="general.100"
+              borderRadius="20px"
+              borderWidth="1px"
+              py="32px"
+              px="24px"
+              maxW="600px"
+              maxH="500px"
+              bg="general.50"
+              mt="20px"
+            >
+              <Text fontSize="xl" lineHeight="40px">
+                {t(keys.assistanceProgram.aimSecondBox.subtitle)}
+              </Text>
+              <Text fontSize="lg" lineHeight="40px" mt="30px">
+                <Text>
+                  {t(keys.assistanceProgram.aimSecondBox.paragraph.first)}
+                </Text>
+                <Text bold>
+                  {t(keys.assistanceProgram.aimSecondBox.paragraph.second)}
+                </Text>
+                <Text>
+                  {t(keys.assistanceProgram.aimSecondBox.paragraph.third)}
+                </Text>
+                <Text bold>
+                  {t(keys.assistanceProgram.aimSecondBox.paragraph.fourth)}
+                </Text>
+                <Text>
+                  {t(keys.assistanceProgram.aimSecondBox.paragraph.fifth)}
+                </Text>
+                <Text bold>
+                  {t(keys.assistanceProgram.aimSecondBox.paragraph.sixth)}
+                </Text>
+              </Text>
             </VStack>
           </VStack>
         </HStack>
@@ -167,13 +245,20 @@ const AssistanceProgramSectionMobile = () => {
 
   return (
     <VStack px="20px" pt="147px" nativeID={ASSISTANCE_PROGRAM_SECTION}>
-      <View pr="80px">
-        <BulletedTitle
-          hideBullet
-          imageName="Pentagon"
-          title={t(keys.assistanceProgram.title)}
-        />
-      </View>
+      <VStack alignSelf="center">
+        <Images.AprendoCriptoLogo width="300px" />
+        <HStack
+          justifyContent="flex-end"
+          alignItems="center"
+          top="-5px"
+          space={3}
+        >
+          <Text fontSize="12px" bold mb="3px">
+            {t(keys.assistanceProgram.title)}
+          </Text>
+          <Images.LogoPOIColors width="140px" />
+        </HStack>
+      </VStack>
       <VStack
         mt="40px"
         maxH="auto"
@@ -183,13 +268,45 @@ const AssistanceProgramSectionMobile = () => {
         py="36px"
         px="28px"
       >
-        <Images.UBILogo width="57.68px" height="59.03px" />
-        <Text mt="17px" fontSize="lg" lineHeight="40px">
-          <Text>{t(keys.assistanceProgram.firstBox.firstSentence)}</Text>
-          <Text fontWeight="bold">
-            {t(keys.assistanceProgram.firstBox.secondSentenceBold)}
+        <Text fontSize="xl" textAlign="center">
+          {t(keys.assistanceProgram.firstBox.subtitle)}
+        </Text>
+        <Text fontSize="lg" lineHeight="40px" mt="17px">
+          <Text>{t(keys.assistanceProgram.firstBox.firstParagraph.first)}</Text>
+          <Text bold>
+            {t(keys.assistanceProgram.firstBox.firstParagraph.second)}
           </Text>
-          <Text>{t(keys.assistanceProgram.firstBox.thirdSentence)}</Text>
+          <Text>{t(keys.assistanceProgram.firstBox.firstParagraph.third)}</Text>
+          <Text bold>
+            {t(keys.assistanceProgram.firstBox.firstParagraph.fourth)}
+          </Text>
+        </Text>
+        <Text fontSize="lg" lineHeight="40px" mt="17px">
+          <Text>
+            {t(keys.assistanceProgram.firstBox.secondParagraph.first)}
+          </Text>
+          <Text bold>
+            {t(keys.assistanceProgram.firstBox.secondParagraph.second)}
+          </Text>
+          <Text>
+            {t(keys.assistanceProgram.firstBox.secondParagraph.third)}
+          </Text>
+        </Text>
+        <Text fontSize="lg" lineHeight="40px" mt="17px">
+          <Text>{t(keys.assistanceProgram.firstBox.thirdParagraph.first)}</Text>
+          <Text bold>
+            {t(keys.assistanceProgram.firstBox.thirdParagraph.second)}
+          </Text>
+          <Tooltip
+            label={t(keys.assistanceProgram.firstBox.thirdParagraph.tooltip)}
+          >
+            <Text bold>
+              {t(keys.assistanceProgram.firstBox.thirdParagraph.third)}
+            </Text>
+          </Tooltip>
+          <Text>
+            {t(keys.assistanceProgram.firstBox.thirdParagraph.fourth)}
+          </Text>
         </Text>
       </VStack>
       <VStack
@@ -218,6 +335,32 @@ const AssistanceProgramSectionMobile = () => {
             </Text>
           </HStack>
         ))}
+      </VStack>
+      <VStack
+        mt="60px"
+        borderColor="general.100"
+        borderRadius="20px"
+        borderWidth="1px"
+        p="34px"
+        bg="general.50"
+      >
+        <Text fontSize="xl" lineHeight="40px" textAlign="center">
+          {t(keys.assistanceProgram.aimSecondBox.subtitle)}
+        </Text>
+        <Text fontSize="lg" lineHeight="40px" mt="30px">
+          <Text>{t(keys.assistanceProgram.aimSecondBox.paragraph.first)}</Text>
+          <Text bold>
+            {t(keys.assistanceProgram.aimSecondBox.paragraph.second)}
+          </Text>
+          <Text>{t(keys.assistanceProgram.aimSecondBox.paragraph.third)}</Text>
+          <Text bold>
+            {t(keys.assistanceProgram.aimSecondBox.paragraph.fourth)}
+          </Text>
+          <Text>{t(keys.assistanceProgram.aimSecondBox.paragraph.fifth)}</Text>
+          <Text bold>
+            {t(keys.assistanceProgram.aimSecondBox.paragraph.sixth)}
+          </Text>
+        </Text>
       </VStack>
     </VStack>
   )

@@ -49,21 +49,47 @@
     "descriptionFourthParagraphSecond": " Estamos trabajando para replicarlo en otros barrios y diseñar nuevos proyectos que respondan al objetivo de PoI."
   },
   "assistanceProgram": {
-    "title": "Nuestro programa piloto",
+    "title": "El primer programa de",
     "firstBox": {
-      "firstSentence": "Nuestro programa piloto se centrará en ofrecer un programa educativo de criptofinanzas y ",
-      "secondSentenceBold": "financiar las tarifas de transacción y depósitos",
-      "thirdSentence": " necesarios para unirse a la plataforma Proof of Humanity."
+      "subtitle": "Nuestros objetivos",
+      "firstParagraph": {
+        "first": "Introducir a los ",
+        "second": "participantes en la tecnología blockchain y el ecosistema cripto,",
+        "third": " mostrando sus casos de uso, aportando a una educación para el futuro y contribuyendo a ",
+        "fourth": "acortar la brecha tecnológica."
+      },
+      "secondParagraph": {
+        "first": "Generar e incentivar una ",
+        "second": "comunidad cripto en los barrios,",
+        "third": " uniendo a jóvenes con los mismos intereses para fomentar el aprendizaje colaborativo."
+      },
+      "thirdParagraph": {
+        "first": "Que los participantes ",
+        "second": "interactúen con ",
+        "third": "tecnologías descentralizadas,",
+        "fourth": " facilitar el acceso a la creación de un perfil en PoH, y que adquieran un primer contacto con el mundo de las criptomonedas.",
+        "tooltip": "En estas tecnologías los datos están validados por una comunidad más amplia, en lugar de\r\npor una autoridad central. Es decir, que una multitud supervisa y mantiene los registros,\r\nsin depender así de ninguna entidad, ya sea un banco o un gobierno."
+      }
     },
     "secondBox": {
       "title": "Genera impacto hoy",
       "button": "Quiero donar"
     },
     "aimBox": {
-      "title": "¿A quién estará dirigido?",
-      "firstItem": "Jóvenes recién graduados de la escuela",
-      "secondItem": "En un barrio popular de Buenos Aires",
-      "thirdItem": "Nos asociaremos con Club Mugica, un centro comunitario local"
+      "title": "¿A quién está dirigido?",
+      "firstItem": "Jóvenes del Barrio Carlos Mugica, Ciudad de Buenos Aires, Argentina.",
+      "secondItem": "Próximamente en otros barrios populares de Ciudad de Buenos Aires, la Argentina y la región."
+    },
+    "aimSecondBox": {
+      "subtitle": "¿Cómo lo hacemos?",
+      "paragraph": {
+        "first": "En un ciclo de ",
+        "second": "4 talleres",
+        "third": " con contenido teórico y práctico donde los participantes aprenderán sobre temas de ",
+        "fourth": "finanzas personales, tecnología blockchain y posibles aplicaciones de uso,",
+        "fifth": " mediante el acompañamiento personalizado de ",
+        "sixth": "tutores para facilitar el aprendizaje."
+      }
     }
   },
   "publicAudit": {

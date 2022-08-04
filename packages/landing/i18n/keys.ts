@@ -58,9 +58,25 @@ const keys = {
   assistanceProgram: {
     title: 'title',
     firstBox: {
-      firstSentence: 'firstSentence',
-      secondSentenceBold: 'secondSentenceBold',
-      thirdSentence: 'thirdSentence',
+      subtitle: 'subtitle',
+      firstParagraph: {
+        first: 'first',
+        second: 'second',
+        third: 'third',
+        fourth: 'fourth',
+      },
+      secondParagraph: {
+        first: 'first',
+        second: 'second',
+        third: 'third',
+      },
+      thirdParagraph: {
+        first: 'first',
+        second: 'second',
+        third: 'third',
+        fourth: 'fourth',
+        tooltip: 'tooltip',
+      },
     },
     secondBox: {
       title: 'title',
@@ -70,7 +86,17 @@ const keys = {
       title: 'title',
       firstItem: 'firstItem',
       secondItem: 'secondItem',
-      thirdItem: 'thirdItem',
+    },
+    aimSecondBox: {
+      subtitle: 'subtitle',
+      paragraph: {
+        first: 'first',
+        second: 'second',
+        third: 'third',
+        fourth: 'fourth',
+        fifth: 'fifth',
+        sixth: 'sixth',
+      },
     },
   },
   publicAudit: {

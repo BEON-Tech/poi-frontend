@@ -27,6 +27,8 @@ import Pentagon from '../../../assets/images/pentagon.png'
 import DefyEducationPartner from '../../../assets/images/partners__defy_education.png'
 import ContactUsLeftImage from '../../../assets/images/contact_us__left_image.png'
 import Hamburguer from '../../../assets/images/hamburguer.png'
+import AprendoCriptoLogo from '../../../assets/images/logo_aprendo.png'
+import LogoPOIColors from '../../../assets/images/logo_POI_completocolores.png'
 
 type NextImageRefactor = Omit<ImageProps, 'src'>
 
@@ -57,6 +59,8 @@ interface IComponentsMap {
   MailLogoGreen: React.FC<NextImageRefactor>
   ContactUsLeftImage: React.FC<NextImageRefactor>
   Hamburguer: React.FC<NextImageRefactor>
+  AprendoCriptoLogo: React.FC<NextImageRefactor>
+  LogoPOIColors: React.FC<NextImageRefactor>
 }
 export type IComponentKeys = keyof IComponentsMap
 
@@ -192,6 +196,16 @@ const imagesToRender = [
     name: 'Hamburguer',
     source: Hamburguer,
     alt: 'Hamburguer',
+  },
+  {
+    name: 'AprendoCriptoLogo',
+    source: AprendoCriptoLogo,
+    alt: 'Logo AprendoCripto',
+  },
+  {
+    name: 'LogoPOIColors',
+    source: LogoPOIColors,
+    alt: 'Logo POI Colors',
   },
 ]
 
