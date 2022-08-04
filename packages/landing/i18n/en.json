@@ -4,7 +4,7 @@
   },
   "toolbar": {
     "about": "About",
-    "assitanceProgram": "Assistance Program",
+    "assitanceProgram": "#aPRENDOcripto",
     "ourTeam": "Our Team",
     "publicAudit": "Public Audit",
     "goToApp": "Go to the App",
@@ -13,8 +13,17 @@
   "introSection": {
     "title": "Using crypto to target social protection",
     "subTitle": {
-      "firstSection": "Proof of Integrity is an initiative that helps struggling communities to reduce poverty through financial training and crypto embracement.",
-      "secondSection": "We are integrated with the Proof of Humanity initiative, and our vision is to onboard every human in need to the platform."
+      "firstSection": {
+        "first": "Proof of Integrity is an initiative that helps struggling communities to reduce poverty through financial training and crypto embracement.",
+        "second": " ",
+        "third": " "
+      },
+      "secondSection": {
+        "first": "We are integrated with the Proof of Humanity initiative, and our vision is to onboard every human in need to the platform.",
+        "second": " ",
+        "secondTooltip": " ",
+        "third": " "
+      }
     },
     "donateCTA": "Donate"
   },
@@ -28,16 +37,39 @@
     "show": "Show More",
     "upperTittle": "About",
     "tittle": "Proof Of Integrity",
+    "subtitleFirstParagraph": "Creemos en el impacto social de la blockchain",
+    "subtitleSecondParagraph": "Promovemos la inclusión tecnológica",
+    "subtitleThirdParagraph": "Proof of Humanity (PoH)",
+    "subtitleFourthParagraph": "#aPRENDOcripto",
     "descriptionFirstParagraph": "We believe in the social impact of the blockchain. Our mission is to lay bridges between donors and beneficiaries, giving the latter financial instruments to help them thrive.",
     "descriptionSecondParagraph": "Addressing the main problem of donors is the key to unlocking these new bonds in a transparent and decentralized way. By contributing through the blockchain, there are 0 intermediaries between the donors and the beneficiaries.",
-    "descriptionThirdParagraph": "Our team is composed of programmers, impact measurement experts, communicators, social workers and crypto enthusiasts who share the same vision: reducing poverty by bringing blockchain to the most people possible."
+    "descriptionThirdParagraph": "Our team is composed of programmers, impact measurement experts, communicators, social workers and crypto enthusiasts who share the same vision: reducing poverty by bringing blockchain to the most people possible.",
+    "descriptionFourthParagraphFirst": "",
+    "descriptionFourthParagraphBold": "",
+    "descriptionFourthParagraphSecond": ""
   },
   "assistanceProgram": {
     "title": "Our First Assistance Program",
     "firstBox": {
-      "firstSentence": "Our pilot will focus on offering a crypto-finance educational program and funding the ",
-      "secondSentenceBold": "transactions fees and deposits",
-      "thirdSentence": " needed to join the Proof of Humanity platform."
+      "subtitle": "Nuestros objetivos",
+      "firstParagraph": {
+        "first": "Introducir a los ",
+        "second": "participantes en la tecnología blockchain y el ecosistema cripto,",
+        "third": " mostrando sus casos de uso, aportando a una educación para el futuro y contribuyendo a ",
+        "fourth": "acortar la brecha tecnológica."
+      },
+      "secondParagraph": {
+        "first": "Generar e incentivar una ",
+        "second": "comunidad cripto en los barrios,",
+        "third": " uniendo a jóvenes con los mismos intereses para fomentar el aprendizaje colaborativo."
+      },
+      "thirdParagraph": {
+        "first": "Que los participantes ",
+        "second": "interactúen con ",
+        "third": "tecnologías descentralizadas,",
+        "fourth": " facilitar el acceso a la creación de un perfil en PoH, y que adquieran un primer contacto con el mundo de las criptomonedas.",
+        "tooltip": "En estas tecnologías los datos están validados por una comunidad más amplia, en lugar de\r\npor una autoridad central. Es decir, que una multitud supervisa y mantiene los registros,\r\nsin depender así de ninguna entidad, ya sea un banco o un gobierno."
+      }
     },
     "secondBox": {
       "title": "Show you care.",
@@ -46,8 +78,18 @@
     "aimBox": {
       "title": "Who will be aimed at?",
       "firstItem": "Young people recently graduated from school",
-      "secondItem": "In a low-income neighborhood in Buenos Aires",
-      "thirdItem": "We'll partner with Club Mugica, a local community center"
+      "secondItem": "In a low-income neighborhood in Buenos Aires"
+    },
+    "aimSecondBox": {
+      "subtitle": "¿Cómo lo hacemos?",
+      "paragraph": {
+        "first": "En un ciclo de ",
+        "second": "4 talleres",
+        "third": " con contenido teórico y práctico donde los participantes aprenderán sobre temas de ",
+        "fourth": "finanzas personales, tecnología blockchain y posibles aplicaciones de uso,",
+        "fifth": " mediante el acompañamiento personalizado de ",
+        "sixth": "tutores para facilitar el aprendizaje."
+      }
     }
   },
   "publicAudit": {
@@ -56,6 +98,9 @@
     "noDataTitle": "Coming soon!",
     "noDataText": " Our pilot program is aimed to start on ",
     "noDataDate": "May 3rd.",
+    "descriptionOne": " ",
+    "descriptionTwo": " ",
+    "descriptionThree": " ",
     "certificationsTable": {
       "title": "Latest Certifications",
       "applicantColumn": "Application",
@@ -76,6 +121,7 @@
     "title": "Our Team",
     "show": "Meet the Team",
     "hide": "Hide Team",
+    "description": " ",
     "meetTheAdvisors": "Meet The Advisors",
     "tags": {
       "all": "All",

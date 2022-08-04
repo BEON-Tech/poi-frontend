@@ -20,8 +20,17 @@ const keys = {
   introSection: {
     title: 'title',
     subTitle: {
-      firstSection: 'firstSection',
-      secondSection: 'secondSection',
+      firstSection: {
+        first: 'first',
+        second: 'second',
+        third: 'third',
+      },
+      secondSection: {
+        first: 'first',
+        second: 'second',
+        secondTooltip: 'secondTooltip',
+        third: 'third',
+      },
     },
     donateCTA: 'donateCTA',
   },
@@ -35,16 +44,39 @@ const keys = {
     show: 'show',
     upperTittle: 'upperTittle',
     tittle: 'tittle',
+    subtitleFirstParagraph: 'subtitleFirstParagraph',
+    subtitleSecondParagraph: 'subtitleSecondParagraph',
+    subtitleThirdParagraph: 'subtitleThirdParagraph',
+    subtitleFourthParagraph: 'subtitleFourthParagraph',
     descriptionFirstParagraph: 'descriptionFirstParagraph',
     descriptionSecondParagraph: 'descriptionSecondParagraph',
     descriptionThirdParagraph: 'descriptionThirdParagraph',
+    descriptionFourthParagraphFirst: 'descriptionFourthParagraphFirst',
+    descriptionFourthParagraphBold: 'descriptionFourthParagraphBold',
+    descriptionFourthParagraphSecond: 'descriptionFourthParagraphSecond',
   },
   assistanceProgram: {
     title: 'title',
     firstBox: {
-      firstSentence: 'firstSentence',
-      secondSentenceBold: 'secondSentenceBold',
-      thirdSentence: 'thirdSentence',
+      subtitle: 'subtitle',
+      firstParagraph: {
+        first: 'first',
+        second: 'second',
+        third: 'third',
+        fourth: 'fourth',
+      },
+      secondParagraph: {
+        first: 'first',
+        second: 'second',
+        third: 'third',
+      },
+      thirdParagraph: {
+        first: 'first',
+        second: 'second',
+        third: 'third',
+        fourth: 'fourth',
+        tooltip: 'tooltip',
+      },
     },
     secondBox: {
       title: 'title',
@@ -54,7 +86,17 @@ const keys = {
       title: 'title',
       firstItem: 'firstItem',
       secondItem: 'secondItem',
-      thirdItem: 'thirdItem',
+    },
+    aimSecondBox: {
+      subtitle: 'subtitle',
+      paragraph: {
+        first: 'first',
+        second: 'second',
+        third: 'third',
+        fourth: 'fourth',
+        fifth: 'fifth',
+        sixth: 'sixth',
+      },
     },
   },
   publicAudit: {
@@ -63,6 +105,9 @@ const keys = {
     noDataTitle: 'noDataTitle',
     noDataText: 'noDataText',
     noDataDate: 'noDataDate',
+    descriptionOne: 'descriptionOne',
+    descriptionTwo: 'descriptionTwo',
+    descriptionThree: 'descriptionThree',
     certificationsTable: {
       title: 'title',
       applicantColumn: 'applicantColumn',
@@ -82,6 +127,7 @@ const keys = {
     show: 'show',
     hide: 'hide',
     title: 'title',
+    description: 'description',
     tags: {
       all: 'all',
       developers: 'developers',
@@ -103,7 +149,7 @@ const keys = {
       fundraisingStrategy: 'fundraisingStrategy',
       institutionalRelations: 'institutionalRelations',
       communicationsTeam: 'communicationsTeam',
-      territorialDevelopment: 'territorialDevelopment'
+      territorialDevelopment: 'territorialDevelopment',
     },
     meetTheAdvisors: 'meetTheAdvisors',
   },

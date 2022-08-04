@@ -10,8 +10,7 @@ const ContentBubble = ({ text, ...props }: IContentBubbleProps) => (
     {...props}
     maxW="315px"
     w="315px"
-    maxH="120px"
-    h="120px"
+    h="auto"
     justifyContent="center"
     alignItems="center"
     bg="general.50"

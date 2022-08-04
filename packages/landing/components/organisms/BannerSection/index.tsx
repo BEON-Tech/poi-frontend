@@ -1,4 +1,5 @@
-import { Heading, VStack, ZStack, View, Flex } from 'native-base'
+/* eslint-disable jsx-a11y/iframe-has-title */
+import { VStack, ZStack, View, Flex, HStack } from 'native-base'
 import { useTranslation } from 'next-export-i18n'
 
 import keys from '@i18n/keys'
@@ -10,39 +11,48 @@ const BannerSectionDesktop = () => {
   const { t } = useTranslation()
 
   return (
-    <ZStack alignItems="center" height="600px" nativeID={BANNER_SECTION}>
-      <Images.Banner width="100%" height="100%" />
-      <VStack w="100%">
-        <View maxW="100%">
-          <Heading
-            mt="12"
-            w="100%"
-            maxW="700px"
-            justifySelf="center"
-            alignSelf="center"
-            fontWeight="extrabold"
-            size={{ base: '2xl', md: '3xl' }}
-            textAlign="center"
-          >
-            {t(keys.banner.title)}
-          </Heading>
+    <ZStack
+      alignItems="center"
+      height="800px"
+      nativeID={BANNER_SECTION}
+      overflow="hidden"
+    >
+      <View width="100%" overflow="hidden">
+        <View>
+          <Images.Banner objectFit="cover" width="100%" height="auto" />
         </View>
+      </View>
+      <HStack w="100%" h="100%">
+        <HStack flex={1} alignSelf="center" justifyContent="center" mt="-70px">
+          <View maxW="100%" maxWidth="853px">
+            <iframe
+              width="853"
+              height="480"
+              src="https://www.youtube.com/embed/V4oRObpgiMU"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </View>
+        </HStack>
 
         <Flex
           h="100%"
           alignSelf={{ lg: 'center', xl: 'flex-end' }}
-          mt={{ lg: '30px', xl: '-100px' }}
+          justifyContent="center"
           mr={{ xl: '40px' }}
+          pb={{ lg: 0, xl: '100px' }}
           flexDir={{ lg: 'row', xl: 'column' }}
         >
           <ContentBubble
             text={t(keys.banner.bubble1)}
-            mb={{ xl: '44px' }}
+            mb={{ xl: '20px' }}
             mr={{ lg: '20px', xl: 0 }}
           />
           <ContentBubble text={t(keys.banner.bubble2)} />
         </Flex>
-      </VStack>
+      </HStack>
     </ZStack>
   )
 }
@@ -51,24 +61,36 @@ const BannerSectionMobile = () => {
   const { t } = useTranslation()
 
   return (
-    <ZStack alignItems="center" height="631px" nativeID={BANNER_SECTION}>
+    <ZStack
+      alignItems="center"
+      height="720px"
+      nativeID={BANNER_SECTION}
+      overflow="hidden"
+    >
       <View width="100%" overflow="hidden">
-        <View left="-1500px" top="-130px">
-          <Images.Banner objectFit="cover" height="831px" width="3600px" />
+        <View left="-700px" top="-0px">
+          <Images.Banner objectFit="cover" width="2088px" height="1392px" />
         </View>
       </View>
-      <VStack w="100%" alignItems="center">
-        <Heading
-          mt="12"
-          w="360px"
-          justifySelf="center"
-          fontWeight="extrabold"
-          size={{ base: '2xl', md: '3xl' }}
-          textAlign="center"
-        >
-          {t(keys.banner.title)}
-        </Heading>
-        <ContentBubble text={t(keys.banner.bubble1)} mb="44px" mt="70px" />
+      <VStack
+        w="100%"
+        h="100%"
+        alignItems="center"
+        justifyContent="center"
+        pb="70px"
+      >
+        <View maxW="100%" maxWidth="320px" mt="40px">
+          <iframe
+            width="320"
+            height="180"
+            src="https://www.youtube.com/embed/V4oRObpgiMU"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </View>
+        <ContentBubble text={t(keys.banner.bubble1)} mb="20px" mt="20px" />
         <ContentBubble text={t(keys.banner.bubble2)} />
       </VStack>
     </ZStack>
