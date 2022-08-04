@@ -41,7 +41,7 @@ const aimBoxItems: IAimBoxItem[] = [
 
 const DonateButton = ({ title, ...props }: any) => {
   const openApp = () => {
-    window.open(Config.appURL, '_blank')
+    window.open(`${Config.appURL}/donate`, '_blank')
   }
 
   return (

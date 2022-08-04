@@ -37,10 +37,16 @@
     "show": "Mostrar más",
     "upperTittle": "Acerca de",
     "tittle": "Proof Of Integrity",
+    "subtitleFirstParagraph": "Creemos en el impacto social de la blockchain",
+    "subtitleSecondParagraph": "Promovemos la inclusión tecnológica",
+    "subtitleThirdParagraph": "Proof of Humanity (PoH)",
+    "subtitleFourthParagraph": "#aPRENDOcripto",
     "descriptionFirstParagraph": "Queremos trasladar los beneficios de la tecnología blockchain a comunidades socio-económicamente vulnerables para generar una sociedad más equitativa, inclusiva y sostenible.",
     "descriptionSecondParagraph": "Vamos a impulsar y potenciar iniciativas que reduzcan la brecha tecnológica y generen oportunidades reales de inclusión y desarrollo.",
     "descriptionThirdParagraph": "Estamos integrados con Proof of Humanity (PoH), una plataforma de verificación de identidades digitales en la blockchain, por la cual se distribuye el token UBI.",
-    "descriptionFourthParagraph": "Hoy contamos con nuestro primer programa de formación: #aPRENDOcripto. Estamos trabajando para replicarlo en otros barrios y diseñar nuevos proyectos que respondan al objetivo de PoI."
+    "descriptionFourthParagraphFirst": "Hoy contamos con nuestro primer programa de formación: ",
+    "descriptionFourthParagraphBold": "#aPRENDOcripto.",
+    "descriptionFourthParagraphSecond": " Estamos trabajando para replicarlo en otros barrios y diseñar nuevos proyectos que respondan al objetivo de PoI."
   },
   "assistanceProgram": {
     "title": "Nuestro programa piloto",
@@ -88,7 +94,7 @@
     "show": "Conoce el equipo",
     "hide": "Ocultar equipo",
     "title": "Nuestro equipo",
-    "description": "Nuestro equipo está compuesto por programadores, expertos en medición de impacto, comunicadores, trabajadores sociales y entusiastas de las criptomonedas que comparten la misma visión: contribuir a disminuir las desigualdades y generar nuevas oportunidades utilizando la tecnología blockchain.",
+    "description": "Nuestro equipo está compuesto por programadores, expertos en medición de impacto, comunicadores, trabajadores sociales y entusiastas de las criptomonedas que comparten la misma visión: impulsar iniciativas que utilicen la tecnología blockchain para contribuir con la inclusión social y el desarrollo de comunidades vulnerables.",
     "meetTheAdvisors": "Conozca a los asesores",
     "tags": {
       "all": "Todos",

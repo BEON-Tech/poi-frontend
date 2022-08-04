@@ -9,7 +9,6 @@ import {
   AssistanceProgramSection,
   OurTeamSection,
   AdvisorsSection,
-  PublicAuditSection,
   PartnersSection,
   ContactUsSection,
   MobileMenu,
@@ -39,7 +38,6 @@ const Home: NextPage = () => {
       <BannerSection />
       <AboutPOISection />
       <AssistanceProgramSection />
-      <PublicAuditSection />
       <OurTeamSection />
       <AdvisorsSection />
       <PartnersSection />
