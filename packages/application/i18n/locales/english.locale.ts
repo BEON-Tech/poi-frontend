@@ -12,9 +12,9 @@ const keys: LanguageKeys = {
     wallet: 'Wallet',
   },
   donateHeader: {
-    title: 'Help Humans in Need',
+    title: 'We need your help',
     subtitle:
-      'Because urgent needs require urgent answers, we accept crypto donations.',
+      'With your donation we can bring blockchain technology closer to more people.',
   },
   donate: {
     label: 'Enter amount',
@@ -65,7 +65,8 @@ const keys: LanguageKeys = {
     comingSoonTitle: 'Coming soon',
     first: 'First',
     last: 'Last',
-    humansInNeed: 'Humans in need are waiting for your help.',
+    humansInNeed:
+      'With your donation we can bring blockchain technology closer to more people.',
     certificationsTable: {
       title: 'Latest Certifications',
       shortTitle: 'Certifications',
