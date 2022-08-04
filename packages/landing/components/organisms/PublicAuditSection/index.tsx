@@ -29,6 +29,9 @@ const PublicAuditSection = () => {
           imageName="Polygon"
           title={t(keys.publicAudit.title)}
         />
+        <Text mt="40px">{t(keys.publicAudit.descriptionOne)}</Text>
+        <Text mt="20px">{t(keys.publicAudit.descriptionTwo)}</Text>
+        <Text mt="20px">{t(keys.publicAudit.descriptionThree)}</Text>
         <Flex mt="43px" flexDirection={{ base: 'column', lg: 'row' }} w="100%">
           <VStack
             flex={{ base: 'unset', lg: '1' }}

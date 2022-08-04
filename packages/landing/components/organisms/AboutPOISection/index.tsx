@@ -44,11 +44,38 @@ const AboutPOISectionDesktop = () => {
                 <Images.Polygon height="35px" width="35px" />
               </View>
               <View w="100%">
-                <Text>{t(keys.aboutPOI.descriptionFirstParagraph)}</Text>
-                <Text mt="5">
+                <Text bold>
+                  &#8226; {t(keys.aboutPOI.subtitleFirstParagraph)}
+                </Text>
+                <Text ml={10}>
+                  {t(keys.aboutPOI.descriptionFirstParagraph)}
+                </Text>
+                <Text bold mt={5}>
+                  &#8226; {t(keys.aboutPOI.subtitleSecondParagraph)}
+                </Text>
+                <Text ml={10}>
                   {t(keys.aboutPOI.descriptionSecondParagraph)}
                 </Text>
-                <Text mt="5">{t(keys.aboutPOI.descriptionThirdParagraph)}</Text>
+                <Text bold mt={5}>
+                  &#8226; {t(keys.aboutPOI.subtitleThirdParagraph)}
+                </Text>
+                <Text ml={10}>
+                  {t(keys.aboutPOI.descriptionThirdParagraph)}
+                </Text>
+                <Text bold mt={5}>
+                  &#8226; {t(keys.aboutPOI.subtitleFourthParagraph)}
+                </Text>
+                <Text ml={10}>
+                  <Text>
+                    {t(keys.aboutPOI.descriptionFourthParagraphFirst)}
+                  </Text>
+                  <Text bold>
+                    {t(keys.aboutPOI.descriptionFourthParagraphBold)}
+                  </Text>
+                  <Text>
+                    {t(keys.aboutPOI.descriptionFourthParagraphSecond)}
+                  </Text>
+                </Text>
               </View>
             </HStack>
             <View
@@ -98,11 +125,28 @@ const AboutPOISectionMobile = () => {
         <View mt="55px" mb="10px">
           <Images.Polygon height="35px" width="35px" />
         </View>
-        <Text>{t(keys.aboutPOI.descriptionFirstParagraph)}</Text>
+        <Text bold>&#8226; {t(keys.aboutPOI.subtitleFirstParagraph)}</Text>
+        <Text ml={10}>{t(keys.aboutPOI.descriptionFirstParagraph)}</Text>
         {showMore && (
           <>
-            <Text mt="5">{t(keys.aboutPOI.descriptionSecondParagraph)}</Text>
-            <Text mt="5">{t(keys.aboutPOI.descriptionThirdParagraph)}</Text>
+            <Text bold mt={5}>
+              &#8226; {t(keys.aboutPOI.subtitleSecondParagraph)}
+            </Text>
+            <Text ml={10}>{t(keys.aboutPOI.descriptionSecondParagraph)}</Text>
+            <Text bold mt={5}>
+              &#8226; {t(keys.aboutPOI.subtitleThirdParagraph)}
+            </Text>
+            <Text ml={10}>{t(keys.aboutPOI.descriptionThirdParagraph)}</Text>
+            <Text bold mt={5}>
+              &#8226; {t(keys.aboutPOI.subtitleFourthParagraph)}
+            </Text>
+            <Text ml={10}>
+              <Text>{t(keys.aboutPOI.descriptionFourthParagraphFirst)}</Text>
+              <Text bold>
+                {t(keys.aboutPOI.descriptionFourthParagraphBold)}
+              </Text>
+              <Text>{t(keys.aboutPOI.descriptionFourthParagraphSecond)}</Text>
+            </Text>
           </>
         )}
         <Button

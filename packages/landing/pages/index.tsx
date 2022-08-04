@@ -9,8 +9,6 @@ import {
   AssistanceProgramSection,
   OurTeamSection,
   AdvisorsSection,
-  PublicAuditSection,
-  WhyUsSection,
   PartnersSection,
   ContactUsSection,
   MobileMenu,
@@ -40,11 +38,9 @@ const Home: NextPage = () => {
       <BannerSection />
       <AboutPOISection />
       <AssistanceProgramSection />
-      <PublicAuditSection />
       <OurTeamSection />
       <AdvisorsSection />
       <PartnersSection />
-      <WhyUsSection />
       <ContactUsSection />
       <Footer />
     </VStack>
