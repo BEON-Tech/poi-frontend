@@ -134,27 +134,6 @@ const AssistanceProgramSectionDesktop = () => {
                 </Text>
               </Text>
             </VStack>
-            <HStack
-              mt="28px"
-              h="180px"
-              maxH="180px"
-              maxW="auto"
-              borderRadius="20px"
-              bg="general.100"
-              px="20px"
-              alignItems="center"
-            >
-              <Text
-                flex="1"
-                lineHeight="60px"
-                fontSize={{ lg: '2xl', xl: '3xl' }}
-              >
-                {t(keys.assistanceProgram.secondBox.title)}
-              </Text>
-              <DonateButton
-                title={t(keys.assistanceProgram.secondBox.button)}
-              />
-            </HStack>
           </VStack>
           <VStack flex="1" justifyContent="flex-start">
             <VStack
@@ -237,6 +216,22 @@ const AssistanceProgramSectionDesktop = () => {
               </Text>
             </VStack>
           </VStack>
+        </HStack>
+        <HStack
+          mt="28px"
+          w="fit-content"
+          h="180px"
+          maxH="180px"
+          borderRadius="20px"
+          bg="general.100"
+          px="20px"
+          alignItems="center"
+          alignSelf="center"
+        >
+          <Text lineHeight="60px" fontSize={{ lg: '2xl', xl: '3xl' }} mr="40px">
+            {t(keys.assistanceProgram.secondBox.title)}
+          </Text>
+          <DonateButton title={t(keys.assistanceProgram.secondBox.button)} />
         </HStack>
       </VStack>
     </Container>
