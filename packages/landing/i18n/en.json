@@ -130,7 +130,8 @@
       "socialTeam": "Social Team"
     },
     "roles": {
-      "founderAndDirector": "Founder & Director",
+      "founder": "Founder",
+      "executiveDirector": "Executive Director",
       "leadSolidityDeveloper": "Lead Solidity Developer",
       "leadFrontendDeveloper": "Lead Frontend Developer",
       "frontendDeveloper": "Frontend Developer",
@@ -144,7 +145,12 @@
       "fundraisingStrategy": "Fundraising Strategy",
       "institutionalRelations": "Institutional Relations",
       "communicationsTeam": "Communications Team",
-      "territorialDevelopment": "Territorial Development"
+      "territorialDevelopment": "Territorial Development",
+      "territorialLogisticsManager": "Territorial and Logistics Manager",
+      "volunteerManager": "Volunteer Manager",
+      "communicationsManager": "Communications Manager",
+      "contentManager": "Content Manager",
+      "contentDesignAndProfessor": "Content Design and Professor"
     }
   },
   "advisors": {

@@ -13,22 +13,22 @@ import CarolinaGhisolfiImage from '@assets/images/carolina_ghisolfi.png'
 import AlbaFuentesImage from '@assets/images/alba_fuentes.png'
 import NicolasManziniImage from '@assets/images/nicolas_manzini.png'
 import MicaelaGarciaImage from '@assets/images/micaela_garcia.png'
-import BarbaraFernandezImage from '@assets/images/barbara_fernandez.png'
 import CelinaGrauBaenaImage from '@assets/images/celina_grau_baena.png'
 import DiegoGilImage from '@assets/images/diego_gil.png'
 import JuanCruzGurruchagaImage from '@assets/images/juan_cruz_gurruchaga.png'
 import POILogoFiller from '@assets/images/our_team__poi_logo_table_filler.png'
-import POILogoFiller2 from '@assets/images/our_team__poi_logo_table_filler2.png'
-import ColorFiller1 from '@assets/images/our_team__colors_1_table_filler.png'
+// import POILogoFiller2 from '@assets/images/our_team__poi_logo_table_filler2.png'
+// import ColorFiller1 from '@assets/images/our_team__colors_1_table_filler.png'
 import ColorFiller2 from '@assets/images/our_team__colors_2_table_filler.png'
-import ColorFiller3 from '@assets/images/our_team__colors_3_table_filler.png'
-import ColorFiller4 from '@assets/images/our_team__colors_4_table_filler.png'
+// import ColorFiller3 from '@assets/images/our_team__colors_3_table_filler.png'
+// import ColorFiller4 from '@assets/images/our_team__colors_4_table_filler.png'
 import GabrielMauasImage from '@assets/images/grabriel_mauas.png'
 import FabianBaezImage from '@assets/images/fabian_baez.png'
 import AlfonsoCampenniImage from '@assets/images/alfonso_campenni.png'
 import AgustinCapdevillaImage from '@assets/images/agustin_capdevilla.png'
-import MariaPazPaniegoImage from '@assets/images/maria_paz_paniego.png'
-import JoaquinVilaMoretImage from '@assets/images/joaquin_vila_moret.png'
+import TomasGrauBaenaImage from '@assets/images/tom.png'
+import SofiaRamosImage from '@assets/images/sofia_ramos.png'
+import GonzaloSuarezImage from '@assets/images/gonza_suarez.png'
 
 import { ICard, IPerson } from '@constants/types'
 
@@ -41,8 +41,67 @@ export default [
   {
     imagePath: MichelCohenImage,
     name: 'Michel Cohen',
-    role: keys.ourTeam.roles.founderAndDirector,
+    role: keys.ourTeam.roles.founder,
     tags: [DEVELOPER_TAG, SOCIAL_TEAM_TAG, DESIGN_AND_MARKETING_TAG],
+  },
+  {
+    imagePath: TomasGrauBaenaImage,
+    name: 'Tomás Grau Baena',
+    role: keys.ourTeam.roles.executiveDirector,
+    tags: [DEVELOPER_TAG, SOCIAL_TEAM_TAG, DESIGN_AND_MARKETING_TAG],
+  },
+  {
+    imagePath: SofiaRamosImage,
+    name: 'Sofía Ramos',
+    role: keys.ourTeam.roles.territorialLogisticsManager,
+    tags: [SOCIAL_TEAM_TAG],
+  },
+  {
+    imagePath: DiegoGilImage,
+    name: 'Diego Gil',
+    role: keys.ourTeam.roles.volunteerManager,
+    tags: [SOCIAL_TEAM_TAG],
+  },
+  {
+    imagePath: GonzaloSuarezImage,
+    name: 'Gonzalo Suarez',
+    role: keys.ourTeam.roles.communicationsManager,
+    tags: [SOCIAL_TEAM_TAG],
+  },
+  {
+    imagePath: CelinaGrauBaenaImage,
+    name: 'Celina Grau Baena',
+    role: keys.ourTeam.roles.contentManager,
+    tags: [SOCIAL_TEAM_TAG],
+  },
+  {
+    imagePath: AlfonsoCampenniImage,
+    name: 'Alfonso Campenni',
+    role: keys.ourTeam.roles.contentDesignAndProfessor,
+    tags: [SOCIAL_TEAM_TAG],
+  },
+  POI_LOGO_ITEM,
+  {
+    imagePath: AgustinCapdevillaImage,
+    name: 'Agustín Capdevilla',
+    role: keys.ourTeam.roles.contentDesignAndProfessor,
+    tags: [SOCIAL_TEAM_TAG],
+  },
+  {
+    imagePath: JuanCruzGurruchagaImage,
+    name: 'Juan Cruz Gurruchaga',
+    role: keys.ourTeam.roles.fundraisingStrategy,
+    tags: [SOCIAL_TEAM_TAG],
+  },
+  {
+    imagePath: FabianBaezImage,
+    name: 'Fabián Baez',
+    role: keys.ourTeam.roles.territorialDevelopment,
+    tags: [SOCIAL_TEAM_TAG],
+  },
+  {
+    name: 'ColorFiller2',
+    imagePath: ColorFiller2,
   },
   {
     imagePath: DavidMazzitelliImage,
@@ -74,11 +133,6 @@ export default [
     role: keys.ourTeam.roles.frontendDeveloper,
     tags: [DESIGN_AND_MARKETING_TAG],
   },
-  POI_LOGO_ITEM,
-  {
-    name: 'ColorFiller1',
-    imagePath: ColorFiller1,
-  },
   {
     imagePath: AlbaFuentesImage,
     name: 'Alba Fuentes',
@@ -97,59 +151,9 @@ export default [
     role: keys.ourTeam.roles.socialMedia,
     tags: [DESIGN_AND_MARKETING_TAG],
   },
-  {
-    name: 'ColorFiller2',
-    imagePath: ColorFiller2,
-  },
-  {
-    imagePath: BarbaraFernandezImage,
-    name: 'Bárbara Fernández',
-    role: keys.ourTeam.roles.institutionalRelations,
-    tags: [SOCIAL_TEAM_TAG],
-  },
-  {
-    imagePath: CelinaGrauBaenaImage,
-    name: 'Celina Grau Baena',
-    role: keys.ourTeam.roles.socialTeam,
-    tags: [SOCIAL_TEAM_TAG],
-  },
-  {
-    imagePath: DiegoGilImage,
-    name: 'Diego Gil',
-    role: keys.ourTeam.roles.socialTeam,
-    tags: [SOCIAL_TEAM_TAG],
-  },
-  {
-    imagePath: JuanCruzGurruchagaImage,
-    name: 'Juan Cruz Gurruchaga',
-    role: keys.ourTeam.roles.fundraisingStrategy,
-    tags: [SOCIAL_TEAM_TAG],
-  },
-
-  {
-    imagePath: FabianBaezImage,
-    name: 'Fabián Baez',
-    role: keys.ourTeam.roles.territorialDevelopment,
-    tags: [SOCIAL_TEAM_TAG],
-  },
-  {
-    imagePath: AlfonsoCampenniImage,
-    name: 'Alfonso Campenni',
-    role: keys.ourTeam.roles.socialTeam,
-    tags: [SOCIAL_TEAM_TAG],
-  },
-
-  {
-    imagePath: AgustinCapdevillaImage,
-    name: 'Agustín Capdevilla',
-    role: keys.ourTeam.roles.socialTeam,
-    tags: [SOCIAL_TEAM_TAG],
-  },
-  {
-    imagePath: MariaPazPaniegoImage,
-    name: 'María Paz Paniego',
-    role: keys.ourTeam.roles.communicationsTeam,
-    tags: [SOCIAL_TEAM_TAG],
+  /* {
+    name: 'ColorFiller1',
+    imagePath: ColorFiller1,
   },
   {
     name: 'ColorFiller3',
@@ -160,13 +164,7 @@ export default [
     imagePath: ColorFiller4,
   },
   {
-    imagePath: JoaquinVilaMoretImage,
-    name: 'Joaquín Vila Moret',
-    role: keys.ourTeam.roles.communicationsTeam,
-    tags: [SOCIAL_TEAM_TAG],
-  },
-  {
     name: 'POILogoFiller2',
     imagePath: POILogoFiller2,
-  },
+  }, */
 ] as (IPerson | ICard)[]

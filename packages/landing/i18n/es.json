@@ -129,7 +129,8 @@
       "socialTeam": "Equipo Social"
     },
     "roles": {
-      "founderAndDirector": "Fundador & Director",
+      "founder": "Fundador",
+      "executiveDirector": "Director Ejecutivo",
       "leadSolidityDeveloper": "Lead Solidity Developer",
       "leadFrontendDeveloper": "Lead Frontend Developer",
       "frontendDeveloper": "Frontend Developer",
@@ -143,7 +144,12 @@
       "fundraisingStrategy": "Estrategia de Fundraising",
       "institutionalRelations": "Relaciones Institucionales",
       "communicationsTeam": "Equipo de Comunicación",
-      "territorialDevelopment": "Desarrollo Territorial"
+      "territorialDevelopment": "Desarrollo Territorial",
+      "territorialLogisticsManager": "Responsable Territorial y Logística",
+      "volunteerManager": "Responsable de Voluntarios",
+      "communicationsManager": "Responsable de Comunicación",
+      "contentManager": "Responsable de Contenido",
+      "contentDesignAndProfessor": "Diseño de Contenido y Profesor"
     }
   },
   "advisors": {
