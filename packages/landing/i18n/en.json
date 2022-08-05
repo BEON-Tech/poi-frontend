@@ -156,15 +156,13 @@
       "productAdvisor": "Product Advisor",
       "strategyAdvisor": "Strategy Advisor",
       "techAdvisor": "Tech Advisor",
-      "cryptoAdvisor": "Crypto Advisor",
-      "legalAdvisor": "Legal Advisor"
+      "comunicationAdvisor": "Communications Advisor"
     },
     "descriptions": {
       "damianWasserman": "Founder of Beon Tech Studio, with 20 years of experience in the software industry.",
       "juanHeado": "With 20+ years of experience in tech, he helped develop version 2 of $UBI with Santi Siri.",
       "pabloSabbatella": "Dedicated to the research, investment, and dissemination of the crypto & DeFi ecosystem.",
-      "brianSztamfater": "Brian is a blockchain entrepreneur, software architect & author. He founded @CromyNFT.",
-      "diegoBoryszanski": "Lawyer by profession, Diego is a serial technology entrepreneur and a crypto enthusiast."
+      "oliviaGoldschmidt": "Economic journalist specializing in crypto since 2017. Wrote in media such as LA NACION and El País, and today she uses her social networks to communicate everything related to cryptocurrencies and the blockchain industry."
     }
   },
   "partnersSection": {

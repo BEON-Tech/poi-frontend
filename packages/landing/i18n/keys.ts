@@ -162,15 +162,13 @@ const keys = {
       productAdvisor: 'productAdvisor',
       strategyAdvisor: 'strategyAdvisor',
       techAdvisor: 'techAdvisor',
-      cryptoAdvisor: 'cryptoAdvisor',
-      legalAdvisor: 'legaldvisor',
+      comunicationAdvisor: 'comunicationAdvisor',
     },
     descriptions: {
       damianWasserman: 'damianWasserman',
       juanHeado: 'juanHeado',
       pabloSabbatella: 'pabloSabbatella',
-      brianSztamfater: 'brianSztamfater',
-      diegoBoryszanski: 'diegoBoryszanski',
+      oliviaGoldschmidt: 'oliviaGoldschmidt',
     },
   },
   partnersSection: {
