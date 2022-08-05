@@ -14,61 +14,62 @@
     "title": "Using crypto to target social protection",
     "subTitle": {
       "firstSection": {
-        "first": "Proof of Integrity is an initiative that helps struggling communities to reduce poverty through financial training and crypto embracement.",
-        "second": " ",
-        "third": " "
+        "first": "In ",
+        "second": "Proof of Integrity",
+        "third": " we develop initiatives that promote technological inclusion and generate actual development opportunities in a transparent and decentralized way."
       },
       "secondSection": {
-        "first": "We are integrated with the Proof of Humanity initiative, and our vision is to onboard every human in need to the platform.",
-        "second": " ",
-        "secondTooltip": " ",
-        "third": " "
+        "first": "Our purpose is to bring the benefits of ",
+        "second": "blockchain technology",
+        "secondTooltip": "Blockchain is a distributed and decentralized system used to store\r\nblocks of transactions and verify them with a network of nodes.\r\nThese blocks cannot be altered once verified.",
+        "third": " to vulnerable sectors to generate an equitable, inclusive and sustainable society."
       }
     },
     "donateCTA": "Donate"
   },
   "banner": {
     "title": "Urgent Needs Require Urgent Answers",
-    "bubble1": "There are at least 1.3 billion people experiencing poverty worldwide.",
-    "bubble2": "788 million people share household with one or more undernourished person."
+    "bubble1": "In a world increasingly permeated by technology, the traditional paradigms of inequality and poverty need to be rethought.",
+    "bubble2": "With #aPRENDOcripto we want to reduce the technological gap with education."
   },
   "aboutPOI": {
     "hide": "Hide",
     "show": "Show More",
     "upperTittle": "About",
     "tittle": "Proof Of Integrity",
-    "subtitleFirstParagraph": "Creemos en el impacto social de la blockchain",
-    "subtitleSecondParagraph": "Promovemos la inclusión tecnológica",
+    "subtitleFirstParagraph": "We believe in the social impact of the blockchain",
+    "subtitleSecondParagraph": "We promote technological inclusion",
     "subtitleThirdParagraph": "Proof of Humanity (PoH)",
     "subtitleFourthParagraph": "#aPRENDOcripto",
-    "descriptionFirstParagraph": "We believe in the social impact of the blockchain. Our mission is to lay bridges between donors and beneficiaries, giving the latter financial instruments to help them thrive.",
-    "descriptionSecondParagraph": "Addressing the main problem of donors is the key to unlocking these new bonds in a transparent and decentralized way. By contributing through the blockchain, there are 0 intermediaries between the donors and the beneficiaries.",
-    "descriptionThirdParagraph": "Our team is composed of programmers, impact measurement experts, communicators, social workers and crypto enthusiasts who share the same vision: reducing poverty by bringing blockchain to the most people possible.",
-    "descriptionFourthParagraphFirst": "",
-    "descriptionFourthParagraphBold": "",
-    "descriptionFourthParagraphSecond": ""
+    "descriptionFirstParagraph": "We want to transfer the benefits of blockchain technology to socio-economically vulnerable communities to generate a more equitable, inclusive and sustainable society.",
+    "descriptionSecondParagraph": "We are going to design and promote initiatives that reduce the technological gap and generate actual opportunities of inclusion and development.",
+    "descriptionThirdParagraph": "We are integrated with Proof of Humanity (PoH), a digital identity verification platform on the blockchain, through which the UBI token is distributed.",
+    "descriptionFourthParagraphFirst": "Our first training program is called ",
+    "descriptionFourthParagraphBold": "#aPRENDOcripto.",
+    "descriptionFourthParagraphSecond": " We are working to replicate it in other neighborhoods and design new projects that respond to the PoI objective."
   },
   "assistanceProgram": {
-    "title": "Our First Assistance Program",
+    "title": "The first",
+    "title2": "program",
     "firstBox": {
-      "subtitle": "Nuestros objetivos",
+      "subtitle": "Our objectives",
       "firstParagraph": {
-        "first": "Introducir a los ",
-        "second": "participantes en la tecnología blockchain y el ecosistema cripto,",
-        "third": " mostrando sus casos de uso, aportando a una educación para el futuro y contribuyendo a ",
-        "fourth": "acortar la brecha tecnológica."
+        "first": "Introduce participants to ",
+        "second": "blockchain technology and the crypto ecosystem,",
+        "third": " sharing its use cases, contributing to an education for the future and helping to ",
+        "fourth": "bridge the technology gap."
       },
       "secondParagraph": {
-        "first": "Generar e incentivar una ",
-        "second": "comunidad cripto en los barrios,",
-        "third": " uniendo a jóvenes con los mismos intereses para fomentar el aprendizaje colaborativo."
+        "first": "Create and encourage ",
+        "second": "a crypto community in the neighborhoods,",
+        "third": " uniting young people with the same interests to promote collaborative learning."
       },
       "thirdParagraph": {
-        "first": "Que los participantes ",
-        "second": "interactúen con ",
-        "third": "tecnologías descentralizadas,",
-        "fourth": " facilitar el acceso a la creación de un perfil en PoH, y que adquieran un primer contacto con el mundo de las criptomonedas.",
-        "tooltip": "En estas tecnologías los datos están validados por una comunidad más amplia, en lugar de\r\npor una autoridad central. Es decir, que una multitud supervisa y mantiene los registros,\r\nsin depender así de ninguna entidad, ya sea un banco o un gobierno."
+        "first": "To make the participants ",
+        "second": "interact with ",
+        "third": "decentralized technologies,",
+        "fourth": " facilitate access to the creation of a profile in PoH, and that they acquire a first contact with the world of cryptocurrencies.",
+        "tooltip": "In these technologies the data is validated by a broader community, rather than by a central\r\nauthority. That is, a multitude supervises and maintains the records, thus not depending\r\non any particular entity, be it a bank or a government."
       }
     },
     "secondBox": {
@@ -76,19 +77,19 @@
       "button": "Donate"
     },
     "aimBox": {
-      "title": "Who will be aimed at?",
-      "firstItem": "Young people recently graduated from school",
-      "secondItem": "In a low-income neighborhood in Buenos Aires"
+      "title": "Who is it aimed at?",
+      "firstItem": "Youth from the Carlos Mugica neighborhood, Buenos Aires City, Argentina.",
+      "secondItem": "Soon in other popular neighborhoods of Buenos Aires City, the rest of Argentina and the region."
     },
     "aimSecondBox": {
-      "subtitle": "¿Cómo lo hacemos?",
+      "subtitle": "How are we doing it?",
       "paragraph": {
-        "first": "En un ciclo de ",
-        "second": "4 talleres",
-        "third": " con contenido teórico y práctico donde los participantes aprenderán sobre temas de ",
-        "fourth": "finanzas personales, tecnología blockchain y posibles aplicaciones de uso,",
-        "fifth": " mediante el acompañamiento personalizado de ",
-        "sixth": "tutores para facilitar el aprendizaje."
+        "first": "In ",
+        "second": "4 workshops",
+        "third": " with theoretical and practical content where the participants will learn about ",
+        "fourth": "personal finance, blockchain technology and possible use cases,",
+        "fifth": " with the close supervision of ",
+        "sixth": "mentors to facilitate the learning experience."
       }
     }
   },
@@ -121,7 +122,7 @@
     "title": "Our Team",
     "show": "Meet the Team",
     "hide": "Hide Team",
-    "description": " ",
+    "description": "Our team is made up of programmers, impact measurement experts, communicators, social workers and cryptocurrency enthusiasts who share the same vision: promote initiatives that use blockchain technology to contribute to social inclusion and the development of vulnerable communities.",
     "meetTheAdvisors": "Meet The Advisors",
     "tags": {
       "all": "All",

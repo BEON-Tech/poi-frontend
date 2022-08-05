@@ -57,6 +57,7 @@ const keys = {
   },
   assistanceProgram: {
     title: 'title',
+    title2: 'title2',
     firstBox: {
       subtitle: 'subtitle',
       firstParagraph: {

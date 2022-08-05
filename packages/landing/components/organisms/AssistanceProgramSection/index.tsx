@@ -66,10 +66,13 @@ const AssistanceProgramSectionDesktop = () => {
             top="-15px"
             space={4}
           >
-            <Text bold mb="3px">
+            <Text bold mb="4px">
               {t(keys.assistanceProgram.title)}
             </Text>
             <Images.LogoPOIColors width="206px" height="50px" />
+            <Text bold mb="4px" ml="-10px" mr="10px">
+              {t(keys.assistanceProgram.title2)}
+            </Text>
           </HStack>
         </VStack>
         <HStack mt="60px" justifyContent="space-between">
@@ -253,10 +256,13 @@ const AssistanceProgramSectionMobile = () => {
           top="-5px"
           space={3}
         >
-          <Text fontSize="12px" bold mb="3px">
+          <Text fontSize="12px" bold mb="2px">
             {t(keys.assistanceProgram.title)}
           </Text>
           <Images.LogoPOIColors width="140px" />
+          <Text fontSize="12px" bold mb="2px" ml="-8px">
+            {t(keys.assistanceProgram.title2)}
+          </Text>
         </HStack>
       </VStack>
       <VStack
