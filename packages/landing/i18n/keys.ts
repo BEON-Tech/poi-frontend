@@ -57,6 +57,7 @@ const keys = {
   },
   assistanceProgram: {
     title: 'title',
+    title2: 'title2',
     firstBox: {
       subtitle: 'subtitle',
       firstParagraph: {
@@ -135,7 +136,8 @@ const keys = {
       socialTeam: 'socialTeam',
     },
     roles: {
-      founderAndDirector: 'founderAndDirector',
+      founder: 'founder',
+      executiveDirector: 'executiveDirector',
       leadSolidityDeveloper: 'leadSolidityDeveloper',
       leadFrontendDeveloper: 'leadFrontendDeveloper',
       frontendDeveloper: 'frontendDeveloper',
@@ -150,6 +152,11 @@ const keys = {
       institutionalRelations: 'institutionalRelations',
       communicationsTeam: 'communicationsTeam',
       territorialDevelopment: 'territorialDevelopment',
+      territorialLogisticsManager: 'territorialLogisticsManager',
+      volunteerManager: 'volunteerManager',
+      communicationsManager: 'communicationsManager',
+      contentManager: 'contentManager',
+      contentDesignAndProfessor: 'contentDesignAndProfessor',
     },
     meetTheAdvisors: 'meetTheAdvisors',
   },
@@ -162,15 +169,13 @@ const keys = {
       productAdvisor: 'productAdvisor',
       strategyAdvisor: 'strategyAdvisor',
       techAdvisor: 'techAdvisor',
-      cryptoAdvisor: 'cryptoAdvisor',
-      legalAdvisor: 'legaldvisor',
+      comunicationAdvisor: 'comunicationAdvisor',
     },
     descriptions: {
       damianWasserman: 'damianWasserman',
       juanHeado: 'juanHeado',
       pabloSabbatella: 'pabloSabbatella',
-      brianSztamfater: 'brianSztamfater',
-      diegoBoryszanski: 'diegoBoryszanski',
+      oliviaGoldschmidt: 'oliviaGoldschmidt',
     },
   },
   partnersSection: {

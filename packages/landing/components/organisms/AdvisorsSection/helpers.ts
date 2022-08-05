@@ -4,8 +4,7 @@ import keys from '@i18n/keys'
 import DamianWassermanImage from '@assets/images/damian_wasserman.png'
 import PabloSabbatellaImage from '@assets/images/pablo_sabbatella.png'
 import JuanHeadoImage from '@assets/images/juan_haedo.png'
-import BrianSztamfaterImage from '@assets/images/brian_sztamfater.png'
-import DiegoBoryszanskiImage from '@assets/images/diego_boryszanski.png'
+import OliviaGoldschmidtImage from '@assets/images/olivia_goldschmidt.png'
 
 import { IAdvisor } from '@constants/types'
 
@@ -29,15 +28,9 @@ export const LIST_ITEMS: IAdvisor[] = [
     littleDescription: keys.advisors.descriptions.juanHeado,
   },
   {
-    imagePath: BrianSztamfaterImage,
-    name: 'Brian Sztamfater',
-    role: keys.advisors.roles.cryptoAdvisor,
-    littleDescription: keys.advisors.descriptions.brianSztamfater,
-  },
-  {
-    imagePath: DiegoBoryszanskiImage,
-    name: 'Diego Boryszanski',
-    role: keys.advisors.roles.legalAdvisor,
-    littleDescription: keys.advisors.descriptions.diegoBoryszanski,
+    imagePath: OliviaGoldschmidtImage,
+    name: 'Olivia Goldschmidt',
+    role: keys.advisors.roles.comunicationAdvisor,
+    littleDescription: keys.advisors.descriptions.oliviaGoldschmidt,
   },
 ]
