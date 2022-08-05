@@ -14,7 +14,7 @@ const keys: LanguageKeys = {
   donateHeader: {
     title: 'We need your help',
     subtitle:
-      'With your donation we can bring blockchain technology closer to more people.',
+      'With your donation we can help make an equitable, inclusive and sustainable society.',
   },
   donate: {
     label: 'Enter amount',
@@ -66,7 +66,7 @@ const keys: LanguageKeys = {
     first: 'First',
     last: 'Last',
     humansInNeed:
-      'With your donation we can bring blockchain technology closer to more people.',
+      'With your help we can bring blockchain technology to more people.',
     certificationsTable: {
       title: 'Latest Certifications',
       shortTitle: 'Certifications',

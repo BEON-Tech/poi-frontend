@@ -14,7 +14,7 @@ const keys: LanguageKeys = {
   donateHeader: {
     title: 'Necesitamos tu ayuda',
     subtitle:
-      'Con tu donación podemos acercar la tecnología blockchain a más personas.',
+      'Con tu donación podemos generar oportunidades reales de desarrollo social.',
   },
   donate: {
     label: 'Ingrese monto',
