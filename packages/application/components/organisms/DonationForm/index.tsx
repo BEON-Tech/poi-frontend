@@ -154,12 +154,14 @@ const DonationForm = () => {
   const updateIsMenuOpen = (isOpen: boolean) => setMenuOpen(isOpen)
   const updateTokenSymbol = (value: String) => setTokenSymbol(value as string)
   const updateAmount = (event: any) => setAmount(event.target.value)
-  
+
   const redirectToThankYouPage = (hash: string) => {
     const amountString = amount.toString()
-    router.push(`/thankyou?hash=${hash}&token=${tokenSymbol}&amount=${amountString}`)
+    router.push(
+      `/thankyou?hash=${hash}&token=${tokenSymbol}&amount=${amountString}`
+    )
   }
-  
+
   const donate = async (event: any) => {
     event.preventDefault()
     try {

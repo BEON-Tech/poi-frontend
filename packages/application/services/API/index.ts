@@ -10,6 +10,17 @@ import {
   TransactionsFullData,
 } from './types'
 
+interface DonationRequest {
+  type: string
+  senderAddress: string
+  recipientAddress: string
+  network: string
+  hash: string
+  tokenName: string
+  tokenAddress?: string
+  amount: string
+}
+
 export const registerDonationTransacion = (
   transaction: any,
   tokenSymbol: string,
@@ -20,18 +31,21 @@ export const registerDonationTransacion = (
   if (tokenSymbol === 'ETH') {
     amountString = parseEther(amount.toString()).toString()
   } else {
-    amountString = parseUnits(amount.toString(), token?.decimals).toString()
+    amountString = parseUnits(amount.toString(), 18).toString()
   }
 
-  const params = {
+  const params: DonationRequest = {
     type: 'donation',
     senderAddress: transaction.from,
     recipientAddress: config.donationAddressPOI,
     network: 'Ethereum',
     hash: transaction.hash,
     tokenName: tokenSymbol,
-    tokenAddress: token?.address ? token?.address[config.validChainId] : null,
     amount: amountString,
+  }
+
+  if (token?.address) {
+    params.tokenAddress = token?.address[config.validChainId]
   }
 
   return fetch(`${config.apiPOI}/transactions`, {
@@ -98,7 +112,11 @@ export const getTransactions = async (
   pageSize = 5,
   pageNumber = 1
 ): Promise<TransactionsFullData> => {
-  const params: Record<string, any> = { limit: pageSize, page: pageNumber }
+  const params: Record<string, any> = {
+    limit: pageSize,
+    page: pageNumber,
+    status: 'confirmed',
+  }
   const queryStringParams = createQueryStringParams(params)
   const { data, total, pages } = await fetch(
     `${config.apiPOI}/transactions?${queryStringParams}`
