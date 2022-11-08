@@ -8,7 +8,7 @@ import {
 } from '@constants'
 import Link from 'next/link'
 import { useBreakpoint } from '@hooks'
-import Config from '@config'
+// import Config from '@config'
 
 export interface INavigationToolsProps {
   onOperationPress?: () => void
@@ -124,11 +124,11 @@ const NavigationTools = ({ onOperationPress }: INavigationToolsProps) => {
       sectionName: OUR_TEAM_SECTION,
       isUrl: false,
     },
-    {
+    /* {
       text: t(keys.toolbar.publicAudit),
       sectionName: `${Config.appURL}/publicaudit`,
       isUrl: true,
-    },
+    }, */
   ]
 
   return isDesktop ? (
