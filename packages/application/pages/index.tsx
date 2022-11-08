@@ -4,7 +4,11 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 import { keys } from '@i18n'
 import { SecondaryLayout } from '@components/templates'
-import { NavigationBar, Footer, PublicAuditSection } from '@components/organisms'
+import {
+  NavigationBar,
+  Footer,
+  // PublicAuditSection,
+} from '@components/organisms'
 import { HomeCorner, HomePolygon, HomePhotoIcon } from '@components/atoms/Icons'
 import { MAX_WIDTH } from '@constants'
 
@@ -108,7 +112,7 @@ const Home: NextPage = () => {
           iconPosition="corner2Small"
         />
       </ZStack>
-      <PublicAuditSection />
+      {/* <PublicAuditSection /> */}
       <Stack
         maxW={MAX_WIDTH}
         w="100%"
@@ -116,7 +120,7 @@ const Home: NextPage = () => {
         alignSelf="center"
         direction={{ base: 'column', lg: 'row' }}
         space={0}
-        mb={{ base: 64, sm: 0,  lg: 12 }}
+        mb={{ base: 64, sm: 0, lg: 12 }}
       >
         <Stack w={{ base: '100%', lg: '50%' }} justifyContent="start">
           <Stack
@@ -131,7 +135,7 @@ const Home: NextPage = () => {
               h={53}
               polygon="homePolygon1"
             />
-            <Box w={{ base: 'full',  lg: '95%' }}>
+            <Box w={{ base: 'full', lg: '95%' }}>
               <Text fontSize="5xl" fontWeight="600" color="text.900" pb="2">
                 {t(keys.home.withPOI)}
               </Text>

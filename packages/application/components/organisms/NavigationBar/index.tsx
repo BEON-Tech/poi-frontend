@@ -12,7 +12,7 @@ import {
   POILogo,
   HomeIcon,
   DonateIcon,
-  PublicAuditIcon,
+  // PublicAuditIcon,
   WalletIcon,
 } from '@components/atoms/Icons'
 import { useWallet, useBreakpoint } from '@hooks'
@@ -28,11 +28,11 @@ const DesktopNavigationBar = ({ activeItem, onNavigate }: any) => {
   const { isConnected } = useWallet()
   const desktopButtons = [
     { title: t(keys.navigatonBar.donate), key: '/donate', enabled: true },
-    {
+    /* {
       title: t(keys.navigatonBar.publicAudit),
       key: '/publicaudit',
       enabled: true,
-    },
+    }, */
   ]
   return (
     <HStack
@@ -97,12 +97,12 @@ const MobileNavigationBar = ({
       key: '/donate',
       enabled: true,
     },
-    {
+    /* {
       title: t(keys.navigatonBar.publicAudit),
       Icon: PublicAuditIcon,
       key: '/publicaudit',
       enabled: true,
-    },
+    }, */
     {
       title: t(keys.navigatonBar.wallet),
       Icon: WalletIcon,
