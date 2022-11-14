@@ -109,10 +109,16 @@ const DonateETHColombiaPopup = ({ onClosePopup }: IDonateETHColombiaPopup) => {
         top="40px"
         right="40px"
         display={['none', 'block']}
+        zIndex={-1}
       >
         <img width="128px" height="128px" src={EventImage} alt="top" />
       </HStack>
-      <HStack position="absolute" bottom="0" display={['none', 'flex']}>
+      <HStack
+        position="absolute"
+        bottom="0"
+        display={['none', 'flex']}
+        zIndex={-1}
+      >
         <img width="100%" height="100%" src={FooterImage} alt="footer" />
       </HStack>
     </VStack>
