@@ -25,30 +25,31 @@ const DonateETHColombiaPopup = ({ onClosePopup }: IDonateETHColombiaPopup) => {
 
   return (
     <VStack
-      width={1024}
+      width={['100%', 1024]}
+      height="100%"
       background="white"
       borderRadius={25}
       borderColor="primary.700"
       borderWidth="2px"
       position="relative"
-      pb="100px"
+      pb={[0, '100px']}
     >
-      <VStack px="50px" py="40px">
+      <VStack px={['20px', '50px']} py={['40px']}>
         <Text
           bold
           color="primary.700"
-          fontSize="2xl"
-          lineHeight="40px"
-          width="70%"
+          fontSize={['xl', '2xl']}
+          lineHeight={['28px', '40px']}
+          width={['100%', '70%']}
         >
           Estamos participando de la ronda de financiamiento de EthColombia de
           la @DEVCON 2022
         </Text>
         <Text
           color="primary.900"
-          fontSize="md"
+          fontSize={['sm', 'md']}
           lineHeight="24px"
-          width="80%"
+          width={['100%', '80%']}
           mt="16px"
         >
           En este año, más de 80 personas de comunidades vulnerables finalizarán
@@ -58,27 +59,27 @@ const DonateETHColombiaPopup = ({ onClosePopup }: IDonateETHColombiaPopup) => {
         </Text>
         <Text
           color="primary.900"
-          fontSize="md"
+          fontSize={['sm', 'md']}
           lineHeight="24px"
-          width="80%"
-          mt="24px"
+          width={['100%', '80%']}
+          mt={['16px', '24px']}
         >
           Queremos seguir incorporando a más jóvenes y abarcando a más
           comunidades de distintas provincias del país.
         </Text>
         <Text
           color="primary.900"
-          fontSize="md"
+          fontSize={['sm', 'md']}
           lineHeight="24px"
-          width="80%"
-          mt="24px"
+          width={['100%', '80%']}
+          mt={['16px', '24px']}
         >
           Creemos que lo que viene será mucho más desafiante y por eso{' '}
           <Text bold>te invitamos a que nos apoyes.</Text> Además de tu ayuda,
           cada contribución, por más mínima que sea, nos permitirá acceder a una
           mayor parte del fondo común aportado por la comunidad.
         </Text>
-        <HStack mt="24px">
+        <HStack mt="24px" display={['none', 'flex']}>
           <Button variant="solid2" onPress={() => onDonate()}>
             Quiero donar
           </Button>
@@ -86,16 +87,32 @@ const DonateETHColombiaPopup = ({ onClosePopup }: IDonateETHColombiaPopup) => {
             Quiero saber cómo donar
           </Button>
         </HStack>
+        <VStack mt="24px" display={['flex', 'none']} alignItems="center">
+          <Button variant="solid2" onPress={() => onDonate()}>
+            Quiero donar
+          </Button>
+          <Button variant="brown" mt="16px" onPress={() => onWantToKnow()}>
+            Quiero saber cómo donar
+          </Button>
+        </VStack>
       </VStack>
       <HStack position="absolute" top="16px" right="16px">
-        <Pressable onPress={() => onClosePopup()}>
+        <Pressable onPress={() => onClosePopup()} display={['none', 'block']}>
           <img width="32px" height="32px" src={CloseIcon} alt="close" />
         </Pressable>
+        <Pressable onPress={() => onClosePopup()} display={['block', 'none']}>
+          <img width="24px" height="24px" src={CloseIcon} alt="close" />
+        </Pressable>
       </HStack>
-      <HStack position="absolute" top="40px" right="40px">
+      <HStack
+        position="absolute"
+        top="40px"
+        right="40px"
+        display={['none', 'block']}
+      >
         <img width="128px" height="128px" src={EventImage} alt="top" />
       </HStack>
-      <HStack position="absolute" bottom="0">
+      <HStack position="absolute" bottom="0" display={['none', 'flex']}>
         <img width="100%" height="100%" src={FooterImage} alt="footer" />
       </HStack>
     </VStack>

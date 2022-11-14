@@ -43,9 +43,9 @@ const Home: NextPage = () => {
       >
         <Modal.Content
           maxWidth="unset"
-          width={1024}
+          width={['90%', 1024]}
           background="transparent"
-          top="200px"
+          top={['20px', '200px']}
           position="sticky"
         >
           <DonateETHColombiaPopup onClosePopup={onClosePopup} />
