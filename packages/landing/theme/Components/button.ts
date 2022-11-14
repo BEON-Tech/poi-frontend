@@ -134,6 +134,43 @@ function variantSolid(props: any) {
   return styleObject
 }
 
+function variantSolid2(props: any) {
+  const { colorScheme: c } = props
+  let bg = `${c}.500`
+  if (props.isDisabled) {
+    bg = disabledBackgroundColor
+  }
+
+  const styleObject = {
+    borderRadius: '3000px',
+
+    _web: {
+      outlineWidth: '0',
+    },
+    bg,
+    _hover: {
+      bg: `${c}.600`,
+    },
+    _pressed: {
+      bg: `${c}.700`,
+    },
+    _loading: {
+      bg: disabledBackgroundColor,
+      _text: { display: 'none' },
+    },
+    _disabled: {
+      bg: `${c}.700`,
+      opacity: 0.3,
+    },
+    _text: {
+      color: 'general.50',
+      fontWeight: 'regular',
+    },
+  }
+
+  return styleObject
+}
+
 function variantLink(props: any) {
   const colorLink = 'primary.700'
   const _hover = {
@@ -169,12 +206,51 @@ function variantUnstyled() {
   return {}
 }
 
+function variantBrown(props: any) {
+  const { colorScheme: c } = props
+  let bg = '#a48c7b'
+  if (props.isDisabled) {
+    bg = disabledBackgroundColor
+  }
+
+  const styleObject = {
+    borderRadius: '3000px',
+
+    _web: {
+      outlineWidth: '0',
+    },
+    bg,
+    _hover: {
+      bg: '#8f674a',
+    },
+    _pressed: {
+      bg: '#6a4c36',
+    },
+    _loading: {
+      bg: disabledBackgroundColor,
+      _text: { display: 'none' },
+    },
+    _disabled: {
+      bg: `${c}.700`,
+      opacity: 0.3,
+    },
+    _text: {
+      color: 'general.50',
+      fontWeight: 'regular',
+    },
+  }
+
+  return styleObject
+}
+
 const variants = {
   ghost: variantGhost,
   outline: variantOutline,
   solid: variantSolid,
+  solid2: variantSolid2,
   link: variantLink,
   unstyled: variantUnstyled,
+  brown: variantBrown,
 }
 
 export default {
