@@ -32,9 +32,10 @@ const DonateETHColombiaPopup = ({ onClosePopup }: IDonateETHColombiaPopup) => {
       borderColor="primary.700"
       borderWidth="2px"
       position="relative"
+      mt={['20px', 0]}
       pb={[0, '100px']}
     >
-      <VStack px={['20px', '50px']} py={['24px', '40px']}>
+      <VStack px={['20px', '50px']} pt={['40px', '40px']} pb={['24px', '40px']}>
         <Text
           bold
           color="primary.700"
