@@ -26,7 +26,7 @@ const DonateETHColombiaPopup = ({ onClosePopup }: IDonateETHColombiaPopup) => {
   return (
     <VStack
       width={['100%', 1024]}
-      height="100%"
+      height="auto"
       background="white"
       borderRadius={25}
       borderColor="primary.700"
@@ -34,12 +34,12 @@ const DonateETHColombiaPopup = ({ onClosePopup }: IDonateETHColombiaPopup) => {
       position="relative"
       pb={[0, '100px']}
     >
-      <VStack px={['20px', '50px']} py={['40px']}>
+      <VStack px={['20px', '50px']} py={['24px', '40px']}>
         <Text
           bold
           color="primary.700"
           fontSize={['xl', '2xl']}
-          lineHeight={['28px', '40px']}
+          lineHeight={['24px', '40px']}
           width={['100%', '70%']}
         >
           Estamos participando de la ronda de financiamiento de EthColombia de
@@ -50,7 +50,7 @@ const DonateETHColombiaPopup = ({ onClosePopup }: IDonateETHColombiaPopup) => {
           fontSize={['sm', 'md']}
           lineHeight="24px"
           width={['100%', '80%']}
-          mt="16px"
+          mt={['10px', '16px']}
         >
           En este año, más de 80 personas de comunidades vulnerables finalizarán
           el curso con{' '}
@@ -62,7 +62,7 @@ const DonateETHColombiaPopup = ({ onClosePopup }: IDonateETHColombiaPopup) => {
           fontSize={['sm', 'md']}
           lineHeight="24px"
           width={['100%', '80%']}
-          mt={['16px', '24px']}
+          mt={['10px', '24px']}
         >
           Queremos seguir incorporando a más jóvenes y abarcando a más
           comunidades de distintas provincias del país.
@@ -72,7 +72,7 @@ const DonateETHColombiaPopup = ({ onClosePopup }: IDonateETHColombiaPopup) => {
           fontSize={['sm', 'md']}
           lineHeight="24px"
           width={['100%', '80%']}
-          mt={['16px', '24px']}
+          mt={['10px', '24px']}
         >
           Creemos que lo que viene será mucho más desafiante y por eso{' '}
           <Text bold>te invitamos a que nos apoyes.</Text> Además de tu ayuda,
@@ -87,11 +87,16 @@ const DonateETHColombiaPopup = ({ onClosePopup }: IDonateETHColombiaPopup) => {
             Quiero saber cómo donar
           </Button>
         </HStack>
-        <VStack mt="24px" display={['flex', 'none']} alignItems="center">
-          <Button variant="solid2" onPress={() => onDonate()}>
+        <VStack mt="20px" display={['flex', 'none']} alignItems="center">
+          <Button variant="solid2" height="42px" onPress={() => onDonate()}>
             Quiero donar
           </Button>
-          <Button variant="brown" mt="16px" onPress={() => onWantToKnow()}>
+          <Button
+            variant="brown"
+            height="42px"
+            mt="16px"
+            onPress={() => onWantToKnow()}
+          >
             Quiero saber cómo donar
           </Button>
         </VStack>
