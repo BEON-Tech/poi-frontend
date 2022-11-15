@@ -51,7 +51,7 @@ const Home: NextPage = () => {
           position="sticky"
           display="flex"
           flexDirection="column"
-          justifyContent="center"
+          justifyContent={['flex-start', 'center']}
         >
           <DonateETHColombiaPopup onClosePopup={onClosePopup} />
         </Modal.Content>
