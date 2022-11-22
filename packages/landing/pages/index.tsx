@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Modal, VStack } from 'native-base'
+import { VStack } from 'native-base'
 import type { NextPage } from 'next'
 
 import {
@@ -12,25 +12,25 @@ import {
   PartnersSection,
   ContactUsSection,
   MobileMenu,
-  DonateETHColombiaPopup,
+  // DonateETHColombiaPopup,
 } from '@components/organisms'
 import { useBreakpoint } from '@hooks'
 import { Toolbar, Footer } from '@components/molecules'
 
 const Home: NextPage = () => {
   const { isDesktop } = useBreakpoint()
-  const [showPopup, setShowPopup] = useState(true)
+  // const [showPopup, setShowPopup] = useState(true)
   const [showMenu, setShowMenu] = useState(false)
 
   const onShowMenu = () => setShowMenu(true)
   const onCloseMenu = () => setShowMenu(false)
-  const onClosePopup = () => setShowPopup(false)
+  // const onClosePopup = () => setShowPopup(false)
 
   return (
     <VStack overflowY="hidden">
       {!isDesktop && showMenu && <MobileMenu onClosePress={onCloseMenu} />}
       <Toolbar onMenuPress={onShowMenu} />
-      <Modal
+      {/* <Modal
         defaultIsOpen
         isOpen={showPopup}
         overlayVisible
@@ -55,7 +55,7 @@ const Home: NextPage = () => {
         >
           <DonateETHColombiaPopup onClosePopup={onClosePopup} />
         </Modal.Content>
-      </Modal>
+      </Modal> */}
       <IntroSection />
       <BannerSection />
       <AboutPOISection />
