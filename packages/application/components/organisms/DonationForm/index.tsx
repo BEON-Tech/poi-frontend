@@ -149,6 +149,7 @@ const DonationForm = () => {
   const [isMenuOpen, setMenuOpen] = useState(false)
   const [tokenSymbol, setTokenSymbol] = useState('ETH')
   const [amount, setAmount] = useState(0)
+  const [initAmount, setInitAmount] = useState<string>('')
   const [tx, setTx] = useState()
   const [txError, setTxError] = useState(false)
   const updateIsMenuOpen = (isOpen: boolean) => setMenuOpen(isOpen)
@@ -161,6 +162,22 @@ const DonationForm = () => {
       `/thankyou?hash=${hash}&token=${tokenSymbol}&amount=${amountString}`
     )
   }
+
+  useEffect(() => {
+    if (
+      router.query.token &&
+      ['DAI', 'USDT', 'USDC'].includes(router.query.token as string)
+    ) {
+      setTokenSymbol(router.query.token as string)
+      if (router.query.amount) {
+        const queryAmount = parseInt(router.query.amount as string, 10)
+        if (!Number.isNaN(queryAmount)) {
+          setAmount(queryAmount)
+          setInitAmount(router.query.amount as string)
+        }
+      }
+    }
+  }, [])
 
   const donate = async (event: any) => {
     event.preventDefault()
@@ -197,6 +214,12 @@ const DonationForm = () => {
         base: 10,
         sm: 10,
         lg: 10,
+        xl: 10,
+      }}
+      mb={{
+        base: 0,
+        sm: 0,
+        lg: 40,
         xl: 100,
       }}
       w="100%"
@@ -245,6 +268,7 @@ const DonationForm = () => {
             <Input
               type="number"
               placeholder={t(keys.donate.placeholder)}
+              value={initAmount}
               borderWidth={1}
               borderRadius={8}
               onChange={updateAmount}

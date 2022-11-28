@@ -65,7 +65,18 @@ const BaseLayout = ({
     >
       {subTitle}
     </Text>
-    <View overflowY="hidden" flex={4} w={620} maxW="90%">
+    <View
+      overflowY="auto"
+      flex={4}
+      w={620}
+      px={{
+        base: 0,
+        sm: 0,
+        lg: 10,
+        xl: 10,
+      }}
+      maxW="90%"
+    >
       {children}
     </View>
   </VStack>
