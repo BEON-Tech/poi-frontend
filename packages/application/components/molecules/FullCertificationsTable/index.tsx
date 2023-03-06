@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import { FlatList, HStack, Spinner, VStack } from 'native-base'
-import { FullCertificationsCell, FullCertificationsHeader } from '@components/atoms'
+import {
+  FullCertificationsCell,
+  FullCertificationsHeader,
+} from '@components/atoms'
 import { getCertifications } from '@services/API'
 import { FullCertification } from '@constants/types'
 import { FullTablePaginator } from '..'
@@ -15,7 +18,9 @@ interface IFullCertificationsTableBody {
   data: Array<FullCertification>
 }
 
-const FullCertificationsTableBody = ({ data }: IFullCertificationsTableBody) => (
+const FullCertificationsTableBody = ({
+  data,
+}: IFullCertificationsTableBody) => (
   <FlatList
     w="full"
     minH={{ base: 0, lg: '315px' }}
@@ -25,7 +30,9 @@ const FullCertificationsTableBody = ({ data }: IFullCertificationsTableBody) => 
   />
 )
 
-const FullCertificationsTable = ({ setTotalResults }: IFullCertificationsTable) => {
+const FullCertificationsTable = ({
+  setTotalResults,
+}: IFullCertificationsTable) => {
   const [data, setData] = useState<any>([])
   const [totalPages, setTotalPages] = useState(1)
   const [currentPage, setCurrentPage] = useState(1)
