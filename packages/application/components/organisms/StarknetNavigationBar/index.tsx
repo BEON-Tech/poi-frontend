@@ -4,19 +4,50 @@ import { StarknetConnectWalletButton } from '@components/molecules'
 import { POILogo } from '@components/atoms/Icons'
 import { keys } from '@i18n'
 import { redirectToHome } from '@services/urls'
-import { connect } from '@argent/get-starknet'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import {
+  addWalletChangeListener,
+  chainId,
+  connectWallet,
+  networkId,
+  removeWalletChangeListener,
+  silentConnectWallet,
+} from '@services/starknet/wallet.service'
 
 const StarknetNavigationBar = () => {
-  const [address, setAddress] = useState<string | null>(null)
+  const [address, setAddress] = useState<string>()
+  const [chain, setChain] = useState(chainId())
+  const [isConnected, setConnected] = useState(false)
+
   const { t } = useTranslation()
 
-  const onConnectPress = async () => {
-    const starknet = await connect()
-    await starknet?.enable()
-    if (starknet?.selectedAddress) {
-      setAddress(starknet.selectedAddress)
+  useEffect(() => {
+    const handler = async () => {
+      const wallet = await silentConnectWallet()
+      setAddress(wallet?.selectedAddress)
+      setChain(chainId())
+      setConnected(!!wallet?.isConnected)
     }
+
+    ;(async () => {
+      await handler()
+      addWalletChangeListener(handler)
+    })()
+
+    return () => {
+      removeWalletChangeListener(handler)
+    }
+  }, [])
+
+  const handleConnectClick = async () => {
+    if (isConnected) {
+      return
+    }
+
+    const wallet = await connectWallet()
+    setAddress(wallet?.selectedAddress)
+    setChain(chainId())
+    setConnected(!!wallet?.isConnected)
   }
 
   return (
@@ -40,12 +71,15 @@ const StarknetNavigationBar = () => {
         </HStack>
       </Pressable>
       <HStack>
-        <StarknetConnectWalletButton
-          width="250px"
-          height="50px"
-          onConnectPress={onConnectPress}
-          address={address}
-        />
+        <HStack space={4}>
+          {chain && <Text>Network: {networkId()}</Text>}
+          <StarknetConnectWalletButton
+            width="250px"
+            height="50px"
+            onConnectPress={handleConnectClick}
+            address={address}
+          />
+        </HStack>
       </HStack>
     </HStack>
   )

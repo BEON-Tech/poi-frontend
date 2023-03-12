@@ -4,24 +4,55 @@ import { SecondaryLayout } from '@components/templates'
 import { StarknetNavigationBar, StarknetTable } from '@components/organisms'
 import { StarknetFooter, StarknetHeader } from '@components/molecules'
 import { useRouter } from 'next/router'
-
-const items = [
-  ['# 01', '20'],
-  ['# 02', '17'],
-  ['# 03', '23'],
-  ['# 04', '19'],
-  ['# 05', '15'],
-  ['# 06', '25'],
-  ['# 07', '21'],
-]
+import { useEffect, useState } from 'react'
+import { getStudentsCountByCourse } from '@services/starknet/poi.service'
 
 const StarknetAudit: NextPage = () => {
+  const [items, setItems] = useState([
+    ['# 01', '0'],
+    ['# 02', '0'],
+    ['# 03', '0'],
+    ['# 04', '0'],
+    ['# 05', '0'],
+    ['# 06', '0'],
+    ['# 07', '0'],
+  ])
+
   const { push } = useRouter()
 
   const onClick = (itemIndex: number) => {
     const item = items[itemIndex][0].replace('# ', '')
     push(`/starknet/${item}`)
   }
+
+  useEffect(() => {
+    const getNextCourseCount = async (
+      remainingItems: string[],
+      updatedItems: string[][]
+    ) => {
+      if (!remainingItems.length) {
+        setItems(updatedItems)
+        return
+      }
+
+      const firstItem = remainingItems.shift()
+      const program = firstItem?.replace('# ', '')
+      const count = await getStudentsCountByCourse(program || '')
+      updatedItems.push([firstItem || '', String(count)])
+
+      getNextCourseCount(remainingItems, updatedItems)
+    }
+
+    const handler = async () => {
+      const updatedItems: string[][] = []
+      const allCourses = items.map((values) => values[0])
+      getNextCourseCount(allCourses, updatedItems)
+    }
+
+    ;(async () => {
+      await handler()
+    })()
+  }, [])
 
   return (
     <SecondaryLayout>
