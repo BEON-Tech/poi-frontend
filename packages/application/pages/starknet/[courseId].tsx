@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import { VStack } from 'native-base'
 import { SecondaryLayout } from '@components/templates'
-import { NavigationBar, StarknetTable } from '@components/organisms'
+import { StarknetNavigationBar, StarknetTable } from '@components/organisms'
 import { StarknetFooter, StarknetHeader } from '@components/molecules'
 import { useRouter } from 'next/router'
 
@@ -35,7 +35,7 @@ const StarknetAudit: NextPage = () => {
 
   return (
     <SecondaryLayout>
-      <NavigationBar />
+      <StarknetNavigationBar />
       <VStack w="100%" mt={{ base: 8, lg: 12 }}>
         <StarknetHeader title={`POI Students - Course #${courseId}`} />
         <StarknetTable

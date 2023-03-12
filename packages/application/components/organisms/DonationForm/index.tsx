@@ -27,7 +27,7 @@ import {
   transfer,
   waitTransaction,
 } from '@services/contracts/tx.contract'
-import { registerDonationTransacion } from '@services/API'
+// import { registerDonationTransacion } from '@services/API'
 import config from '@config'
 
 const TriggerMenu = ({ tokenIcon, menuOpen, ...triggerProps }: any) => (
@@ -190,7 +190,7 @@ const DonationForm = () => {
         library
       )
       setTx(transaction)
-      registerDonationTransacion(transaction, tokenSymbol, amount)
+      // registerDonationTransacion(transaction, tokenSymbol, amount)
       redirectToThankYouPage(transaction.hash)
     } catch (error) {
       setTxError(true)
