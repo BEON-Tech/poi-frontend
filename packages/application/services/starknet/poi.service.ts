@@ -10,7 +10,7 @@ const supportedNetwork = 'goerli-alpha'
 const getProvider = () =>
   new Provider({
     sequencer: {
-      network: 'goerli-alpha',
+      network: supportedNetwork,
     },
   })
 
