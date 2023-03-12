@@ -34,13 +34,14 @@ const StarknetTable = ({
       <FullGenericHeader columns={columns} />
       <VStack w="full">
         {items.map((item, index) => (
-          <HStack w="full" mt="16px" cursor="pointer">
+          <HStack w="full" mt="16px" cursor="pointer" key={`row-${item[0]}`}>
             {item.map((itemValue) => (
               <Button
                 flex={1}
                 variant="link"
                 onPress={() => onClick(index)}
                 justifyContent="flex-start"
+                key={`value-${itemValue}`}
               >
                 <Text>{itemValue}</Text>
               </Button>

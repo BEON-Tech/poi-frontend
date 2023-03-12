@@ -1,4 +1,4 @@
-import { getStarknet, IStarknetWindowObject } from '@argent/get-starknet'
+import { connect } from '@argent/get-starknet'
 import { Contract, number, uint256 } from 'starknet'
 import POIAbi from '../../constants/abi_starknet/poi_abi.json'
 import { networkId } from './wallet.service'
@@ -7,11 +7,13 @@ const tokenAddress =
   '0x79d4ce7a802a929804ea82e0134d730d7bd9af05c6e49222687ece405ebcbc7'
 const supportedNetwork = 'goerli-alpha'
 
-const getContract = (starknet: IStarknetWindowObject) =>
-  new Contract(POIAbi as any, tokenAddress, starknet.account as any)
+const getContract = async () => {
+  const starknet = await connect({ showList: false })
+  return new Contract(POIAbi as any, tokenAddress, starknet?.account as any)
+}
 
 export const getOwner = async () => {
-  const contract = getContract(getStarknet())
+  const contract = await getContract()
   const owner = await contract.get_owner()
   return number.toHex(owner)
 }
@@ -27,7 +29,7 @@ export const getStudentsCountByCourse = async (courseNumber: string) => {
 
   const courseFelt = number.toFelt(courseNumberValue)
 
-  const contract = getContract(getStarknet())
+  const contract = await getContract()
   const { count: value } = await contract.get_students_count_by_program(
     courseFelt
   )
@@ -41,7 +43,7 @@ export const getStudentByCourseAndPosition = async (
   const courseFelt = number.toFelt(course)
   const positionFelt = number.toFelt(position)
 
-  const contract = getContract(getStarknet())
+  const contract = await getContract()
   const { wallet: student } = await contract.get_student_wallet(
     courseFelt,
     positionFelt
@@ -84,7 +86,7 @@ export const addStudent = async (
   const walletBN = number.toBN(bigIntAddress)
   const walletUint256 = uint256.bnToUint256(walletBN)
 
-  const contract = getContract(getStarknet())
+  const contract = await getContract()
   return contract.register_student(courseFelt, [
     walletUint256.low,
     walletUint256.high,
