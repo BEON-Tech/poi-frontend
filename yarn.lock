@@ -7377,6 +7377,7 @@
     "graceful-fs" "^4.1.11"
 
 "landing@file:D:\\work\\poi-frontend\\packages\\landing":
+  "resolved" "git+ssh://git@github.com/packages/landing.git"
 
 "language-subtag-registry@~0.3.2":
   "integrity" "sha512-L0IqwlIXjilBVVYKFT37X9Ih11Um5NEl9cbJIuU/SwP/zEEAbBPOnEeeuxVMf45ydWQRDQN3Nqc96OgbH1K+Pg=="
@@ -9015,6 +9016,8 @@
     "react-native-safe-area-context" "^3.3.2"
     "react-native-svg" "^12.1.1"
     "react-native-web" "^0.17.5"
+    "starknet" "^4.21.0"
+    "starknet5" "npm:starknet@5.0.0-beta.3"
     "yup" "^0.32.11"
 
 "posix-character-classes@^0.1.0":
@@ -10094,7 +10097,7 @@
   "resolved" "https://registry.npmjs.org/stable/-/stable-0.1.8.tgz"
   "version" "0.1.8"
 
-"starknet@^3.12.3", "starknet@^3.19.0":
+"starknet@^3.12.3":
   "integrity" "sha512-1iUJdGtRDu2j3G8sS+yzRhp9O3O5Dr803oDfrm234Qmn05JTh5bU/wZwFPw9zWmMI0jyNZgjS+8dxPpBcpLgrQ=="
   "resolved" "https://registry.npmjs.org/starknet/-/starknet-3.19.0.tgz"
   "version" "3.19.0"
@@ -10109,6 +10112,23 @@
     "minimalistic-assert" "^1.0.1"
     "pako" "^2.0.4"
     "ts-custom-error" "^3.2.0"
+    "url-join" "^4.0.1"
+
+"starknet@^4.21.0":
+  "integrity" "sha512-jC9Taxb6a/ht9zmS1LU/DSLfwJKpgCJnE9AktVksc5SE/+jQMpqxsq6fm7PRiqupjiqRC1DOS8N47cj+KaGv4Q=="
+  "resolved" "https://registry.npmjs.org/starknet/-/starknet-4.22.0.tgz"
+  "version" "4.22.0"
+  dependencies:
+    "@ethersproject/bytes" "^5.6.1"
+    "bn.js" "^5.2.1"
+    "elliptic" "^6.5.4"
+    "ethereum-cryptography" "^1.0.3"
+    "hash.js" "^1.1.7"
+    "isomorphic-fetch" "^3.0.0"
+    "json-bigint" "^1.0.0"
+    "minimalistic-assert" "^1.0.1"
+    "pako" "^2.0.4"
+    "ts-custom-error" "^3.3.1"
     "url-join" "^4.0.1"
 
 "starknet5@npm:starknet@5.0.0-beta.3":
