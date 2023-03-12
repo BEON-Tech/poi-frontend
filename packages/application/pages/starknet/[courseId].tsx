@@ -19,8 +19,7 @@ const StarknetAudit: NextPage = () => {
 
   const onClick = (itemIndex: number) => {
     const item = wallets[itemIndex]
-    // eslint-disable-next-line no-console
-    console.log(item[0])
+    window.open(`https://app.proofofhumanity.id/profile/${item}`, '_blank')
   }
 
   useEffect(() => {
