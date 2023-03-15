@@ -75,7 +75,7 @@ const StarknetAudit: NextPage = () => {
         <StarknetHeader title="#aPRENDOcripto editions" />
         <StarknetTable
           header="7 editions"
-          tableHeaders={['Edition', 'Students']}
+          tableHeaders={['Edition', 'Graduates']}
           items={items}
           onClick={onClick}
         />
