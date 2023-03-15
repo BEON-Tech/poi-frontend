@@ -14,15 +14,18 @@ const getProvider = () =>
     },
   })
 
-const getContract = async () => {
+const getContract = async (setProvider: boolean = true) => {
   const starknet = await connect({ showList: false })
-  const provider = getProvider()
   const contract = new Contract(
     POIAbi as any,
     tokenAddress,
     starknet?.account as any
   )
-  contract.connect(provider)
+
+  if (setProvider) {
+    const provider = getProvider()
+    contract.connect(provider)
+  }
 
   return contract
 }
@@ -101,7 +104,7 @@ export const addStudent = async (
   const walletBN = number.toBN(bigIntAddress)
   const walletUint256 = uint256.bnToUint256(walletBN)
 
-  const contract = await getContract()
+  const contract = await getContract(false)
   return contract.register_student(courseFelt, [
     walletUint256.low,
     walletUint256.high,

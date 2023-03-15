@@ -80,9 +80,9 @@ const StarknetAudit: NextPage = () => {
     <SecondaryLayout>
       <StarknetNavigationBar />
       <VStack w="100%" mt={{ base: 8, lg: 12 }}>
-        <StarknetHeader title={`POI Students - Course #${courseId}`} />
+        <StarknetHeader title={`POI Graduates - Edition #${courseId}`} />
         <StarknetTable
-          header={`${programCount} students`}
+          header={`${programCount} graduates`}
           tableHeaders={['Wallet']}
           items={wallets}
           onClick={onClick}

@@ -30,6 +30,9 @@ const StarknetFooter = () => {
     const result = await addStudent(course, wallet)
     setTransactionHash(result.transaction_hash)
 
+    setCourse('')
+    setWallet('')
+
     setIsLoading(false)
   }
 

@@ -16,6 +16,20 @@ const StarknetAudit: NextPage = () => {
     ['# 05', '0'],
     ['# 06', '0'],
     ['# 07', '0'],
+    ['# 08', '0'],
+    ['# 09', '0'],
+    ['# 10', '0'],
+    ['# 11', '0'],
+    ['# 12', '0'],
+    ['# 13', '0'],
+    ['# 14', '0'],
+    ['# 15', '0'],
+    ['# 16', '0'],
+    ['# 17', '0'],
+    ['# 18', '0'],
+    ['# 19', '0'],
+    ['# 20', '0'],
+    ['# 21', '0'],
   ])
 
   const { push } = useRouter()
@@ -58,10 +72,10 @@ const StarknetAudit: NextPage = () => {
     <SecondaryLayout>
       <StarknetNavigationBar />
       <VStack w="100%" mt={{ base: 8, lg: 12 }}>
-        <StarknetHeader title="POI Courses" />
+        <StarknetHeader title="#aPRENDOcripto editions" />
         <StarknetTable
-          header="7 programs"
-          tableHeaders={['Program', 'Students']}
+          header="7 editions"
+          tableHeaders={['Edition', 'Students']}
           items={items}
           onClick={onClick}
         />
