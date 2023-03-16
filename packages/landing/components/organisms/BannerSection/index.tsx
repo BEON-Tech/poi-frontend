@@ -28,7 +28,7 @@ const BannerSectionDesktop = () => {
             <iframe
               width="853"
               height="480"
-              src="https://www.youtube.com/embed/V4oRObpgiMU"
+              src="https://www.youtube.com/embed/2mfkcdVmOj8"
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -83,7 +83,7 @@ const BannerSectionMobile = () => {
           <iframe
             width="320"
             height="180"
-            src="https://www.youtube.com/embed/V4oRObpgiMU"
+            src="https://www.youtube.com/embed/2mfkcdVmOj8"
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
