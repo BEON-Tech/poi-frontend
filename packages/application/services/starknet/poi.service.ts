@@ -1,10 +1,10 @@
 import { connect } from '@argent/get-starknet'
+import config from '@config'
 import { Contract, Provider, number, uint256 } from 'starknet'
 import POIAbi from '../../constants/abi_starknet/poi_abi.json'
 import { networkId } from './wallet.service'
 
-const tokenAddress =
-  '0x79d4ce7a802a929804ea82e0134d730d7bd9af05c6e49222687ece405ebcbc7'
+const tokenAddress = config.staknetContractAddress
 const supportedNetwork = 'goerli-alpha'
 
 const getProvider = () =>
