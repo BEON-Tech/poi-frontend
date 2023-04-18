@@ -7,29 +7,31 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { getStudentsCountByCourse } from '@services/starknet/poi.service'
 
+const ITEM_DEFAULT_VALUE = 'Loading...'
+
 const StarknetAudit: NextPage = () => {
   const [items, setItems] = useState([
-    ['# 01', '0'],
-    ['# 02', '0'],
-    ['# 03', '0'],
-    ['# 04', '0'],
-    ['# 05', '0'],
-    ['# 06', '0'],
-    ['# 07', '0'],
-    ['# 08', '0'],
-    ['# 09', '0'],
-    ['# 10', '0'],
-    ['# 11', '0'],
-    ['# 12', '0'],
-    ['# 13', '0'],
-    ['# 14', '0'],
-    ['# 15', '0'],
-    ['# 16', '0'],
-    ['# 17', '0'],
-    ['# 18', '0'],
-    ['# 19', '0'],
-    ['# 20', '0'],
-    ['# 21', '0'],
+    ['# 01', ITEM_DEFAULT_VALUE],
+    ['# 02', ITEM_DEFAULT_VALUE],
+    ['# 03', ITEM_DEFAULT_VALUE],
+    ['# 04', ITEM_DEFAULT_VALUE],
+    ['# 05', ITEM_DEFAULT_VALUE],
+    ['# 06', ITEM_DEFAULT_VALUE],
+    ['# 07', ITEM_DEFAULT_VALUE],
+    ['# 08', ITEM_DEFAULT_VALUE],
+    ['# 09', ITEM_DEFAULT_VALUE],
+    ['# 10', ITEM_DEFAULT_VALUE],
+    ['# 11', ITEM_DEFAULT_VALUE],
+    ['# 12', ITEM_DEFAULT_VALUE],
+    ['# 13', ITEM_DEFAULT_VALUE],
+    ['# 14', ITEM_DEFAULT_VALUE],
+    ['# 15', ITEM_DEFAULT_VALUE],
+    ['# 16', ITEM_DEFAULT_VALUE],
+    ['# 17', ITEM_DEFAULT_VALUE],
+    ['# 18', ITEM_DEFAULT_VALUE],
+    ['# 19', ITEM_DEFAULT_VALUE],
+    ['# 20', ITEM_DEFAULT_VALUE],
+    ['# 21', ITEM_DEFAULT_VALUE],
   ])
 
   const { push } = useRouter()
@@ -74,10 +76,11 @@ const StarknetAudit: NextPage = () => {
       <VStack w="100%" mt={{ base: 8, lg: 12 }}>
         <StarknetHeader title="#aPRENDOcripto editions" />
         <StarknetTable
-          header="7 editions"
+          header="21 editions"
           tableHeaders={['Edition', 'Graduates']}
           items={items}
           onClick={onClick}
+          isLoading={false}
         />
         <StarknetFooter />
       </VStack>

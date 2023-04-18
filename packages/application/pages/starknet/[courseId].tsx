@@ -11,9 +11,12 @@ import {
 } from '@services/starknet/poi.service'
 
 const StarknetAudit: NextPage = () => {
-  const [programCount, setProgramCount] = useState<number | undefined>(0)
+  const [programCount, setProgramCount] = useState<number | undefined>(
+    undefined
+  )
   const [wallets, setWallets] = useState<string[][]>([])
   const [courseId, setCourseId] = useState<string | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   const { query } = useRouter()
 
@@ -41,6 +44,7 @@ const StarknetAudit: NextPage = () => {
     ) => {
       if (currentPosition === maxPosition) {
         setWallets(listStudents)
+        setIsLoading(false)
         return
       }
 
@@ -82,10 +86,11 @@ const StarknetAudit: NextPage = () => {
       <VStack w="100%" mt={{ base: 8, lg: 12 }}>
         <StarknetHeader title={`POI Graduates - Edition #${courseId}`} />
         <StarknetTable
-          header={`${programCount} graduates`}
+          header={programCount ? `${programCount} graduates` : 'Loading...'}
           tableHeaders={['Wallet']}
           items={wallets}
           onClick={onClick}
+          isLoading={isLoading}
         />
         <StarknetFooter />
       </VStack>

@@ -7,6 +7,7 @@ interface StarknetTableProps {
   tableHeaders: string[]
   items: string[][]
   onClick: (itemIndex: number) => void
+  isLoading: boolean
 }
 
 const StarknetTable = ({
@@ -14,6 +15,7 @@ const StarknetTable = ({
   tableHeaders,
   items,
   onClick,
+  isLoading,
 }: StarknetTableProps) => {
   const columns: Array<{ flex: number; title: string }> = []
   tableHeaders.forEach((value) => {
@@ -32,23 +34,29 @@ const StarknetTable = ({
         {header}
       </Text>
       <FullGenericHeader columns={columns} />
-      <VStack w="full">
-        {items.map((item, index) => (
-          <HStack w="full" mt="16px" cursor="pointer" key={`row-${item[0]}`}>
-            {item.map((itemValue) => (
-              <Button
-                flex={1}
-                variant="link"
-                onPress={() => onClick(index)}
-                justifyContent="flex-start"
-                key={`value-${itemValue}`}
-              >
-                <Text>{itemValue}</Text>
-              </Button>
-            ))}
-          </HStack>
-        ))}
-      </VStack>
+      {isLoading ? (
+        <VStack mt="16px">
+          <Text>Loading...</Text>
+        </VStack>
+      ) : (
+        <VStack w="full">
+          {items.map((item, index) => (
+            <HStack w="full" mt="16px" cursor="pointer" key={`row-${item[0]}`}>
+              {item.map((itemValue) => (
+                <Button
+                  flex={1}
+                  variant="link"
+                  onPress={() => onClick(index)}
+                  justifyContent="flex-start"
+                  key={`value-${itemValue}`}
+                >
+                  <Text>{itemValue}</Text>
+                </Button>
+              ))}
+            </HStack>
+          ))}
+        </VStack>
+      )}
     </VStack>
   )
 }
