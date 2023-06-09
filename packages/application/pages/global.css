@@ -69,3 +69,33 @@
   font-weight: 800;
   font-display: swap;
 }
+
+.tags {
+  font-family: 'Hauora';
+  src: url('/assets/fonts/Hauora/Hauora-ExtraBold.woff2') format('woff2'),
+    url('/assets/fonts/Hauora/Hauora-ExtraBold.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.tags-input {
+  min-width: 460px;
+  border-color: rgb(229, 229, 229);
+}
+
+.tags-input::placeholder {
+  font-size: 20px;
+  color: darkGray;
+}
+
+.rti--container {
+  --rti-border: rgb(229, 229, 229) !important;
+  --rti-main: rgb(229, 229, 229) !important;
+  --rti-radius: 8px !important;
+  --rti-tag: rgb(45, 99, 32) !important;
+}
+
+.rti--tag span, .rti--tag button {
+  color: #fff;
+}

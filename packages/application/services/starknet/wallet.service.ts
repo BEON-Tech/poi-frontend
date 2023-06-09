@@ -1,4 +1,5 @@
 import { connect, getStarknet } from '@argent/get-starknet'
+import { isAddress } from '@ethersproject/address'
 import { constants, shortString } from 'starknet'
 
 export const silentConnectWallet = async () => {
@@ -147,3 +148,12 @@ export const removeWalletChangeListener = async (
   }
   starknet.off('accountsChanged', handleEvent)
 }
+
+export const parseValidWallets = (walletsList: string): string[] => {
+  const list = walletsList.split(' ').map((wallet: string) => wallet.trim())
+  return list.filter((wallet: string) => isAddress(wallet))
+}
+
+export const filterRepeatedWallets = (walletsList: string[]): string[] => [
+  ...new Set(walletsList.map((wallet: string) => wallet.toLowerCase())),
+]
