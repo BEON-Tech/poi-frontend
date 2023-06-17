@@ -19,6 +19,8 @@ import {
   parseValidWallets,
 } from '@services/starknet/wallet.service'
 
+const VENUE_MAX_CHARACTERS = 48
+
 interface IInputFile {
   placeholder: string
 }
@@ -78,11 +80,12 @@ const InputFile = ({ placeholder }: IInputFile) => {
 }
 
 const StarknetAudit: NextPage = () => {
-  const [edition, setEdition] = useState<string>('')
+  const [editionNumber, setEditionNumber] = useState('')
+  const [venue, setVenue] = useState('')
+  const [graduatesNumber, setGraduatesNumber] = useState('')
   const [wallets, setWallets] = useState<string[]>([])
   const [transactionHash, setTransactionHash] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
-  const updateEdition = (event: any) => setEdition(event.target.value)
 
   const addEditionToStarknet = async () => {
     /* if (isLoading) {
@@ -97,6 +100,21 @@ const StarknetAudit: NextPage = () => {
     setCourse('')
 
     setIsLoading(false) */
+  }
+
+  const filterOnlyNumbers = (value: string) => value.replace(/\D/g, '')
+
+  const updateEditionNumber = (event: any) => {
+    setEditionNumber(filterOnlyNumbers(event.target.value))
+  }
+
+  const updateVenue = (event: any) => {
+    const updatedVenue = event.target.value as string
+    setVenue(updatedVenue.substring(0, VENUE_MAX_CHARACTERS))
+  }
+
+  const updateGraduatesNumber = (event: any) => {
+    setGraduatesNumber(filterOnlyNumbers(event.target.value))
   }
 
   const beforeAddWalletsValidate = (tag: string, existingTags: string[]) => {
@@ -124,10 +142,10 @@ const StarknetAudit: NextPage = () => {
               <Input
                 type="number"
                 placeholder="Edition number"
-                value={edition}
+                value={editionNumber}
                 borderWidth={1}
                 borderRadius={8}
-                onChange={updateEdition}
+                onChange={updateEditionNumber}
                 mt={{ base: 3, sm: 5, lg: 5, xl: 5 }}
                 h={10}
                 bg="white"
@@ -138,10 +156,10 @@ const StarknetAudit: NextPage = () => {
               <Input
                 type="number"
                 placeholder="Venue"
-                // value={edition}
+                value={venue}
                 borderWidth={1}
                 borderRadius={8}
-                // onChange={updateEdition}
+                onChange={updateVenue}
                 mt={{ base: 3, sm: 5, lg: 5, xl: 5 }}
                 h={10}
                 bg="white"
@@ -153,10 +171,10 @@ const StarknetAudit: NextPage = () => {
               <Input
                 type="number"
                 placeholder="# Graduates"
-                // value={edition}
+                value={graduatesNumber}
                 borderWidth={1}
                 borderRadius={8}
-                // onChange={updateEdition}
+                onChange={updateGraduatesNumber}
                 mt={{ base: 3, sm: 5, lg: 5, xl: 5 }}
                 h={10}
                 bg="white"
