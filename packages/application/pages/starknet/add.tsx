@@ -18,14 +18,19 @@ import {
   filterRepeatedWallets,
   parseValidWallets,
 } from '@services/starknet/wallet.service'
+import {
+  web3GetFilePath,
+  web3UploadFile,
+} from '@services/starknet/ipfs.service'
 
 const VENUE_MAX_CHARACTERS = 48
 
 interface IInputFile {
   placeholder: string
+  fileSelectedCallback?: (file: File) => void
 }
 
-const InputFile = ({ placeholder }: IInputFile) => {
+const InputFile = ({ placeholder, fileSelectedCallback }: IInputFile) => {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [fileName, setFileName] = useState('')
 
@@ -39,6 +44,9 @@ const InputFile = ({ placeholder }: IInputFile) => {
       if ('name' in file) {
         const selectedFileName = file.name as string
         setFileName(selectedFileName)
+        if (fileSelectedCallback) {
+          fileSelectedCallback(file)
+        }
       }
     }
   }
@@ -82,25 +90,58 @@ const InputFile = ({ placeholder }: IInputFile) => {
 const StarknetAudit: NextPage = () => {
   const [editionNumber, setEditionNumber] = useState('')
   const [venue, setVenue] = useState('')
+  const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [graduatesNumber, setGraduatesNumber] = useState('')
   const [wallets, setWallets] = useState<string[]>([])
-  const [transactionHash, setTransactionHash] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [stepsStack, setStepsStack] = useState<string[]>([])
+
+  const fileSelectedCallback = (file: File) => {
+    setSelectedFile(file)
+  }
+
+  const resetStepsStack = () => {
+    setTimeout(() => {
+      setStepsStack([])
+    }, 100)
+  }
+
+  const addStepToStack = async (step: string) => {
+    setTimeout(() => {
+      setStepsStack((previusStepsStack) => [...previusStepsStack, step])
+    }, 100)
+  }
 
   const addEditionToStarknet = async () => {
-    /* if (isLoading) {
+    if (isLoading) {
       return
     }
 
+    resetStepsStack()
     setIsLoading(true)
 
-    const result = await addStudent(course, wallet)
-    setTransactionHash(result.transaction_hash)
+    await addStepToStack('Uploading photo to IPFS...')
+    const cid = await web3UploadFile(selectedFile!)
 
-    setCourse('')
+    await addStepToStack(`File CID: ${cid}`)
 
-    setIsLoading(false) */
+    const web3FilePath = await web3GetFilePath(cid)
+    await addStepToStack(`Photo URL: ${web3FilePath}`)
+
+    // TODO: store image cid + edition information to Starknet
+    // await addStepToStack('Creating transaction on Starknet...')
+
+    // TODO: show Starknet transaction hash
+    // await addStepToStack('Transaction hash: xxxxx')
+
+    setIsLoading(false)
   }
+
+  const validForm =
+    editionNumber.length > 0 &&
+    venue.length > 0 &&
+    selectedFile != null &&
+    graduatesNumber.length > 0
 
   const filterOnlyNumbers = (value: string) => value.replace(/\D/g, '')
 
@@ -132,13 +173,14 @@ const StarknetAudit: NextPage = () => {
           <VStack
             w="640px"
             maxW={MAX_WIDTH}
+            my="29%"
             pl={{ base: 6, lg: 8 }}
-            pr={{ base: 8, lg: 32 }}
+            pr={{ base: 6, lg: 8 }}
             alignItems={{ base: 'flex-start', lg: 'center' }}
             justifyContent={{ base: 'initial', lg: 'space-between' }}
             space={{ base: 20, lg: 0 }}
           >
-            <FormControl width="100%">
+            <FormControl width="100%" alignItems="center">
               <Input
                 type="number"
                 placeholder="Edition number"
@@ -167,7 +209,10 @@ const StarknetAudit: NextPage = () => {
                 fontSize="xl"
                 w="480px"
               />
-              <InputFile placeholder="Graduates photo" />
+              <InputFile
+                placeholder="Graduates photo"
+                fileSelectedCallback={fileSelectedCallback}
+              />
               <Input
                 type="number"
                 placeholder="# Graduates"
@@ -202,11 +247,16 @@ const StarknetAudit: NextPage = () => {
               _text={{ fontSize: 20 }}
               onPress={addEditionToStarknet}
               alignSelf="center"
+              disabled={!validForm}
             >
               {isLoading ? 'Loading...' : 'Add edition'}
             </Button>
+            <VStack w="640px" mt={8} alignItems="start">
+              {stepsStack.map((step) => (
+                <Text key={step}>{step}</Text>
+              ))}
+            </VStack>
           </VStack>
-          {transactionHash && <Text>Transaction Hash: {transactionHash}</Text>}
         </VStack>
         <StarknetFooter hideButton />
       </VStack>

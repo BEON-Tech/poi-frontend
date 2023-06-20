@@ -5,6 +5,7 @@ export interface IConfig {
   homeSubdomain: string
   etherscanURL: string
   staknetContractAddress: string
+  web3StorageApiKey: string
 }
 
 export default {
@@ -15,4 +16,5 @@ export default {
   etherscanURL: process.env.NEXT_PUBLIC_ETHERSCAN_URL || '',
   staknetContractAddress:
     process.env.NEXT_PUBLIC_STARKNET_CONTRACT_ADDRESS || '',
+  web3StorageApiKey: process.env.NEXT_PUBLIC_WEB3_STORAGE_API_KEY || '',
 } as IConfig
