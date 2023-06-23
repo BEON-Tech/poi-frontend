@@ -1,12 +1,20 @@
 import { connect } from '@argent/get-starknet'
 import config from '@config'
-import { Contract, Provider, number, shortString, uint256 } from 'starknet'
+import { Contract, Provider, number, shortString } from 'starknet'
 import { isAddress } from '@ethersproject/address'
 import POIAbi from '../../constants/abi_starknet/poi_abi.json'
 import { networkId } from './wallet.service'
 
 const tokenAddress = config.staknetContractAddress
 const supportedNetwork = 'goerli-alpha'
+
+export interface Edition {
+  editionNumber: number
+  venue: string
+  photoCID: string
+  graduatesNumber: number
+  wallets: string[]
+}
 
 const getProvider = () =>
   new Provider({
@@ -36,6 +44,8 @@ export const getOwner = async () => {
   const owner = await contract.get_owner()
   return number.toHex(owner)
 }
+
+/* Helper functions */
 
 /**
  * midString = 62 characters max
@@ -91,47 +101,36 @@ export const walletAddressToLowAndHighFelts = (walletAddress: string) => {
 export const lowAndHighFeltsToWalletAddress = (low: string, high: string) =>
   lowAndHighFeltsToMidString(low, high)
 
-export const getStudentsCountByCourse = async (courseNumber: string) => {
-  const courseNumberValue = Number(courseNumber)
+/* Contract functions */
 
-  if (Number.isNaN(courseNumberValue)) {
-    // eslint-disable-next-line no-alert
-    window.alert('Invalid course number')
-    return undefined
-  }
-
-  const courseFelt = number.toFelt(courseNumberValue)
-
+export const getEditionsCount = async () => {
   const contract = await getContract()
-  const { count: value } = await contract.get_students_count_by_program(
-    courseFelt
-  )
+  const { count: value } = await contract.get_editions_count()
   return parseInt(number.toHex(value), 16)
 }
 
-export const getStudentByCourseAndPosition = async (
-  course: number,
-  position: number
-) => {
-  const courseFelt = number.toFelt(course)
-  const positionFelt = number.toFelt(position)
-
+export const getEdition = async (editionNumber: number): Promise<Edition> => {
   const contract = await getContract()
-  const { wallet: student } = await contract.get_student_wallet(
-    courseFelt,
-    positionFelt
-  )
+  const { edition } = await contract.get_edition(editionNumber)
 
-  const low = number.toHex(student.wallet_address_low)
-  const high = number.toHex(student.wallet_address_high)
-  const bigNumber = uint256.uint256ToBN({ low, high })
-
-  return number.toHex(bigNumber)
+  return {
+    editionNumber: parseInt(number.toHex(edition.edition_number), 16),
+    venue: lowAndHighFeltsToMidString(edition.venue.low, edition.venue.high),
+    photoCID: lowAndHighFeltsToMidString(
+      edition.photo_cid.low,
+      edition.photo_cid.high
+    ),
+    graduatesNumber: parseInt(number.toHex(edition.graduates_number), 16),
+    wallets: [],
+  }
 }
 
-export const addStudent = async (
-  courseNumber: string,
-  studentAddress: string
+export const addEdition = async (
+  editionNumber: number,
+  venue: string,
+  photoCID: string,
+  graduatesNumber: number,
+  studentsWallets: string[]
 ) => {
   if (networkId() !== supportedNetwork) {
     // eslint-disable-next-line no-alert
@@ -139,29 +138,23 @@ export const addStudent = async (
     return undefined
   }
 
-  const courseNumberValue = Number(courseNumber)
-
-  if (Number.isNaN(courseNumberValue)) {
-    // eslint-disable-next-line no-alert
-    window.alert('Invalid course number')
-    return undefined
-  }
-
-  const courseFelt = number.toFelt(courseNumberValue)
-
-  const bigIntAddress = BigInt(studentAddress)
-  if (Number.isNaN(bigIntAddress)) {
-    // eslint-disable-next-line no-alert
-    window.alert('Invalid wallet address')
-    return undefined
-  }
-
-  const walletBN = number.toBN(bigIntAddress)
-  const walletUint256 = uint256.bnToUint256(walletBN)
+  const editionNumberFelt = number.toFelt(editionNumber)
+  const venueLowAndHigh = midStringToLowAndHighFelts(venue)
+  const photoCIDLowAndHigh = midStringToLowAndHighFelts(photoCID)
+  const graduatesNumberFelt = number.toFelt(graduatesNumber)
+  const studentsWalletsLowAndHighArray = studentsWallets.map((wallet) =>
+    walletAddressToLowAndHighFelts(wallet)
+  )
 
   const contract = await getContract(false)
-  return contract.register_student(courseFelt, [
-    walletUint256.low,
-    walletUint256.high,
-  ])
+  return contract.add_edition(
+    editionNumberFelt,
+    [venueLowAndHigh.low, venueLowAndHigh.high],
+    [photoCIDLowAndHigh.low, photoCIDLowAndHigh.high],
+    graduatesNumberFelt,
+    studentsWalletsLowAndHighArray.map((lowAndHigh) => [
+      lowAndHigh.low,
+      lowAndHigh.high,
+    ])
+  )
 }

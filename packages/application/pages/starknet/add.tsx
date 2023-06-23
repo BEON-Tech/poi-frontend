@@ -22,12 +22,8 @@ import {
   web3GetFilePath,
   web3UploadFile,
 } from '@services/starknet/ipfs.service'
-import {
-  lowAndHighFeltsToMidString,
-  lowAndHighFeltsToWalletAddress,
-  midStringToLowAndHighFelts,
-  walletAddressToLowAndHighFelts,
-} from '@services/starknet/poi.service'
+import { addEdition } from '@services/starknet/poi.service'
+import { useRouter } from 'next/router'
 
 const VENUE_MAX_CHARACTERS = 48
 
@@ -94,6 +90,8 @@ const InputFile = ({ placeholder, fileSelectedCallback }: IInputFile) => {
 }
 
 const StarknetAudit: NextPage = () => {
+  const { push } = useRouter()
+
   const [editionNumber, setEditionNumber] = useState('')
   const [venue, setVenue] = useState('')
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
@@ -101,6 +99,7 @@ const StarknetAudit: NextPage = () => {
   const [wallets, setWallets] = useState<string[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [stepsStack, setStepsStack] = useState<string[]>([])
+  const [showBottomButtons, setShowBottomButtons] = useState(false)
 
   const fileSelectedCallback = (file: File) => {
     setSelectedFile(file)
@@ -118,26 +117,6 @@ const StarknetAudit: NextPage = () => {
     }, 100)
   }
 
-  // TODO: Remove this code
-  const testCID = 'bafybeihy7me7pxvdtwktnouyig72iwu3dwjtzfpaxnds7jhdetayrx2kby'
-  const lowAndHigh = midStringToLowAndHighFelts(testCID)
-  const result1 = lowAndHighFeltsToMidString(lowAndHigh.low, lowAndHigh.high)
-  console.log('Original string: ', result1)
-  console.log('Are equals: ', testCID.localeCompare(result1) === 0)
-
-  const walletAddress =
-    '0x0Ac657bF55D15cB65d01B807F16bD03B2A0C5C70'.toLowerCase()
-  console.log(walletAddress)
-  const lowAndHighAddress = walletAddressToLowAndHighFelts(walletAddress)
-  const result2 = lowAndHighFeltsToWalletAddress(
-    lowAndHighAddress.low,
-    lowAndHighAddress.high
-  )
-  console.log('Original wallet address: ', result2)
-  console.log('Are equals: ', walletAddress.localeCompare(result2) === 0)
-
-  // TODO: End of remove this code
-
   const addEditionToStarknet = async () => {
     if (isLoading) {
       return
@@ -154,13 +133,19 @@ const StarknetAudit: NextPage = () => {
     const web3FilePath = await web3GetFilePath(cid)
     await addStepToStack(`Photo URL: ${web3FilePath}`)
 
-    // TODO: store image cid + edition information to Starknet
-    // await addStepToStack('Creating transaction on Starknet...')
+    await addStepToStack('Creating transaction on Starknet...')
+    const transaction = await addEdition(
+      Number(editionNumber),
+      venue,
+      cid,
+      Number(graduatesNumber),
+      wallets
+    )
 
-    // TODO: show Starknet transaction hash
-    // await addStepToStack('Transaction hash: xxxxx')
+    await addStepToStack(`Transaction hash: ${transaction.transaction_hash}`)
 
     setIsLoading(false)
+    setShowBottomButtons(true)
   }
 
   const validForm =
@@ -189,6 +174,22 @@ const StarknetAudit: NextPage = () => {
     const filteredWallets = filterRepeatedWallets(allWallets)
     setWallets(filteredWallets)
     return true
+  }
+
+  const resetForm = () => {
+    setEditionNumber('')
+    setVenue('')
+    setSelectedFile(null)
+    setGraduatesNumber('')
+    setWallets([])
+    setIsLoading(false)
+    setStepsStack([])
+    setShowBottomButtons(false)
+  }
+
+  const goToHome = () => {
+    setShowBottomButtons(false)
+    push('/starknet')
   }
 
   return (
@@ -282,6 +283,32 @@ const StarknetAudit: NextPage = () => {
                 <Text key={step}>{step}</Text>
               ))}
             </VStack>
+            {showBottomButtons && (
+              <VStack>
+                <Button
+                  mt={{ base: 3, sm: 5, lg: 5, xl: 5 }}
+                  px={10}
+                  py={7}
+                  _text={{ fontSize: 20 }}
+                  onPress={resetForm}
+                  alignSelf="center"
+                  disabled={!validForm}
+                >
+                  Add another edition
+                </Button>
+                <Button
+                  mt={{ base: 3, sm: 5, lg: 5, xl: 5 }}
+                  px={10}
+                  py={7}
+                  _text={{ fontSize: 20 }}
+                  onPress={goToHome}
+                  alignSelf="center"
+                  disabled={!validForm}
+                >
+                  Go back
+                </Button>
+              </VStack>
+            )}
           </VStack>
         </VStack>
         <StarknetFooter hideButton />
