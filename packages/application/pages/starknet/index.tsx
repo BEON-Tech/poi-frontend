@@ -35,7 +35,13 @@ const StarknetAudit: NextPage = () => {
         String(edition.graduatesNumber as number),
       ])
 
-      getNextEditionGraduates(editionIndex + 1, editionsCount, editionsArray)
+      setEditions([...editionsArray])
+
+      await getNextEditionGraduates(
+        editionIndex + 1,
+        editionsCount,
+        editionsArray
+      )
     }
 
     const handler = async () => {
