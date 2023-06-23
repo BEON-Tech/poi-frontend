@@ -22,6 +22,12 @@ import {
   web3GetFilePath,
   web3UploadFile,
 } from '@services/starknet/ipfs.service'
+import {
+  lowAndHighFeltsToMidString,
+  lowAndHighFeltsToWalletAddress,
+  midStringToLowAndHighFelts,
+  walletAddressToLowAndHighFelts,
+} from '@services/starknet/poi.service'
 
 const VENUE_MAX_CHARACTERS = 48
 
@@ -111,6 +117,26 @@ const StarknetAudit: NextPage = () => {
       setStepsStack((previusStepsStack) => [...previusStepsStack, step])
     }, 100)
   }
+
+  // TODO: Remove this code
+  const testCID = 'bafybeihy7me7pxvdtwktnouyig72iwu3dwjtzfpaxnds7jhdetayrx2kby'
+  const lowAndHigh = midStringToLowAndHighFelts(testCID)
+  const result1 = lowAndHighFeltsToMidString(lowAndHigh.low, lowAndHigh.high)
+  console.log('Original string: ', result1)
+  console.log('Are equals: ', testCID.localeCompare(result1) === 0)
+
+  const walletAddress =
+    '0x0Ac657bF55D15cB65d01B807F16bD03B2A0C5C70'.toLowerCase()
+  console.log(walletAddress)
+  const lowAndHighAddress = walletAddressToLowAndHighFelts(walletAddress)
+  const result2 = lowAndHighFeltsToWalletAddress(
+    lowAndHighAddress.low,
+    lowAndHighAddress.high
+  )
+  console.log('Original wallet address: ', result2)
+  console.log('Are equals: ', walletAddress.localeCompare(result2) === 0)
+
+  // TODO: End of remove this code
 
   const addEditionToStarknet = async () => {
     if (isLoading) {
@@ -249,7 +275,7 @@ const StarknetAudit: NextPage = () => {
               alignSelf="center"
               disabled={!validForm}
             >
-              {isLoading ? 'Loading...' : 'Add edition'}
+              {isLoading ? 'Loading...' : 'Submit edition'}
             </Button>
             <VStack w="640px" mt={8} alignItems="start">
               {stepsStack.map((step) => (

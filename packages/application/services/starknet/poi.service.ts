@@ -1,6 +1,7 @@
 import { connect } from '@argent/get-starknet'
 import config from '@config'
-import { Contract, Provider, number, uint256 } from 'starknet'
+import { Contract, Provider, number, shortString, uint256 } from 'starknet'
+import { isAddress } from '@ethersproject/address'
 import POIAbi from '../../constants/abi_starknet/poi_abi.json'
 import { networkId } from './wallet.service'
 
@@ -35,6 +36,60 @@ export const getOwner = async () => {
   const owner = await contract.get_owner()
   return number.toHex(owner)
 }
+
+/**
+ * midString = 62 characters max
+ * @throws Error when string length > 62
+ */
+export const midStringToLowAndHighFelts = (midString: string) => {
+  if (midString.length > 62) {
+    throw Error('Invalid string length (62 characters max)')
+  }
+
+  const lowShortString = midString.substring(0, 31)
+  const highShortString = midString.substring(31, 62)
+
+  const lowFelt = number.toFelt(
+    number.toHex(shortString.encodeShortString(lowShortString))
+  )
+  const highFelt = number.toFelt(
+    number.toHex(shortString.encodeShortString(highShortString))
+  )
+
+  return { low: lowFelt, high: highFelt }
+}
+
+/**
+ * @param low - felt string
+ * @param high - felt string
+ * @returns 62 characters max string
+ */
+export const lowAndHighFeltsToMidString = (low: string, high: string) => {
+  const lowShortString = shortString.decodeShortString(low)
+  const highShortString = shortString.decodeShortString(high)
+
+  return `${lowShortString}${highShortString}`
+}
+
+/**
+ * walletAddress - string with a valid wallet address
+ * @throws Error when string is an invalid wallet address
+ */
+export const walletAddressToLowAndHighFelts = (walletAddress: string) => {
+  if (!isAddress(walletAddress)) {
+    throw Error('Invalid wallet address')
+  }
+
+  return midStringToLowAndHighFelts(walletAddress.toLocaleLowerCase())
+}
+
+/**
+ * @param low - felt string
+ * @param high - felt string
+ * @returns string with a valid wallet address
+ */
+export const lowAndHighFeltsToWalletAddress = (low: string, high: string) =>
+  lowAndHighFeltsToMidString(low, high)
 
 export const getStudentsCountByCourse = async (courseNumber: string) => {
   const courseNumberValue = Number(courseNumber)
