@@ -5,64 +5,55 @@ import { StarknetNavigationBar, StarknetTable } from '@components/organisms'
 import { StarknetFooter, StarknetHeader } from '@components/molecules'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { Edition, getEdition } from '@services/starknet/poi.service'
+import {
+  Edition,
+  getEdition,
+  getStudentWallet,
+} from '@services/starknet/poi.service'
+import StarknetEditionPhoto from '@components/molecules/StarknetEditionPhoto'
 
 const StarknetAudit: NextPage = () => {
   const [edition, setEdition] = useState<Edition | null>(null)
+  const [wallets, setWallets] = useState<string[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
   const { query } = useRouter()
 
   useEffect(() => {
-    /* const getCourseStudentsCount = async (courseIdString?: string) => {
-      if (!courseIdString) {
-        return 0
-      }
-
-      const count = await getStudentsCountByCourse(courseIdString)
-      setProgramCount(count)
-      return count
-    }
-
     const getStudentWalletAtPosition = async (
-      courseIdNumber: number,
-      listStudents: string[][],
-      currentPosition: number,
-      maxPosition: number
+      editionNumber: number,
+      listWallets: string[],
+      walletIndex: number,
+      walletsCount: number
     ) => {
-      if (currentPosition === maxPosition) {
-        setWallets(listStudents)
+      if (walletIndex === walletsCount) {
+        setWallets(listWallets)
         setIsLoading(false)
         return
       }
 
-      const wallet = await getStudentByCourseAndPosition(
-        courseIdNumber,
-        currentPosition
-      )
-      listStudents.push([wallet])
+      const wallet = await getStudentWallet(editionNumber, walletIndex)
+
+      listWallets.push(wallet as string)
 
       getStudentWalletAtPosition(
-        courseIdNumber,
-        listStudents,
-        currentPosition + 1,
-        maxPosition
+        editionNumber,
+        listWallets,
+        walletIndex + 1,
+        walletsCount
       )
-    } */
+    }
 
     const handler = async (editionIndex: number) => {
       const selectedEdition = await getEdition(editionIndex)
+      setEdition(selectedEdition)
 
-      setEdition({
-        editionNumber: selectedEdition.editionNumber as number,
-        venue: selectedEdition.venue as string,
-        photoCID: selectedEdition.photoCID as string,
-        graduatesNumber: selectedEdition.graduatesNumber as number,
-        wallets: [],
-      })
-
-      // const initialList: string[][] = []
-      // getStudentAtPosition(courseIdNumber, initialList, 0, count)
+      getStudentWalletAtPosition(
+        selectedEdition.editionNumber,
+        [],
+        0,
+        selectedEdition.walletsNumber
+      )
     }
 
     ;(async () => {
@@ -89,12 +80,14 @@ const StarknetAudit: NextPage = () => {
               : ''
           }
         />
+        <StarknetEditionPhoto cid={edition?.photoCID} />
         <StarknetTable
           header={
             edition ? `${edition.graduatesNumber} graduates` : 'Loading...'
           }
-          tableHeaders={['Wallet']}
-          items={edition ? [edition.wallets] : []}
+          tableHeaders={wallets.length > 0 ? ['Wallet'] : []}
+          items={wallets.map((wallet) => [wallet])}
+          minH="320px"
           onClick={onWalletClick}
           isLoading={isLoading}
         />

@@ -13,7 +13,7 @@ export interface Edition {
   venue: string
   photoCID: string
   graduatesNumber: number
-  wallets: string[]
+  walletsNumber: number
 }
 
 const getProvider = () =>
@@ -121,8 +121,23 @@ export const getEdition = async (editionNumber: number): Promise<Edition> => {
       edition.photo_cid.high
     ),
     graduatesNumber: parseInt(number.toHex(edition.graduates_number), 16),
-    wallets: [],
+    walletsNumber: parseInt(number.toHex(edition.wallets_number), 16),
   }
+}
+
+export const getStudentWallet = async (
+  editionNumber: number,
+  walletIndex: number
+) => {
+  const contract = await getContract()
+  const { wallet } = await contract.get_student_wallet(
+    editionNumber,
+    walletIndex
+  )
+  return lowAndHighFeltsToWalletAddress(
+    wallet.wallet_address_low,
+    wallet.wallet_address_high
+  )
 }
 
 export const addEdition = async (

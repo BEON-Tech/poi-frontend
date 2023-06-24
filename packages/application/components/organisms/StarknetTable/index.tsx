@@ -6,6 +6,7 @@ interface StarknetTableProps {
   header: string
   tableHeaders: string[]
   items: string[][]
+  minH?: string
   onClick: (itemIndex: number) => void
   isLoading: boolean
 }
@@ -14,6 +15,7 @@ const StarknetTable = ({
   header,
   tableHeaders,
   items,
+  minH,
   onClick,
   isLoading,
 }: StarknetTableProps) => {
@@ -26,7 +28,7 @@ const StarknetTable = ({
     <VStack
       w="full"
       maxW={`${MAX_WIDTH}px`}
-      minH="640px"
+      minH={minH || '640px'}
       mt={{ base: 8, lg: 16 }}
       px={{ base: 0, lg: 8 }}
     >
