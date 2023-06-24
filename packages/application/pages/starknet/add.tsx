@@ -23,7 +23,6 @@ import {
   web3UploadFile,
 } from '@services/starknet/ipfs.service'
 import { addEdition } from '@services/starknet/poi.service'
-import { useRouter } from 'next/router'
 
 const VENUE_MAX_CHARACTERS = 48
 
@@ -90,8 +89,6 @@ const InputFile = ({ placeholder, fileSelectedCallback }: IInputFile) => {
 }
 
 const StarknetAudit: NextPage = () => {
-  const { push } = useRouter()
-
   const [editionNumber, setEditionNumber] = useState('')
   const [venue, setVenue] = useState('')
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
@@ -99,7 +96,6 @@ const StarknetAudit: NextPage = () => {
   const [wallets, setWallets] = useState<string[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [stepsStack, setStepsStack] = useState<string[]>([])
-  const [showBottomButtons, setShowBottomButtons] = useState(false)
 
   const fileSelectedCallback = (file: File) => {
     setSelectedFile(file)
@@ -145,7 +141,6 @@ const StarknetAudit: NextPage = () => {
     await addStepToStack(`Transaction hash: ${transaction.transaction_hash}`)
 
     setIsLoading(false)
-    setShowBottomButtons(true)
   }
 
   const validForm =
@@ -174,22 +169,6 @@ const StarknetAudit: NextPage = () => {
     const filteredWallets = filterRepeatedWallets(allWallets)
     setWallets(filteredWallets)
     return true
-  }
-
-  const resetForm = () => {
-    setEditionNumber('')
-    setVenue('')
-    setSelectedFile(null)
-    setGraduatesNumber('')
-    setWallets([])
-    setIsLoading(false)
-    setStepsStack([])
-    setShowBottomButtons(false)
-  }
-
-  const goToHome = () => {
-    setShowBottomButtons(false)
-    push('/starknet')
   }
 
   return (
@@ -283,32 +262,6 @@ const StarknetAudit: NextPage = () => {
                 <Text key={step}>{step}</Text>
               ))}
             </VStack>
-            {showBottomButtons && (
-              <VStack>
-                <Button
-                  mt={{ base: 3, sm: 5, lg: 5, xl: 5 }}
-                  px={10}
-                  py={7}
-                  _text={{ fontSize: 20 }}
-                  onPress={resetForm}
-                  alignSelf="center"
-                  disabled={!validForm}
-                >
-                  Add another edition
-                </Button>
-                <Button
-                  mt={{ base: 3, sm: 5, lg: 5, xl: 5 }}
-                  px={10}
-                  py={7}
-                  _text={{ fontSize: 20 }}
-                  onPress={goToHome}
-                  alignSelf="center"
-                  disabled={!validForm}
-                >
-                  Go back
-                </Button>
-              </VStack>
-            )}
           </VStack>
         </VStack>
         <StarknetFooter hideButton />
