@@ -154,6 +154,17 @@ export const parseValidWallets = (walletsList: string): string[] => {
   return list.filter((wallet: string) => isAddress(wallet))
 }
 
-export const filterRepeatedWallets = (walletsList: string[]): string[] => [
-  ...new Set(walletsList.map((wallet: string) => wallet.toLowerCase())),
-]
+export const filterRepeatedWallets = (walletsList: string[]): string[] => {
+  const filteredWalletsList: string[] = []
+  walletsList.forEach((wallet) => {
+    const lowercaseWallet = wallet.toLowerCase()
+    const found = filteredWalletsList.some(
+      (value) => lowercaseWallet === value.toLowerCase()
+    )
+    if (!found) {
+      filteredWalletsList.push(wallet)
+    }
+  })
+
+  return filteredWalletsList
+}

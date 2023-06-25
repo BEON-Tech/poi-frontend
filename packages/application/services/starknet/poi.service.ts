@@ -90,7 +90,7 @@ export const walletAddressToLowAndHighFelts = (walletAddress: string) => {
     throw Error('Invalid wallet address')
   }
 
-  return midStringToLowAndHighFelts(walletAddress.toLocaleLowerCase())
+  return midStringToLowAndHighFelts(walletAddress)
 }
 
 /**
