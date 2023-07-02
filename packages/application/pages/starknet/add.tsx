@@ -10,7 +10,7 @@ import {
 } from 'native-base'
 import { SecondaryLayout } from '@components/templates'
 import { StarknetNavigationBar } from '@components/organisms'
-import { StarknetFooter } from '@components/molecules'
+import { StarknetFooter, StarknetHeader } from '@components/molecules'
 import { useRef, useState } from 'react'
 import { MAX_WIDTH } from '@constants'
 import { TagsInput } from 'react-tag-input-component'
@@ -194,12 +194,14 @@ const StarknetAudit: NextPage = () => {
   return (
     <SecondaryLayout>
       <StarknetNavigationBar />
+      <StarknetHeader title="Add Edition" />
       <VStack w="100%" mt={{ base: 8, lg: 12 }}>
         <VStack>
           <VStack
             w="640px"
             maxW={MAX_WIDTH}
-            my="29%"
+            mt="25%"
+            mb="29%"
             pl={{ base: 6, lg: 8 }}
             pr={{ base: 6, lg: 8 }}
             alignItems={{ base: 'flex-start', lg: 'center' }}
