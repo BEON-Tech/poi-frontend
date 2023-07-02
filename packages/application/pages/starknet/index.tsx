@@ -32,6 +32,7 @@ const StarknetAudit: NextPage = () => {
 
       editionsArray.push([
         `# ${edition.editionNumber}`,
+        edition.venue,
         String(edition.graduatesNumber as number),
       ])
 
@@ -65,7 +66,7 @@ const StarknetAudit: NextPage = () => {
           header={
             editionsNumber != null ? `${editionsNumber} editions` : 'Loading...'
           }
-          tableHeaders={['Edition', 'Graduates']}
+          tableHeaders={['Edition', 'Venue', 'Graduates']}
           items={editions}
           onClick={onClick}
           isLoading={false}
