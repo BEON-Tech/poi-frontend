@@ -24,6 +24,7 @@ import {
 } from '@services/starknet/ipfs.service'
 import { addEdition } from '@services/starknet/poi.service'
 import Swal, { SweetAlertResult } from 'sweetalert2'
+import { useRouter } from 'next/router'
 
 const VENUE_MAX_CHARACTERS = 48
 
@@ -90,12 +91,15 @@ const InputFile = ({ placeholder, fileSelectedCallback }: IInputFile) => {
 }
 
 const StarknetAudit: NextPage = () => {
+  const { push } = useRouter()
+
   const [editionNumber, setEditionNumber] = useState('')
   const [venue, setVenue] = useState('')
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [graduatesNumber, setGraduatesNumber] = useState('')
   const [wallets, setWallets] = useState<string[]>([])
   const [isLoading, setIsLoading] = useState(false)
+  const [showBackButton, setShowBackButton] = useState(false)
   const [stepsStack, setStepsStack] = useState<string[]>([])
 
   const fileSelectedCallback = (file: File) => {
@@ -139,6 +143,7 @@ const StarknetAudit: NextPage = () => {
 
   const doAddEditionToStarknet = async () => {
     resetStepsStack()
+    setShowBackButton(false)
     setIsLoading(true)
 
     await addStepToStack('Uploading photo to IPFS...')
@@ -161,6 +166,7 @@ const StarknetAudit: NextPage = () => {
     await addStepToStack(`Transaction hash: ${transaction.transaction_hash}`)
 
     setIsLoading(false)
+    setShowBackButton(true)
   }
 
   const validForm =
@@ -189,6 +195,10 @@ const StarknetAudit: NextPage = () => {
     const filteredWallets = filterRepeatedWallets(allWallets)
     setWallets(filteredWallets)
     return true
+  }
+
+  const goBackToMainPage = () => {
+    push('/starknet')
   }
 
   return (
@@ -284,6 +294,18 @@ const StarknetAudit: NextPage = () => {
                 <Text key={step}>{step}</Text>
               ))}
             </VStack>
+            {showBackButton && (
+              <Button
+                mt={{ base: 3, sm: 5, lg: 5, xl: 5 }}
+                px={10}
+                py={7}
+                _text={{ fontSize: 20 }}
+                alignSelf="center"
+                onPress={goBackToMainPage}
+              >
+                Back to main page
+              </Button>
+            )}
           </VStack>
         </VStack>
         <StarknetFooter hideButton />
