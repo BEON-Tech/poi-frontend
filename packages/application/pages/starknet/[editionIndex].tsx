@@ -84,7 +84,7 @@ const StarknetAudit: NextPage = () => {
           header={
             edition ? `${edition.graduatesNumber} graduates` : 'Loading...'
           }
-          tableHeaders={wallets.length > 0 ? ['Wallet'] : []}
+          tableHeaders={wallets.length > 0 ? ['Graduates addresses'] : []}
           items={wallets.map((wallet) => [wallet])}
           minH="320px"
           onClick={onWalletClick}
