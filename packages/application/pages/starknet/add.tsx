@@ -127,7 +127,7 @@ const StarknetAudit: NextPage = () => {
       Swal.fire({
         title: 'Warning!',
         icon: 'warning',
-        text: "You didn't add any wallet addresses. Do you want to continue anyway?",
+        text: "You didn't add any graduates addresses. Do you want to continue anyway?",
         confirmButtonText: 'Yes',
         showDenyButton: true,
         showConfirmButton: true,
