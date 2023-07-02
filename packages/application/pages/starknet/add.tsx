@@ -23,6 +23,7 @@ import {
   web3UploadFile,
 } from '@services/starknet/ipfs.service'
 import { addEdition } from '@services/starknet/poi.service'
+import Swal, { SweetAlertResult } from 'sweetalert2'
 
 const VENUE_MAX_CHARACTERS = 48
 
@@ -118,6 +119,25 @@ const StarknetAudit: NextPage = () => {
       return
     }
 
+    if (wallets.length === 0) {
+      Swal.fire({
+        title: 'Warning!',
+        icon: 'warning',
+        text: "You didn't add any wallet addresses. Do you want to continue anyway?",
+        confirmButtonText: 'Yes',
+        showDenyButton: true,
+        showConfirmButton: true,
+      }).then((result: SweetAlertResult) => {
+        if (result.isConfirmed) {
+          doAddEditionToStarknet()
+        }
+      })
+    } else {
+      doAddEditionToStarknet()
+    }
+  }
+
+  const doAddEditionToStarknet = async () => {
     resetStepsStack()
     setIsLoading(true)
 

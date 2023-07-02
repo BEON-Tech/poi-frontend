@@ -99,3 +99,7 @@
 .rti--tag span, .rti--tag button {
   color: #fff;
 }
+
+.swal2-popup {
+  font-family: 'Hauora';
+}
