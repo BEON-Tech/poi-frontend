@@ -1,11 +1,12 @@
-import { Box, HStack } from 'native-base'
+import { Box, HStack, Heading, VStack } from 'native-base'
 import { BulletedTitle, CornerPublicAudit } from '@components/atoms'
 
 interface StarknetHeaderProps {
   title: string
+  subtitles?: string[]
 }
 
-const StarknetHeader = ({ title }: StarknetHeaderProps) => (
+const StarknetHeader = ({ title, subtitles }: StarknetHeaderProps) => (
   <HStack w="full" justifyContent={{ base: 'flex-start', lg: 'center' }}>
     <Box
       left="0"
@@ -17,12 +18,24 @@ const StarknetHeader = ({ title }: StarknetHeaderProps) => (
     >
       <CornerPublicAudit position="topLeft" />
     </Box>
-    <BulletedTitle
-      polygonName="homePolygon1"
-      title={title}
-      showSmall
-      ml={{ base: 6, lg: 0 }}
-    />
+    <VStack>
+      <BulletedTitle
+        polygonName="homePolygon1"
+        title={title}
+        showSmall
+        ml={{ base: 6, lg: 0 }}
+      />
+      {subtitles &&
+        subtitles?.map((subtitle) => (
+          <Heading
+            fontWeight="600"
+            color="text.900"
+            fontSize={{ base: '2xl', lg: '4xl' }}
+          >
+            {subtitle}
+          </Heading>
+        ))}
+    </VStack>
     <Box
       right="0"
       zIndex="-1"

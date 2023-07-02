@@ -74,10 +74,9 @@ const StarknetAudit: NextPage = () => {
       <StarknetNavigationBar />
       <VStack w="100%" mt={{ base: 8, lg: 12 }}>
         <StarknetHeader
-          title={
-            edition
-              ? `POI Graduates - Edition # ${edition.editionNumber} - ${edition.venue}`
-              : ''
+          title={edition ? '#aPRENDOcripto' : ''}
+          subtitles={
+            edition ? [`Edition #${edition.editionNumber}`, edition.venue] : []
           }
         />
         <StarknetEditionPhoto cid={edition?.photoCID} />
