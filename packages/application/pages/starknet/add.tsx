@@ -167,6 +167,7 @@ const StarknetAudit: NextPage = () => {
 
     setIsLoading(false)
     setShowBackButton(true)
+    showTransactionSuccess()
   }
 
   const validForm =
@@ -201,6 +202,14 @@ const StarknetAudit: NextPage = () => {
     push('/starknet')
   }
 
+  const showTransactionSuccess = () => {
+    Swal.fire({
+      title: 'Success!',
+      icon: 'success',
+      text: 'The transaction has been submitted successfully.',
+    })
+  }
+
   return (
     <SecondaryLayout>
       <StarknetNavigationBar />
@@ -210,8 +219,8 @@ const StarknetAudit: NextPage = () => {
           <VStack
             w="640px"
             maxW={MAX_WIDTH}
-            mt="25%"
-            mb="29%"
+            mt="6%"
+            mb="40%"
             pl={{ base: 6, lg: 8 }}
             pr={{ base: 6, lg: 8 }}
             alignItems={{ base: 'flex-start', lg: 'center' }}
@@ -303,7 +312,7 @@ const StarknetAudit: NextPage = () => {
                 alignSelf="center"
                 onPress={goBackToMainPage}
               >
-                Back to main page
+                Back to Main Page
               </Button>
             )}
           </VStack>
