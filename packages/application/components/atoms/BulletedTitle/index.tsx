@@ -5,12 +5,14 @@ export interface IPentagonBulletedTitle extends IFlexProps {
   polygonName: string
   title: string
   showSmall?: boolean
+  hidePolygon?: boolean
 }
 
 const PentagonBulletedTitle = ({
   polygonName,
   title,
   showSmall = false,
+  hidePolygon = false,
   ...props
 }: IPentagonBulletedTitle) => {
   const polygonWidthLg = 54
@@ -36,12 +38,14 @@ const PentagonBulletedTitle = ({
       {...props}
       mr={mainMargin}
     >
-      <HomePolygon
-        mr={{ base: polygonMargin, lg: polygonWidthLg }}
-        w={{ base: polygonWidthBase, lg: polygonWidthLg }}
-        h={{ base: polygonWidthBase - 1, lg: polygonWidthLg - 1 }}
-        polygon={polygonName}
-      />
+      {!hidePolygon && (
+        <HomePolygon
+          mr={{ base: polygonMargin, lg: polygonWidthLg }}
+          w={{ base: polygonWidthBase, lg: polygonWidthLg }}
+          h={{ base: polygonWidthBase - 1, lg: polygonWidthLg - 1 }}
+          polygon={polygonName}
+        />
+      )}
       <Heading
         fontWeight="600"
         color="text.900"

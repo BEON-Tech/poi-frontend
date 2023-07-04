@@ -17,7 +17,11 @@ const StarknetAudit: NextPage = () => {
   const [wallets, setWallets] = useState<string[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
-  const { query } = useRouter()
+  const { query, push } = useRouter()
+
+  const goBackToMainPage = () => {
+    push('/starknet')
+  }
 
   useEffect(() => {
     const getStudentWalletAtPosition = async (
@@ -78,6 +82,7 @@ const StarknetAudit: NextPage = () => {
           subtitles={
             edition ? [`Edition #${edition.editionNumber}`, edition.venue] : []
           }
+          hidePolygon
         />
         <StarknetEditionPhoto cid={edition?.photoCID} />
         <StarknetTable
@@ -90,7 +95,10 @@ const StarknetAudit: NextPage = () => {
           onClick={onWalletClick}
           isLoading={isLoading}
         />
-        <StarknetFooter />
+        <StarknetFooter
+          buttonText="Back to Main Page"
+          buttonAction={goBackToMainPage}
+        />
       </VStack>
     </SecondaryLayout>
   )

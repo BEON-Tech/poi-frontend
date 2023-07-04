@@ -4,13 +4,23 @@ import { useRouter } from 'next/router'
 
 interface IStarknetFooter {
   hideButton?: boolean
+  buttonText?: string
+  buttonAction?: () => void
 }
 
-const StarknetFooter = ({ hideButton }: IStarknetFooter) => {
+const StarknetFooter = ({
+  hideButton,
+  buttonText = 'Add Edition',
+  buttonAction = undefined,
+}: IStarknetFooter) => {
   const { push } = useRouter()
 
   const addEditionOnPress = () => {
-    push('/starknet/add')
+    if (buttonAction) {
+      buttonAction()
+    } else {
+      push('/starknet/add')
+    }
   }
 
   return (
@@ -44,7 +54,7 @@ const StarknetFooter = ({ hideButton }: IStarknetFooter) => {
             alignSelf="center"
             onPress={addEditionOnPress}
           >
-            Add Edition
+            {buttonText}
           </Button>
         )}
       </VStack>

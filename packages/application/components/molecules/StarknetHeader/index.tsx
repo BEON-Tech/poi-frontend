@@ -4,9 +4,14 @@ import { BulletedTitle, CornerPublicAudit } from '@components/atoms'
 interface StarknetHeaderProps {
   title: string
   subtitles?: string[]
+  hidePolygon?: boolean
 }
 
-const StarknetHeader = ({ title, subtitles }: StarknetHeaderProps) => (
+const StarknetHeader = ({
+  title,
+  subtitles,
+  hidePolygon = false,
+}: StarknetHeaderProps) => (
   <HStack w="full" justifyContent={{ base: 'flex-start', lg: 'center' }}>
     <Box
       left="0"
@@ -23,6 +28,7 @@ const StarknetHeader = ({ title, subtitles }: StarknetHeaderProps) => (
         polygonName="homePolygon1"
         title={title}
         showSmall
+        hidePolygon={hidePolygon}
         ml={{ base: 6, lg: 0 }}
       />
       {subtitles &&
