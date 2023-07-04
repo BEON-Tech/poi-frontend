@@ -44,7 +44,7 @@ const StarknetFooter = ({ hideButton }: IStarknetFooter) => {
             alignSelf="center"
             onPress={addEditionOnPress}
           >
-            Add edition
+            Add Edition
           </Button>
         )}
       </VStack>

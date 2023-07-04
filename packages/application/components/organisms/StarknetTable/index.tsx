@@ -32,10 +32,10 @@ const StarknetTable = ({
       mt={{ base: 8, lg: 16 }}
       px={{ base: 0, lg: 8 }}
     >
-      <Text alignSelf="flex-start" my={6} ml={{ base: 4, lg: 0 }}>
+      <Text alignSelf="flex-center" my={6} ml={{ base: 4, lg: 0 }}>
         {header}
       </Text>
-      <FullGenericHeader columns={columns} />
+      <FullGenericHeader columns={columns} alignment="center" />
       {isLoading ? (
         <VStack mt="16px">
           <Text>Loading...</Text>
@@ -49,7 +49,7 @@ const StarknetTable = ({
                   flex={1}
                   variant="link"
                   onPress={() => onClick(index)}
-                  justifyContent="flex-start"
+                  justifyContent="center"
                   key={`value-${itemValue}`}
                 >
                   <Text>{itemValue}</Text>

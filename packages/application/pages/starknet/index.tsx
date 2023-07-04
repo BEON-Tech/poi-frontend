@@ -66,7 +66,7 @@ const StarknetAudit: NextPage = () => {
           header={
             editionsNumber != null ? `${editionsNumber} editions` : 'Loading...'
           }
-          tableHeaders={['Edition', 'Venue', 'Graduates']}
+          tableHeaders={['Edition', 'Venue', '# Graduates']}
           items={editions}
           onClick={onClick}
           isLoading={false}
