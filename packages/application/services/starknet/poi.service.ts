@@ -75,8 +75,19 @@ export const midStringToLowAndHighFelts = (midString: string) => {
  * @returns 62 characters max string
  */
 export const lowAndHighFeltsToMidString = (low: string, high: string) => {
-  const lowShortString = shortString.decodeShortString(low)
-  const highShortString = shortString.decodeShortString(high)
+  let lowShortString = ''
+  let highShortString = ''
+
+  const lowObject = low as any
+  const highObject = high as any
+
+  if (lowObject.words.length !== 1 || lowObject.words[0] !== 0) {
+    lowShortString = shortString.decodeShortString(low)
+  }
+
+  if (highObject.words.length !== 1 || highObject.words[0] !== 0) {
+    highShortString = shortString.decodeShortString(high)
+  }
 
   return `${lowShortString}${highShortString}`
 }
