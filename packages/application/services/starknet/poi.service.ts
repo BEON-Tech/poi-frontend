@@ -120,9 +120,9 @@ export const getEditionsCount = async () => {
   return parseInt(number.toHex(value), 16)
 }
 
-export const getEdition = async (editionNumber: number): Promise<Edition> => {
+export const getEdition = async (editionIndex: number): Promise<Edition> => {
   const contract = await getContract()
-  const { edition } = await contract.get_edition(editionNumber)
+  const { edition } = await contract.get_edition(editionIndex)
 
   return {
     editionNumber: parseInt(number.toHex(edition.edition_number), 16),
@@ -183,4 +183,59 @@ export const addEdition = async (
       lowAndHigh.high,
     ])
   )
+}
+
+export const updateEdition = async (
+  editionIndex: number,
+  editionNumber: number,
+  venue: string,
+  photoCID: string,
+  graduatesNumber: number,
+  walletsNumber: number
+) => {
+  if (networkId() !== supportedNetwork) {
+    // eslint-disable-next-line no-alert
+    window.alert('Unsupported Network')
+    return undefined
+  }
+
+  const editionIndexFelt = number.toFelt(editionIndex)
+  const editionNumberFelt = number.toFelt(editionNumber)
+  const venueLowAndHigh = midStringToLowAndHighFelts(venue)
+  const photoCIDLowAndHigh = midStringToLowAndHighFelts(photoCID)
+  const graduatesNumberFelt = number.toFelt(graduatesNumber)
+  const walletsNumberFelt = number.toFelt(walletsNumber)
+
+  const contract = await getContract(false)
+  return contract.update_edition_data(
+    editionIndexFelt,
+    editionNumberFelt,
+    [venueLowAndHigh.low, venueLowAndHigh.high],
+    [photoCIDLowAndHigh.low, photoCIDLowAndHigh.high],
+    graduatesNumberFelt,
+    walletsNumberFelt
+  )
+}
+
+export const updateStudentWallet = async (
+  editionNumber: number,
+  walletIndex: number,
+  studentsWallet: string
+) => {
+  if (networkId() !== supportedNetwork) {
+    // eslint-disable-next-line no-alert
+    window.alert('Unsupported Network')
+    return undefined
+  }
+
+  const editionNumberFelt = number.toFelt(editionNumber)
+  const walletIndexFelt = number.toFelt(walletIndex)
+  const studentsWalletLowAndHigh =
+    walletAddressToLowAndHighFelts(studentsWallet)
+
+  const contract = await getContract(false)
+  return contract.update_student_wallet(editionNumberFelt, walletIndexFelt, [
+    studentsWalletLowAndHigh.low,
+    studentsWalletLowAndHigh.high,
+  ])
 }
