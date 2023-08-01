@@ -158,7 +158,8 @@ export const addEdition = async (
   graduatesNumber: number,
   studentsWallets: string[]
 ) => {
-  if (networkId() !== supportedNetwork) {
+  const networkIdValue = await networkId()
+  if (networkIdValue !== supportedNetwork) {
     // eslint-disable-next-line no-alert
     window.alert('Unsupported Network')
     return undefined
@@ -193,7 +194,8 @@ export const updateEdition = async (
   graduatesNumber: number,
   walletsNumber: number
 ) => {
-  if (networkId() !== supportedNetwork) {
+  const networkIdValue = await networkId()
+  if (networkIdValue !== supportedNetwork) {
     // eslint-disable-next-line no-alert
     window.alert('Unsupported Network')
     return undefined
@@ -222,7 +224,8 @@ export const updateStudentWallet = async (
   walletIndex: number,
   studentsWallet: string
 ) => {
-  if (networkId() !== supportedNetwork) {
+  const networkIdValue = await networkId()
+  if (networkIdValue !== supportedNetwork) {
     // eslint-disable-next-line no-alert
     window.alert('Unsupported Network')
     return undefined

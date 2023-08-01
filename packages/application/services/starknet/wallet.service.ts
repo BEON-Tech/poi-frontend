@@ -1,6 +1,8 @@
-import { connect, getStarknet } from '@argent/get-starknet'
+import { connect } from '@argent/get-starknet'
 import { isAddress } from '@ethersproject/address'
 import { constants, shortString } from 'starknet'
+
+const getStarknetObject = async () => connect({ showList: false })
 
 export const silentConnectWallet = async () => {
   const windowStarknet = await connect({ showList: false })
@@ -17,20 +19,20 @@ export const connectWallet = async () => {
   const windowStarknet = await connect({
     include: ['argentX'],
   })
-  await windowStarknet?.enable({ starknetVersion: 'v4' } as any)
+  windowStarknet?.enable({ starknetVersion: 'v4' } as any)
   return windowStarknet
 }
 
 export const walletAddress = async (): Promise<string | undefined> => {
-  const starknet = getStarknet()
+  const starknet = await getStarknetObject()
   if (!starknet?.isConnected) {
     return undefined
   }
   return starknet.selectedAddress
 }
 
-export const networkId = (): string | undefined => {
-  const starknet = getStarknet()
+export const networkId = async (): Promise<string | undefined> => {
+  const starknet = await getStarknetObject()
   if (!starknet?.isConnected) {
     return undefined
   }
@@ -52,7 +54,7 @@ export const networkId = (): string | undefined => {
 }
 
 export const addToken = async (address: string): Promise<void> => {
-  const starknet = getStarknet()
+  const starknet = await getStarknetObject()
   if (!starknet?.isConnected) {
     throw Error('starknet wallet not connected')
   }
@@ -67,8 +69,8 @@ export const addToken = async (address: string): Promise<void> => {
   })
 }
 
-export const getExplorerBaseUrl = (): string | undefined => {
-  const network = networkId()
+export const getExplorerBaseUrl = async (): Promise<string | undefined> => {
+  const network = await networkId()
   if (network === 'mainnet-alpha') {
     return 'https://voyager.online'
   }
@@ -80,8 +82,8 @@ export const getExplorerBaseUrl = (): string | undefined => {
   return undefined
 }
 
-export const chainId = (): string | undefined => {
-  const starknet = getStarknet()
+export const chainId = async (): Promise<string | undefined> => {
+  const starknet = await getStarknetObject()
   if (!starknet?.isConnected) {
     return undefined
   }
@@ -94,16 +96,19 @@ export const chainId = (): string | undefined => {
 }
 
 export const signMessage = async (message: string) => {
-  const starknet = getStarknet()
+  const starknet = await getStarknetObject()
   if (!starknet?.isConnected) throw Error('starknet wallet not connected')
   if (!shortString.isShortString(message)) {
     throw Error('message must be a short string')
   }
 
+  const networkIdValue =
+    (await networkId()) === 'mainnet-alpha' ? 'SN_MAIN' : 'SN_GOERLI'
+
   return starknet.account.signMessage({
     domain: {
       name: 'Example DApp',
-      chainId: networkId() === 'mainnet-alpha' ? 'SN_MAIN' : 'SN_GOERLI',
+      chainId: networkIdValue,
       version: '0.0.1',
     },
     types: {
@@ -122,7 +127,7 @@ export const signMessage = async (message: string) => {
 }
 
 export const waitForTransaction = async (hash: string) => {
-  const starknet = getStarknet()
+  const starknet = await getStarknetObject()
   if (!starknet?.isConnected) {
     return undefined
   }
@@ -132,7 +137,7 @@ export const waitForTransaction = async (hash: string) => {
 export const addWalletChangeListener = async (
   handleEvent: (accounts: string[]) => void
 ) => {
-  const starknet = getStarknet()
+  const starknet = await getStarknetObject()
   if (!starknet?.isConnected) {
     return
   }
@@ -142,7 +147,7 @@ export const addWalletChangeListener = async (
 export const removeWalletChangeListener = async (
   handleEvent: (accounts: string[]) => void
 ) => {
-  const starknet = getStarknet()
+  const starknet = await getStarknetObject()
   if (!starknet?.isConnected) {
     return
   }

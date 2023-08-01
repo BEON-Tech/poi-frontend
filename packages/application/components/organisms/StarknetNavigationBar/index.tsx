@@ -16,7 +16,8 @@ import {
 
 const StarknetNavigationBar = () => {
   const [address, setAddress] = useState<string>()
-  const [chain, setChain] = useState(chainId())
+  const [chain, setChain] = useState<string | undefined>(undefined)
+  const [network, setNetwork] = useState<string | undefined>(undefined)
   const [isConnected, setConnected] = useState(false)
 
   const { t } = useTranslation()
@@ -25,7 +26,8 @@ const StarknetNavigationBar = () => {
     const handler = async () => {
       const wallet = await silentConnectWallet()
       setAddress(wallet?.selectedAddress)
-      setChain(chainId())
+      setChain(await chainId())
+      setNetwork(await networkId())
       setConnected(!!wallet?.isConnected)
     }
 
@@ -45,9 +47,18 @@ const StarknetNavigationBar = () => {
     }
 
     const wallet = await connectWallet()
-    setAddress(wallet?.selectedAddress)
-    setChain(chainId())
-    setConnected(!!wallet?.isConnected)
+
+    const interval = setInterval(async () => {
+      const walletSilent = await silentConnectWallet()
+
+      if (walletSilent?.isConnected) {
+        setAddress(walletSilent?.selectedAddress)
+        setChain(await chainId())
+        setNetwork(await networkId())
+        setConnected(!!wallet?.isConnected)
+        clearInterval(interval)
+      }
+    }, 1000)
   }
 
   return (
@@ -72,7 +83,7 @@ const StarknetNavigationBar = () => {
       </Pressable>
       <HStack>
         <HStack space={4}>
-          {chain && <Text>Network: {networkId()}</Text>}
+          {chain && network && <Text>Network: {network}</Text>}
           <StarknetConnectWalletButton
             width="250px"
             height="50px"
