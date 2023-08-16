@@ -112,7 +112,7 @@ const StarknetAudit: NextPage = () => {
   return (
     <SecondaryLayout>
       <StarknetNavigationBar />
-      <StarknetHeader title="Update Edition" />
+      <StarknetHeader title="Update Graduate Address" />
       <VStack w="100%" mt={{ base: 8, lg: 12 }}>
         <VStack>
           <VStack
