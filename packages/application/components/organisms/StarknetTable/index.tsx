@@ -29,6 +29,7 @@ const StarknetTable = ({
       w="full"
       maxW={`${MAX_WIDTH}px`}
       minH={minH || '640px'}
+      justifyContent="start"
       mt={{ base: 8, lg: 16 }}
       px={{ base: 0, lg: 8 }}
     >
