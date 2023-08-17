@@ -141,7 +141,7 @@ const StarknetAudit: NextPage = () => {
             w="640px"
             maxW={MAX_WIDTH}
             mt="6%"
-            mb="40%"
+            mb={edition ? '0%' : '60%'}
             pl={{ base: 6, lg: 8 }}
             pr={{ base: 6, lg: 8 }}
             alignItems={{ base: 'flex-start', lg: 'center' }}
