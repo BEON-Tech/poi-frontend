@@ -69,10 +69,6 @@ const StarknetAudit: NextPage = () => {
     })()
   }, [query])
 
-  const onWalletClick = () => {
-    // do nothing
-  }
-
   return (
     <SecondaryLayout>
       <StarknetNavigationBar />
@@ -92,7 +88,6 @@ const StarknetAudit: NextPage = () => {
           tableHeaders={wallets.length > 0 ? ['Graduates addresses'] : []}
           items={wallets.map((wallet) => [wallet])}
           minH="320px"
-          onClick={onWalletClick}
           isLoading={isLoading}
         />
         <StarknetFooter

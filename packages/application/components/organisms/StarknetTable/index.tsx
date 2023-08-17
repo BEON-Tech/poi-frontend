@@ -7,7 +7,7 @@ interface StarknetTableProps {
   tableHeaders: string[]
   items: string[][]
   minH?: string
-  onClick: (itemIndex: number) => void
+  onClick?: (itemIndex: number) => void
   isLoading: boolean
 }
 
@@ -44,18 +44,34 @@ const StarknetTable = ({
       ) : (
         <VStack w="full">
           {items.map((item, index) => (
-            <HStack w="full" mt="16px" cursor="pointer" key={`row-${item[0]}`}>
-              {item.map((itemValue) => (
-                <Button
-                  flex={1}
-                  variant="link"
-                  onPress={() => onClick(index)}
-                  justifyContent="center"
-                  key={`value-${itemValue}`}
-                >
-                  <Text>{itemValue}</Text>
-                </Button>
-              ))}
+            <HStack
+              w="full"
+              mt="16px"
+              /* cursor="pointer" */ key={`row-${item[0]}`}
+            >
+              {item.map((itemValue) =>
+                onClick ? (
+                  <Button
+                    flex={1}
+                    variant="link"
+                    onPress={() => onClick(index)}
+                    justifyContent="center"
+                    key={`value-${itemValue}`}
+                  >
+                    <Text>{itemValue}</Text>
+                  </Button>
+                ) : (
+                  <VStack
+                    flex={1}
+                    justifyContent="center"
+                    px="12px"
+                    py="8px"
+                    key={`value-${itemValue}`}
+                  >
+                    <Text>{itemValue}</Text>
+                  </VStack>
+                )
+              )}
             </HStack>
           ))}
         </VStack>
