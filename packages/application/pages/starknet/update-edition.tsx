@@ -144,7 +144,7 @@ const StarknetAudit: NextPage = () => {
             mb={edition ? '0%' : '60%'}
             pl={{ base: 6, lg: 8 }}
             pr={{ base: 6, lg: 8 }}
-            alignItems={{ base: 'flex-start', lg: 'center' }}
+            alignItems={{ base: 'center', lg: 'center' }}
             justifyContent={{ base: 'initial', lg: 'space-between' }}
             space={{ base: 20, lg: 0 }}
           >

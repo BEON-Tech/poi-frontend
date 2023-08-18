@@ -12,7 +12,7 @@ const StarknetHeader = ({
   subtitles,
   hidePolygon = false,
 }: StarknetHeaderProps) => (
-  <HStack w="full" justifyContent={{ base: 'flex-start', lg: 'center' }}>
+  <HStack w="full" justifyContent={{ base: 'center', lg: 'center' }}>
     <Box
       left="0"
       zIndex="-1"
