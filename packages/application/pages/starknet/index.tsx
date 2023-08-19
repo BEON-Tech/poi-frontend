@@ -60,7 +60,7 @@ const StarknetAudit: NextPage = () => {
   return (
     <StarknetLayout>
       <StarknetNavigationBar />
-      <VStack w="100%" mt={{ base: 8, lg: 12 }} flex={1}>
+      <VStack w="100%" mt={{ base: 8, lg: 12 }}>
         <StarknetHeader title="#aPRENDOcripto editions" />
         <StarknetTable
           header={

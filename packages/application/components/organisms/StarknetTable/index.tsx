@@ -47,7 +47,8 @@ const StarknetTable = ({
             <HStack
               w="full"
               mt="16px"
-              /* cursor="pointer" */ key={`row-${item[0]}`}
+              cursor={onClick ? 'pointer' : 'default'}
+              key={`row-${item[0]}`}
             >
               {item.map((itemValue) =>
                 onClick ? (

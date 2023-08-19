@@ -214,7 +214,7 @@ const StarknetAudit: NextPage = () => {
     <StarknetLayout>
       <StarknetNavigationBar />
       <StarknetHeader title="Add Edition" />
-      <VStack w="100%" mt={{ base: 8, lg: 12 }} flex={1}>
+      <VStack w="100%" mt={{ base: 8, lg: 12 }}>
         <VStack>
           <VStack
             w="640px"

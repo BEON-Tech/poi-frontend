@@ -72,7 +72,7 @@ const StarknetAudit: NextPage = () => {
   return (
     <StarknetLayout>
       <StarknetNavigationBar />
-      <VStack w="100%" mt={{ base: 8, lg: 12 }} flex={1}>
+      <VStack w="100%" mt={{ base: 8, lg: 12 }}>
         <StarknetHeader
           title={edition ? '#aPRENDOcripto' : ''}
           subtitles={
@@ -87,7 +87,7 @@ const StarknetAudit: NextPage = () => {
           }
           tableHeaders={wallets.length > 0 ? ['Graduates addresses'] : []}
           items={wallets.map((wallet) => [wallet])}
-          minH="320px"
+          minH="500px"
           isLoading={isLoading}
         />
         <StarknetFooter
