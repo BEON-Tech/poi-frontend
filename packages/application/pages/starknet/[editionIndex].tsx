@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { VStack } from 'native-base'
-import { SecondaryLayout } from '@components/templates'
+import { StarknetLayout } from '@components/templates'
 import { StarknetNavigationBar, StarknetTable } from '@components/organisms'
 import { StarknetFooter, StarknetHeader } from '@components/molecules'
 import { useRouter } from 'next/router'
@@ -70,9 +70,9 @@ const StarknetAudit: NextPage = () => {
   }, [query])
 
   return (
-    <SecondaryLayout>
+    <StarknetLayout>
       <StarknetNavigationBar />
-      <VStack w="100%" mt={{ base: 8, lg: 12 }}>
+      <VStack w="100%" mt={{ base: 8, lg: 12 }} flex={1}>
         <StarknetHeader
           title={edition ? '#aPRENDOcripto' : ''}
           subtitles={
@@ -95,7 +95,7 @@ const StarknetAudit: NextPage = () => {
           buttonAction={goBackToMainPage}
         />
       </VStack>
-    </SecondaryLayout>
+    </StarknetLayout>
   )
 }
 

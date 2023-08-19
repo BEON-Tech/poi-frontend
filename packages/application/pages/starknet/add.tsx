@@ -8,7 +8,7 @@ import {
   VStack,
   ZStack,
 } from 'native-base'
-import { SecondaryLayout } from '@components/templates'
+import { StarknetLayout } from '@components/templates'
 import { StarknetNavigationBar } from '@components/organisms'
 import { StarknetFooter, StarknetHeader } from '@components/molecules'
 import { useRef, useState } from 'react'
@@ -211,10 +211,10 @@ const StarknetAudit: NextPage = () => {
   }
 
   return (
-    <SecondaryLayout>
+    <StarknetLayout>
       <StarknetNavigationBar />
       <StarknetHeader title="Add Edition" />
-      <VStack w="100%" mt={{ base: 8, lg: 12 }}>
+      <VStack w="100%" mt={{ base: 8, lg: 12 }} flex={1}>
         <VStack>
           <VStack
             w="640px"
@@ -319,7 +319,7 @@ const StarknetAudit: NextPage = () => {
         </VStack>
         <StarknetFooter hideButton />
       </VStack>
-    </SecondaryLayout>
+    </StarknetLayout>
   )
 }
 

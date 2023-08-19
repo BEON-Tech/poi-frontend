@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { Button, FormControl, Input, Text, VStack } from 'native-base'
-import { SecondaryLayout } from '@components/templates'
+import { StarknetLayout } from '@components/templates'
 import { StarknetNavigationBar } from '@components/organisms'
 import { StarknetFooter, StarknetHeader } from '@components/molecules'
 import { useState } from 'react'
@@ -132,10 +132,10 @@ const StarknetAudit: NextPage = () => {
   }
 
   return (
-    <SecondaryLayout>
+    <StarknetLayout>
       <StarknetNavigationBar />
       <StarknetHeader title="Update Edition" />
-      <VStack w="100%" mt={{ base: 8, lg: 12 }}>
+      <VStack w="100%" mt={{ base: 8, lg: 12 }} flex={1}>
         <VStack>
           <VStack
             w="640px"
@@ -333,7 +333,7 @@ const StarknetAudit: NextPage = () => {
           buttonAction={goBackToMainPage}
         />
       </VStack>
-    </SecondaryLayout>
+    </StarknetLayout>
   )
 }
 
