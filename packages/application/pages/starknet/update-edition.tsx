@@ -8,6 +8,7 @@ import { MAX_WIDTH } from '@constants'
 import {
   Edition,
   getEdition,
+  getEditionsCount,
   updateEdition,
 } from '@services/starknet/poi.service'
 import Swal from 'sweetalert2'
@@ -59,10 +60,6 @@ const StarknetAudit: NextPage = () => {
 
   const filterOnlyNumbers = (value: string) => value.replace(/\D/g, '')
 
-  const updateEditionIndex = (event: any) => {
-    setEditionIndex(filterOnlyNumbers(event.target.value))
-  }
-
   const updateEditionNumber = (event: any) => {
     setEditionNumber(filterOnlyNumbers(event.target.value))
   }
@@ -85,7 +82,7 @@ const StarknetAudit: NextPage = () => {
     setWalletsNumber(filterOnlyNumbers(event.target.value))
   }
 
-  const fetchEditionAtIndex = async () => {
+  /* const fetchEditionAtIndex = async () => {
     if (editionIndex) {
       const editionIndexNumber = Number(editionIndex)
       if (!Number.isNaN(editionIndexNumber)) {
@@ -110,11 +107,62 @@ const StarknetAudit: NextPage = () => {
         setEdition(fetchedEdition)
       }
     }
+  } */
+
+  const searchEditionNumberByIndex = async (
+    searchEditionNumber: number,
+    currentEditionIndex: number,
+    maxEditionIndex: number
+  ): Promise<Edition | null> => {
+    if (currentEditionIndex === maxEditionIndex) {
+      return null
+    }
+
+    const fetchedEdition = await getEdition(currentEditionIndex)
+
+    if (fetchedEdition.editionNumber === searchEditionNumber) {
+      setEditionIndex(String(currentEditionIndex))
+      return fetchedEdition
+    }
+
+    return searchEditionNumberByIndex(
+      searchEditionNumber,
+      currentEditionIndex + 1,
+      maxEditionIndex
+    )
+  }
+
+  const findEditionIndexByEditionNumber = async () => {
+    const editionsCount = await getEditionsCount()
+
+    if (editionNumber) {
+      const result = await searchEditionNumberByIndex(
+        Number(editionNumber),
+        0,
+        editionsCount
+      )
+
+      if (result) {
+        setEditionNumber(
+          result.editionNumber ? String(result.editionNumber) : ''
+        )
+        setVenue(result.venue)
+        setPhotoCID(result.photoCID)
+        setGraduatesNumber(
+          result.graduatesNumber ? String(result.graduatesNumber) : ''
+        )
+        setWalletsNumber(
+          result.walletsNumber ? String(result.walletsNumber) : ''
+        )
+        setEdition(result)
+      }
+    }
   }
 
   const cancelUpdateEdition = () => {
     if (!isLoading) {
       setEditionIndex(null)
+      setEditionNumber('')
       setEdition(null)
     }
   }
@@ -135,7 +183,7 @@ const StarknetAudit: NextPage = () => {
     <StarknetLayout>
       <StarknetNavigationBar />
       <StarknetHeader title="Update Edition" />
-      <VStack w="100%" mt={{ base: 8, lg: 12 }} flex={1}>
+      <VStack w="100%" mt={{ base: 8, lg: 12 }}>
         <VStack>
           <VStack
             w="640px"
@@ -265,11 +313,11 @@ const StarknetAudit: NextPage = () => {
               <>
                 <Input
                   type="number"
-                  placeholder="Edition index"
-                  value={editionIndex || ''}
+                  placeholder="Edition number"
+                  value={editionNumber || ''}
                   borderWidth={1}
                   borderRadius={8}
-                  onChange={updateEditionIndex}
+                  onChange={updateEditionNumber}
                   mt={{ base: 3, sm: 5, lg: 5, xl: 5 }}
                   h={10}
                   bg="white"
@@ -282,7 +330,7 @@ const StarknetAudit: NextPage = () => {
                   px={10}
                   py={7}
                   _text={{ fontSize: 20 }}
-                  onPress={fetchEditionAtIndex}
+                  onPress={findEditionIndexByEditionNumber}
                   alignSelf="center"
                 >
                   Fetch edition
