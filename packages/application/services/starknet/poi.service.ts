@@ -6,7 +6,7 @@ import POIAbi from '../../constants/abi_starknet/poi_abi.json'
 import { networkId } from './wallet.service'
 
 const tokenAddress = config.staknetContractAddress
-const supportedNetwork = 'goerli-alpha'
+const supportedNetwork = 'mainnet-alpha'
 
 export interface Edition {
   editionNumber: number
